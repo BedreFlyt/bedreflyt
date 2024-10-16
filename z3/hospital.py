@@ -29,7 +29,7 @@ Dr = [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3] # Distance-categories of rooms
 NO_PATIENTS = 31
 G = [ False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False ] # genders of patients
 I = [ False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False ] # are patients infectious?
-Dp = [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 2, 2, 2, 2 ] # Distance-categories of patients
+Dp = [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 2, 2, 2, 2 ] # Distance-categories of patients
 
 
 assert len(C) == NO_ROOMS
