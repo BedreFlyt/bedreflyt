@@ -1,0 +1,132 @@
+module BedreFlyt;
+// Initial draft workflow simulator for the BedreFlyt project
+// by Einar, Lizeth, Rudi
+// October 2024
+
+// Note that we could add a time-guard for when a task is enabled
+data Task = EmptyTask | Task(String id, Int category, Set<String> dependencies);
+def Task t1() = Task("arrival", 1, set[]);
+def Task t2() = Task("surgery", 3, set["arrival"]);
+def Task t3() = Task("post-surgery", 1, set["arrival","surgery"]);
+
+// Remove task t1 from dependencies of task t2
+def Task taskReduce(Task t1, Task t2)
+= Task(id(t2), category(t2), remove(dependencies(t2),id(t1)));
+							
+type WF = List<Task>;
+def WF emptyFlow() = list[];
+def WF standardTreatment() = list[t1(), t2(), t3()];
+
+// Check that a task can fire
+def Bool enabled(Task t) = emptySet(dependencies(t));
+
+// Check that there are no dependencies for task in workflow
+def WF reduce(Task t, WF f) =
+    case f {
+    Nil => Nil;
+    Cons(hd,tl) => Cons(taskReduce(t,hd),reduce(t,tl)); } ;
+
+data Person = Person(String patient);
+
+interface Day {
+    Unit register(Person p, Int category);
+    Unit print(); }
+
+class Day(Int i) implements Day {
+    List<Person> cat1 = Nil;
+    List<Person> cat2 = Nil;
+    List<Person> cat3 = Nil;
+    List<Person> cat4 = Nil;
+    
+    Unit register(Person p, Int i){
+	switch (i)
+	    {
+		1  => cat1 = Cons(p,cat1);
+		2 => cat2 = Cons(p,cat2);
+		3 => cat3 = Cons(p,cat3);
+		4 => cat4 = Cons(p,cat4);
+		_ => skip;
+	    }
+    }
+    Unit print(){
+	println("Bedpost needs at time: Day " + toString(i));
+	println("Category 1: " + toString(length(cat1)));
+	println("Category 2: " + toString(length(cat2)));
+	println("Category 3: " + toString(length(cat3)));
+	println("Category 4: " + toString(length(cat4)));
+    }
+}
+
+// Creating some example incoming data
+data Package = Package(Person person, WF treatment);
+def List<Package> arriving() = list[Package(Person("einar"), standardTreatment()), Package(Person("rudi"), standardTreatment()), Package(Person("lizeth"), standardTreatment())];
+
+
+// Rough idea:
+// A "package" is a patient with an associated workflow
+// We have two lists of packages to deal with:
+// 1) packages where we need to execute the first task of the workflow today,
+// 2) packages that we need to consider later
+// When we have executed the first task of a workflow, we push the
+// package with the remaining workflow to the packages for later
+//
+// For each day we create an object of class Day that holds the bedpost needs.
+// These objects are collected in a list "timeline"
+// we can then print days from this rimeline to access the bedpost needs
+{
+    Int day = 1; // Starting day
+    List<Day> timeline = Nil; // Holds Day objects
+    Day today;
+    List<Package> packagesForToday = Nil; 
+    List<Package> packagesForLater = Nil;
+    // Now we load the incoming packages
+    packagesForLater = arriving();
+    // Test code for task processing functions
+    // println(toString(tail(standardTreatment()))+"\n");
+    // println(toString(t1())+"\n");    
+    // println(toString(reduce(t1(),tail(standardTreatment())))+"\n");
+   while (!isEmpty(packagesForLater)) {
+       println("\nProcessing Day " + toString(day));
+       // advance to new day:
+       today = new Day(day); // Bedpost needs for today
+       timeline = Cons(today,timeline);
+       // Move packages that we need to deal with today:
+       packagesForToday = packagesForLater;
+       packagesForLater = Nil;
+       // Create Day object for today
+       today = new Day(day);
+       timeline = Cons(today,timeline);
+       // Iterate over the packages to process
+       while (!isEmpty(packagesForToday)){
+	   // Take the first package
+	   Package p = head(packagesForToday);
+	   packagesForToday = tail(packagesForToday);
+	   // Get workflow from package
+	   WF flow = treatment(p);
+	   // Find task to execute
+	   Task t = head(filter(enabled)(flow));
+	   WF newFlow = without(flow,t);
+	   // Register resource needs of the task
+	   today.register(person(p),category(t));
+	   // More stuff to do in remaining flow?
+	   if (!isEmpty(newFlow)){
+	       // Create package with remaining workflow
+	       WF remaining = reduce(t,newFlow);
+	       Package newPackage = Package(person(p),remaining);
+	       // Push new package on packages for later
+	       packagesForLater = Cons(newPackage,packagesForLater);
+	   }
+       }
+       // Finished with packages for today
+       day = day + 1;
+       today.print();
+       println(toString(packagesForLater));
+       // if (day > 3) packagesForLater = Nil; // stop loop for now :-)
+   }
+}      
+
+
+// Local Variables:
+// abs-backend: java
+// abs-java-output-jar-file: "bedreflyt.jar"
+// End:
