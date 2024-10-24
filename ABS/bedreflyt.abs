@@ -83,7 +83,7 @@ class BedPostNeeds(Int i) implements BedPostNeeds {
     }
 
     Unit print(){
-			println("Bedpost needs at time: Day " + toString(i));
+			println("\nBedpost needs at time: Day " + toString(i));
 			println("Category Sengepost---: " + toString(length(cat1)));
 			println("Category Intermediaer: " + toString(length(cat2)));
 			println("Category Overvaakning: " + toString(length(cat3)));
@@ -154,7 +154,9 @@ def PendingPacksTimeline patientFlow() = list[arrivingDay1(),arrivingDay2(),Nil,
     	// println(toString(t1())+"\n");
     	// println(toString(reduce(t1(),tail(standardTreatment())))+"\n");
    		while (!isEmpty(packagesForLater)) {
-       	println("\nProcessing Day " + toString(dayNumber));
+       	println("\n------------Processing Day " + toString(dayNumber) + "-----------");
+        println("\nRemaining Packages:");
+ 			  println(toString(packagesForLater));
        	// advance to new day:
        	// Move packages that we need to deal with today:
        	packagesForNow = packagesForLater;
@@ -185,14 +187,17 @@ def PendingPacksTimeline patientFlow() = list[arrivingDay1(),arrivingDay2(),Nil,
 	   			}
        }
        // Finished with packages for today
-			 dayNumber = dayNumber + 1;
-			 dayNeeds.print();
+			dayNeeds.print();
+      println("\nRemaining needs for later:");
+      println(toString(packagesForLater));
+      println("----------End of Day----------");
 			 if(!isEmpty(patFlow)){
 				 // Now we load the incoming packages
 				 packagesForLater = concatenate(packagesForLater,head(patFlow));
+
 				 patFlow = tail(patFlow);
 			 }
-			 println(toString(packagesForLater));
+       dayNumber = dayNumber + 1;
 			 // if (day > 3) packagesForLater = Nil; // stop loop for now :-)
 		}
 }
