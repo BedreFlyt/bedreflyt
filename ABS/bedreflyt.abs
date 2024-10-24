@@ -101,6 +101,36 @@ class BedPostNeeds(Int i) implements BedPostNeeds {
 //---------------------------------------- SCENARIOS  --------------------------------------------
 //------------------------------------------------------------------------------------------------
 
+interface PrintScenario { // printing scenario per day
+  Unit inputScenario(PendingPacks sc);
+  Unit print();
+}
+
+class PrintScenario() implements PrintScenario {
+  PendingPacks scenario = Nil;
+
+  Unit inputScenario(PendingPacks sc) {scenario = sc;}
+
+  Unit print(){
+    while(!isEmpty(scenario)){
+      Package p = head(scenario);
+      scenario = tail(scenario);
+      println(perId(patient(p)) + " needs");
+      WF w = treatment(p);
+      foreach (t in w) {
+        switch (category(t))
+        {
+          1 => println("- Sengepost for " + toString(days(t)) + " days");
+          2 => println("- Intermediaer for " + toString(days(t)) + " days");
+          3 => println("- Overvaakning for " + toString(days(t)) + " days");
+          4 => println("- Surgery room for " + toString(days(t)) + " days");
+        }
+      }
+    }
+  }
+  
+}
+
 //---------------------------Scenario 1------------------------------------
 //---- Only one day
 def PendingPacks arriving() = list[Package(Person("einar"), standardTreatment()),
@@ -108,7 +138,7 @@ def PendingPacks arriving() = list[Package(Person("einar"), standardTreatment())
 																	 Package(Person("lizeth"), intenseTreatment1())];
 
 //---------------------------Senario 2-----------------------------------------
-//---- three days in a row
+//---- four days in a row, spread over 11 days
 def PendingPacks arrivingDay1() = list[Package(Person("einar"), standardTreatment()),
 																	 Package(Person("rudi"), interTreatment())];
 def PendingPacks arrivingDay2() = list[Package(Person("lizeth"), intenseTreatment1())];
@@ -145,6 +175,7 @@ def PendingPacksTimeline patientFlow() = list[arrivingDay1(),arrivingDay2(),Nil,
     Int dayNumber = 1; // Starting day
     List<BedPostNeeds> timeline = Nil; // Holds Day objects
     BedPostNeeds dayNeeds;
+    PrintScenario showSc = new PrintScenario();
 		PendingPacks packagesForNow = Nil;
 		PendingPacks packagesForLater = Nil;
 		if(!isEmpty(patFlow)){
@@ -158,8 +189,9 @@ def PendingPacksTimeline patientFlow() = list[arrivingDay1(),arrivingDay2(),Nil,
     	// println(toString(reduce(t1(),tail(standardTreatment())))+"\n");
    		while (!isEmpty(packagesForLater)) {
        	println("\n------------Processing Day " + toString(dayNumber) + "-----------");
-        println("\nRemaining Packages:");
- 			  println(toString(packagesForLater));
+        println("\nRemaining needs from Today:\n");
+        showSc.inputScenario(packagesForLater);
+        showSc.print();
        	// advance to new day:
        	// Move packages that we need to deal with today:
        	packagesForNow = packagesForLater;
@@ -198,17 +230,16 @@ def PendingPacksTimeline patientFlow() = list[arrivingDay1(),arrivingDay2(),Nil,
        }
        // Finished with packages for today
 			dayNeeds.print();
-      println("\nRemaining needs for later:");
-      println(toString(packagesForLater));
+      println("\nRemaining needs for later:\n");
+      showSc.inputScenario(packagesForLater);
+      showSc.print();
       println("----------End of Day----------");
 			 if(!isEmpty(patFlow)){
-				 // Now we load the incoming packages
+				 // Now we load the incoming packages for the next day
 				 packagesForLater = concatenate(packagesForLater,head(patFlow));
-
 				 patFlow = tail(patFlow);
 			 }
        dayNumber = dayNumber + 1;
-			 // if (day > 3) packagesForLater = Nil; // stop loop for now :-)
 		}
 }
 
