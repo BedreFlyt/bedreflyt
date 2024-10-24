@@ -4,34 +4,32 @@ module BedreFlyt;
 // October 2024
 
 //------------------------------------------------------------------------------------------------
-//--------------------------------- TASKS & WORKFLOWS --------------------------------------------
+//--------------------------------- TASKS & WORKFLOWS -- TREATMENT -------------------------------
 //------------------------------------------------------------------------------------------------
-
-// Note that we could add a time-guard for when a task is enabled
-// category is a bed category
+// days is the number of days needed for the task
+// category is a bed category,
 // 1 -- Sengepost
 // 2 -- Intermediaer
 // 3 -- Overvaakning
 // 4 -- Surgery room
-data Task = EmptyTask | Task(String id, Int category, Set<String> dependencies);
-def Task arrival() = Task("arrival", 1, set[]);
-def Task analyses() = Task("analyses", 1, set["arrival"]);
-def Task surgery1() = Task("surgery1", 4, set["arrival"]);
-def Task surgery2() = Task("surgery2", 4, set["arrival","analyses"]);
-def Task recovery1() = Task("post-surgery1", 2, set["arrival","surgery1"]);
-def Task recovery2() = Task("post-surgery2", 3, set["arrival","surgery1"]);
-def Task recovery3() = Task("post-surgery3", 3, set["arrival","analyses","surgery2"]);
+data Task = EmptyTask | Task(String id, Int category, Int days, Set<String> dependencies);
+def Task arrival() = Task("arrival", 1, 1, set[]);
+def Task analyses() = Task("analyses", 1, 2, set["arrival"]);
+def Task surgery1() = Task("surgery1", 4, 1, set["arrival"]);
+def Task surgery2() = Task("surgery2", 4, 1, set["arrival","analyses"]);
+def Task recovery1() = Task("post-surgery1", 2, 1, set["arrival","surgery1"]);
+def Task recovery2() = Task("post-surgery2", 3, 1, set["arrival","surgery1"]);
+def Task recovery3() = Task("post-surgery3", 3, 2, set["arrival","analyses","surgery2"]);
+def Task recovery4() = Task("post-surgery4", 2, 2, set["arrival","analyses","surgery2","post-surgery3"]);
+
 
 
 type WF = List<Task>;
 def WF emptyFlow() = list[];
 def WF standardTreatment() = list[arrival(), surgery1(), recovery1()];
 def WF interTreatment() = list[arrival(), surgery1(), recovery2()];
-def WF intenseTreatment() = list[arrival(), analyses(), surgery2(), recovery3()];
-
-// Remove task t1 from dependencies of task t2
-def Task removeDependTask(Task t1, Task t2)
-= Task(id(t2), category(t2), remove(dependencies(t2),id(t1)));
+def WF intenseTreatment1() = list[arrival(), analyses(), surgery2(), recovery3()];
+def WF intenseTreatment2() = list[arrival(), analyses(), surgery2(), recovery3(), recovery4()];
 
 // remove task t from all the task dependencies in workflow f
 def WF removeDependWF(Task t, WF f) =
@@ -39,7 +37,11 @@ def WF removeDependWF(Task t, WF f) =
     Nil => Nil;
     Cons(hd,tl) => Cons(removeDependTask(t,hd),removeDependWF(t,tl)); } ;
 
-		// Check that a task can fire
+// Remove task t1 from dependencies of task t2
+def Task removeDependTask(Task t1, Task t2)
+            = Task(id(t2), category(t2), days(t2), remove(dependencies(t2),id(t1)));
+
+		// Check that a task can be done now
 def Bool enabled(Task t) = emptySet(dependencies(t));
 
 //------------------------------------------------------------------------------------------------
@@ -103,14 +105,15 @@ class BedPostNeeds(Int i) implements BedPostNeeds {
 //---- Only one day
 def PendingPacks arriving() = list[Package(Person("einar"), standardTreatment()),
 																	 Package(Person("rudi"), interTreatment()),
-																	 Package(Person("lizeth"), intenseTreatment())];
+																	 Package(Person("lizeth"), intenseTreatment1())];
 
 //---------------------------Senario 2-----------------------------------------
 //---- three days in a row
 def PendingPacks arrivingDay1() = list[Package(Person("einar"), standardTreatment()),
 																	 Package(Person("rudi"), interTreatment())];
-def PendingPacks arrivingDay2() = list[Package(Person("lizeth"), intenseTreatment())];
-def PendingPacks arrivingDay4() = list[Package(Person("laura"), standardTreatment())];
+def PendingPacks arrivingDay2() = list[Package(Person("lizeth"), intenseTreatment1())];
+def PendingPacks arrivingDay4() = list[Package(Person("laura"), standardTreatment()),
+                                  Package(Person("riccardo"), intenseTreatment2())];
 
 //--------------------------------------------------------------------------------
 
@@ -173,7 +176,14 @@ def PendingPacksTimeline patientFlow() = list[arrivingDay1(),arrivingDay2(),Nil,
 	   			WF flow = treatment(p);
 	   			// Find task to execute
 	   			Task t = head(filter(enabled)(flow));
-	   			WF newFlow = without(flow,t);
+          WF newFlow = Nil;
+          if (days(t) == 1){
+	   			     newFlow = without(flow,t);}
+          else {
+               Task t2 = Task(id(t), category(t), days(t)-1, dependencies(t));
+               newFlow = Cons(t2,without(flow,t));
+
+          }
 	   			// Register resource needs of the task
 	   			dayNeeds.register(patient(p),category(t));
 	   			// More stuff to do in remaining flow?
@@ -182,7 +192,7 @@ def PendingPacksTimeline patientFlow() = list[arrivingDay1(),arrivingDay2(),Nil,
 	       			WF remaining = removeDependWF(t,newFlow);
 	       			Package newPackage = Package(patient(p),remaining);
 	       			// Push new package on packages for later
-	       			packagesForLater = Cons(newPackage,packagesForLater);
+	       			packagesForLater = appendright(packagesForLater,newPackage);
 
 	   			}
        }
