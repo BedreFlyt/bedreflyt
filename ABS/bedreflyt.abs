@@ -22,7 +22,7 @@ def Task t4() = Task("post-surgery2", 3, set["arrival","surgery"]);
 type WF = List<Task>;
 def WF emptyFlow() = list[];
 def WF standardTreatment() = list[t1(), t2(), t3()];
-def WF interTreatment() = list[t1(),t2(), t4()];
+def WF intenseTreatment() = list[t1(),t2(), t4()];
 
 // Remove task t1 from dependencies of task t2
 def Task removeDependTask(Task t1, Task t2)
@@ -50,8 +50,8 @@ data Patient = Person(String perId);
 // Creating some example incoming data
 data Package = Package(Patient patient, WF treatment);
 
-type Arrivals = List<Package>;  // arrivals in a day
-type ArrivalsPerDay = List<Arrivals>;  // arrivals flow in a timeline
+type PendingPacks = List<Package>;  // Pending packages
+type PendingPacksTimeline = List<PendingPacks>;  // Pending packages timeline
 
 //------------------------------------------------------------------------------------------------
 //--------------------------------Objects that hold bedpost needs per day -------------------------
@@ -96,25 +96,25 @@ class BedPostNeeds(Int i) implements BedPostNeeds {
 
 //---------------------------Scenario 1------------------------------------
 //---- Only one day
-def Arrivals arriving() = list[Package(Person("einar"), standardTreatment()),
-																	 Package(Person("rudi"), interTreatment()),
-																	 Package(Person("lizeth"), interTreatment())];
+def PendingPacks arriving() = list[Package(Person("einar"), standardTreatment()),
+																	 Package(Person("rudi"), intenseTreatment()),
+																	 Package(Person("lizeth"), intenseTreatment())];
 																	 //Scenario 1
 
 //---------------------------Senario 2-----------------------------------------
 //---- three days in a row
-def Arrivals arrivingDay1() = list[Package(Person("einar"), standardTreatment()),
-																	 Package(Person("rudi"), interTreatment())];
-def Arrivals arrivingDay2() = list[Package(Person("lizeth"), interTreatment())];
-def Arrivals arrivingDay3() = list[Package(Person("laura"), standardTreatment())];
+def PendingPacks arrivingDay1() = list[Package(Person("einar"), standardTreatment()),
+																	 Package(Person("rudi"), intenseTreatment())];
+def PendingPacks arrivingDay2() = list[Package(Person("lizeth"), intenseTreatment())];
+def PendingPacks arrivingDay3() = list[Package(Person("laura"), standardTreatment())];
 
 //--------------------------------------------------------------------------------
 
 // Activating Scenario 1
-//def ArrivalsPerDay patientFlow() = list[arriving()];
+//def PendingPacksTimeline patientFlow() = list[arriving()];
 
 // Activating Scenario 2
-def ArrivalsPerDay patientFlow() = list[arrivingDay1(),arrivingDay2(),arrivingDay3()];
+def PendingPacksTimeline patientFlow() = list[arrivingDay1(),arrivingDay2(),arrivingDay3()];
 
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
@@ -134,12 +134,12 @@ def ArrivalsPerDay patientFlow() = list[arrivingDay1(),arrivingDay2(),arrivingDa
 // These objects are collected in a list "timeline"
 // we can then print day needs from this timeline to access the bedpost needs per day
 {
-		ArrivalsPerDay patFlow = patientFlow();
+		PendingPacksTimeline patFlow = patientFlow();
     Int dayNumber = 1; // Starting day
     List<BedPostNeeds> timeline = Nil; // Holds Day objects
     BedPostNeeds dayNeeds;
-		Arrivals packagesForNow = Nil;
-		Arrivals packagesForLater = Nil;
+		PendingPacks packagesForNow = Nil;
+		PendingPacks packagesForLater = Nil;
 		if(!isEmpty(patFlow)){
     	// Now we load the incoming packages
     	packagesForLater = concatenate(packagesForLater,head(patFlow));
