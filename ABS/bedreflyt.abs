@@ -4,8 +4,12 @@ module BedreFlyt;
 // October 2024
 
 //------------------------------------------------------------------------------------------------
-//--------------------------------- TASKS & WORKFLOWS -- TREATMENT -------------------------------
+//--------------------------------- DATATYPES ----------------------------------------------------
 //------------------------------------------------------------------------------------------------
+//------------------ Patients -------------------------
+data Patient = Person(String perId);
+
+//------------------Treatments------------------
 // days is the number of days needed for the task
 // category is a bed category,
 // 1 -- Sengepost
@@ -13,24 +17,23 @@ module BedreFlyt;
 // 3 -- Overvaakning
 // 4 -- Surgery room
 data Task = EmptyTask | Task(String id, Int category, Int days, Set<String> dependencies);
-def Task arrival() = Task("arrival", 1, 1, set[]);
-def Task analyses() = Task("analyses", 1, 2, set["arrival"]);
-def Task surgery1() = Task("surgery1", 4, 1, set["arrival"]);
-def Task surgery2() = Task("surgery2", 4, 1, set["arrival","analyses"]);
-def Task recovery1() = Task("post-surgery1", 2, 1, set["arrival","surgery1"]);
-def Task recovery2() = Task("post-surgery2", 3, 1, set["arrival","surgery1"]);
-def Task recovery3() = Task("post-surgery3", 3, 2, set["arrival","analyses","surgery2"]);
-def Task recovery4() = Task("post-surgery4", 2, 2, set["arrival","analyses","surgery2","post-surgery3"]);
-
-
-
 type WF = List<Task>;
-def WF emptyFlow() = list[];
-def WF standardTreatment() = list[arrival(), surgery1(), recovery1()];
-def WF interTreatment() = list[arrival(), surgery1(), recovery2()];
-def WF intenseTreatment1() = list[arrival(), analyses(), surgery2(), recovery3()];
-def WF intenseTreatment2() = list[arrival(), analyses(), surgery2(), recovery3(), recovery4()];
+type Treatments = Map<String,WF>;
 
+// A "package" is a patient with an associated workflow
+data Package = Package(Patient patient, WF treatment);
+
+type PendingPacks = List<Package>;  // Pending packages per day
+type PendingPacksTimeline = List<PendingPacks>;  // Pending packages timeline
+
+//------------------ Scenarios ------------------
+type OneDayScenario = List<Pair<String,String>>;  // stream of (patientId, treatmentId) in one day
+type Scenario = List<OneDayScenario>;  // stream patients per day (timeline)
+
+
+//------------------------------------------------------------------------------------------------
+//--------------------------------- TASKS & WORKFLOWS -- TREATMENT -------------------------------
+//------------------------------------------------------------------------------------------------
 // remove task t from all the task dependencies in workflow f
 def WF removeDependWF(Task t, WF f) =
     case f {
@@ -43,22 +46,6 @@ def Task removeDependTask(Task t1, Task t2)
 
 		// Check that a task can be done now
 def Bool enabled(Task t) = emptySet(dependencies(t));
-
-//------------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------------------------
-//--------------------------------PATIENT & TREATMENT --------------------------------------------
-//------------------------------------------------------------------------------------------------
-// A "package" is a patient with an associated workflow
-
-data Patient = Person(String perId);
-
-// Creating some example incoming data
-data Package = Package(Patient patient, WF treatment);
-
-type PendingPacks = List<Package>;  // Pending packages per day
-type PendingPacksTimeline = List<PendingPacks>;  // Pending packages timeline
 
 //------------------------------------------------------------------------------------------------
 //--------------------------------Objects that hold bedpost needs per day -------------------------
@@ -96,6 +83,121 @@ class BedPostNeeds(Int i) implements BedPostNeeds {
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
 
+//------------------------------------------------------------------------------------------------
+//---------------------------------------- SIMULATION  -------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+// Rough idea:
+// A "package" is a patient with an associated workflow
+// We pick the arriving package for the day
+// We have two lists of packages to deal with:
+// 1) packages where we need to execute the first task of the workflow now (this is done via the OneRunSimulator),
+// 2) packages that we need to consider later (packagesForLater)
+// When we have executed the first task of a workflow, we push the
+// package with the remaining workflow to the packages for later
+// for the next day, we pick the arriving package for the day and merge it with the remaining packages (packagesForLater)
+//
+// For each day we create an object of class BedPostNeeds that holds the bedpost needs.
+// These objects are collected in a list "timeline"
+// we can then print day needs from this timeline to access the bedpost needs per day
+
+
+interface Simulator {
+  PendingPacks simulateOneRun(Int dayNumber, PendingPacks packagesForLater, BedPostNeeds dayNeeds);
+  List<BedPostNeeds> simulate();
+}
+
+class Simulator(Treatments tr, Scenario sc) implements Simulator {
+    PendingPacks packagesForNow = Nil;
+
+    List<BedPostNeeds> simulate(){
+      Int dayNumber = 1; // Starting day
+      List<BedPostNeeds> timeline = Nil; // Holds Day objects
+      BedPostNeeds dayNeeds;
+      PrintScenario showSc = new PrintScenario();
+      PendingPacks packagesForLater = Nil;
+      if(!isEmpty(sc)){
+        // Now we load the incoming packages
+        packagesForLater = concatenate(packagesForLater,generatePackages(head(sc),tr, Nil));
+        sc = tail(sc);
+      }
+      while (!isEmpty(packagesForLater)) {
+          // Create Day object for today
+          dayNeeds = new BedPostNeeds(dayNumber); // Object collecting the bedpost needs for today
+          timeline = Cons(dayNeeds,timeline);
+          // advance to new day:
+          println("\n------------Processing Day " + toString(dayNumber) + "-----------");
+          println("\nRemaining needs from Today:\n");
+          // print scenario
+          showSc.inputScenario(packagesForLater);
+          showSc.print();
+          // simualte: consume the needs for today and and collect the needs for later
+          packagesForLater = this.simulateOneRun(dayNumber, packagesForLater, dayNeeds);
+          // print the needs for today
+          dayNeeds.print();
+          println("\nRemaining needs for later:\n");
+          // print the remaning needs after finishing the tasks of the day
+          showSc.inputScenario(packagesForLater);
+          showSc.print();
+          println("----------End of Day----------");
+          // Finished with packages for today
+          dayNumber = dayNumber + 1;
+          if(!isEmpty(sc)){
+            // Now we load the incoming packages for the next day
+            packagesForLater = concatenate(packagesForLater,generatePackages(head(sc),tr, Nil));
+            sc = tail(sc);
+          }
+      }
+      return timeline;
+    }
+
+    // Rough idea:
+    // A "package" is a patient with an associated workflow
+    // We have two lists of packages to deal with:
+    // 1) packages where we need to execute the first task of the workflow now (packagesForNow),
+    // 2) packages that we need to consider later (packagesForLater)
+    // When we have executed the first task of a workflow, we push the
+    // package with the remaining workflow to the packages for later
+
+    PendingPacks simulateOneRun(Int dayNumber, PendingPacks packagesForLater, BedPostNeeds dayNeeds){
+      // Move packages that we need to deal with today:
+      packagesForNow = packagesForLater;
+      packagesForLater = Nil;
+      // Iterate over the packages to process
+      while (!isEmpty(packagesForNow)){
+        // Take the first package
+        Package p = head(packagesForNow);
+        packagesForNow = tail(packagesForNow);
+        // Get workflow from package
+        WF flow = treatment(p);
+        // Find task to execute
+        Task t = head(filter(enabled)(flow));
+        WF newFlow = Nil;
+        if (days(t) == 1){
+             newFlow = without(flow,t);}
+        else {
+             Task t2 = Task(id(t), category(t), days(t)-1, dependencies(t));
+             newFlow = Cons(t2,without(flow,t));
+
+        }
+        // Register resource needs of the task
+        dayNeeds.register(patient(p),category(t));
+        // More stuff to do in remaining flow?
+        if (!isEmpty(newFlow)){
+            // Create package with remaining workflow
+            WF remaining = removeDependWF(t,newFlow);
+            Package newPackage = Package(patient(p),remaining);
+            // Push new package on packages for later
+            packagesForLater = appendright(packagesForLater,newPackage);
+
+        }
+     }
+    return packagesForLater;
+  }
+
+}
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------
 //---------------------------------------- SCENARIOS  --------------------------------------------
@@ -128,119 +230,99 @@ class PrintScenario() implements PrintScenario {
       }
     }
   }
-  
+
 }
+
+def PendingPacks generatePackages(OneDayScenario odsc,Treatments tr, PendingPacks p) =
+  case odsc {
+    Nil => p;
+    Cons(hd,tl) => generatePackages(tl,tr, appendright(p,Package(Person(fst(hd)),lookupDefault(tr,snd(hd),Nil))))} ;
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+
+
+
+//------------------------------------------------------------------------------------------------
+
+
+
+
+//------------------------------------------------------------------------------------------------
+//--------------------------------- TASKS & WORKFLOWS KB --TREATMENTS ----------------------------
+//------------------------------------------------------------------------------------------------
+// Task(name, bed-category, duration, dependencies)
+// duration: is the number of days needed for the task
+// bed-category:
+//  1 -- Sengepost
+//  2 -- Intermediaer
+//  3 -- Overvaakning
+//  4 -- Surgery room
+def Task arrival() = Task("arrival", 1, 1, set[]);
+def Task analyses() = Task("analyses", 1, 2, set["arrival"]);
+def Task surgery1() = Task("surgery1", 4, 1, set["arrival"]);
+def Task surgery2() = Task("surgery2", 4, 1, set["arrival","analyses"]);
+def Task recovery1() = Task("post-surgery1", 2, 1, set["arrival","surgery1"]);
+def Task recovery2() = Task("post-surgery2", 3, 1, set["arrival","surgery1"]);
+def Task recovery3() = Task("post-surgery3", 3, 2, set["arrival","analyses","surgery2"]);
+def Task recovery4() = Task("post-surgery4", 2, 2, set["arrival","analyses","surgery2","post-surgery3"]);
+
+def WF emptyFlow() = list[];
+def WF standardTreatment() = list[arrival(), surgery1(), recovery1()];
+def WF interTreatment() = list[arrival(), surgery1(), recovery2()];
+def WF intenseTreatment1() = list[arrival(), analyses(), surgery2(), recovery3()];
+def WF intenseTreatment2() = list[arrival(), analyses(), surgery2(), recovery3(), recovery4()];
+
+def Treatments treatments() = map[Pair("standard", standardTreatment()),
+                                 Pair("inter", interTreatment()),
+                                 Pair("intense1",intenseTreatment1()),
+                                 Pair("intense2",intenseTreatment2())];
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+
+//------------------------------------------------------------------------------------------------
+//--------------------------------- SCENARIO INSTANTIATION ---------------------------------------
+//------------------------------------------------------------------------------------------------
 
 //---------------------------Scenario 1------------------------------------
 //---- Only one day
-def PendingPacks arriving() = list[Package(Person("einar"), standardTreatment()),
-																	 Package(Person("rudi"), interTreatment()),
-																	 Package(Person("lizeth"), intenseTreatment1())];
+
+def OneDayScenario sc0() = list[Pair("einar","standard"),
+                               Pair("rudy","inter"),
+                               Pair("lizeth","intense1")];
 
 //---------------------------Senario 2-----------------------------------------
 //---- four days in a row, spread over 11 days
-def PendingPacks arrivingDay1() = list[Package(Person("einar"), standardTreatment()),
-																	 Package(Person("rudi"), interTreatment())];
-def PendingPacks arrivingDay2() = list[Package(Person("lizeth"), intenseTreatment1())];
-def PendingPacks arrivingDay4() = list[Package(Person("laura"), standardTreatment()),
-                                  Package(Person("riccardo"), intenseTreatment2())];
+
+def OneDayScenario scArrivingDay1() = list[Pair("einar","standard"),
+                                           Pair("rudy","inter")];
+def OneDayScenario scArrivingDay2() = list[Pair("lizeth","intense1")];
+def OneDayScenario scArrivingDay4() = list[Pair("laura","standard"),
+                                           Pair("riccardo","intense2")];
 
 //--------------------------------------------------------------------------------
 
 // Activating Scenario 1
-//def PendingPacksTimeline patientFlow() = list[arriving()];
+//def Scenario sc() = list[sc0()];
 
 // Activating Scenario 2
-def PendingPacksTimeline patientFlow() = list[arrivingDay1(),arrivingDay2(),Nil,arrivingDay4()];
+def Scenario sc() = list[scArrivingDay1(),scArrivingDay2(),Nil,scArrivingDay4()];
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
 
-//------------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------
 //------------------------------- Simulation for the selected scenario ---------------------------
 //------------------------------------------------------------------------------------------------
-// Rough idea:
-// A "package" is a patient with an associated workflow
-// We have two lists of packages to deal with:
-// 1) packages where we need to execute the first task of the workflow now (packagesForNow),
-// 2) packages that we need to consider later (packagesForLater)
-// When we have executed the first task of a workflow, we push the
-// package with the remaining workflow to the packages for later
-//
-// For each day we create an object of class BedPostNeeds that holds the bedpost needs.
-// These objects are collected in a list "timeline"
-// we can then print day needs from this timeline to access the bedpost needs per day
 {
-		PendingPacksTimeline patFlow = patientFlow();
-    Int dayNumber = 1; // Starting day
-    List<BedPostNeeds> timeline = Nil; // Holds Day objects
-    BedPostNeeds dayNeeds;
-    PrintScenario showSc = new PrintScenario();
-		PendingPacks packagesForNow = Nil;
-		PendingPacks packagesForLater = Nil;
-		if(!isEmpty(patFlow)){
-    	// Now we load the incoming packages
-    	packagesForLater = concatenate(packagesForLater,head(patFlow));
-			patFlow = tail(patFlow);
-		}
-    	// Test code for task processing functions
-    	// println(toString(tail(standardTreatment()))+"\n");
-    	// println(toString(t1())+"\n");
-    	// println(toString(reduce(t1(),tail(standardTreatment())))+"\n");
-   		while (!isEmpty(packagesForLater)) {
-       	println("\n------------Processing Day " + toString(dayNumber) + "-----------");
-        println("\nRemaining needs from Today:\n");
-        showSc.inputScenario(packagesForLater);
-        showSc.print();
-       	// advance to new day:
-       	// Move packages that we need to deal with today:
-       	packagesForNow = packagesForLater;
-       	packagesForLater = Nil;
-       	// Create Day object for today
-       	dayNeeds = new BedPostNeeds(dayNumber); // Bedpost needs for today
-       	timeline = Cons(dayNeeds,timeline);
-       	// Iterate over the packages to process
-       	while (!isEmpty(packagesForNow)){
-	   			// Take the first package
-	   			Package p = head(packagesForNow);
-	   			packagesForNow = tail(packagesForNow);
-	   			// Get workflow from package
-	   			WF flow = treatment(p);
-	   			// Find task to execute
-	   			Task t = head(filter(enabled)(flow));
-          WF newFlow = Nil;
-          if (days(t) == 1){
-	   			     newFlow = without(flow,t);}
-          else {
-               Task t2 = Task(id(t), category(t), days(t)-1, dependencies(t));
-               newFlow = Cons(t2,without(flow,t));
-
-          }
-	   			// Register resource needs of the task
-	   			dayNeeds.register(patient(p),category(t));
-	   			// More stuff to do in remaining flow?
-	   			if (!isEmpty(newFlow)){
-	       			// Create package with remaining workflow
-	       			WF remaining = removeDependWF(t,newFlow);
-	       			Package newPackage = Package(patient(p),remaining);
-	       			// Push new package on packages for later
-	       			packagesForLater = appendright(packagesForLater,newPackage);
-
-	   			}
-       }
-       // Finished with packages for today
-			dayNeeds.print();
-      println("\nRemaining needs for later:\n");
-      showSc.inputScenario(packagesForLater);
-      showSc.print();
-      println("----------End of Day----------");
-			 if(!isEmpty(patFlow)){
-				 // Now we load the incoming packages for the next day
-				 packagesForLater = concatenate(packagesForLater,head(patFlow));
-				 patFlow = tail(patFlow);
-			 }
-       dayNumber = dayNumber + 1;
-		}
+    Treatments tr = treatments(); // static knowledge about treatments
+    Scenario sc = sc(); // dynamic stream of patients
+    Simulator sim = new Simulator(tr,sc);
+    List<BedPostNeeds> timeline = sim.simulate(); // Holds Day objects, where each day object holds patient needs in that day
 }
 
 
