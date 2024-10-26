@@ -6,27 +6,36 @@ module BedreFlyt;
 //------------------------------------------------------------------------------------------------
 //--------------------------------- DATATYPES ----------------------------------------------------
 //------------------------------------------------------------------------------------------------
+
+//------------------Datatypes for running the the simulator------------------------
+
 //------------------ Patients -------------------------
 data Patient = Person(String perId);
 
 //------------------Treatments------------------
-// days is the number of days needed for the task
+// daysAvg is the number of days in average needed for the task
 // category is a bed category,
 // 1 -- Sengepost
 // 2 -- Intermediaer
 // 3 -- Overvaakning
 // 4 -- Surgery room
-data Task = EmptyTask | Task(String id, Int category, Int days, Set<String> dependencies);
+data Task = EmptyTask | Task(String id, Int category, Int daysAvg, Set<String> dependencies);
 type WF = List<Task>;
-type Treatments = Map<String,WF>;
+
 
 // A "package" is a patient with an associated workflow
 data Package = Package(Patient patient, WF treatment);
 
 type PendingPacks = List<Package>;  // Pending packages per day
 type PendingPacksTimeline = List<PendingPacks>;  // Pending packages timeline
+//------------------------------------------------------------------------
 
-//------------------ Scenarios ------------------
+//-----------Dataypes to input to the simulator-----------------------
+
+//---------------- Treatments - Input from the KB --------------------------------
+type Treatments = Map<String,WF>; // name and associated workflow
+
+//------------------ Scenarios - Input from the stram of patients ------------------
 type OneDayScenario = List<Pair<String,String>>;  // stream of (patientId, treatmentId) in one day
 type Scenario = List<OneDayScenario>;  // stream patients per day (timeline)
 
@@ -42,7 +51,7 @@ def WF removeDependWF(Task t, WF f) =
 
 // Remove task t1 from dependencies of task t2
 def Task removeDependTask(Task t1, Task t2)
-            = Task(id(t2), category(t2), days(t2), remove(dependencies(t2),id(t1)));
+            = Task(id(t2), category(t2), daysAvg(t2), remove(dependencies(t2),id(t1)));
 
 		// Check that a task can be done now
 def Bool enabled(Task t) = emptySet(dependencies(t));
@@ -52,13 +61,14 @@ def Bool enabled(Task t) = emptySet(dependencies(t));
 //------------------------------------------------------------------------------------------------
 interface BedPostNeeds {  // bedpost needs in a day
     Unit register(Patient p, Int category);
-    Unit print(); }
+    Unit print();
+  }
 
-class BedPostNeeds(Int i) implements BedPostNeeds {
-    List<Patient> cat1 = Nil;
-    List<Patient> cat2 = Nil;
-    List<Patient> cat3 = Nil;
-		List<Patient> cat4 = Nil;
+class BedPostNeeds(Int day) implements BedPostNeeds {
+  List<Patient> cat1 = Nil;
+  List<Patient> cat2 = Nil;
+  List<Patient> cat3 = Nil;
+  List<Patient> cat4 = Nil;
 
     Unit register(Patient p, Int i){
 			switch (i)
@@ -72,7 +82,7 @@ class BedPostNeeds(Int i) implements BedPostNeeds {
     }
 
     Unit print(){
-			println("\nBedpost needs at time: Day " + toString(i));
+			println("\nBedpost needs at time: Day " + toString(day));
 			println("Category Sengepost---: " + toString(length(cat1)));
 			println("Category Intermediaer: " + toString(length(cat2)));
 			println("Category Overvaakning: " + toString(length(cat3)));
@@ -103,7 +113,6 @@ class BedPostNeeds(Int i) implements BedPostNeeds {
 
 
 interface Simulator {
-  PendingPacks simulateOneRun(Int dayNumber, PendingPacks packagesForLater, BedPostNeeds dayNeeds);
   List<BedPostNeeds> simulate();
 }
 
@@ -118,7 +127,10 @@ class Simulator(Treatments tr, Scenario sc) implements Simulator {
       PendingPacks packagesForLater = Nil;
       if(!isEmpty(sc)){
         // Now we load the incoming packages
-        packagesForLater = concatenate(packagesForLater,generatePackages(head(sc),tr, Nil));
+        OneDayScenario h = head(sc);
+        if(h != Cons(Pair("-1","-1"),Nil) ) {
+            packagesForLater = concatenate(packagesForLater,generatePackages(h,tr, Nil));
+        }
         sc = tail(sc);
       }
       while (!isEmpty(packagesForLater)) {
@@ -131,7 +143,7 @@ class Simulator(Treatments tr, Scenario sc) implements Simulator {
           // print scenario
           showSc.inputScenario(packagesForLater);
           showSc.print();
-          // simualte: consume the needs for today and and collect the needs for later
+          // simualte one day: consume the needs for today and and collect the needs for later
           packagesForLater = this.simulateOneRun(dayNumber, packagesForLater, dayNeeds);
           // print the needs for today
           dayNeeds.print();
@@ -144,7 +156,10 @@ class Simulator(Treatments tr, Scenario sc) implements Simulator {
           dayNumber = dayNumber + 1;
           if(!isEmpty(sc)){
             // Now we load the incoming packages for the next day
-            packagesForLater = concatenate(packagesForLater,generatePackages(head(sc),tr, Nil));
+            OneDayScenario h = head(sc);
+            if(h != Cons(Pair("-1","-1"),Nil) ){
+                packagesForLater = concatenate(packagesForLater,generatePackages(h,tr, Nil));
+            }
             sc = tail(sc);
           }
       }
@@ -173,12 +188,11 @@ class Simulator(Treatments tr, Scenario sc) implements Simulator {
         // Find task to execute
         Task t = head(filter(enabled)(flow));
         WF newFlow = Nil;
-        if (days(t) == 1){
+        if (daysAvg(t) == 1){
              newFlow = without(flow,t);}
         else {
-             Task t2 = Task(id(t), category(t), days(t)-1, dependencies(t));
+             Task t2 = Task(id(t), category(t), daysAvg(t)-1, dependencies(t));
              newFlow = Cons(t2,without(flow,t));
-
         }
         // Register resource needs of the task
         dayNeeds.register(patient(p),category(t));
@@ -222,10 +236,10 @@ class PrintScenario() implements PrintScenario {
       foreach (t in w) {
         switch (category(t))
         {
-          1 => println("- Sengepost for " + toString(days(t)) + " days");
-          2 => println("- Intermediaer for " + toString(days(t)) + " days");
-          3 => println("- Overvaakning for " + toString(days(t)) + " days");
-          4 => println("- Surgery room for " + toString(days(t)) + " days");
+          1 => println("- Sengepost for " + toString(daysAvg(t)) + " days");
+          2 => println("- Intermediaer for " + toString(daysAvg(t)) + " days");
+          3 => println("- Overvaakning for " + toString(daysAvg(t)) + " days");
+          4 => println("- Surgery room for " + toString(daysAvg(t)) + " days");
         }
       }
     }
@@ -252,13 +266,58 @@ def PendingPacks generatePackages(OneDayScenario odsc,Treatments tr, PendingPack
 //------------------------------------------------------------------------------------------------
 //--------------------------------- TASKS & WORKFLOWS KB --TREATMENTS ----------------------------
 //------------------------------------------------------------------------------------------------
-// Task(name, bed-category, duration, dependencies)
+def List<String> taskDepAux(String taskName) =
+        builtin(sqlite3,
+        "../dataTest/trData.db" ,
+        "SELECT taskDependency  FROM taskDependencies WHERE taskName = ?",taskName);
+
+data TaskDB = TaskDB(String iddb, Int categorydb, Int daysdb);
+def List<TaskDB> taskAux(String name) =
+        builtin(sqlite3,
+        "../dataTest/trData.db" ,
+        "SELECT name, bedCategory, durAvg FROM tasks WHERE name = ?",name);
+
+def List<String> wfAux1(String treatmentName) =
+        builtin(sqlite3,
+        "../dataTest/trData.db" ,
+        "SELECT taskName  FROM treatments  WHERE treatmentName= ? ORDER BY orderTask", treatmentName);
+
+def List<String> trAux1() =
+        builtin(sqlite3,
+        "../dataTest/trData.db" ,
+        "SELECT DISTINCT treatmentName  FROM treatments");
+
+def Task task(String taskName) =
+    let List<TaskDB> tdb =  taskAux(taskName), Set<String> dep = taskDep(taskName) in
+    Task(iddb(head(tdb)),categorydb(head(tdb)),daysdb(head(tdb)),dep);
+def Set<String> taskDep(String taskName) = listToSet(taskDepAux(taskName),set[]);
+def Set<String> listToSet(List<String> l, Set<String> s ) =
+  case l {
+    Nil => s;
+    Cons(hd,tl) => listToSet(tl,insertElement(s,hd))} ;
+
+def WF wf(String treatmentName) =
+    let List<String> lt = wfAux1(treatmentName) in wfAux2(lt,Nil);
+def WF wfAux2(List<String> lt, WF wf) =
+  case lt {
+    Nil => wf;
+    Cons(hd,tl) => wfAux2(tl,appendright(wf,task(hd))) } ;
+
+def Treatments trDB() =
+        let List<String> trl = trAux1() in trAux2(trl,map[]);
+def Treatments trAux2(List<String> trl, Treatments tr) =
+case trl {
+  Nil => tr;
+  Cons(hd,tl) => trAux2(tl,insert(tr,Pair(hd,wf(hd)))) } ;
+
+// Task(name, bed-category, duration, task-dependencies)
 // duration: is the number of days needed for the task
 // bed-category:
 //  1 -- Sengepost
 //  2 -- Intermediaer
 //  3 -- Overvaakning
 //  4 -- Surgery room
+
 def Task arrival() = Task("arrival", 1, 1, set[]);
 def Task analyses() = Task("analyses", 1, 2, set["arrival"]);
 def Task surgery1() = Task("surgery1", 4, 1, set["arrival"]);
@@ -274,34 +333,62 @@ def WF interTreatment() = list[arrival(), surgery1(), recovery2()];
 def WF intenseTreatment1() = list[arrival(), analyses(), surgery2(), recovery3()];
 def WF intenseTreatment2() = list[arrival(), analyses(), surgery2(), recovery3(), recovery4()];
 
+// This is the KB input for the simulator
 def Treatments treatments() = map[Pair("standard", standardTreatment()),
                                  Pair("inter", interTreatment()),
                                  Pair("intense1",intenseTreatment1()),
                                  Pair("intense2",intenseTreatment2())];
+
+
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------
 //--------------------------------- SCENARIO INSTANTIATION ---------------------------------------
 //------------------------------------------------------------------------------------------------
+data PairDB = PairDB (String pId, String tId);
+def List<PairDB> batchAux1(Int batch) =
+        builtin(sqlite3,
+        "../dataTest/scData.db" ,
+        "SELECT  patientId, treatmentName  FROM scenario WHERE batch = ?",batch);
+
+def List<Int> scAux1() =
+        builtin(sqlite3,
+        "../dataTest/scData.db" ,
+        "SELECT DISTINCT batch FROM scenario  ORDER BY batch");
+
+def OneDayScenario batch(Int batch) =
+        let List<PairDB> lpdb = batchAux1(batch) in batchAux2(lpdb,Nil);
+def OneDayScenario batchAux2(List<PairDB> lpdb, OneDayScenario odsc) =
+  case lpdb {
+    Nil => odsc;
+    Cons(hd,tl) => batchAux2(tl,appendright(odsc,Pair(pId(hd),tId(hd))))} ;
+
+def Scenario scDB() = let List<Int> lb = scAux1() in scAux2(lb,Nil);
+def Scenario scAux2(List<Int> lb, Scenario sc) =
+  case lb {
+    Nil => sc;
+    Cons(hd,tl) => scAux2(tl, appendright(sc,batch(hd)))} ;
+
 
 //---------------------------Scenario 1------------------------------------
 //---- Only one day
 
 def OneDayScenario sc0() = list[Pair("einar","standard"),
-                               Pair("rudy","inter"),
+                               Pair("rudi","inter"),
                                Pair("lizeth","intense1")];
 
 //---------------------------Senario 2-----------------------------------------
 //---- four days in a row, spread over 11 days
 
 def OneDayScenario scArrivingDay1() = list[Pair("einar","standard"),
-                                           Pair("rudy","inter")];
+                                           Pair("rudi","inter")];
 def OneDayScenario scArrivingDay2() = list[Pair("lizeth","intense1")];
 def OneDayScenario scArrivingDay4() = list[Pair("laura","standard"),
                                            Pair("riccardo","intense2")];
 
 //--------------------------------------------------------------------------------
+// This is the Patient stream data input for the simulator
 
 // Activating Scenario 1
 //def Scenario sc() = list[sc0()];
@@ -311,15 +398,21 @@ def Scenario sc() = list[scArrivingDay1(),scArrivingDay2(),Nil,scArrivingDay4()]
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
 
-
 //------------------------------------------------------------------------------------------------
 //------------Simulation for the selected scenario sc and avaialable treatments tr----------------
 //------------------------------------------------------------------------------------------------
 {
-    Treatments tr = treatments(); // static knowledge about treatments
-    Scenario sc = sc(); // dynamic stream of patients
+    // from ABS
+    //Treatments tr = treatments(); // static knowledge about treatments
+    //Scenario sc = sc(); // dynamic stream of patients
+
+    // from DB
+    Treatments tr = trDB();
+    Scenario sc = scDB();
+
     Simulator sim = new Simulator(tr,sc);
     List<BedPostNeeds> timeline = sim.simulate(); // Holds Day objects, where each day object holds patient needs in that day
+
 }
 
 
