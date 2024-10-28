@@ -62,6 +62,7 @@ def Bool enabled(Task t) = emptySet(dependencies(t));
 interface BedPostNeeds {  // bedpost needs in a day
     Unit register(Patient p, Int category);
     Unit print();
+    Unit printForZ3();
   }
 
 class BedPostNeeds(Int day) implements BedPostNeeds {
@@ -87,6 +88,30 @@ class BedPostNeeds(Int day) implements BedPostNeeds {
 			println("Category Intermediaer: " + toString(length(cat2)));
 			println("Category Overvaakning: " + toString(length(cat3)));
 			println("Category Surgery-----: " + toString(length(cat4)));
+    }
+
+    Unit printForZ3(){
+      List<Patient> tmp = cat1;
+      while (!isEmpty(tmp)) {
+        println(perId(head(tmp)) + ",1");
+        tmp = tail(tmp);
+      }
+      tmp = cat2;
+      while (!isEmpty(tmp)) {
+        println(perId(head(tmp)) + ",2");
+        tmp = tail(tmp);
+      }
+      tmp = cat3;
+      while (!isEmpty(tmp)) {
+        println(perId(head(tmp)) + ",3");
+        tmp = tail(tmp);
+      }
+      tmp = cat4;
+      while (!isEmpty(tmp)) {
+        println(perId(head(tmp)) + ",4");
+        tmp = tail(tmp);
+      }
+      println("------");
     }
 }
 
@@ -138,20 +163,25 @@ class Simulator(Treatments tr, Scenario sc) implements Simulator {
           dayNeeds = new BedPostNeeds(dayNumber); // Object collecting the bedpost needs for today
           timeline = Cons(dayNeeds,timeline);
           // advance to new day:
+          /*
           println("\n------------Processing Day " + toString(dayNumber) + "-----------");
           println("\nRemaining needs from Today:\n");
           // print scenario
           showSc.inputScenario(packagesForLater);
           showSc.print();
+          */
           // simualte one day: consume the needs for today and and collect the needs for later
           packagesForLater = this.simulateOneRun(dayNumber, packagesForLater, dayNeeds);
           // print the needs for today
+          dayNeeds.printForZ3();
+          /*
           dayNeeds.print();
           println("\nRemaining needs for later:\n");
           // print the remaning needs after finishing the tasks of the day
           showSc.inputScenario(packagesForLater);
           showSc.print();
           println("----------End of Day----------");
+          */
           // Finished with packages for today
           dayNumber = dayNumber + 1;
           if(!isEmpty(sc)){
