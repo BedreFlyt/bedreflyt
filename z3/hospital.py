@@ -18,86 +18,93 @@ from z3 import *
 # 12      6	        3	               x	        Overvåkning      3
 # 13      43	    3	        	                Overvåkning      3
 #
-NO_ROOMS = 14
-C = [1, 2, 2, 3, 1, 4, 2, 2, 3, 2, 1, 3, 3, 3] # capacities of rooms (i.e., patient bay)
-Dr = [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3] # Distance-categories of rooms
+# hospital.py
+class HospitalRoomAssignment:
+    def __init__(self, no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances):
+        self.no_rooms = no_rooms
+        self.capacities = capacities
+        self.room_distances = room_distances
+        self.no_patients = no_patients
+        self.genders = genders
+        self.infectious = infectious
+        self.patient_distances = patient_distances
 
-# NO_PATIENTS = 9
-# G = [False, False, False, True, True, False, True, False, True] # genders of patients
-# I = [True, False, False, False, False, False, False, False, False] # are patients infectious?
-# Dp = [1, 2, 3, 2, 3, 3, 2, 2, 1] # Distance-categories of patients
-NO_PATIENTS = 31
-G = [ False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False ] # genders of patients
-I = [ False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False ] # are patients infectious?
-Dp = [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 2, 2, 2, 2 ] # Distance-categories of patients
+    def assign_rooms(self):
+        assert len(self.capacities) == self.no_rooms
+        assert len(self.genders) == self.no_patients
+        assert len(self.infectious) == self.no_patients
+        assert len(self.patient_distances) == self.no_patients
+        assert len(self.room_distances) == self.no_rooms
 
+        patients = [[Bool(f'patient {i} in room {j}') for j in range(self.no_rooms)] for i in range(self.no_patients)]
+        genders = [Bool(f'gender room {i}') for i in range(self.no_rooms)]
 
-assert len(C) == NO_ROOMS
-assert len(G) == NO_PATIENTS
-assert len(I) == NO_PATIENTS
-assert len(Dp) == NO_PATIENTS
-assert len(Dr) == NO_ROOMS
+        s = Solver()
+        s.set(unsat_core=True)
 
-patients = [[ Bool('patient %s in room %s' % (i,j)) for j in range(NO_ROOMS)] for i in range(NO_PATIENTS)]
-genders = [Bool('gender room %s' %i )for i in range(NO_ROOMS)]
+        # Each patient in exactly one bed
+        for patient in range(self.no_patients):
+            s.assert_and_track(Sum(patients[patient]) == 1, f'patient assigned{patient}')
 
-print(patients, genders)
+        # Room capacities are satisfied
+        for room in range(self.no_rooms):
+            s.assert_and_track(Sum([patients[i][room] for i in range(self.no_patients)]) <= self.capacities[room], f'room capacity {room}')
 
-s = Solver()
-s.set(unsat_core=True)
+        # Gender constraints
+        for room in range(self.no_rooms):
+            for patient in range(self.no_patients):
+                s.assert_and_track(Implies(patients[patient][room], self.genders[patient] == genders[room]), f'gender constraint room {room} patient {patient}')
 
-# Each patient in exactly one bed
-for patient in range(NO_PATIENTS):
-    s.assert_and_track(Sum(patients[patient]) == 1, f'patient assigned{patient}')
+        # Infectious patients
+        for room in range(self.no_rooms):
+            for patient in range(self.no_patients):
+                s.assert_and_track(Implies(
+                    And(patients[patient][room], self.infectious[patient]),  # patient in room is infectious
+                    And([Not(patients[p][room]) for p in range(self.no_patients) if p != patient])  # no other patient is in room
+                ), f'infectious patient {patient} room {room}')
 
-# room capacities are satisfies
-for room in range(NO_ROOMS):
-    s.assert_and_track(Sum([patients[i][room] for i in range(NO_PATIENTS)]) <= C[room], f'room capacity {room}')
+        # Consider distance
+        for patient in range(self.no_patients):
+            for room in range(self.no_rooms):
+                s.assert_and_track(Implies(patients[patient][room],
+                                           self.patient_distances[patient] <= self.room_distances[room]), f'distance patient {patient} room {room}')
 
-# Gender constraints
-for room in range(NO_ROOMS):
-    for patient in range(NO_PATIENTS):
-        s.assert_and_track(Implies(patients[patient][room], G[patient] == genders[room]), f'gender constraint room {room} patient {patient}')
+        if s.check() != sat:
+            return "Model is unsat", s.unsat_core()
+        else:
+            # Get model and format output
+            m = s.model()
+            assignment = {str(i): [] for i in range(self.no_rooms)}
+            room_gender = {str(i): None for i in range(self.no_rooms)}
 
-# Infectious patients
-for room in range(NO_ROOMS):
-    for patient in range(NO_PATIENTS):
-        s.assert_and_track(Implies(
-                And(patients[patient][room], I[patient]), # patient in room is infectious
-                    And([Not(patients[p][room]) for p in range(NO_PATIENTS) if p != patient]) # no other patient is in room
-                    ), f'infectious patient {patient} room {room}'
-        )
+            for v in genders:
+                room_gender[str(v).split(" ")[2]] = m.eval(v, model_completion=True)
 
-# Consider distance
-for patient in range(NO_PATIENTS):
-    for room in range(NO_ROOMS):
-        s.assert_and_track(Implies(patients[patient][room],
-                      Dp[patient] <= Dr[room]), f'distance patient {patient} room {room}'
-        )
+            for patient in patients:
+                for v in patient:
+                    if m.eval(v):
+                        assigned_room = str(v).split(" ")[-1]
+                        assigned_patient = str(v).split(" ")[1]
+                        assignment[assigned_room].append(assigned_patient)
 
+            result = []
+            for k in assignment:
+                result.append(f'Room {str(k)} is gender {room_gender[str(k)]} and holds patients {" ".join(assignment[k])}')
+            return result
 
-print(s)
-print(s.check())
+# # Example usage:
+# if __name__ == "__main__":
+#     # This we get from the DB
+#     no_rooms = 14
+#     capacities = [1, 2, 2, 3, 1, 4, 2, 2, 3, 2, 1, 3, 3, 3]
+#     room_distances = [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3]
 
-if s.check() != sat:
-    print("Model is unsat")
-    print(s.unsat_core())
-else:
-    # Get model and format output
-    m = s.model()
-    assignment = {str(i) : [] for i in range(NO_ROOMS)}
-    room_gender = {str(i) : None for i in range(NO_ROOMS)}
+#     # This we get from ABS
+#     no_patients = 31
+#     genders = [False] * 31
+#     infectious = [False] * 31
+#     patient_distances = [1] * 23 + [3] * 4 + [2] * 4
 
-    for v in genders:
-        room_gender[str(v).split(" ")[2]] = m.eval(v, model_completion=True)
-
-    for patient in patients:
-        for v in patient:
-            if m.eval(v):
-                assigned_room = str(v).split(" ")[-1]
-                assigned_patient = str(v).split(" ")[1]
-                assignment[assigned_room].append(assigned_patient)
-
-    print("Satisfying room order")
-    for k in assignment:
-        print(f'Room {str(k)} is gender {room_gender[str(k)]} and holds patients {" ".join(assignment[k])}')
+#     hospital = HospitalRoomAssignment(no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances)
+#     result = hospital.assign_rooms()
+#     print(result)
