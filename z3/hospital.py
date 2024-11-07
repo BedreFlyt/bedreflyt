@@ -93,18 +93,82 @@ class HospitalRoomAssignment:
             return result
 
 # # Example usage:
-# if __name__ == "__main__":
-#     # This we get from the DB
-#     no_rooms = 14
-#     capacities = [1, 2, 2, 3, 1, 4, 2, 2, 3, 2, 1, 3, 3, 3]
-#     room_distances = [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3]
+if __name__ == "__main__":
+    # This we get from the DB
+    no_rooms = 17
+    capacities = [2, 1, 2, 3, 1, 4, 4, 2, 3, 2, 1, 3, 3, 3, 1, 1, 1]
+    room_distances = [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 4, 4, 4]
 
-#     # This we get from ABS
-#     no_patients = 31
-#     genders = [False] * 31
-#     infectious = [False] * 31
-#     patient_distances = [1] * 23 + [3] * 4 + [2] * 4
+    # This we get from ABS
+    # no_patients = 31
+    # genders = [False] * 31
+    # infectious = [False] * 31
+    # patient_distances = [1] * 23 + [3] * 4 + [2] * 4
 
-#     hospital = HospitalRoomAssignment(no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances)
-#     result = hospital.assign_rooms()
-#     print(result)
+    # hospital = HospitalRoomAssignment(no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances)
+    # result = hospital.assign_rooms()
+    # print(result)
+
+    patientsData = {
+        'einar': {
+            'gender': True,
+            'infectious': False,
+        },
+        'rudi': {
+            'gender': True,
+            'infectious': False,
+        },
+        'lizeth': {
+            'gender': False,
+            'infectious': True,
+        },
+        'laura': {
+            'gender': False,
+            'infectious': False,
+        },
+        'riccardo': {
+            'gender': True,
+            'infectious': False,
+        }
+    }
+
+    # Read file
+    with open('abs.txt', 'r') as f:
+        # Read all content
+        content = f.read()
+
+
+    # EB - Split content by "------"
+    scenarios = content.strip().split('------')
+
+    # Iterate over scenarios
+    for scenario in scenarios:
+        if (len(scenario) == 0):
+            continue
+
+        # Split scenario by newline
+        lines = scenario.split('\n')
+
+        genders = []
+        infectious = []
+        patient_distances = []
+
+        for line in lines:
+            patients = line.split(",")
+
+            if len(patients) != 2:
+                continue
+
+            genders.append(patientsData[patients[0]]['gender'])
+            infectious.append(patientsData[patients[0]]['infectious'])
+            patient_distances.append(int(patients[1]))
+
+        no_patients = len(genders)
+
+        print(genders)
+        print(infectious)
+        print(patient_distances)
+
+        hospital = HospitalRoomAssignment(no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances)
+        result = hospital.assign_rooms()
+        print(result)
