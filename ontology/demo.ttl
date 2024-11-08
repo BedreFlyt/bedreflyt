@@ -13,30 +13,30 @@
 #    Object Properties
 #################################################################
 
-###  http://www.bedreflyt.org/demo#assigned_diagnostic_code
+###  http://www.bedreflyt.org/demo/assigned_diagnostic_code
 :assigned_diagnostic_code rdf:type owl:ObjectProperty ;
                           rdfs:domain :Patient ;
                           rdfs:range :Diagnostic_Code .
 
 
-###  http://www.bedreflyt.org/demo#assigned_proc_code
+###  http://www.bedreflyt.org/demo/assigned_proc_code
 :assigned_proc_code rdf:type owl:ObjectProperty .
 
 
-###  http://www.bedreflyt.org/demo#has_admit_status
+###  http://www.bedreflyt.org/demo/has_admit_status
 :has_admit_status rdf:type owl:ObjectProperty .
 
 
-###  http://www.bedreflyt.org/demo#has_bed_assignment
+###  http://www.bedreflyt.org/demo/has_bed_assignment
 :has_bed_assignment rdf:type owl:ObjectProperty .
 
 
-###  http://www.bedreflyt.org/demo#undergoes_surg_proc
+###  http://www.bedreflyt.org/demo/undergoes_surg_proc
 :undergoes_surg_proc rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf :undergoes_treatment_proc .
 
 
-###  http://www.bedreflyt.org/demo#undergoes_treatment_proc
+###  http://www.bedreflyt.org/demo/undergoes_treatment_proc
 :undergoes_treatment_proc rdf:type owl:ObjectProperty .
 
 
@@ -44,64 +44,60 @@
 #    Classes
 #################################################################
 
-###  http://www.bedreflyt.org/demo#Admin_Med
+###  http://www.bedreflyt.org/demo/Admin_Med
 :Admin_Med rdf:type owl:Class ;
            rdfs:subClassOf :Treatment_Procedure ;
            rdfs:comment "administer medication" .
 
 
-###  http://www.bedreflyt.org/demo#Admit_Code
-:Admit_Code rdf:type owl:Class .
-
-
-###  http://www.bedreflyt.org/demo#Bed
+###  http://www.bedreflyt.org/demo/Bed
 :Bed rdf:type owl:Class .
 
 
-###  http://www.bedreflyt.org/demo#Diagnostic_Code
+###  http://www.bedreflyt.org/demo/Diagnostic_Code
 :Diagnostic_Code rdf:type owl:Class .
 
 
-###  http://www.bedreflyt.org/demo#Int_Bed
+###  http://www.bedreflyt.org/demo/Int_Bed
 :Int_Bed rdf:type owl:Class ;
          rdfs:subClassOf :Bed .
 
 
-###  http://www.bedreflyt.org/demo#Over_Bed
+###  http://www.bedreflyt.org/demo/Over_Bed
 :Over_Bed rdf:type owl:Class ;
           rdfs:subClassOf :Bed .
 
 
-###  http://www.bedreflyt.org/demo#PT
+###  http://www.bedreflyt.org/demo/PT
 :PT rdf:type owl:Class ;
     rdfs:subClassOf :Treatment_Procedure ;
     rdfs:comment "physical therapy" .
 
 
-###  http://www.bedreflyt.org/demo#Patient
+###  http://www.bedreflyt.org/demo/Patient
 :Patient rdf:type owl:Class .
 
 
-###  http://www.bedreflyt.org/demo#Procedural_Code
+###  http://www.bedreflyt.org/demo/Procedural_Code
 :Procedural_Code rdf:type owl:Class .
 
 
-###  http://www.bedreflyt.org/demo#Sengepost_Bed
+###  http://www.bedreflyt.org/demo/Sengepost_Bed
 :Sengepost_Bed rdf:type owl:Class ;
                rdfs:subClassOf :Bed .
 
 
-###  http://www.bedreflyt.org/demo#Surgical_Procedure
+###  http://www.bedreflyt.org/demo/Surgical_Procedure
 :Surgical_Procedure rdf:type owl:Class ;
                     rdfs:subClassOf :Treatment_Procedure ;
                     rdfs:comment "surgical procedure" .
 
 
-###  http://www.bedreflyt.org/demo#Task
+###  http://www.bedreflyt.org/demo/Task
 :Task rdf:type owl:Class .
 
 
-###  http://www.bedreflyt.org/demo#Treatment_Procedure
+###  http://www.bedreflyt.org/demo/Treatment_Procedure
 :Treatment_Procedure rdf:type owl:Class ;
                      rdfs:subClassOf :Task .
 
