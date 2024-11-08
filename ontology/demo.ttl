@@ -42,6 +42,36 @@
 #    Classes
 #################################################################
 
+###  http://www.bedreflyt.org/demo#BedAssignment
+:BedAssignment rdf:type owl:Class .
+
+
+###  http://www.bedreflyt.org/demo#acuteArrivalAssign
+:acuteArrivalAssign rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( :acuteArrivalCritical
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :has_bed_assignment ;
+                                                                 owl:allValuesFrom :overvaakning
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf :BedAssignment .
+
+
+###  http://www.bedreflyt.org/demo#criticalCareTreatAssign
+:criticalCareTreatAssign rdf:type owl:Class ;
+                         owl:equivalentClass [ owl:intersectionOf ( :criticalCareTreatment
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :has_bed_assignment ;
+                                                                      owl:allValuesFrom :overvaakning
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
+                                             ] ;
+                         rdfs:subClassOf :BedAssignment .
+
+
 ###  http://www.bedreflyt.org/demo/BedCategory
 :BedCategory rdf:type owl:Class .
 
