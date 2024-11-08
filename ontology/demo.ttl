@@ -13,10 +13,6 @@
 #    Object Properties
 #################################################################
 
-###  http://www.bedreflyt.org/demo#has_seq_journey_order
-:has_seq_journey_order rdf:type owl:ObjectProperty .
-
-
 ###  http://www.bedreflyt.org/demo/assigned_diagnostic_code
 :assigned_diagnostic_code rdf:type owl:ObjectProperty ;
                           rdfs:domain :Patient ;
@@ -24,7 +20,13 @@
 
 
 ###  http://www.bedreflyt.org/demo/has_bed_assignment
-:has_bed_assignment rdf:type owl:ObjectProperty .
+:has_bed_assignment rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Task ;
+                    rdfs:range :BedCategory .
+
+
+###  http://www.bedreflyt.org/demo/has_seq_journey_order
+:has_seq_journey_order rdf:type owl:ObjectProperty .
 
 
 ###  http://www.bedreflyt.org/demo/undergoes_surg_proc
@@ -40,13 +42,8 @@
 #    Classes
 #################################################################
 
-###  http://www.bedreflyt.org/demo#neckSurgery
-:neckSurgery rdf:type owl:Class ;
-             rdfs:subClassOf :Journey .
-
-
-###  http://www.bedreflyt.org/demo/CareBed
-:CareBed rdf:type owl:Class .
+###  http://www.bedreflyt.org/demo/BedCategory
+:BedCategory rdf:type owl:Class .
 
 
 ###  http://www.bedreflyt.org/demo/Diagnostic_Code
@@ -63,10 +60,6 @@
      rdfs:subClassOf :Diagnostic_Code .
 
 
-###  http://www.bedreflyt.org/demo/Journey
-:Journey rdf:type owl:Class .
-
-
 ###  http://www.bedreflyt.org/demo/M500
 :M500 rdf:type owl:Class ;
       rdfs:subClassOf :Diagnostic_Code .
@@ -80,6 +73,10 @@
 :Task rdf:type owl:Class .
 
 
+###  http://www.bedreflyt.org/demo/WF
+:WF rdf:type owl:Class .
+
+
 ###  http://www.bedreflyt.org/demo/acuteArrivalCritical
 :acuteArrivalCritical rdf:type owl:Class ;
                       rdfs:subClassOf :Task .
@@ -87,7 +84,7 @@
 
 ###  http://www.bedreflyt.org/demo/acuteBrainBleeding
 :acuteBrainBleeding rdf:type owl:Class ;
-                    rdfs:subClassOf :Journey .
+                    rdfs:subClassOf :WF .
 
 
 ###  http://www.bedreflyt.org/demo/criticalCareTreatment
@@ -102,7 +99,7 @@
 
 ###  http://www.bedreflyt.org/demo/intermediar
 :intermediar rdf:type owl:Class ;
-             rdfs:subClassOf :CareBed .
+             rdfs:subClassOf :BedCategory .
 
 
 ###  http://www.bedreflyt.org/demo/m500SurgeryTreatment
@@ -117,12 +114,22 @@
 
 ###  http://www.bedreflyt.org/demo/overvaakning
 :overvaakning rdf:type owl:Class ;
-              rdfs:subClassOf :CareBed .
+              rdfs:subClassOf :BedCategory .
 
 
 ###  http://www.bedreflyt.org/demo/plannedArrivalGood
 :plannedArrivalGood rdf:type owl:Class ;
                     rdfs:subClassOf :Task .
+
+
+###  http://www.bedreflyt.org/demo/plannedCervicalSurgery
+:plannedCervicalSurgery rdf:type owl:Class ;
+                        rdfs:subClassOf :WF .
+
+
+###  http://www.bedreflyt.org/demo/plannedNeckSurgery
+:plannedNeckSurgery rdf:type owl:Class ;
+                    rdfs:subClassOf :WF .
 
 
 ###  http://www.bedreflyt.org/demo/postOpRecoverGood
@@ -132,12 +139,17 @@
 
 ###  http://www.bedreflyt.org/demo/preOpNoBed
 :preOpNoBed rdf:type owl:Class ;
-            rdfs:subClassOf :CareBed .
+            rdfs:subClassOf :BedCategory .
 
 
 ###  http://www.bedreflyt.org/demo/sengepost
 :sengepost rdf:type owl:Class ;
-           rdfs:subClassOf :CareBed .
+           rdfs:subClassOf :BedCategory .
+
+
+###  http://www.bedreflyt.org/demo/surgicalRoom
+:surgicalRoom rdf:type owl:Class ;
+              rdfs:subClassOf :BedCategory .
 
 
 #################################################################
@@ -153,22 +165,11 @@
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :acuteArrivalCritical
-                :criticalCareTreatment
-                :fairCareTreatment
-                :m500SurgeryTreatment
-                :operasjonG912
-                :plannedArrivalGood
-                :postOpRecoverGood
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
   owl:members ( :intermediar
                 :overvaakning
                 :preOpNoBed
                 :sengepost
+                :surgicalRoom
               )
 ] .
 
