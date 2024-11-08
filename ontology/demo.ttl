@@ -13,18 +13,14 @@
 #    Object Properties
 #################################################################
 
+###  http://www.bedreflyt.org/demo#has_seq_journey_order
+:has_seq_journey_order rdf:type owl:ObjectProperty .
+
+
 ###  http://www.bedreflyt.org/demo/assigned_diagnostic_code
 :assigned_diagnostic_code rdf:type owl:ObjectProperty ;
                           rdfs:domain :Patient ;
                           rdfs:range :Diagnostic_Code .
-
-
-###  http://www.bedreflyt.org/demo/assigned_proc_code
-:assigned_proc_code rdf:type owl:ObjectProperty .
-
-
-###  http://www.bedreflyt.org/demo/has_admit_status
-:has_admit_status rdf:type owl:ObjectProperty .
 
 
 ###  http://www.bedreflyt.org/demo/has_bed_assignment
