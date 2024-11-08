@@ -42,34 +42,21 @@
 #    Classes
 #################################################################
 
-###  http://www.bedreflyt.org/demo#BedAssignment
+###  http://www.bedreflyt.org/demo#fairCareTreAssign
+:fairCareTreAssign rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( :fairCareTreatment
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :has_bed_assignment ;
+                                                                owl:allValuesFrom :intermediar
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:subClassOf :BedAssignment .
+
+
+###  http://www.bedreflyt.org/demo/BedAssignment
 :BedAssignment rdf:type owl:Class .
-
-
-###  http://www.bedreflyt.org/demo#acuteArrivalAssign
-:acuteArrivalAssign rdf:type owl:Class ;
-                    owl:equivalentClass [ owl:intersectionOf ( :acuteArrivalCritical
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :has_bed_assignment ;
-                                                                 owl:allValuesFrom :overvaakning
-                                                               ]
-                                                             ) ;
-                                          rdf:type owl:Class
-                                        ] ;
-                    rdfs:subClassOf :BedAssignment .
-
-
-###  http://www.bedreflyt.org/demo#criticalCareTreatAssign
-:criticalCareTreatAssign rdf:type owl:Class ;
-                         owl:equivalentClass [ owl:intersectionOf ( :criticalCareTreatment
-                                                                    [ rdf:type owl:Restriction ;
-                                                                      owl:onProperty :has_bed_assignment ;
-                                                                      owl:allValuesFrom :overvaakning
-                                                                    ]
-                                                                  ) ;
-                                               rdf:type owl:Class
-                                             ] ;
-                         rdfs:subClassOf :BedAssignment .
 
 
 ###  http://www.bedreflyt.org/demo/BedCategory
@@ -107,6 +94,19 @@
 :WF rdf:type owl:Class .
 
 
+###  http://www.bedreflyt.org/demo/acuteArrivalAssign
+:acuteArrivalAssign rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( :acuteArrivalCritical
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :has_bed_assignment ;
+                                                                 owl:allValuesFrom :overvaakning
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf :BedAssignment .
+
+
 ###  http://www.bedreflyt.org/demo/acuteArrivalCritical
 :acuteArrivalCritical rdf:type owl:Class ;
                       rdfs:subClassOf :Task .
@@ -115,6 +115,19 @@
 ###  http://www.bedreflyt.org/demo/acuteBrainBleeding
 :acuteBrainBleeding rdf:type owl:Class ;
                     rdfs:subClassOf :WF .
+
+
+###  http://www.bedreflyt.org/demo/criticalCareTreatAssign
+:criticalCareTreatAssign rdf:type owl:Class ;
+                         owl:equivalentClass [ owl:intersectionOf ( :criticalCareTreatment
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :has_bed_assignment ;
+                                                                      owl:allValuesFrom :overvaakning
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
+                                             ] ;
+                         rdfs:subClassOf :BedAssignment .
 
 
 ###  http://www.bedreflyt.org/demo/criticalCareTreatment
