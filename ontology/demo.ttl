@@ -44,9 +44,9 @@
 #    Classes
 #################################################################
 
-###  http://www.bedreflyt.org/demo#acuteBrainBleeding
-:acuteBrainBleeding rdf:type owl:Class ;
-                    rdfs:subClassOf :Journey .
+###  http://www.bedreflyt.org/demo#neckSurgery
+:neckSurgery rdf:type owl:Class ;
+             rdfs:subClassOf :Journey .
 
 
 ###  http://www.bedreflyt.org/demo/CareBed
@@ -87,6 +87,11 @@
 ###  http://www.bedreflyt.org/demo/acuteArrivalCritical
 :acuteArrivalCritical rdf:type owl:Class ;
                       rdfs:subClassOf :Task .
+
+
+###  http://www.bedreflyt.org/demo/acuteBrainBleeding
+:acuteBrainBleeding rdf:type owl:Class ;
+                    rdfs:subClassOf :Journey .
 
 
 ###  http://www.bedreflyt.org/demo/criticalCareTreatment
