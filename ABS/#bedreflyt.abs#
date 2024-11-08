@@ -3,11 +3,6 @@ module BedreFlyt;
 // by Einar, Lizeth, Rudi
 // October 2024
 
-// Note that we could add a time-guard for when a task is enabled
-data Task = EmptyTask | Task(String id, Int category, Set<String> dependencies);
-def Task t1() = Task("arrival", 1, set[]);
-def Task t2() = Task("surgery", 3, set["arrival"]);
-def Task t3() = Task("post-surgery", 1, set["arrival","surgery"]);
 
 // Remove task t1 from dependencies of task t2
 def Task taskReduce(Task t1, Task t2)
@@ -49,8 +44,7 @@ class Day(Int i) implements Day {
 	    }
     }
     Unit print(){
-
-println("Bedpost needs at time: Day " + toString(i));
+	println("Bedpost needs at time: Day " + toString(i));
 	println("Category 1: " + toString(length(cat1)));
 	println("Category 2: " + toString(length(cat2)));
 	println("Category 3: " + toString(length(cat3)));
