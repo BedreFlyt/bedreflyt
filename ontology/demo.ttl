@@ -13,30 +13,30 @@
 #    Object Properties
 #################################################################
 
-###  http://www.bedreflyt.org/demo#assigned_diagnostic_code
+###  http://www.bedreflyt.org/demo/assigned_diagnostic_code
 :assigned_diagnostic_code rdf:type owl:ObjectProperty ;
                           rdfs:domain :Patient ;
                           rdfs:range :Diagnostic_Code .
 
 
-###  http://www.bedreflyt.org/demo#assigned_proc_code
+###  http://www.bedreflyt.org/demo/assigned_proc_code
 :assigned_proc_code rdf:type owl:ObjectProperty .
 
 
-###  http://www.bedreflyt.org/demo#has_admit_status
+###  http://www.bedreflyt.org/demo/has_admit_status
 :has_admit_status rdf:type owl:ObjectProperty .
 
 
-###  http://www.bedreflyt.org/demo#has_bed_assignment
+###  http://www.bedreflyt.org/demo/has_bed_assignment
 :has_bed_assignment rdf:type owl:ObjectProperty .
 
 
-###  http://www.bedreflyt.org/demo#undergoes_surg_proc
+###  http://www.bedreflyt.org/demo/undergoes_surg_proc
 :undergoes_surg_proc rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf :undergoes_treatment_proc .
 
 
-###  http://www.bedreflyt.org/demo#undergoes_treatment_proc
+###  http://www.bedreflyt.org/demo/undergoes_treatment_proc
 :undergoes_treatment_proc rdf:type owl:ObjectProperty .
 
 
@@ -44,92 +44,97 @@
 #    Classes
 #################################################################
 
-###  http://www.bedreflyt.org/demo#CareBed
+###  http://www.bedreflyt.org/demo#acuteBrainBleeding
+:acuteBrainBleeding rdf:type owl:Class ;
+                    rdfs:subClassOf :Journey .
+
+
+###  http://www.bedreflyt.org/demo/CareBed
 :CareBed rdf:type owl:Class .
 
 
-###  http://www.bedreflyt.org/demo#Diagnostic_Code
+###  http://www.bedreflyt.org/demo/Diagnostic_Code
 :Diagnostic_Code rdf:type owl:Class .
 
 
-###  http://www.bedreflyt.org/demo#G912
+###  http://www.bedreflyt.org/demo/G912
 :G912 rdf:type owl:Class ;
       rdfs:subClassOf :Diagnostic_Code .
 
 
-###  http://www.bedreflyt.org/demo#I60
+###  http://www.bedreflyt.org/demo/I60
 :I60 rdf:type owl:Class ;
      rdfs:subClassOf :Diagnostic_Code .
 
 
-###  http://www.bedreflyt.org/demo#Journey
+###  http://www.bedreflyt.org/demo/Journey
 :Journey rdf:type owl:Class .
 
 
-###  http://www.bedreflyt.org/demo#M500
+###  http://www.bedreflyt.org/demo/M500
 :M500 rdf:type owl:Class ;
       rdfs:subClassOf :Diagnostic_Code .
 
 
-###  http://www.bedreflyt.org/demo#Patient
+###  http://www.bedreflyt.org/demo/Patient
 :Patient rdf:type owl:Class .
 
 
-###  http://www.bedreflyt.org/demo#Task
+###  http://www.bedreflyt.org/demo/Task
 :Task rdf:type owl:Class .
 
 
-###  http://www.bedreflyt.org/demo#acuteArrivalCritical
+###  http://www.bedreflyt.org/demo/acuteArrivalCritical
 :acuteArrivalCritical rdf:type owl:Class ;
                       rdfs:subClassOf :Task .
 
 
-###  http://www.bedreflyt.org/demo#criticalCareTreatment
+###  http://www.bedreflyt.org/demo/criticalCareTreatment
 :criticalCareTreatment rdf:type owl:Class ;
                        rdfs:subClassOf :Task .
 
 
-###  http://www.bedreflyt.org/demo#fairCareTreatment
+###  http://www.bedreflyt.org/demo/fairCareTreatment
 :fairCareTreatment rdf:type owl:Class ;
                    rdfs:subClassOf :Task .
 
 
-###  http://www.bedreflyt.org/demo#intermediar
+###  http://www.bedreflyt.org/demo/intermediar
 :intermediar rdf:type owl:Class ;
              rdfs:subClassOf :CareBed .
 
 
-###  http://www.bedreflyt.org/demo#m500SurgeryTreatment
+###  http://www.bedreflyt.org/demo/m500SurgeryTreatment
 :m500SurgeryTreatment rdf:type owl:Class ;
                       rdfs:subClassOf :Task .
 
 
-###  http://www.bedreflyt.org/demo#operasjonG912
+###  http://www.bedreflyt.org/demo/operasjonG912
 :operasjonG912 rdf:type owl:Class ;
                rdfs:subClassOf :Task .
 
 
-###  http://www.bedreflyt.org/demo#overvaakning
+###  http://www.bedreflyt.org/demo/overvaakning
 :overvaakning rdf:type owl:Class ;
               rdfs:subClassOf :CareBed .
 
 
-###  http://www.bedreflyt.org/demo#plannedArrivalGood
+###  http://www.bedreflyt.org/demo/plannedArrivalGood
 :plannedArrivalGood rdf:type owl:Class ;
                     rdfs:subClassOf :Task .
 
 
-###  http://www.bedreflyt.org/demo#postOpRecoverGood
+###  http://www.bedreflyt.org/demo/postOpRecoverGood
 :postOpRecoverGood rdf:type owl:Class ;
                    rdfs:subClassOf :Task .
 
 
-###  http://www.bedreflyt.org/demo#preOpNoBed
+###  http://www.bedreflyt.org/demo/preOpNoBed
 :preOpNoBed rdf:type owl:Class ;
             rdfs:subClassOf :CareBed .
 
 
-###  http://www.bedreflyt.org/demo#sengepost
+###  http://www.bedreflyt.org/demo/sengepost
 :sengepost rdf:type owl:Class ;
            rdfs:subClassOf :CareBed .
 
