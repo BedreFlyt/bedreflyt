@@ -46,6 +46,12 @@
           rdfs:range xsd:int .
 
 
+###  http://smolang.org/bedreflyt/bed
+:bed rdf:type owl:DatatypeProperty ;
+     rdfs:domain :Task ;
+     rdfs:range xsd:int .
+
+
 ###  http://smolang.org/bedreflyt/bedCategory
 :bedCategory rdf:type owl:DatatypeProperty ;
              rdfs:domain :Room ;
@@ -146,6 +152,10 @@
 :Task rdf:type owl:Class .
 
 
+###  http://smolang.org/bedreflyt/Treatment
+:Treatment rdf:type owl:Class .
+
+
 #################################################################
 #    Individuals
 #################################################################
@@ -211,6 +221,7 @@
 ###  http://smolang.org/bedreflyt/journeyStep2_I60
 :journeyStep2_I60 rdf:type owl:NamedIndividual ,
                            :JourneyStep ;
+                  :hasTask :task_criticalCareTreatment ;
                   :bedType 3 ;
                   :diagnosis "I60" ;
                   :orderInJourney 2 ;
@@ -240,6 +251,7 @@
 ###  http://smolang.org/bedreflyt/journeyStep3_I60
 :journeyStep3_I60 rdf:type owl:NamedIndividual ,
                            :JourneyStep ;
+                  :hasTask :task_fairCareTreatment ;
                   :bedType 1 ;
                   :diagnosis "I60" ;
                   :orderInJourney 3 ;
@@ -287,14 +299,14 @@
 :room4 rdf:type owl:NamedIndividual ,
                 :Room ;
        :bedCategory 4 ;
-       :roomDescription "SurgicalRoom" .
+       :roomDescription "PreOpRoom" .
 
 
 ###  http://smolang.org/bedreflyt/room5
 :room5 rdf:type owl:NamedIndividual ,
                 :Room ;
        :bedCategory 5 ;
-       :roomDescription "PreOpRoom" .
+       :roomDescription "SurgicalRoom" .
 
 
 ###  http://smolang.org/bedreflyt/roomDistribution1
@@ -470,42 +482,64 @@
 ###  http://smolang.org/bedreflyt/task_M500SurgeryTreatment
 :task_M500SurgeryTreatment rdf:type owl:NamedIndividual ,
                                     :Task ;
+                           :averageDuration "1.0"^^xsd:double ;
+                           :bed 2 ;
                            :taskName "M500SurgeryTreatment" .
 
 
 ###  http://smolang.org/bedreflyt/task_acuteArrivalCritical
 :task_acuteArrivalCritical rdf:type owl:NamedIndividual ,
                                     :Task ;
+                           :averageDuration "1.0"^^xsd:double ;
+                           :bed "3"^^xsd:int ;
                            :taskName "acuteArrivalCritical" .
+
+
+###  http://smolang.org/bedreflyt/task_arrival
+:task_arrival rdf:type owl:NamedIndividual ,
+                       :Task ;
+              :averageDuration "1.0"^^xsd:double ;
+              :bed "1"^^xsd:int ;
+              :taskName "arrival" .
 
 
 ###  http://smolang.org/bedreflyt/task_criticalCareTreatment
 :task_criticalCareTreatment rdf:type owl:NamedIndividual ,
                                      :Task ;
+                            :averageDuration "10.5"^^xsd:double ;
+                            :bed "3"^^xsd:int ;
                             :taskName "criticalCareTreatment" .
 
 
 ###  http://smolang.org/bedreflyt/task_fairCareTreatment
 :task_fairCareTreatment rdf:type owl:NamedIndividual ,
                                  :Task ;
+                        :averageDuration "7.0"^^xsd:double ;
+                        :bed "1"^^xsd:int ;
                         :taskName "fairCareTreatment" .
 
 
 ###  http://smolang.org/bedreflyt/task_operationG912
 :task_operationG912 rdf:type owl:NamedIndividual ,
                              :Task ;
+                    :averageDuration "2.0"^^xsd:double ;
+                    :bed "2"^^xsd:int ;
                     :taskName "operationG912" .
 
 
 ###  http://smolang.org/bedreflyt/task_plannedArrivalGood
 :task_plannedArrivalGood rdf:type owl:NamedIndividual ,
                                   :Task ;
+                         :averageDuration "1.0"^^xsd:double ;
+                         :bed "1"^^xsd:int ;
                          :taskName "plannedArrivalGood" .
 
 
 ###  http://smolang.org/bedreflyt/task_postOpRecoveryGood
 :task_postOpRecoveryGood rdf:type owl:NamedIndividual ,
                                   :Task ;
+                         :averageDuration "3.0"^^xsd:double ;
+                         :bed "1"^^xsd:int ;
                          :taskName "postOpRecoveryGood" .
 
 
