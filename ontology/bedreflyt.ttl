@@ -178,6 +178,36 @@
                 :diagnosisName "M500" .
 
 
+###  http://www.smolang.org/bedreflyt/journeyStep0_G912
+:journeyStep0_G912 rdf:type owl:NamedIndividual ,
+                            :JourneyStep ;
+                   :hasTask :task_arrival ;
+                   :bedType 1 ;
+                   :diagnosis "G912" ;
+                   :orderInJourney 0 ;
+                   :task "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/journeyStep0_I60
+:journeyStep0_I60 rdf:type owl:NamedIndividual ,
+                           :JourneyStep ;
+                  :hasTask :task_arrival ;
+                  :bedType 1 ;
+                  :diagnosis "I60" ;
+                  :orderInJourney 0 ;
+                  :task "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/journeyStep0_M500
+:journeyStep0_M500 rdf:type owl:NamedIndividual ,
+                            :JourneyStep ;
+                   :hasTask :task_arrival ;
+                   :bedType 1 ;
+                   :diagnosis "M500" ;
+                   :orderInJourney 0 ;
+                   :task "arrival" .
+
+
 ###  http://www.smolang.org/bedreflyt/journeyStep1_G912
 :journeyStep1_G912 rdf:type owl:NamedIndividual ,
                             :JourneyStep ;
