@@ -438,12 +438,12 @@ def Scenario sc() = list[scArrivingDay1(),scArrivingDay2(),Nil,scArrivingDay4()]
 //------------------------------------------------------------------------------------------------
 {
     // from ABS
-    Treatments tr = treatments(); // static knowledge about treatments
-    Scenario sc = sc(); // dynamic stream of patients
+    //Treatments tr = treatments(); // static knowledge about treatments
+    //Scenario sc = sc(); // dynamic stream of patients
 
     // from DB
-    //Treatments tr = trDB();
-    //Scenario sc = scDB();
+    Treatments tr = trDB();
+    Scenario sc = scDB();
 
     Simulator sim = new Simulator(tr,sc);
     List<BedPostNeeds> timeline = sim.simulate(); // Holds Day objects, where each day object holds patient needs in that day
