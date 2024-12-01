@@ -433,10 +433,10 @@
                  :bed "3"^^xsd:integer .
 
 
-### http://www.smolang.org/bedreflyt/task_innkomstM500
-:task_innkomstM500 rdf:type owl:NamedIndividual ,
+### http://www.smolang.org/bedreflyt/task_operasjonM500
+:task_operasjonM500 rdf:type owl:NamedIndividual ,
                           :Task ;
-                 :taskName "innkomstM500" ;
+                 :taskName "operasjonM500" ;
                  :averageDuration "1.0"^^xsd:double ;
                  :bed "2"^^xsd:integer .
 
@@ -908,10 +908,10 @@
 ###  http://www.smolang.org/bedreflyt/journeyStep1_M500
 :journeyStep1_M500 rdf:type owl:NamedIndividual ,
                           :JourneyStep ;
-                 :hasTask :task_innkomstM500 ;
+                 :hasTask :task_operasjonM500 ;
                  :diagnosis "M500" ;
                  :orderInJourney 1 ;
-                 :task "innkomstM500" .
+                 :task "operasjonM500" .
 
 
 ###  http://www.smolang.org/bedreflyt/journeyStep2_M500
@@ -1471,5 +1471,377 @@
                    :room 2 ;
                    :roomNumber 17 ;
                    :roomNumberModel 17 .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_innkomstI60
+:taskDependency_innkomstI60 rdf:type owl:NamedIndividual ,
+                                     :TaskDependency ;
+                            :taskDependent "innkomstI60" ;
+                            :taskToWait "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI60_1
+:taskDependency_observasjonNevI60_1 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI60_1" ;
+                                 :taskToWait "innkomstI60" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI60_2
+:taskDependency_observasjonNevI60_2 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI60_2" ;
+                                 :taskToWait "observasjonNevI60_1" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI60_3
+:taskDependency_observasjonNevI60_3 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI60_3" ;
+                                 :taskToWait "observasjonNevI60_2" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI60_4
+:taskDependency_observasjonNevI60_4 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI60_4" ;
+                                 :taskToWait "observasjonNevI60_3" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI60_5
+:taskDependency_observasjonNevI60_5 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI60_5" ;
+                                 :taskToWait "observasjonNevI60_4" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI60_6
+:taskDependency_observasjonNevI60_6 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI60_6" ;
+                                 :taskToWait "observasjonNevI60_5" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI60_7
+:taskDependency_observasjonNevI60_7 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI60_7" ;
+                                 :taskToWait "observasjonNevI60_6" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI60_8
+:taskDependency_observasjonNevI60_8 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI60_8" ;
+                                 :taskToWait "observasjonNevI60_7" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_innkomstI601
+:taskDependency_innkomstI601 rdf:type owl:NamedIndividual ,
+                                     :TaskDependency ;
+                            :taskDependent "innkomstI601" ;
+                            :taskToWait "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI601_1
+:taskDependency_observasjonNevI601_1 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI601_1" ;
+                                 :taskToWait "innkomstI601" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI601_2
+:taskDependency_observasjonNevI601_2 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI601_2" ;
+                                 :taskToWait "observasjonNevI601_1" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI601_3
+:taskDependency_observasjonNevI601_3 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI601_3" ;
+                                 :taskToWait "observasjonNevI601_2" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI601_4
+:taskDependency_observasjonNevI601_4 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI601_4" ;
+                                 :taskToWait "observasjonNevI601_3" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI601_5
+:taskDependency_observasjonNevI601_5 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI601_5" ;
+                                 :taskToWait "observasjonNevI601_4" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI601_6
+:taskDependency_observasjonNevI601_6 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI601_6" ;
+                                 :taskToWait "observasjonNevI601_5" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI601_7
+:taskDependency_observasjonNevI601_7 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI601_7" ;
+                                 :taskToWait "observasjonNevI601_6" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonNevI601_8
+:taskDependency_observasjonNevI601_8 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observasjonNevI601_8" ;
+                                 :taskToWait "observasjonNevI601_7" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observationNevI601_9
+:taskDependency_observationNevI601_9 rdf:type owl:NamedIndividual ,
+                                          :TaskDependency ;
+                                 :taskDependent "observationNevI601_9" ;
+                                 :taskToWait "observasjonNevI601_8" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observationNevI601_10
+:taskDependency_observationNevI601_10 rdf:type owl:NamedIndividual ,
+                                           :TaskDependency ;
+                                  :taskDependent "observationNevI601_10" ;
+                                  :taskToWait "observationNevI601_9" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observationNevI601_11
+:taskDependency_observationNevI601_11 rdf:type owl:NamedIndividual ,
+                                           :TaskDependency ;
+                                  :taskDependent "observationNevI601_11" ;
+                                  :taskToWait "observationNevI601_10" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observationNevI601_12
+:taskDependency_observationNevI601_12 rdf:type owl:NamedIndividual ,
+                                           :TaskDependency ;
+                                  :taskDependent "observationNevI601_12" ;
+                                  :taskToWait "observationNevI601_11" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observationNevI601_13
+:taskDependency_observationNevI601_13 rdf:type owl:NamedIndividual ,
+                                           :TaskDependency ;
+                                  :taskDependent "observationNevI601_13" ;
+                                  :taskToWait "observationNevI601_12" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_operasjonM500
+:taskDependency_operasjonM500 rdf:type owl:NamedIndividual ,
+                                     :TaskDependency ;
+                            :taskDependent "operasjonM500" ;
+                            :taskToWait "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_sengepostenM500
+:taskDependency_sengepostenM500 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "sengepostenM500" ;
+                             :taskToWait "operasjonM500" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_innkomstG912
+:taskDependency_innkomstG912 rdf:type owl:NamedIndividual ,
+                                     :TaskDependency ;
+                            :taskDependent "innkomstG912" ;
+                            :taskToWait "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_operasjonG912
+:taskDependency_operasjonG912 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "operasjonG912" ;
+                             :taskToWait "innkomstG912" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonG912
+:taskDependency_observasjonG912 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "observasjonG912" ;
+                             :taskToWait "operasjonG912" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_innkomstS065
+:taskDependency_innkomstS065 rdf:type owl:NamedIndividual ,
+                                     :TaskDependency ;
+                            :taskDependent "innkomstS065" ;
+                            :taskToWait "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_operasjonS065
+:taskDependency_operasjonS065 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "operasjonS065" ;
+                             :taskToWait "innkomstS065" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonS065
+:taskDependency_observasjonS065 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "observasjonS065" ;
+                             :taskToWait "operasjonS065" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_innkomstD352
+:taskDependency_innkomstD352 rdf:type owl:NamedIndividual ,
+                                     :TaskDependency ;
+                            :taskDependent "innkomstD352" ;
+                            :taskToWait "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_operasjonD352
+:taskDependency_operasjonD352 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "operasjonD352" ;
+                             :taskToWait "innkomstD352" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjon_1_D352
+:taskDependency_observasjon_1_D352 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "observasjon_1_D352" ;
+                             :taskToWait "operasjonD352" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjon_2_D352
+:taskDependency_observasjon_2_D352 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "observasjon_2_D352" ;
+                             :taskToWait "observasjon_1_D352" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_innkomstI671
+:taskDependency_innkomstI671 rdf:type owl:NamedIndividual ,
+                                     :TaskDependency ;
+                            :taskDependent "innkomstI671" ;
+                            :taskToWait "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_operasjonI671
+:taskDependency_operasjonI671 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "operasjonI671" ;
+                             :taskToWait "innkomstI671" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjon_1_I671
+:taskDependency_observasjon_1_I671 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "observasjon_1_I671" ;
+                             :taskToWait "operasjonI671" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjon_2_I671
+:taskDependency_observasjon_2_I671 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "observasjon_2_I671" ;
+                             :taskToWait "observasjon_1_I671" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_innkomstD320
+:taskDependency_innkomstD320 rdf:type owl:NamedIndividual ,
+                                     :TaskDependency ;
+                            :taskDependent "innkomstD320" ;
+                            :taskToWait "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_operasjonD320
+:taskDependency_operasjonD320 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "operasjonD320" ;
+                             :taskToWait "innkomstD320" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonD320
+:taskDependency_observasjonD320 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "observasjonD320" ;
+                             :taskToWait "operasjonD320" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_innkomstC712
+:taskDependency_innkomstC712 rdf:type owl:NamedIndividual ,
+                                     :TaskDependency ;
+                            :taskDependent "innkomstC712" ;
+                            :taskToWait "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_operasjonC712
+:taskDependency_operasjonC712 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "operasjonC712" ;
+                             :taskToWait "innkomstC712" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonC712
+:taskDependency_observasjonC712 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "observasjonC712" ;
+                             :taskToWait "operasjonC712" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_operasjonM501
+:taskDependency_operasjonM501 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "operasjonM501" ;
+                             :taskToWait "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonM501
+:taskDependency_observasjonM501 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "observasjonM501" ;
+                             :taskToWait "operasjonM501" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_innkomstG500
+:taskDependency_innkomstG500 rdf:type owl:NamedIndividual ,
+                                     :TaskDependency ;
+                            :taskDependent "innkomstG500" ;
+                            :taskToWait "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_operasjonG500
+:taskDependency_operasjonG500 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "operasjonG500" ;
+                             :taskToWait "innkomstG500" .
+
+
+### http://www.smolang.org/bedreflyt/taskDependency_observasjonG500
+:taskDependency_observasjonG500 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "observasjonG500" ;
+                             :taskToWait "operasjonG500" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_innkomstC713
+:taskDependency_innkomstC713 rdf:type owl:NamedIndividual ,
+                                     :TaskDependency ;
+                            :taskDependent "innkomstC713" ;
+                            :taskToWait "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_operasjonC713
+:taskDependency_operasjonC713 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "operasjonC713" ;
+                             :taskToWait "innkomstC713" .
+
+
+###  http://www.smolang.org/bedreflyt/taskDependency_observasjonC713
+:taskDependency_observasjonC713 rdf:type owl:NamedIndividual ,
+                                      :TaskDependency ;
+                             :taskDependent "observasjonC713" ;
+                             :taskToWait "operasjonC713" .
+
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi#########
