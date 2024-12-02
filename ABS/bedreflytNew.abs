@@ -224,17 +224,23 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
         // Get workflow from package
         WF flow = treatment(p);
         // Find task to execute
-      //  Task t = head(filter(enabled)(flow));
-        Task t = head(flow);
-        WF newFlow = Nil;
+
+        Task t = head(filter(enabled)(flow));
+        //Task t = head(flow);
+        WF newFlow = without(flow,t);
+        //WF newFlow = tail(flow);
+        while (daysAvg(t)==0){
+          t = head(newFlow);
+          newFlow = without(newFlow,t);
+          //newFlow = tail(newFlow);
+        }
         if (daysAvg(t) == 1){
-             //newFlow = without(flow,t);
-             newFlow = tail(flow);
+             skip;
            }
         else {
              Task t2 = Task(id(t), category(t), daysAvg(t)-1, dependencies(t));
-             //newFlow = Cons(t2,without(flow,t));
-             newFlow = Cons(t2,tail(flow));
+             newFlow = Cons(t2,without(newFlow,t));
+             //newFlow = Cons(t2,newFlow);
         }
         // Register resource needs of the task
         dayNeeds.register(patient(p),category(t));
@@ -370,21 +376,21 @@ case  b {
 // Task(name, bed-category, duration, task-dependencies)
 // duration: is the number of days needed for the task
 // bed-category: according to bedscat()
-
-def Task arrival() = Task("arrival", 1, 1, set[]);
-def Task analyses() = Task("analyses", 1, 2, set["arrival","surgery1"]);
-def Task surgery1() = Task("surgery1", 4, 1, set["arrival"]);
-def Task surgery2() = Task("surgery2", 4, 1, set["arrival","analyses"]);
-def Task recovery1() = Task("post-surgery1", 2, 1, set["arrival","surgery1"]);
-def Task recovery2() = Task("post-surgery2", 3, 1, set["arrival","surgery1"]);
-def Task recovery3() = Task("post-surgery3", 3, 2, set["arrival","analyses","surgery2"]);
-def Task recovery4() = Task("post-surgery4", 2, 2, set["arrival","analyses","surgery2","post-surgery3"]);
+def Task prearrival() = Task("pre-arrival", 0, 0, set[]);
+def Task arrival() = Task("arrival", 1, 1, set["pre-arrival"]);
+def Task analyses() = Task("analyses", 1, 2, set["pre-arrival","arrival","surgery1"]);
+def Task surgery1() = Task("surgery1", 4, 1, set["pre-arrival","arrival"]);
+def Task surgery2() = Task("surgery2", 5, 1, set["pre-arrival","arrival","analyses"]);
+def Task recovery1() = Task("post-surgery1", 2, 1, set["pre-arrival","arrival","surgery1"]);
+def Task recovery2() = Task("post-surgery2", 3, 1, set["pre-arrival","arrival","surgery1"]);
+def Task recovery3() = Task("post-surgery3", 3, 2, set["pre-arrival","arrival","analyses","surgery2"]);
+def Task recovery4() = Task("post-surgery4", 2, 2, set["pre-arrival","arrival","analyses","surgery2","post-surgery3"]);
 
 def WF emptyFlow() = list[];
-def WF standardTreatment() = list[arrival(), surgery1(), recovery1()];
-def WF interTreatment() = list[arrival(), surgery1(), recovery2()];
-def WF intenseTreatment1() = list[arrival(), analyses(), surgery2(), recovery3()];
-def WF intenseTreatment2() = list[arrival(), analyses(), surgery2(), recovery3(), recovery4()];
+def WF standardTreatment() = list[prearrival(),arrival(), surgery1(), recovery1()];
+def WF interTreatment() = list[prearrival(),arrival(), surgery1(), recovery2()];
+def WF intenseTreatment1() = list[prearrival(),arrival(), analyses(), surgery2(), recovery3()];
+def WF intenseTreatment2() = list[prearrival(),arrival(), analyses(), surgery2(), recovery3(), recovery4()];
 
 // This is the KB input for the simulator
 def Treatments treatments() = map[Pair("standard", standardTreatment()),
@@ -393,10 +399,12 @@ def Treatments treatments() = map[Pair("standard", standardTreatment()),
                                  Pair("intense2",intenseTreatment2())];
 
 // bed categories
-def BedsCat bedscat() = map[Pair(1,"Sengepost"),
+def BedsCat bedscat() = map[Pair(0,"No bed"),
+                            Pair(1,"Sengepost"),
                             Pair(2,"Intermediaer"),
                             Pair(3,"Overvaakning"),
-                            Pair(4,"Surgery room")];
+                            Pair(4,"Surgery room 1"),
+                            Pair(5,"Surgery room 2")];
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
 
@@ -460,16 +468,22 @@ def Scenario sc() = list[scArrivingDay1(),scArrivingDay2(),Nil,scArrivingDay4()]
 //------------------------------------------------------------------------------------------------
 {
     // from ABS
-    /*
+/*
     Treatments tr = treatments(); // static knowledge about treatments
     Scenario sc = sc(); // dynamic stream of patients
     BedsCat bc = bedscat();
-    */
+*/
 
     // from DB
+
     Treatments tr = trDB();
+    //println("\n" + toString(tr));
     Scenario sc = scDB();
+    //println("\n" + toString(sc));
     BedsCat bc = bcDB();
+    //println("\n" + toString(bc));
+
+
     Simulator sim = new Simulator(tr,sc,bc);
     List<BedPostNeeds> timeline = sim.simulate(); // Holds Day objects, where each day object holds patient needs in that day
 
