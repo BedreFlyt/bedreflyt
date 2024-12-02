@@ -224,13 +224,17 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
         // Get workflow from package
         WF flow = treatment(p);
         // Find task to execute
-        Task t = head(filter(enabled)(flow));
+      //  Task t = head(filter(enabled)(flow));
+        Task t = head(flow);
         WF newFlow = Nil;
         if (daysAvg(t) == 1){
-             newFlow = without(flow,t);}
+             //newFlow = without(flow,t);
+             newFlow = tail(flow);
+           }
         else {
              Task t2 = Task(id(t), category(t), daysAvg(t)-1, dependencies(t));
-             newFlow = Cons(t2,without(flow,t));
+             //newFlow = Cons(t2,without(flow,t));
+             newFlow = Cons(t2,tail(flow));
         }
         // Register resource needs of the task
         dayNeeds.register(patient(p),category(t));
@@ -466,7 +470,6 @@ def Scenario sc() = list[scArrivingDay1(),scArrivingDay2(),Nil,scArrivingDay4()]
     Treatments tr = trDB();
     Scenario sc = scDB();
     BedsCat bc = bcDB();
-
     Simulator sim = new Simulator(tr,sc,bc);
     List<BedPostNeeds> timeline = sim.simulate(); // Holds Day objects, where each day object holds patient needs in that day
 
