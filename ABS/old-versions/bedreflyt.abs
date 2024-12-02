@@ -14,12 +14,13 @@ data Patient = Person(String perId);
 
 //------------------Treatments------------------
 // daysAvg is the number of days in average needed for the task
-// category is a bed category, according to room distribution
+// category is a bed category,
+// 1 -- Sengepost
+// 2 -- Intermediaer
+// 3 -- Overvaakning
+// 4 -- Surgery room
 data Task = EmptyTask | Task(String id, Int category, Int daysAvg, Set<String> dependencies);
 type WF = List<Task>;
-
-data Bed = Bed (Int catg, String desc);
-type BedsCat = Map<Int,String>;
 
 
 // A "package" is a patient with an associated workflow
@@ -42,11 +43,6 @@ type Scenario = List<OneDayScenario>;  // stream patients per day (timeline)
 //------------------------------------------------------------------------------------------------
 //--------------------------------- TASKS & WORKFLOWS -- TREATMENT -------------------------------
 //------------------------------------------------------------------------------------------------
-
-
-
-// -----------------------------With dependencies ---------------------
-/*
 // remove task t from all the task dependencies in workflow f
 def WF removeDependWF(Task t, WF f) =
     case f {
@@ -57,21 +53,8 @@ def WF removeDependWF(Task t, WF f) =
 def Task removeDependTask(Task t1, Task t2)
             = Task(id(t2), category(t2), daysAvg(t2), remove(dependencies(t2),id(t1)));
 
-// Check that a task can be done now
+		// Check that a task can be done now
 def Bool enabled(Task t) = emptySet(dependencies(t));
-*/
-
-// -----------------------------Without dependencies ---------------------
-
-// ignore remove task t from all the task dependencies in workflow f
-def WF removeDependWF(Task t, WF f) = f;
-
-// ignore remove task t1 from dependencies of task t2
-def Task removeDependTask(Task t1, Task t2) = t2;
-
-// task always enabled
-def Bool enabled(Task t) = True;
-
 
 //------------------------------------------------------------------------------------------------
 //--------------------------------Objects that hold bedpost needs per day -------------------------
@@ -82,42 +65,51 @@ interface BedPostNeeds {  // bedpost needs in a day
     Unit printForZ3();
   }
 
-class BedPostNeeds(Int day, BedsCat bc) implements BedPostNeeds {
-
-  Map<Int,List<Patient>> cat = map[];
-
-  Unit init(){
-    Int l = length(entries(bc));
-    List<Pair<Int,String>> tmpbc = entries(bc);
-    Pair<Int,String> tmp = Pair(0,"");
-    while (l!=0) {
-      tmp = head(tmpbc);
-      tmpbc = tail(tmpbc);
-      cat = put(cat,fst(tmp),Nil);
-      l = l-1;
-    }
-  }
-
+class BedPostNeeds(Int day) implements BedPostNeeds {
+  List<Patient> cat1 = Nil;
+  List<Patient> cat2 = Nil;
+  List<Patient> cat3 = Nil;
+  List<Patient> cat4 = Nil;
 
     Unit register(Patient p, Int i){
-        cat = put(cat,i,appendright(lookupDefault(cat,i,Nil),p));
+			switch (i)
+	    {
+				1 => cat1 = Cons(p,cat1);
+				2 => cat2 = Cons(p,cat2);
+				3 => cat3 = Cons(p,cat3);
+				4 => cat4 = Cons(p,cat4);
+				_ => skip;
+	    }
     }
 
     Unit print(){
 			println("\nBedpost needs at time: Day " + toString(day));
-      foreach(t in entries(cat)){
-        println("Category" + toString(fst(t)) + "---: " + toString(length(snd(t))));
-      }
+			println("Category Sengepost---: " + toString(length(cat1)));
+			println("Category Intermediaer: " + toString(length(cat2)));
+			println("Category Overvaakning: " + toString(length(cat3)));
+			println("Category Surgery-----: " + toString(length(cat4)));
     }
 
     Unit printForZ3(){
-
-      foreach(t in entries(cat)){
-        List<Patient> tmp = snd(t);
-        while (!isEmpty(tmp)) {
-          println(perId(head(tmp)) + "," + toString(fst(t)));
-          tmp = tail(tmp);
-        }
+      List<Patient> tmp = cat1;
+      while (!isEmpty(tmp)) {
+        println(perId(head(tmp)) + ",1");
+        tmp = tail(tmp);
+      }
+      tmp = cat2;
+      while (!isEmpty(tmp)) {
+        println(perId(head(tmp)) + ",2");
+        tmp = tail(tmp);
+      }
+      tmp = cat3;
+      while (!isEmpty(tmp)) {
+        println(perId(head(tmp)) + ",3");
+        tmp = tail(tmp);
+      }
+      tmp = cat4;
+      while (!isEmpty(tmp)) {
+        println(perId(head(tmp)) + ",4");
+        tmp = tail(tmp);
       }
       println("------");
     }
@@ -149,14 +141,14 @@ interface Simulator {
   List<BedPostNeeds> simulate();
 }
 
-class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
+class Simulator(Treatments tr, Scenario sc) implements Simulator {
     PendingPacks packagesForNow = Nil;
 
     List<BedPostNeeds> simulate(){
       Int dayNumber = 1; // Starting day
       List<BedPostNeeds> timeline = Nil; // Holds Day objects
       BedPostNeeds dayNeeds;
-      PrintScenario showSc = new PrintScenario(bc);
+      PrintScenario showSc = new PrintScenario();
       PendingPacks packagesForLater = Nil;
       if(!isEmpty(sc)){
         // Now we load the incoming packages
@@ -168,7 +160,7 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
       }
       while (!isEmpty(packagesForLater)) {
           // Create Day object for today
-          dayNeeds = new BedPostNeeds(dayNumber,bc); // Object collecting the bedpost needs for today
+          dayNeeds = new BedPostNeeds(dayNumber); // Object collecting the bedpost needs for today
           timeline = Cons(dayNeeds,timeline);
           // advance to new day:
           /*
@@ -224,23 +216,13 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
         // Get workflow from package
         WF flow = treatment(p);
         // Find task to execute
-
         Task t = head(filter(enabled)(flow));
-        //Task t = head(flow);
-        WF newFlow = without(flow,t);
-        //WF newFlow = tail(flow);
-        while (daysAvg(t)==0){
-          t = head(newFlow);
-          newFlow = without(newFlow,t);
-          //newFlow = tail(newFlow);
-        }
+        WF newFlow = Nil;
         if (daysAvg(t) == 1){
-             skip;
-           }
+             newFlow = without(flow,t);}
         else {
              Task t2 = Task(id(t), category(t), daysAvg(t)-1, dependencies(t));
-             newFlow = Cons(t2,without(newFlow,t));
-             //newFlow = Cons(t2,newFlow);
+             newFlow = Cons(t2,without(flow,t));
         }
         // Register resource needs of the task
         dayNeeds.register(patient(p),category(t));
@@ -270,7 +252,7 @@ interface PrintScenario { // printing scenario per day
   Unit print();
 }
 
-class PrintScenario(BedsCat bc) implements PrintScenario {
+class PrintScenario() implements PrintScenario {
   PendingPacks scenario = Nil;
 
   Unit inputScenario(PendingPacks sc) {scenario = sc;}
@@ -282,7 +264,13 @@ class PrintScenario(BedsCat bc) implements PrintScenario {
       println(perId(patient(p)) + " needs");
       WF w = treatment(p);
       foreach (t in w) {
-        println("- " + lookupDefault(bc,category(t)," ") +  "for " + toString(daysAvg(t)) + " days");
+        switch (category(t))
+        {
+          1 => println("- Sengepost for " + toString(daysAvg(t)) + " days");
+          2 => println("- Intermediaer for " + toString(daysAvg(t)) + " days");
+          3 => println("- Overvaakning for " + toString(daysAvg(t)) + " days");
+          4 => println("- Surgery room for " + toString(daysAvg(t)) + " days");
+        }
       }
     }
   }
@@ -329,8 +317,6 @@ def List<String> trAux1() =
         "../dataTest/trData.db" ,
         "SELECT DISTINCT treatmentName  FROM treatments");
 
-
-
 def Task task(String taskName) =
     let List<TaskDB> tdb =  taskAux(taskName), Set<String> dep = taskDep(taskName) in
     Task(iddb(head(tdb)),categorydb(head(tdb)),daysdb(head(tdb)),dep);
@@ -354,43 +340,28 @@ case trl {
   Nil => tr;
   Cons(hd,tl) => trAux2(tl,insert(tr,Pair(hd,wf(hd)))) } ;
 
-
-/////////// BEDS CATEGORY//////////////////
-
-def List<Bed> bcAux1() =
-            builtin(sqlite3,
-            "../dataTest/roomData.db" ,
-            "SELECT DISTINCT catIdModl,roomDescr  FROM roomCategory ORDER BY catIdModl");
-
-def BedsCat bcDB() =
-            let List<Bed> b = bcAux1() in bcAux2(b,map[]);
-
-def BedsCat bcAux2(List<Bed> b, BedsCat bc) =
-case  b {
-  Nil => bc;
-  Cons(hd,tl) => bcAux2(tl,insert(bc,Pair(catg(hd),desc(hd)))) } ;
-
-
-// ----------------------- Run the simulator with internal datastructures
-
 // Task(name, bed-category, duration, task-dependencies)
 // duration: is the number of days needed for the task
-// bed-category: according to bedscat()
-def Task prearrival() = Task("pre-arrival", 0, 0, set[]);
-def Task arrival() = Task("arrival", 1, 1, set["pre-arrival"]);
-def Task analyses() = Task("analyses", 1, 2, set["pre-arrival","arrival","surgery1"]);
-def Task surgery1() = Task("surgery1", 4, 1, set["pre-arrival","arrival"]);
-def Task surgery2() = Task("surgery2", 5, 1, set["pre-arrival","arrival","analyses"]);
-def Task recovery1() = Task("post-surgery1", 2, 1, set["pre-arrival","arrival","surgery1"]);
-def Task recovery2() = Task("post-surgery2", 3, 1, set["pre-arrival","arrival","surgery1"]);
-def Task recovery3() = Task("post-surgery3", 3, 2, set["pre-arrival","arrival","analyses","surgery2"]);
-def Task recovery4() = Task("post-surgery4", 2, 2, set["pre-arrival","arrival","analyses","surgery2","post-surgery3"]);
+// bed-category:
+//  1 -- Sengepost
+//  2 -- Intermediaer
+//  3 -- Overvaakning
+//  4 -- Surgery room
+
+def Task arrival() = Task("arrival", 1, 1, set[]);
+def Task analyses() = Task("analyses", 1, 2, set["arrival"]);
+def Task surgery1() = Task("surgery1", 4, 1, set["arrival"]);
+def Task surgery2() = Task("surgery2", 4, 1, set["arrival","analyses"]);
+def Task recovery1() = Task("post-surgery1", 2, 1, set["arrival","surgery1"]);
+def Task recovery2() = Task("post-surgery2", 3, 1, set["arrival","surgery1"]);
+def Task recovery3() = Task("post-surgery3", 3, 2, set["arrival","analyses","surgery2"]);
+def Task recovery4() = Task("post-surgery4", 2, 2, set["arrival","analyses","surgery2","post-surgery3"]);
 
 def WF emptyFlow() = list[];
-def WF standardTreatment() = list[prearrival(),arrival(), surgery1(), recovery1()];
-def WF interTreatment() = list[prearrival(),arrival(), surgery1(), recovery2()];
-def WF intenseTreatment1() = list[prearrival(),arrival(), analyses(), surgery2(), recovery3()];
-def WF intenseTreatment2() = list[prearrival(),arrival(), analyses(), surgery2(), recovery3(), recovery4()];
+def WF standardTreatment() = list[arrival(), surgery1(), recovery1()];
+def WF interTreatment() = list[arrival(), surgery1(), recovery2()];
+def WF intenseTreatment1() = list[arrival(), analyses(), surgery2(), recovery3()];
+def WF intenseTreatment2() = list[arrival(), analyses(), surgery2(), recovery3(), recovery4()];
 
 // This is the KB input for the simulator
 def Treatments treatments() = map[Pair("standard", standardTreatment()),
@@ -398,13 +369,7 @@ def Treatments treatments() = map[Pair("standard", standardTreatment()),
                                  Pair("intense1",intenseTreatment1()),
                                  Pair("intense2",intenseTreatment2())];
 
-// bed categories
-def BedsCat bedscat() = map[Pair(0,"No bed"),
-                            Pair(1,"Sengepost"),
-                            Pair(2,"Intermediaer"),
-                            Pair(3,"Overvaakning"),
-                            Pair(4,"Surgery room 1"),
-                            Pair(5,"Surgery room 2")];
+
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
 
@@ -468,23 +433,14 @@ def Scenario sc() = list[scArrivingDay1(),scArrivingDay2(),Nil,scArrivingDay4()]
 //------------------------------------------------------------------------------------------------
 {
     // from ABS
-/*
-    Treatments tr = treatments(); // static knowledge about treatments
-    Scenario sc = sc(); // dynamic stream of patients
-    BedsCat bc = bedscat();
-*/
+    //Treatments tr = treatments(); // static knowledge about treatments
+    //Scenario sc = sc(); // dynamic stream of patients
 
     // from DB
-
     Treatments tr = trDB();
-    //println("\n" + toString(tr));
     Scenario sc = scDB();
-    //println("\n" + toString(sc));
-    BedsCat bc = bcDB();
-    //println("\n" + toString(bc));
 
-
-    Simulator sim = new Simulator(tr,sc,bc);
+    Simulator sim = new Simulator(tr,sc);
     List<BedPostNeeds> timeline = sim.simulate(); // Holds Day objects, where each day object holds patient needs in that day
 
 }
