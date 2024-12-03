@@ -226,21 +226,17 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
         // Find task to execute
 
         Task t = head(filter(enabled)(flow));
-        //Task t = head(flow);
         WF newFlow = without(flow,t);
-        //WF newFlow = tail(flow);
         while (daysAvg(t)==0){
-          t = head(newFlow);
+          t = head(filter(enabled)(newFlow));
           newFlow = without(newFlow,t);
-          //newFlow = tail(newFlow);
         }
         if (daysAvg(t) == 1){
              skip;
            }
         else {
              Task t2 = Task(id(t), category(t), daysAvg(t)-1, dependencies(t));
-             newFlow = Cons(t2,without(newFlow,t));
-             //newFlow = Cons(t2,newFlow);
+             newFlow = Cons(t2,newFlow);
         }
         // Register resource needs of the task
         dayNeeds.register(patient(p),category(t));
