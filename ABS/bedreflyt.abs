@@ -15,7 +15,7 @@ data Patient = Person(String perId);
 //------------------Treatments------------------
 // daysAvg is the number of days in average needed for the task
 // category is a bed category, according to room distribution
-data Task = EmptyTask | Task(String id, Int category, Int daysAvg, Set<String> dependencies);
+data Task = Task(String id, Int category, Int daysAvg, Set<String> dependencies);
 type WF = List<Task>;
 
 data Bed = Bed (Int catg, String desc);
