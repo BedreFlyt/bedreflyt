@@ -104,7 +104,7 @@ class BedPostNeeds(Int time, BedsCat bc) implements BedPostNeeds {
     }
 
     Unit print(){
-			println("\nBedpost needs at time: Day " + toString(day));
+			println("\nBedpost needs at time: Day " + toString(time));
       foreach(t in entries(cat)){
         println("Category" + toString(fst(t)) + "---: " + toString(length(snd(t))));
       }
@@ -178,7 +178,7 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
           showSc.inputScenario(packagesForLater);
           showSc.print();
           */
-          // simualte one day: consume the needs for today and and collect the needs for later
+          // simulate one day: consume the needs for today and and collect the needs for later
           packagesForLater = this.simulateOneRun(dayNumber, packagesForLater, dayNeeds);
           // print the needs for today
           dayNeeds.printForZ3();
