@@ -29,7 +29,7 @@ type PendingPacks = List<Package>;  // Pending packages per day
 type PendingPacksTimeline = List<PendingPacks>;  // Pending packages timeline
 //------------------------------------------------------------------------
 
-//-----------Dataypes to input to the simulator-----------------------
+//-----------Datatypes for input to the simulator-----------------------
 
 //---------------- Treatments - Input from the KB --------------------------------
 type Treatments = Map<String,WF>; // name and associated workflow
