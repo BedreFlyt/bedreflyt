@@ -34,7 +34,7 @@ type PendingPacksTimeline = List<PendingPacks>;  // Pending packages timeline
 //---------------- Treatments - Input from the KB --------------------------------
 type Treatments = Map<String,WF>; // name and associated workflow
 
-//------------------ Scenarios - Input from the stram of patients ------------------
+//------------------ Scenarios - Input from the stream of patients ------------------
 type OneDayScenario = List<Pair<String,String>>;  // stream of (patientId, treatmentId) in one day
 type Scenario = List<OneDayScenario>;  // stream patients per day (timeline)
 
@@ -82,7 +82,7 @@ interface BedPostNeeds {  // bedpost needs in a day
     Unit printForZ3();
   }
 
-class BedPostNeeds(Int day, BedsCat bc) implements BedPostNeeds {
+class BedPostNeeds(Int time, BedsCat bc) implements BedPostNeeds {
 
   Map<Int,List<Patient>> cat = map[];
 
