@@ -67,7 +67,7 @@ class HospitalRoomAssignment:
         for patient in range(self.no_patients):
             for room in range(self.no_rooms):
                 s.assert_and_track(Implies(patients[patient][room],
-                                           self.patient_distances[patient] <= self.room_distances[room]), f'distance patient {patient} room {room}')
+                                           self.patient_distances[patient] >= self.room_distances[room]), f'distance patient {patient} room {room}')
 
         if s.check() != sat:
             return "Model is unsat", s.unsat_core()
