@@ -46,12 +46,10 @@ type Scenario = List<OneDayScenario>;  // stream patients per day (timeline)
 
 
 // -----------------------------With dependencies ---------------------
-/*
+
 // remove task t from all the task dependencies in workflow f
 def WF removeDependWF(Task t, WF f) =
-    case f {
-    Nil => Nil;
-    Cons(hd,tl) => Cons(removeDependTask(t,hd),removeDependWF(t,tl)); } ;
+    map((Task hd) => removeDependTask(t, hd))(f);
 
 // Remove task t1 from dependencies of task t2
 def Task removeDependTask(Task t1, Task t2)
@@ -59,19 +57,6 @@ def Task removeDependTask(Task t1, Task t2)
 
 // Check that a task can be done now
 def Bool enabled(Task t) = emptySet(dependencies(t));
-*/
-
-// -----------------------------Without dependencies ---------------------
-
-// ignore remove task t from all the task dependencies in workflow f
-def WF removeDependWF(Task t, WF f) = f;
-
-// ignore remove task t1 from dependencies of task t2
-def Task removeDependTask(Task t1, Task t2) = t2;
-
-// task always enabled
-def Bool enabled(Task t) = True;
-
 
 //------------------------------------------------------------------------------------------------
 //--------------------------------Objects that hold bedpost needs per day -------------------------
@@ -132,7 +117,7 @@ class BedPostNeeds(Int time, BedsCat bc) implements BedPostNeeds {
 
 // Rough idea:
 // A "package" is a patient with an associated workflow
-// We pick the arriving package for the day
+// We pick the arriving packages for the day
 // We have two lists of packages to deal with:
 // 1) packages where we need to execute the first task of the workflow now (this is done via the OneRunSimulator),
 // 2) packages that we need to consider later (packagesForLater)
