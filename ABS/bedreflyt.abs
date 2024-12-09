@@ -146,7 +146,7 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
       if(!isEmpty(sc)){
         // Now we load the incoming packages
         OneDayScenario h = head(sc);
-        if(h != Cons(Pair("-1","-1"),Nil) ) {
+        if(h != Nil) {
             packagesForLater = concatenate(packagesForLater,generatePackages(h,tr, Nil));
         }
         sc = tail(sc);
@@ -180,7 +180,7 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
           if(!isEmpty(sc)){
             // Now we load the incoming packages for the next day
             OneDayScenario h = head(sc);
-            if(h != Cons(Pair("-1","-1"),Nil) ){
+            if(h != Nil){
                 packagesForLater = concatenate(packagesForLater,generatePackages(h,tr, Nil));
             }
             sc = tail(sc);
@@ -398,24 +398,26 @@ def List<PairDB> batchAux1(Int batch) =
         "../dataTest/scData.db" ,
         "SELECT  patientId, treatmentName  FROM scenario WHERE batch = ?",batch);
 
-def List<Int> scAux1() =
-        builtin(sqlite3,
-        "../dataTest/scData.db" ,
-        "SELECT DISTINCT batch FROM scenario  ORDER BY batch");
+def List<Int> maxBatch() =
+    builtin(sqlite3, "../dataTest/scData.db", "SELECT IFNULL(MAX(batch), -1) FROM scenario");
+def List<Int> minBatch() =
+    builtin(sqlite3, "../dataTest/scData.db", "SELECT IFNULL(MIN(batch), -1) FROM scenario");
+
+// sequence(2, 5) => list[2, 3, 4, 5]
+def List<Int> sequence(Int min, Int max) =
+    when (min <= max)
+    then Cons(min, sequence(min + 1, max))
+    else Nil;
 
 def OneDayScenario batch(Int batch) =
-        let List<PairDB> lpdb = batchAux1(batch) in batchAux2(lpdb,Nil);
-def OneDayScenario batchAux2(List<PairDB> lpdb, OneDayScenario odsc) =
-  case lpdb {
-    Nil => odsc;
-    Cons(hd,tl) => batchAux2(tl,appendright(odsc,Pair(pId(hd),tId(hd))))} ;
+    let List<PairDB> lpdb = batchAux1(batch)
+    in map((PairDB db) => Pair(pId(db), tId(db)))(lpdb);
 
-def Scenario scDB() = let List<Int> lb = scAux1() in scAux2(lb,Nil);
-def Scenario scAux2(List<Int> lb, Scenario sc) =
-  case lb {
-    Nil => sc;
-    Cons(hd,tl) => scAux2(tl, appendright(sc,batch(hd)))} ;
-
+def Scenario scDB() =
+    let List<Int> batches = sequence(head(minBatch()), head(maxBatch()))
+    // This inserts an empty list if there's no batches that day; this
+    // is correct behavior.
+    in map((Int batch_nr) => batch(batch_nr))(batches);
 
 //---------------------------Scenario 1------------------------------------
 //---- Only one day
