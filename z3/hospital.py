@@ -88,8 +88,15 @@ class HospitalRoomAssignment:
                         assignment[assigned_room].append(assigned_patient)
 
             result = []
+            # res_dic = {}
             for k in assignment:
-                result.append(f'Room {str(k)} is gender {room_gender[str(k)]} and holds patients {" ".join(assignment[k])}')
+                res_dic = {}
+                res_dic[k] = {
+                    'patients': assignment[k],
+                    'gender': str(room_gender[str(k)])
+                }
+                result.append(res_dic)
+                # result.append(f'Room {str(k)} is gender {room_gender[str(k)]} and holds patients {" ".join(assignment[k])}')
             return result
 
 # # Example usage:
