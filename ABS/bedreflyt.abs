@@ -75,7 +75,7 @@ class BedPostNeeds(Int time, BedsCat bc) implements BedPostNeeds {
     Int l = length(entries(bc));
     List<Pair<Int,String>> tmpbc = entries(bc);
     Pair<Int,String> tmp = Pair(0,"");
-    while (l!=0) {
+    while (l != 0) {
       tmp = head(tmpbc);
       tmpbc = tail(tmpbc);
       cat = put(cat,fst(tmp),Nil);
@@ -89,22 +89,19 @@ class BedPostNeeds(Int time, BedsCat bc) implements BedPostNeeds {
     }
 
     Unit print(){
-			println("\nBedpost needs at time: Day " + toString(time));
-      foreach(t in entries(cat)){
-        println("Category" + toString(fst(t)) + "---: " + toString(length(snd(t))));
-      }
+        println("\nBedpost needs at time: Day " + toString(time));
+        foreach(t in entries(cat)){
+            println(`Category$fst(t)$---: $length(snd(t))$`);
+        }
     }
 
     Unit printForZ3(){
-
-      foreach(t in entries(cat)){
-        List<Patient> tmp = snd(t);
-        while (!isEmpty(tmp)) {
-          println(perId(head(tmp)) + "," + toString(fst(t)));
-          tmp = tail(tmp);
+        foreach(t in entries(cat)){
+            foreach (patient in snd(t)) {
+                println(perId(patient) + "," + toString(fst(t)));
+            }
         }
-      }
-      println("------");
+        println("------");
     }
 }
 
@@ -140,20 +137,19 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
     List<BedPostNeeds> simulate() {
       Int dayNumber = head(minBatch()); // Starting day
       List<BedPostNeeds> timeline = Nil; // Holds Day objects
-      BedPostNeeds dayNeeds;
       PrintScenario showSc = new PrintScenario(bc);
       PendingPacks packagesForLater = Nil;
-      if(!isEmpty(sc)){
-        // Now we load the incoming packages
-        OneDayScenario h = head(sc);
-        if(h != Nil) {
-            packagesForLater = concatenate(packagesForLater,generatePackages(h,tr, Nil));
-        }
-        sc = tail(sc);
+      if(!isEmpty(sc)) {
+          // Now we load the incoming packages
+          OneDayScenario h = head(sc);
+          sc = tail(sc);
+          if(h != Nil) {
+              packagesForLater = generatePackages(h,tr, Nil);
+          }
       }
       while (!isEmpty(packagesForLater)) {
           // Create Day object for today
-          dayNeeds = new BedPostNeeds(dayNumber,bc); // Object collecting the bedpost needs for today
+          BedPostNeeds dayNeeds = new BedPostNeeds(dayNumber,bc); // Object collecting the bedpost needs for today
           timeline = Cons(dayNeeds,timeline);
           // advance to new day:
           /*
@@ -256,16 +252,14 @@ class PrintScenario(BedsCat bc) implements PrintScenario {
 
   Unit inputScenario(PendingPacks sc) {scenario = sc;}
 
-  Unit print(){
-    while(!isEmpty(scenario)){
-      Package p = head(scenario);
-      scenario = tail(scenario);
-      println(perId(patient(p)) + " needs");
-      WF w = treatment(p);
-      foreach (t in w) {
-        println("- " + lookupDefault(bc,category(t)," ") +  "for " + toString(daysAvg(t)) + " days");
+  Unit print() {
+      foreach (p in scenario) {
+          println(perId(patient(p)) + " needs");
+          WF w = treatment(p);
+          foreach (t in w) {
+              println(`- $lookupDefault(bc,category(t),"")$ for $daysAvg(t)$ days`);
+          }
       }
-    }
   }
 
 }
@@ -470,6 +464,9 @@ def Scenario sc() = list[scArrivingDay1(),scArrivingDay2(),Nil,scArrivingDay4()]
     Simulator sim = new Simulator(tr,sc,bc);
     List<BedPostNeeds> timeline = sim.simulate(); // Holds Day objects, where each day object holds patient needs in that day
 
+    // foreach (bn in timeline) {
+    //     await bn!print();
+    // }
 }
 
 
