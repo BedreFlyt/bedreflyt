@@ -137,8 +137,8 @@ interface Simulator {
 class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
     PendingPacks packagesForNow = Nil;
 
-    List<BedPostNeeds> simulate(){
-      Int dayNumber = 1; // Starting day
+    List<BedPostNeeds> simulate() {
+      Int dayNumber = head(minBatch()); // Starting day
       List<BedPostNeeds> timeline = Nil; // Holds Day objects
       BedPostNeeds dayNeeds;
       PrintScenario showSc = new PrintScenario(bc);
