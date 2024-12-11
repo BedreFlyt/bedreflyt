@@ -1,24 +1,26 @@
 BEGIN TRANSACTION;
 CREATE TABLE "taskDependencies" (
+  "treatmentName" TEXT,
 	"taskName"	TEXT,
 	"taskDependency"	TEXT
 );
-INSERT INTO "taskDependencies" VALUES('analyses','arrival');
-INSERT INTO "taskDependencies" VALUES('surgery1','arrival');
-INSERT INTO "taskDependencies" VALUES('surgery2','arrival');
-INSERT INTO "taskDependencies" VALUES('surgery2','analyses');
-INSERT INTO "taskDependencies" VALUES('post-surgery1','arrival');
-INSERT INTO "taskDependencies" VALUES('post-surgery1','surgery1');
-INSERT INTO "taskDependencies" VALUES('post-surgery2','arrival');
-INSERT INTO "taskDependencies" VALUES('post-surgery2','surgery1');
-INSERT INTO "taskDependencies" VALUES('post-surgery3','arrival');
-INSERT INTO "taskDependencies" VALUES('post-surgery3','analyses');
-INSERT INTO "taskDependencies" VALUES('post-surgery3','surgery2');
-INSERT INTO "taskDependencies" VALUES('post-surgery4','arrival');
-INSERT INTO "taskDependencies" VALUES('post-surgery4','analyses');
-INSERT INTO "taskDependencies" VALUES('post-surgery4','surgery2');
-INSERT INTO "taskDependencies" VALUES('post-surgery4','post-surgery3');
+INSERT INTO "taskDependencies" VALUES('standard','surgery1', 'arrival');
+INSERT INTO "taskDependencies" VALUES('standard','post-surgery1', 'surgery1');
+
+INSERT INTO "taskDependencies" VALUES('inter','surgery1', 'arrival');
+INSERT INTO "taskDependencies" VALUES('inter','post-surgery2', 'surgery1');
+
+INSERT INTO "taskDependencies" VALUES('intense1','analyses', 'arrival');
+INSERT INTO "taskDependencies" VALUES('intense1','surgery2', 'analyses');
+INSERT INTO "taskDependencies" VALUES('intense1','post-surgery3', 'surgery2');
+
+INSERT INTO "taskDependencies" VALUES('intense2','analyses', 'arrival');
+INSERT INTO "taskDependencies" VALUES('intense2','surgery2', 'analyses');
+INSERT INTO "taskDependencies" VALUES('intense2','post-surgery3', 'surgery2');
+INSERT INTO "taskDependencies" VALUES('intense2','post-surgery4', 'post-surgery3');
+
 CREATE INDEX IF NOT EXISTS taskDependencies_taskName ON taskDependencies(taskName);
+CREATE INDEX IF NOT EXISTS taskDependencies_treatmentName ON taskDependencies(treatmentName);
 
 CREATE TABLE "tasks" (
 	"name"	TEXT,
