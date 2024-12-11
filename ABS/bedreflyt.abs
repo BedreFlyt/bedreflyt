@@ -309,26 +309,16 @@ def List<String> trAux1() =
 def Task task(String taskName) =
     let List<TaskDB> tdb =  taskAux(taskName), Set<String> dep = taskDep(taskName) in
     Task(iddb(head(tdb)),categorydb(head(tdb)),daysdb(head(tdb)),dep);
-def Set<String> taskDep(String taskName) = listToSet(taskDepAux(taskName),set[]);
-def Set<String> listToSet(List<String> l, Set<String> s ) =
-  case l {
-    Nil => s;
-    Cons(hd,tl) => listToSet(tl,insertElement(s,hd))} ;
+
+def Set<String> taskDep(String taskName) = set(taskDepAux(taskName));
 
 def WF wf(String treatmentName) =
-    let List<String> lt = wfAux1(treatmentName) in wfAux2(lt,Nil);
-def WF wfAux2(List<String> lt, WF wf) =
-  case lt {
-    Nil => wf;
-    Cons(hd,tl) => wfAux2(tl,appendright(wf,task(hd))) } ;
+    let List<String> lt = wfAux1(treatmentName)
+    in map((String hd) => task(hd))(lt);
 
 def Treatments trDB() =
-        let List<String> trl = trAux1() in trAux2(trl,map[]);
-def Treatments trAux2(List<String> trl, Treatments tr) =
-case trl {
-  Nil => tr;
-  Cons(hd,tl) => trAux2(tl,insert(tr,Pair(hd,wf(hd)))) } ;
-
+    let List<String> trl = trAux1()
+    in foldl((String hd, Treatments result) => put(result, hd, wf(hd)))(trl, map[]);
 
 /////////// BEDS CATEGORY//////////////////
 
@@ -338,13 +328,8 @@ def List<Bed> bcAux1() =
             "SELECT DISTINCT catIdModl,roomDescr  FROM roomCategory ORDER BY catIdModl");
 
 def BedsCat bcDB() =
-            let List<Bed> b = bcAux1() in bcAux2(b,map[]);
-
-def BedsCat bcAux2(List<Bed> b, BedsCat bc) =
-case  b {
-  Nil => bc;
-  Cons(hd,tl) => bcAux2(tl,insert(bc,Pair(catg(hd),desc(hd)))) } ;
-
+    let List<Bed> bedList = bcAux1()
+    in foldl((Bed bed, BedsCat result) => put(result, catg(bed), desc(bed)))(bedList, map[]);
 
 // ----------------------- Run the simulator with internal datastructures
 
