@@ -285,23 +285,23 @@ def PendingPacks generatePackages(OneDayScenario odsc,Treatments tr, PendingPack
 //------------------------------------------------------------------------------------------------
 def List<String> taskDepAux(String taskName) =
         builtin(sqlite3,
-        "../dataTest/trData.db" ,
+        "../dataTest/bedreflyt.db" ,
         "SELECT taskDependency  FROM taskDependencies WHERE taskName = ?",taskName);
 
 data TaskDB = TaskDB(String iddb, Int categorydb, Int daysdb);
 def List<TaskDB> taskAux(String name) =
         builtin(sqlite3,
-        "../dataTest/trData.db" ,
+        "../dataTest/bedreflyt.db" ,
         "SELECT name, bedCategory, durAvg FROM tasks WHERE name = ?",name);
 
 def List<String> wfAux1(String treatmentName) =
         builtin(sqlite3,
-        "../dataTest/trData.db" ,
+        "../dataTest/bedreflyt.db" ,
         "SELECT taskName  FROM treatments  WHERE treatmentName= ? ORDER BY orderTask", treatmentName);
 
 def List<String> trAux1() =
         builtin(sqlite3,
-        "../dataTest/trData.db" ,
+        "../dataTest/bedreflyt.db" ,
         "SELECT DISTINCT treatmentName  FROM treatments");
 
 
@@ -334,7 +334,7 @@ case trl {
 
 def List<Bed> bcAux1() =
             builtin(sqlite3,
-            "../dataTest/roomData.db" ,
+            "../dataTest/bedreflyt.db",
             "SELECT DISTINCT catIdModl,roomDescr  FROM roomCategory ORDER BY catIdModl");
 
 def BedsCat bcDB() =
@@ -389,13 +389,13 @@ def BedsCat bedscat() = map[Pair(0,"No bed"),
 data PairDB = PairDB (String pId, String tId);
 def List<PairDB> batchAux1(Int batch) =
         builtin(sqlite3,
-        "../dataTest/scData.db" ,
+        "../dataTest/bedreflyt.db" ,
         "SELECT  patientId, treatmentName  FROM scenario WHERE batch = ?",batch);
 
 def List<Int> maxBatch() =
-    builtin(sqlite3, "../dataTest/scData.db", "SELECT IFNULL(MAX(batch), -1) FROM scenario");
+    builtin(sqlite3, "../dataTest/bedreflyt.db", "SELECT IFNULL(MAX(batch), -1) FROM scenario");
 def List<Int> minBatch() =
-    builtin(sqlite3, "../dataTest/scData.db", "SELECT IFNULL(MIN(batch), -1) FROM scenario");
+    builtin(sqlite3, "../dataTest/bedreflyt.db", "SELECT IFNULL(MIN(batch), -1) FROM scenario");
 
 // sequence(2, 5) => list[2, 3, 4, 5]
 def List<Int> sequence(Int min, Int max) =
