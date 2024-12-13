@@ -37,26 +37,22 @@ INSERT INTO "tasks" VALUES('post-surgery3',3,2);
 INSERT INTO "tasks" VALUES('post-surgery4',2,2);
 CREATE INDEX IF NOT EXISTS tasks_name ON tasks(name);
 
-CREATE TABLE "treatments" (
-	"treatmentName"	TEXT,
-	"orderTask"	INTEGER,
-	"taskName"	TEXT
-);
-INSERT INTO "treatments" VALUES('standard',1,'arrival');
-INSERT INTO "treatments" VALUES('standard',2,'surgery1');
-INSERT INTO "treatments" VALUES('standard',3,'post-surgery1');
-INSERT INTO "treatments" VALUES('inter',1,'arrival');
-INSERT INTO "treatments" VALUES('inter',2,'surgery1');
-INSERT INTO "treatments" VALUES('inter',3,'post-surgery2');
-INSERT INTO "treatments" VALUES('intense1',1,'arrival');
-INSERT INTO "treatments" VALUES('intense1',2,'analyses');
-INSERT INTO "treatments" VALUES('intense1',3,'surgery2');
-INSERT INTO "treatments" VALUES('intense1',4,'post-surgery3');
-INSERT INTO "treatments" VALUES('intense2',1,'arrival');
-INSERT INTO "treatments" VALUES('intense2',2,'analyses');
-INSERT INTO "treatments" VALUES('intense2',3,'surgery2');
-INSERT INTO "treatments" VALUES('intense2',4,'post-surgery3');
-INSERT INTO "treatments" VALUES('intense2',5,'post-surgery4');
-CREATE INDEX IF NOT EXISTS treatments_treatmentName ON treatments(treatmentName);
+CREATE VIEW treatments (treatmentName, taskName, orderTask) AS
+  WITH RECURSIVE tasks(treatmentName, taskName, taskPrio)
+  AS (SELECT treatmentName, taskDependency, 0
+        FROM taskDependencies base
+       WHERE taskDependency NOT IN
+             (SELECT taskName
+                FROM taskDependencies dep
+               WHERE base.treatmentName = dep.treatmentName)
+       UNION ALL
+      SELECT recur.treatmentName, recur.taskName, tasks.taskPrio + 1
+        FROM taskDependencies recur
+        JOIN tasks
+            ON recur.taskDependency = tasks.taskName
+            AND recur.treatmentName = tasks.treatmentName
+       ORDER BY 1, 3)
+  SELECT *
+    FROM tasks;
 
 COMMIT;

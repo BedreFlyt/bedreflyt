@@ -188,49 +188,37 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
     // Rough idea:
     // A "package" is a patient with an associated workflow
     // We have two lists of packages to deal with:
-    // 1) packages where we need to execute the first task of the workflow now (packagesForNow),
-    // 2) packages that we need to consider later (packagesForLater)
-    // When we have executed the first task of a workflow, we push the
+    // 1) packages where we need to execute the first task of the workflow now (`packages`),
+    // 2) packages that we need to consider later (`packagesForLater`)
+    // When we have executed all enabled tasks of a workflow, we push the
     // package with the remaining workflow to the packages for later
-
-    PendingPacks simulateOneRun(Int dayNumber, PendingPacks packagesForLater, BedPostNeeds dayNeeds){
+    PendingPacks simulateOneRun(Int dayNumber, PendingPacks packages, BedPostNeeds dayNeeds){
       // Move packages that we need to deal with today:
-      packagesForNow = packagesForLater;
-      packagesForLater = Nil;
+        PendingPacks packagesForLater = Nil;
       // Iterate over the packages to process
-      while (!isEmpty(packagesForNow)){
-        // Take the first package
-        Package p = head(packagesForNow);
-        packagesForNow = tail(packagesForNow);
+      foreach (p in packages) {
         // Get workflow from package
         WF flow = treatment(p);
-        // Find task to execute
-
-        Task t = head(filter(enabled)(flow));
-        WF newFlow = without(flow,t);
-        while (daysAvg(t)==0){
-          t = head(filter(enabled)(newFlow));
-          newFlow = without(newFlow,t);
+        WF newFlow = flow;
+        // Find tasks to execute -- will currently be only one since
+        // we got linear workflows, but there can be parallel tasks
+        foreach (t in filter(enabled)(flow)) {
+            newFlow = without(flow,t);
+            if (daysAvg(t) > 1) {
+                newFlow = Cons(Task(id(t), category(t), daysAvg(t) - 1, dependencies(t)), newFlow);
+            } else {
+                newFlow = removeDependWF(t,newFlow);
+            }
+            // Register resource needs of the task
+            dayNeeds.register(patient(p),category(t));
         }
-        if (daysAvg(t) == 1){
-             skip;
-           }
-        else {
-             Task t2 = Task(id(t), category(t), daysAvg(t)-1, dependencies(t));
-             newFlow = Cons(t2,newFlow);
-        }
-        // Register resource needs of the task
-        dayNeeds.register(patient(p),category(t));
-        // More stuff to do in remaining flow?
         if (!isEmpty(newFlow)){
             // Create package with remaining workflow
-            WF remaining = removeDependWF(t,newFlow);
-            Package newPackage = Package(patient(p),remaining);
+            Package newPackage = Package(patient(p),newFlow);
             // Push new package on packages for later
             packagesForLater = appendright(packagesForLater,newPackage);
-
         }
-     }
+      }
     return packagesForLater;
   }
 
