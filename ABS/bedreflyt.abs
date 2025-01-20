@@ -8,6 +8,8 @@ module BedreFlyt;
 //------------------------------------------------------------------------------------------------
 
 //------------------Datatypes for running the simulator------------------------
+type TreatmentID = String;
+type PatientID = String;
 
 //------------------ Patients -------------------------
 data Patient = Person(String perId);
@@ -16,14 +18,14 @@ data Patient = Person(String perId);
 // daysAvg is the number of days in average needed for the task
 // category is a bed category, according to room distribution
 data Task = Task(String id, Int category, Int daysAvg, Set<String> dependencies);
-type WF = List<Task>;
+type Treatment = List<Task>;
 
 data Bed = Bed (Int catg, String desc);
 type BedsCat = Map<Int,String>;
 
 
 // A "package" is a patient with an associated workflow
-data Package = Package(Patient patient, WF treatment);
+data Package = Package(Patient patient, Treatment treatment);
 
 type PendingPacks = List<Package>;  // Pending packages per day
 type PendingPacksTimeline = List<PendingPacks>;  // Pending packages timeline
@@ -32,10 +34,10 @@ type PendingPacksTimeline = List<PendingPacks>;  // Pending packages timeline
 //-----------Datatypes for input to the simulator-----------------------
 
 //---------------- Treatments - Input from the KB --------------------------------
-type Treatments = Map<String,WF>; // name and associated workflow
+type Treatments = Map<TreatmentID,Treatment>; // name and associated workflow --> Should be: mapping from diagnosis to treatment
 
 //------------------ Scenarios - Input from the stream of patients ------------------
-type OneDayScenario = List<Pair<String,String>>;  // stream of (patientId, treatmentId) in one day
+type OneDayScenario = List<Pair<PatientID,TreatmentID>>;  // stream of (patientId, treatmentId) in one day
 type Scenario = List<OneDayScenario>;  // stream patients per day (timeline)
 
 
@@ -48,7 +50,7 @@ type Scenario = List<OneDayScenario>;  // stream patients per day (timeline)
 // -----------------------------With dependencies ---------------------
 
 // remove task t from all the task dependencies in workflow f
-def WF removeDependWF(Task t, WF f) =
+def Treatment removeDependWF(Task t, Treatment f) =
     map((Task hd) => removeDependTask(t, hd))(f);
 
 // Remove task t1 from dependencies of task t2
@@ -198,8 +200,8 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
       // Iterate over the packages to process
       foreach (p in packages) {
         // Get workflow from package
-        WF flow = treatment(p);
-        WF newFlow = flow;
+        Treatment flow = treatment(p);
+        Treatment newFlow = flow;
         // Find tasks to execute -- will currently be only one since
         // we got linear workflows, but there can be parallel tasks
         foreach (t in filter(enabled)(flow)) {
@@ -243,7 +245,7 @@ class PrintScenario(BedsCat bc) implements PrintScenario {
   Unit print() {
       foreach (p in scenario) {
           println(perId(patient(p)) + " needs");
-          WF w = treatment(p);
+          Treatment w = treatment(p);
           foreach (t in w) {
               println(`- $lookupDefault(bc,category(t),"")$ for $daysAvg(t)$ days`);
           }
@@ -282,7 +284,7 @@ def List<TaskDB> taskAux(String name) =
         "../dataTest/bedreflyt.db" ,
         "SELECT name, bedCategory, durAvg FROM tasks WHERE name = ?",name);
 
-def List<String> wfAux1(String treatmentName) =
+def List<String> wfAux1(TreatmentID treatmentName) =
         builtin(sqlite3,
         "../dataTest/bedreflyt.db" ,
         "SELECT taskName  FROM treatments  WHERE treatmentName= ? ORDER BY orderTask", treatmentName);
@@ -300,7 +302,7 @@ def Task task(String taskName) =
 
 def Set<String> taskDep(String taskName) = set(taskDepAux(taskName));
 
-def WF wf(String treatmentName) =
+def Treatment wf(String treatmentName) =
     let List<String> lt = wfAux1(treatmentName)
     in map((String hd) => task(hd))(lt);
 
@@ -334,11 +336,11 @@ def Task recovery2() = Task("post-surgery2", 3, 1, set["pre-arrival","arrival","
 def Task recovery3() = Task("post-surgery3", 3, 2, set["pre-arrival","arrival","analyses","surgery2"]);
 def Task recovery4() = Task("post-surgery4", 2, 2, set["pre-arrival","arrival","analyses","surgery2","post-surgery3"]);
 
-def WF emptyFlow() = list[];
-def WF standardTreatment() = list[prearrival(),arrival(), surgery1(), recovery1()];
-def WF interTreatment() = list[prearrival(),arrival(), surgery1(), recovery2()];
-def WF intenseTreatment1() = list[prearrival(),arrival(), analyses(), surgery2(), recovery3()];
-def WF intenseTreatment2() = list[prearrival(),arrival(), analyses(), surgery2(), recovery3(), recovery4()];
+def Treatment emptyFlow() = list[];
+def Treatment standardTreatment() = list[prearrival(),arrival(), surgery1(), recovery1()];
+def Treatment interTreatment() = list[prearrival(),arrival(), surgery1(), recovery2()];
+def Treatment intenseTreatment1() = list[prearrival(),arrival(), analyses(), surgery2(), recovery3()];
+def Treatment intenseTreatment2() = list[prearrival(),arrival(), analyses(), surgery2(), recovery3(), recovery4()];
 
 // This is the KB input for the simulator
 def Treatments treatments() = map[Pair("standard", standardTreatment()),
