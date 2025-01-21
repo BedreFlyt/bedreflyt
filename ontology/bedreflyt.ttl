@@ -1083,6 +1083,24 @@
                                     :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstC712_C712_2
+:taskDependency_innkomstC712_C712_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "C712" ;
+                                    :taskDependent "innkomstC712" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstC712_C712_3
+:taskDependency_innkomstC712_C712_3 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "C712" ;
+                                    :taskDependent "innkomstC712" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_innkomstC713_C713_1
 :taskDependency_innkomstC713_C713_1 rdf:type owl:NamedIndividual ,
                                              :TaskDependency ;
@@ -1090,6 +1108,24 @@
                                     :taskDependent "innkomstC713" ;
                                     :taskToWait "arrival" ;
                                     :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstC713_C713_2
+:taskDependency_innkomstC713_C713_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "C713" ;
+                                    :taskDependent "innkomstC713" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstC713_C713_3
+:taskDependency_innkomstC713_C713_3 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "C713" ;
+                                    :taskDependent "innkomstC713" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_innkomstD320_D320_1
@@ -1101,6 +1137,24 @@
                                     :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstD320_D320_2
+:taskDependency_innkomstD320_D320_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D320" ;
+                                    :taskDependent "innkomstD320" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstD320_D320_3
+:taskDependency_innkomstD320_D320_3 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D320" ;
+                                    :taskDependent "innkomstD320" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_innkomstD352_D352_1
 :taskDependency_innkomstD352_D352_1 rdf:type owl:NamedIndividual ,
                                              :TaskDependency ;
@@ -1108,6 +1162,24 @@
                                     :taskDependent "innkomstD352" ;
                                     :taskToWait "arrival" ;
                                     :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstD352_D352_2
+:taskDependency_innkomstD352_D352_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D352" ;
+                                    :taskDependent "innkomstD352" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstD352_D352_3
+:taskDependency_innkomstD352_D352_3 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D352" ;
+                                    :taskDependent "innkomstD352" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_innkomstG500_G500_1
@@ -1128,6 +1200,42 @@
                                     :treatment "2" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstG500_G500_3
+:taskDependency_innkomstG500_G500_3 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "G500" ;
+                                    :taskDependent "innkomstG500" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "3" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstM500_M500_2
+:taskDependency_innkomstM500_M500_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "M500" ;
+                                    :taskDependent "innkomstM500" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstM500_M500_3
+:taskDependency_innkomstM500_M500_3 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "M500" ;
+                                    :taskDependent "innkomstM500" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "3" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstM5001_M5001_2
+:taskDependency_innkomstM5001_M5001_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "M5001" ;
+                                    :taskDependent "innkomstM5001" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "2" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_innkomstG912_G912_1
 :taskDependency_innkomstG912_G912_1 rdf:type owl:NamedIndividual ,
                                              :TaskDependency ;
@@ -1135,6 +1243,24 @@
                                     :taskDependent "innkomstG912" ;
                                     :taskToWait "arrival" ;
                                     :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstG912_G912_2
+:taskDependency_innkomstG912_G912_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "G912" ;
+                                    :taskDependent "innkomstG912" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstG912_G912_3
+:taskDependency_innkomstG912_G912_3 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "G912" ;
+                                    :taskDependent "innkomstG912" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_innkomstI601_I601_1
@@ -1146,6 +1272,24 @@
                                     :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstI601_I601_2
+:taskDependency_innkomstI601_I601_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "I601" ;
+                                    :taskDependent "innkomstI601" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstI601_I601_3
+:taskDependency_innkomstI601_I601_3 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "I601" ;
+                                    :taskDependent "innkomstI601" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_innkomstI60_I60_1
 :taskDependency_innkomstI60_I60_1 rdf:type owl:NamedIndividual ,
                                            :TaskDependency ;
@@ -1153,6 +1297,24 @@
                                   :taskDependent "innkomstI60" ;
                                   :taskToWait "arrival" ;
                                   :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstI60_I60_2
+:taskDependency_innkomstI60_I60_2 rdf:type owl:NamedIndividual ,
+                                           :TaskDependency ;
+                                  :diagnosisCode "I60" ;
+                                  :taskDependent "innkomstI60" ;
+                                  :taskToWait "arrival" ;
+                                  :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstI60_I60_3
+:taskDependency_innkomstI60_I60_3 rdf:type owl:NamedIndividual ,
+                                           :TaskDependency ;
+                                  :diagnosisCode "I60" ;
+                                  :taskDependent "innkomstI60" ;
+                                  :taskToWait "arrival" ;
+                                  :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_innkomstI671_I671_1
@@ -1164,6 +1326,24 @@
                                     :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstI671_I671_2
+:taskDependency_innkomstI671_I671_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "I671" ;
+                                    :taskDependent "innkomstI671" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstI671_I671_3
+:taskDependency_innkomstI671_I671_3 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "I671" ;
+                                    :taskDependent "innkomstI671" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_innkomstS065_S065_1
 :taskDependency_innkomstS065_S065_1 rdf:type owl:NamedIndividual ,
                                              :TaskDependency ;
@@ -1171,6 +1351,24 @@
                                     :taskDependent "innkomstS065" ;
                                     :taskToWait "arrival" ;
                                     :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstS065_S065_2
+:taskDependency_innkomstS065_S065_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "S065" ;
+                                    :taskDependent "innkomstS065" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstS065_S065_3
+:taskDependency_innkomstS065_S065_3 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "S065" ;
+                                    :taskDependent "innkomstS065" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonC712_C712_1
@@ -1181,6 +1379,24 @@
                                        :taskToWait "operasjonC712" ;
                                        :treatment "1" .
 
+                  
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonC712_C712_3
+:taskDependency_observasjonC712_C712_3 rdf:type owl:NamedIndividual ,
+                                                :TaskDependency ;
+                                       :diagnosisCode "C712" ;
+                                       :taskDependent "observasjonC712" ;
+                                       :taskToWait "operasjonC712" ;
+                                       :treatment "3" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_2_C712_C712_3
+:taskDependency_observasjon_2_C712_C712_3 rdf:type owl:NamedIndividual ,
+                                                :TaskDependency ;
+                                       :diagnosisCode "C712" ;
+                                       :taskDependent "observasjon_2_C712" ;
+                                       :taskToWait "observasjonC712" ;
+                                       :treatment "3" .
+
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonC713_C713_1
 :taskDependency_observasjonC713_C713_1 rdf:type owl:NamedIndividual ,
@@ -1189,6 +1405,24 @@
                                        :taskDependent "observasjonC713" ;
                                        :taskToWait "operasjonC713" ;
                                        :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonC713_C713_2
+:taskDependency_observasjonC713_C713_2 rdf:type owl:NamedIndividual ,
+                                                :TaskDependency ;
+                                       :diagnosisCode "C713" ;
+                                       :taskDependent "observasjonC713" ;
+                                       :taskToWait "operasjonC713" ;
+                                       :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_2_C713_C713_2
+:taskDependency_observasjon_2_C713_C713_2 rdf:type owl:NamedIndividual ,
+                                                :TaskDependency ;
+                                       :diagnosisCode "C713" ;
+                                       :taskDependent "observasjon_2_C713" ;
+                                       :taskToWait "observasjonC713" ;
+                                       :treatment "2" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonD320_D320_1
@@ -1235,6 +1469,23 @@
                                        :taskToWait "operasjonG912" ;
                                        :treatment "1" .
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonG912_G912_3
+:taskDependency_observasjonG912_G912_3 rdf:type owl:NamedIndividual ,
+                                                :TaskDependency ;
+                                       :diagnosisCode "G912" ;
+                                       :taskDependent "observasjonG912" ;
+                                       :taskToWait "operasjonG912" ;
+                                       :treatment "3" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonG912_2_G912_3
+:taskDependency_observasjonG912_2_G912_3 rdf:type owl:NamedIndividual ,
+                                                :TaskDependency ;
+                                       :diagnosisCode "G912" ;
+                                       :taskDependent "observasjonG912_2" ;
+                                       :taskToWait "observasjonG912" ;
+                                       :treatment "3" .
+
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonM501_M501_1
 :taskDependency_observasjonM501_M501_1 rdf:type owl:NamedIndividual ,
@@ -1243,6 +1494,15 @@
                                        :taskDependent "observasjonM501" ;
                                        :taskToWait "operasjonM501" ;
                                        :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonM501_M501_2
+:taskDependency_observasjonM501_M501_2 rdf:type owl:NamedIndividual ,
+                                                :TaskDependency ;
+                                       :diagnosisCode "M501" ;
+                                       :taskDependent "observasjonM501" ;
+                                       :taskToWait "operasjonM501" ;
+                                       :treatment "2" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_1_I601_1
@@ -1254,6 +1514,24 @@
                                             :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_1_I601_2
+:taskDependency_observasjonNevI601_1_I601_2 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_1" ;
+                                            :taskToWait "innkomstI601" ;
+                                            :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_1_I601_3
+:taskDependency_observasjonNevI601_1_I601_3 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_1" ;
+                                            :taskToWait "innkomstI601" ;
+                                            :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_2_I601_1
 :taskDependency_observasjonNevI601_2_I601_1 rdf:type owl:NamedIndividual ,
                                                      :TaskDependency ;
@@ -1261,6 +1539,24 @@
                                             :taskDependent "observasjonNevI601_2" ;
                                             :taskToWait "observasjonNevI601_1" ;
                                             :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_2_I601_2
+:taskDependency_observasjonNevI601_2_I601_2 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_2" ;
+                                            :taskToWait "observasjonNevI601_1" ;
+                                            :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_2_I601_3
+:taskDependency_observasjonNevI601_2_I601_3 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_2" ;
+                                            :taskToWait "observasjonNevI601_1" ;
+                                            :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_3_I601_1
@@ -1272,6 +1568,24 @@
                                             :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_3_I601_2
+:taskDependency_observasjonNevI601_3_I601_2 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_3" ;
+                                            :taskToWait "observasjonNevI601_2" ;
+                                            :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_3_I601_3
+:taskDependency_observasjonNevI601_3_I601_3 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_3" ;
+                                            :taskToWait "observasjonNevI601_2" ;
+                                            :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_4_I601_1
 :taskDependency_observasjonNevI601_4_I601_1 rdf:type owl:NamedIndividual ,
                                                      :TaskDependency ;
@@ -1279,6 +1593,24 @@
                                             :taskDependent "observasjonNevI601_4" ;
                                             :taskToWait "observasjonNevI601_3" ;
                                             :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_4_I601_2
+:taskDependency_observasjonNevI601_4_I601_2 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_4" ;
+                                            :taskToWait "observasjonNevI601_3" ;
+                                            :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_4_I601_3
+:taskDependency_observasjonNevI601_4_I601_3 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_4" ;
+                                            :taskToWait "observasjonNevI601_3" ;
+                                            :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_5_I601_1
@@ -1290,6 +1622,24 @@
                                             :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_5_I601_2
+:taskDependency_observasjonNevI601_5_I601_2 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_5" ;
+                                            :taskToWait "observasjonNevI601_4" ;
+                                            :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_5_I601_3
+:taskDependency_observasjonNevI601_5_I601_3 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_5" ;
+                                            :taskToWait "observasjonNevI601_4" ;
+                                            :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_6_I601_1
 :taskDependency_observasjonNevI601_6_I601_1 rdf:type owl:NamedIndividual ,
                                                      :TaskDependency ;
@@ -1297,6 +1647,24 @@
                                             :taskDependent "observasjonNevI601_6" ;
                                             :taskToWait "observasjonNevI601_5" ;
                                             :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_6_I601_2
+:taskDependency_observasjonNevI601_6_I601_2 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_6" ;
+                                            :taskToWait "observasjonNevI601_5" ;
+                                            :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_6_I601_3
+:taskDependency_observasjonNevI601_6_I601_3 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_6" ;
+                                            :taskToWait "observasjonNevI601_5" ;
+                                            :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_7_I601_1
@@ -1308,6 +1676,24 @@
                                             :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_7_I601_2
+:taskDependency_observasjonNevI601_7_I601_2 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_7" ;
+                                            :taskToWait "observasjonNevI601_6" ;
+                                            :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_7_I601_3
+:taskDependency_observasjonNevI601_7_I601_3 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_7" ;
+                                            :taskToWait "observasjonNevI601_6" ;
+                                            :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_8_I601_1
 :taskDependency_observasjonNevI601_8_I601_1 rdf:type owl:NamedIndividual ,
                                                      :TaskDependency ;
@@ -1315,6 +1701,33 @@
                                             :taskDependent "observasjonNevI601_8" ;
                                             :taskToWait "observasjonNevI601_7" ;
                                             :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_8_I601_2
+:taskDependency_observasjonNevI601_8_I601_2 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_8" ;
+                                            :taskToWait "observasjonNevI601_7" ;
+                                            :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI601_8_I601_3
+:taskDependency_observasjonNevI601_8_I601_3 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observasjonNevI601_8" ;
+                                            :taskToWait "observasjonNevI601_7" ;
+                                            :treatment "3" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_10_I60_2
+:taskDependency_observasjonNevI60_10_I60_2 rdf:type owl:NamedIndividual ,
+                                                    :TaskDependency ;
+                                           :diagnosisCode "I60" ;
+                                           :taskDependent "observasjonNevI60_10" ;
+                                           :taskToWait "observasjonNevI60_9" ;
+                                           :treatment "2" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_1_I60_1
@@ -1326,6 +1739,24 @@
                                           :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_1_I60_2
+:taskDependency_observasjonNevI60_1_I60_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_1" ;
+                                          :taskToWait "innkomstI60" ;
+                                          :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_1_I60_3
+:taskDependency_observasjonNevI60_1_I60_3 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_1" ;
+                                          :taskToWait "innkomstI60" ;
+                                          :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_2_I60_1
 :taskDependency_observasjonNevI60_2_I60_1 rdf:type owl:NamedIndividual ,
                                                    :TaskDependency ;
@@ -1333,6 +1764,24 @@
                                           :taskDependent "observasjonNevI60_2" ;
                                           :taskToWait "observasjonNevI60_1" ;
                                           :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_2_I60_2
+:taskDependency_observasjonNevI60_2_I60_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_2" ;
+                                          :taskToWait "observasjonNevI60_1" ;
+                                          :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_2_I60_3
+:taskDependency_observasjonNevI60_2_I60_3 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_2" ;
+                                          :taskToWait "observasjonNevI60_1" ;
+                                          :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_3_I60_1
@@ -1344,6 +1793,24 @@
                                           :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_3_I60_2
+:taskDependency_observasjonNevI60_3_I60_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_3" ;
+                                          :taskToWait "observasjonNevI60_2" ;
+                                          :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_3_I60_3
+:taskDependency_observasjonNevI60_3_I60_3 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_3" ;
+                                          :taskToWait "observasjonNevI60_2" ;
+                                          :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_4_I60_1
 :taskDependency_observasjonNevI60_4_I60_1 rdf:type owl:NamedIndividual ,
                                                    :TaskDependency ;
@@ -1351,6 +1818,24 @@
                                           :taskDependent "observasjonNevI60_4" ;
                                           :taskToWait "observasjonNevI60_3" ;
                                           :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_4_I60_2
+:taskDependency_observasjonNevI60_4_I60_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_4" ;
+                                          :taskToWait "observasjonNevI60_3" ;
+                                          :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_4_I60_3
+:taskDependency_observasjonNevI60_4_I60_3 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_4" ;
+                                          :taskToWait "observasjonNevI60_3" ;
+                                          :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_5_I60_1
@@ -1362,6 +1847,24 @@
                                           :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_5_I60_2
+:taskDependency_observasjonNevI60_5_I60_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_5" ;
+                                          :taskToWait "observasjonNevI60_4" ;
+                                          :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_5_I60_3
+:taskDependency_observasjonNevI60_5_I60_3 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_5" ;
+                                          :taskToWait "observasjonNevI60_4" ;
+                                          :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_6_I60_1
 :taskDependency_observasjonNevI60_6_I60_1 rdf:type owl:NamedIndividual ,
                                                    :TaskDependency ;
@@ -1369,6 +1872,24 @@
                                           :taskDependent "observasjonNevI60_6" ;
                                           :taskToWait "observasjonNevI60_5" ;
                                           :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_6_I60_2
+:taskDependency_observasjonNevI60_6_I60_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_6" ;
+                                          :taskToWait "observasjonNevI60_5" ;
+                                          :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_6_I60_3
+:taskDependency_observasjonNevI60_6_I60_3 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_6" ;
+                                          :taskToWait "observasjonNevI60_5" ;
+                                          :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_7_I60_1
@@ -1380,6 +1901,15 @@
                                           :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_7_I60_2
+:taskDependency_observasjonNevI60_7_I60_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_7" ;
+                                          :taskToWait "observasjonNevI60_6" ;
+                                          :treatment "2" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_8_I60_1
 :taskDependency_observasjonNevI60_8_I60_1 rdf:type owl:NamedIndividual ,
                                                    :TaskDependency ;
@@ -1387,6 +1917,24 @@
                                           :taskDependent "observasjonNevI60_8" ;
                                           :taskToWait "observasjonNevI60_7" ;
                                           :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_8_I60_2
+:taskDependency_observasjonNevI60_8_I60_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_8" ;
+                                          :taskToWait "observasjonNevI60_7" ;
+                                          :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonNevI60_9_I60_2
+:taskDependency_observasjonNevI60_9_I60_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I60" ;
+                                          :taskDependent "observasjonNevI60_9" ;
+                                          :taskToWait "observasjonNevI60_8" ;
+                                          :treatment "2" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjonS065_S065_1
@@ -1398,6 +1946,24 @@
                                        :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjonS065_S065_3
+:taskDependency_observasjonS065_S065_3 rdf:type owl:NamedIndividual ,
+                                                :TaskDependency ;
+                                       :diagnosisCode "S065" ;
+                                       :taskDependent "observasjonS065" ;
+                                       :taskToWait "operasjonS065" ;
+                                       :treatment "3" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_2_S065_S065_3
+:taskDependency_observasjon_2_S065_S065_3 rdf:type owl:NamedIndividual ,
+                                                :TaskDependency ;
+                                       :diagnosisCode "S065" ;
+                                       :taskDependent "observasjon_2_S065" ;
+                                       :taskToWait "observasjonS065" ;
+                                       :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_1_D352_D352_1
 :taskDependency_observasjon_1_D352_D352_1 rdf:type owl:NamedIndividual ,
                                                    :TaskDependency ;
@@ -1405,6 +1971,24 @@
                                           :taskDependent "observasjon_1_D352" ;
                                           :taskToWait "operasjonD352" ;
                                           :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_1_D352_D352_2
+:taskDependency_observasjon_1_D352_D352_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "D352" ;
+                                          :taskDependent "observasjon_1_D352" ;
+                                          :taskToWait "operasjonD352" ;
+                                          :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_1_D352_D352_3
+:taskDependency_observasjon_1_D352_D352_3 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "D352" ;
+                                          :taskDependent "observasjon_1_D352" ;
+                                          :taskToWait "operasjonD352" ;
+                                          :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_1_I671_I671_1
@@ -1416,6 +2000,24 @@
                                           :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_1_I671_I671_2
+:taskDependency_observasjon_1_I671_I671_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I671" ;
+                                          :taskDependent "observasjon_1_I671" ;
+                                          :taskToWait "operasjonI671" ;
+                                          :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_1_I671_I671_3
+:taskDependency_observasjon_1_I671_I671_3 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I671" ;
+                                          :taskDependent "observasjon_1_I671" ;
+                                          :taskToWait "operasjonI671" ;
+                                          :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_2_D352_D352_1
 :taskDependency_observasjon_2_D352_D352_1 rdf:type owl:NamedIndividual ,
                                                    :TaskDependency ;
@@ -1425,6 +2027,33 @@
                                           :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_2_D352_D352_2
+:taskDependency_observasjon_2_D352_D352_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "D352" ;
+                                          :taskDependent "observasjon_2_D352" ;
+                                          :taskToWait "observasjon_1_D352" ;
+                                          :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_2_D352_D352_3
+:taskDependency_observasjon_2_D352_D352_3 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "D352" ;
+                                          :taskDependent "observasjon_2_D352" ;
+                                          :taskToWait "observasjon_1_D352" ;
+                                          :treatment "3" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_3_D352_D352_3
+:taskDependency_observasjon_3_D352_D352_3 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "D352" ;
+                                          :taskDependent "observasjon_3_D352" ;
+                                          :taskToWait "observasjon_2_D352" ;
+                                          :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_2_I671_I671_1
 :taskDependency_observasjon_2_I671_I671_1 rdf:type owl:NamedIndividual ,
                                                    :TaskDependency ;
@@ -1432,6 +2061,24 @@
                                           :taskDependent "observasjon_2_I671" ;
                                           :taskToWait "observasjon_1_I671" ;
                                           :treatment "1" .
+
+                        
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_2_I671_I671_2
+:taskDependency_observasjon_2_I671_I671_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I671" ;
+                                          :taskDependent "observasjon_2_I671" ;
+                                          :taskToWait "observasjon_1_I671" ;
+                                          :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observasjon_3_I671_I671_2
+:taskDependency_observasjon_3_I671_I671_2 rdf:type owl:NamedIndividual ,
+                                                   :TaskDependency ;
+                                          :diagnosisCode "I671" ;
+                                          :taskDependent "observasjon_3_I671" ;
+                                          :taskToWait "observasjon_2_I671" ;
+                                          :treatment "2" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_10_I601_1
@@ -1443,6 +2090,24 @@
                                              :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_10_I601_2
+:taskDependency_observationNevI601_10_I601_2 rdf:type owl:NamedIndividual ,
+                                                      :TaskDependency ;
+                                             :diagnosisCode "I601" ;
+                                             :taskDependent "observationNevI601_10" ;
+                                             :taskToWait "observationNevI601_9" ;
+                                             :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_10_I601_3
+:taskDependency_observationNevI601_10_I601_3 rdf:type owl:NamedIndividual ,
+                                                      :TaskDependency ;
+                                             :diagnosisCode "I601" ;
+                                             :taskDependent "observationNevI601_10" ;
+                                             :taskToWait "observationNevI601_9" ;
+                                             :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_11_I601_1
 :taskDependency_observationNevI601_11_I601_1 rdf:type owl:NamedIndividual ,
                                                       :TaskDependency ;
@@ -1450,6 +2115,15 @@
                                              :taskDependent "observationNevI601_11" ;
                                              :taskToWait "observationNevI601_10" ;
                                              :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_11_I601_3
+:taskDependency_observationNevI601_11_I601_3 rdf:type owl:NamedIndividual ,
+                                                      :TaskDependency ;
+                                             :diagnosisCode "I601" ;
+                                             :taskDependent "observationNevI601_11" ;
+                                             :taskToWait "observationNevI601_10" ;
+                                             :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_12_I601_1
@@ -1461,6 +2135,15 @@
                                              :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_12_I601_3
+:taskDependency_observationNevI601_12_I601_3 rdf:type owl:NamedIndividual ,
+                                                      :TaskDependency ;
+                                             :diagnosisCode "I601" ;
+                                             :taskDependent "observationNevI601_12" ;
+                                             :taskToWait "observationNevI601_11" ;
+                                             :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_13_I601_1
 :taskDependency_observationNevI601_13_I601_1 rdf:type owl:NamedIndividual ,
                                                       :TaskDependency ;
@@ -1468,6 +2151,33 @@
                                              :taskDependent "observationNevI601_13" ;
                                              :taskToWait "observationNevI601_12" ;
                                              :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_13_I601_3
+:taskDependency_observationNevI601_13_I601_3 rdf:type owl:NamedIndividual ,
+                                                      :TaskDependency ;
+                                             :diagnosisCode "I601" ;
+                                             :taskDependent "observationNevI601_13" ;
+                                             :taskToWait "observationNevI601_12" ;
+                                             :treatment "3" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_14_I601_3
+:taskDependency_observationNevI601_14_I601_3 rdf:type owl:NamedIndividual ,
+                                                      :TaskDependency ;
+                                             :diagnosisCode "I601" ;
+                                             :taskDependent "observationNevI601_14" ;
+                                             :taskToWait "observationNevI601_13" ;
+                                             :treatment "3" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_15_I601_3
+:taskDependency_observationNevI601_15_I601_3 rdf:type owl:NamedIndividual ,
+                                                      :TaskDependency ;
+                                             :diagnosisCode "I601" ;
+                                             :taskDependent "observationNevI601_15" ;
+                                             :taskToWait "observationNevI601_14" ;
+                                             :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_9_I601_1
@@ -1479,6 +2189,24 @@
                                             :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_9_I601_2
+:taskDependency_observationNevI601_9_I601_2 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observationNevI601_9" ;
+                                            :taskToWait "observasjonNevI601_8" ;
+                                            :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_observationNevI601_9_I601_3
+:taskDependency_observationNevI601_9_I601_3 rdf:type owl:NamedIndividual ,
+                                                     :TaskDependency ;
+                                            :diagnosisCode "I601" ;
+                                            :taskDependent "observationNevI601_9" ;
+                                            :taskToWait "observasjonNevI601_8" ;
+                                            :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_operasjonC712_C712_1
 :taskDependency_operasjonC712_C712_1 rdf:type owl:NamedIndividual ,
                                               :TaskDependency ;
@@ -1486,6 +2214,24 @@
                                      :taskDependent "operasjonC712" ;
                                      :taskToWait "innkomstC712" ;
                                      :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonC712_C712_2
+:taskDependency_operasjonC712_C712_2 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "C712" ;
+                                     :taskDependent "operasjonC712" ;
+                                     :taskToWait "innkomstC712" ;
+                                     :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonC712_C712_3
+:taskDependency_operasjonC712_C712_3 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "C712" ;
+                                     :taskDependent "operasjonC712" ;
+                                     :taskToWait "innkomstC712" ;
+                                     :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_operasjonC713_C713_1
@@ -1497,6 +2243,24 @@
                                      :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonC713_C713_2
+:taskDependency_operasjonC713_C713_2 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "C713" ;
+                                     :taskDependent "operasjonC713" ;
+                                     :taskToWait "innkomstC713" ;
+                                     :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonC713_C713_3
+:taskDependency_operasjonC713_C713_3 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "C713" ;
+                                     :taskDependent "operasjonC713" ;
+                                     :taskToWait "innkomstC713" ;
+                                     :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_operasjonD320_D320_1
 :taskDependency_operasjonD320_D320_1 rdf:type owl:NamedIndividual ,
                                               :TaskDependency ;
@@ -1506,6 +2270,24 @@
                                      :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonD320_D320_2
+:taskDependency_operasjonD320_D320_2 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "D320" ;
+                                     :taskDependent "operasjonD320" ;
+                                     :taskToWait "innkomstD320" ;
+                                     :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonD320_D320_3
+:taskDependency_operasjonD320_D320_3 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "D320" ;
+                                     :taskDependent "operasjonD320" ;
+                                     :taskToWait "innkomstD320" ;
+                                     :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_operasjonD352_D352_1
 :taskDependency_operasjonD352_D352_1 rdf:type owl:NamedIndividual ,
                                               :TaskDependency ;
@@ -1513,6 +2295,24 @@
                                      :taskDependent "operasjonD352" ;
                                      :taskToWait "innkomstD352" ;
                                      :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonD352_D352_2
+:taskDependency_operasjonD352_D352_2 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "D352" ;
+                                     :taskDependent "operasjonD352" ;
+                                     :taskToWait "innkomstD352" ;
+                                     :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonD352_D352_3
+:taskDependency_operasjonD352_D352_3 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "D352" ;
+                                     :taskDependent "operasjonD352" ;
+                                     :taskToWait "innkomstD352" ;
+                                     :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_operasjonG500_G500_1
@@ -1533,6 +2333,15 @@
                                      :treatment "2" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonG500_G500_3
+:taskDependency_operasjonG500_G500_3 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "G500" ;
+                                     :taskDependent "operasjonG500" ;
+                                     :taskToWait "innkomstG500" ;
+                                     :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_operasjonG912_G912_1
 :taskDependency_operasjonG912_G912_1 rdf:type owl:NamedIndividual ,
                                               :TaskDependency ;
@@ -1540,6 +2349,24 @@
                                      :taskDependent "operasjonG912" ;
                                      :taskToWait "innkomstG912" ;
                                      :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonG912_G912_2
+:taskDependency_operasjonG912_G912_2 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "G912" ;
+                                     :taskDependent "operasjonG912" ;
+                                     :taskToWait "innkomstG912" ;
+                                     :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonG912_G912_3
+:taskDependency_operasjonG912_G912_3 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "G912" ;
+                                     :taskDependent "operasjonG912" ;
+                                     :taskToWait "innkomstG912" ;
+                                     :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_operasjonI671_I671_1
@@ -1560,6 +2387,24 @@
                                      :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonM500_M500_2
+:taskDependency_operasjonM500_M500_2 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "M500" ;
+                                     :taskDependent "operasjonM500" ;
+                                     :taskToWait "innkomstM500" ;
+                                     :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonM500_M500_3
+:taskDependency_operasjonM500_M500_3 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "M500" ;
+                                     :taskDependent "operasjonM500" ;
+                                     :taskToWait "innkomstM500" ;
+                                     :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_operasjonM501_M501_1
 :taskDependency_operasjonM501_M501_1 rdf:type owl:NamedIndividual ,
                                               :TaskDependency ;
@@ -1567,6 +2412,24 @@
                                      :taskDependent "operasjonM501" ;
                                      :taskToWait "arrival" ;
                                      :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonM501_M501_2
+:taskDependency_operasjonM501_M501_2 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "M501" ;
+                                     :taskDependent "operasjonM501" ;
+                                     :taskToWait "innkomstM501" ;
+                                     :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonM501_M501_3
+:taskDependency_operasjonM501_M501_3 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "M501" ;
+                                     :taskDependent "operasjonM501" ;
+                                     :taskToWait "arrival" ;
+                                     :treatment "3" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_operasjonS065_S065_1
@@ -1578,6 +2441,24 @@
                                      :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonS065_S065_2
+:taskDependency_operasjonS065_S065_2 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "S065" ;
+                                     :taskDependent "operasjonS065" ;
+                                     :taskToWait "innkomstS065" ;
+                                     :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonS065_S065_3
+:taskDependency_operasjonS065_S065_3 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "S065" ;
+                                     :taskDependent "operasjonS065" ;
+                                     :taskToWait "innkomstS065" ;
+                                     :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_sengepostenM500_M500_1
 :taskDependency_sengepostenM500_M500_1 rdf:type owl:NamedIndividual ,
                                                 :TaskDependency ;
@@ -1585,6 +2466,15 @@
                                        :taskDependent "sengepostenM500" ;
                                        :taskToWait "operasjonM500" ;
                                        :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_sengepostenM500_M500_2
+:taskDependency_sengepostenM500_M500_2 rdf:type owl:NamedIndividual ,
+                                                :TaskDependency ;
+                                       :diagnosisCode "M500" ;
+                                       :taskDependent "sengepostenM500" ;
+                                       :taskToWait "operasjonM500" ;
+                                       :treatment "2" .
 
 
 ###  http://www.smolang.org/bedreflyt#task_arrival
@@ -1667,6 +2557,22 @@
                    :taskName "innkomstI671" .
 
 
+###  http://www.smolang.org/bedreflyt#task_innkomstM500
+:task_innkomstM500 rdf:type owl:NamedIndividual ,
+                            :Task ;
+                   :averageDuration "1.0"^^xsd:double ;
+                   :bed 1 ;
+                   :taskName "innkomstM500" .
+
+
+###  http://www.smolang.org/bedreflyt#task_innkomstM501
+:task_innkomstM501 rdf:type owl:NamedIndividual ,
+                            :Task ;
+                   :averageDuration "1.0"^^xsd:double ;
+                   :bed 1 ;
+                   :taskName "innkomstM501" .
+
+
 ###  http://www.smolang.org/bedreflyt#task_innkomstS065
 :task_innkomstS065 rdf:type owl:NamedIndividual ,
                             :Task ;
@@ -1683,12 +2589,28 @@
                       :taskName "observasjonC712" .
 
 
+###  http://www.smolang.org/bedreflyt#task_observasjon_2_C712
+:task_observasjon_2_C712 rdf:type owl:NamedIndividual ,
+                               :Task ;
+                      :averageDuration "1.0"^^xsd:double ;
+                      :bed 1 ;
+                      :taskName "observasjon_2_C712" .
+
+
 ###  http://www.smolang.org/bedreflyt#task_observasjonC713
 :task_observasjonC713 rdf:type owl:NamedIndividual ,
                                :Task ;
                       :averageDuration "1.0"^^xsd:double ;
                       :bed 1 ;
                       :taskName "observasjonC713" .
+
+
+###  http://www.smolang.org/bedreflyt#task_observasjon_2_C713
+:task_observasjon_2_C713 rdf:type owl:NamedIndividual ,
+                               :Task ;
+                      :averageDuration "1.0"^^xsd:double ;
+                      :bed 1 ;
+                      :taskName "observasjon_2_C713" .
 
 
 ###  http://www.smolang.org/bedreflyt#task_observasjonD320
@@ -1721,6 +2643,14 @@
                       :averageDuration "1.0"^^xsd:double ;
                       :bed 1 ;
                       :taskName "observasjonG912" .
+
+
+###  http://www.smolang.org/bedreflyt#task_observasjonG912_2
+:task_observasjonG912_2 rdf:type owl:NamedIndividual ,
+                               :Task ;
+                      :averageDuration "1.0"^^xsd:double ;
+                      :bed 1 ;
+                      :taskName "observasjonG912_2" .
 
 
 ###  http://www.smolang.org/bedreflyt#task_observasjonM501
@@ -1803,6 +2733,14 @@
                           :taskName "observasjonNevI60_1" .
 
 
+###  http://www.smolang.org/bedreflyt#task_observasjonNevI60_10
+:task_observasjonNevI60_10 rdf:type owl:NamedIndividual ,
+                                    :Task ;
+                           :averageDuration "2.0"^^xsd:double ;
+                           :bed 3 ;
+                           :taskName "observasjonNevI60_10" .
+
+
 ###  http://www.smolang.org/bedreflyt#task_observasjonNevI60_2
 :task_observasjonNevI60_2 rdf:type owl:NamedIndividual ,
                                    :Task ;
@@ -1859,12 +2797,28 @@
                           :taskName "observasjonNevI60_8" .
 
 
+###  http://www.smolang.org/bedreflyt#task_observasjonNevI60_9
+:task_observasjonNevI60_9 rdf:type owl:NamedIndividual ,
+                                   :Task ;
+                          :averageDuration "2.0"^^xsd:double ;
+                          :bed 3 ;
+                          :taskName "observasjonNevI60_9" .
+
+
 ###  http://www.smolang.org/bedreflyt#task_observasjonS065
 :task_observasjonS065 rdf:type owl:NamedIndividual ,
                                :Task ;
                       :averageDuration "1.0"^^xsd:double ;
                       :bed 13 ;
                       :taskName "observasjonS065" .
+
+
+###  http://www.smolang.org/bedreflyt#task_observasjon_2_S065
+:task_observasjon_2_S065 rdf:type owl:NamedIndividual ,
+                               :Task ;
+                      :averageDuration "1.0"^^xsd:double ;
+                      :bed 13 ;
+                      :taskName "observasjon_2_S065" .
 
 
 ###  http://www.smolang.org/bedreflyt#task_observasjon_1_D352
@@ -1891,12 +2845,28 @@
                          :taskName "observasjon_2_D352" .
 
 
+###  http://www.smolang.org/bedreflyt#task_observasjon_3_D352
+:task_observasjon_3_D352 rdf:type owl:NamedIndividual ,
+                                  :Task ;
+                         :averageDuration "1.0"^^xsd:double ;
+                         :bed 2 ;
+                         :taskName "observasjon_3_D352" .
+
+
 ###  http://www.smolang.org/bedreflyt#task_observasjon_2_I671
 :task_observasjon_2_I671 rdf:type owl:NamedIndividual ,
                                   :Task ;
                          :averageDuration "1.0"^^xsd:double ;
                          :bed 1 ;
                          :taskName "observasjon_2_I671" .
+
+
+###  http://www.smolang.org/bedreflyt#task_observasjon_3_I671
+:task_observasjon_3_I671 rdf:type owl:NamedIndividual ,
+                                  :Task ;
+                         :averageDuration "1.0"^^xsd:double ;
+                         :bed 1 ;
+                         :taskName "observasjon_3_I671" .
 
 
 ###  http://www.smolang.org/bedreflyt#task_observationNevI601_10
@@ -1929,6 +2899,22 @@
                             :averageDuration "1.0"^^xsd:double ;
                             :bed 3 ;
                             :taskName "observationNevI601_13" .
+
+
+###  http://www.smolang.org/bedreflyt#task_observationNevI601_14
+:task_observationNevI601_14 rdf:type owl:NamedIndividual ,
+                                     :Task ;
+                            :averageDuration "1.0"^^xsd:double ;
+                            :bed 3 ;
+                            :taskName "observationNevI601_13" .
+
+
+###  http://www.smolang.org/bedreflyt#task_observationNevI601_15
+:task_observationNevI601_15 rdf:type owl:NamedIndividual ,
+                                     :Task ;
+                            :averageDuration "1.0"^^xsd:double ;
+                            :bed 3 ;
+                            :taskName "observationNevI601_15" .
 
 
 ###  http://www.smolang.org/bedreflyt#task_observationNevI601_9
@@ -2036,24 +3022,6 @@
                   :weight "4.0"^^xsd:double .
 
 
-###  http://www.smolang.org/bedreflyt#treatment_2_C712
-:treatment_2_C712 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "C712" ;
-                  :frequency "15.0"^^xsd:double ;
-                  :treatmentId "2" ;
-                  :weight "2.0"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_3_C712
-:treatment_3_C712 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "C712" ;
-                  :frequency "30.0"^^xsd:double ;
-                  :treatmentId "3" ;
-                  :weight "5.0"^^xsd:double .
-
-
 ###  http://www.smolang.org/bedreflyt#treatment_1_C713
 :treatment_1_C713 rdf:type owl:NamedIndividual ,
                            :Treatment ;
@@ -2061,24 +3029,6 @@
                   :frequency "40.0"^^xsd:double ;
                   :treatmentId "1" ;
                   :weight "1.0"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_2_C713
-:treatment_2_C713 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "C713" ;
-                  :frequency "30.0"^^xsd:double ;
-                  :treatmentId "2" ;
-                  :weight "4.0"^^xsd:double .
-
-            
-###  http://www.smolang.org/bedreflyt#treatment_3_C713
-:treatment_3_C713 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "C713" ;
-                  :frequency "30.0"^^xsd:double ;
-                  :treatmentId "3" ;
-                  :weight "2.0"^^xsd:double .
 
 
 ###  http://www.smolang.org/bedreflyt#treatment_1_D320
@@ -2090,24 +3040,6 @@
                   :weight "2.0"^^xsd:double .
 
 
-###  http://www.smolang.org/bedreflyt#treatment_2_D320
-:treatment_2_D320 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "D320" ;
-                  :frequency "30.0"^^xsd:double ;
-                  :treatmentId "2" ;
-                  :weight "3.0"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_3_D320
-:treatment_3_D320 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "D320" ;
-                  :frequency "20.0"^^xsd:double ;
-                  :treatmentId "3" ;
-                  :weight "1.0"^^xsd:double .
-
-
 ###  http://www.smolang.org/bedreflyt#treatment_1_D352
 :treatment_1_D352 rdf:type owl:NamedIndividual ,
                            :Treatment ;
@@ -2115,24 +3047,6 @@
                   :frequency "60.0"^^xsd:double ;
                   :treatmentId "1" ;
                   :weight "2.0"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_2_D352
-:treatment_2_D352 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "D352" ;
-                  :frequency "20.0"^^xsd:double ;
-                  :treatmentId "2" ;
-                  :weight "1.0"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_3_D352
-:treatment_3_D352 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "D352" ;
-                  :frequency "20.0"^^xsd:double ;
-                  :treatmentId "3" ;
-                  :weight "10.0"^^xsd:double .
 
 
 ###  http://www.smolang.org/bedreflyt#treatment_1_G500
@@ -2144,24 +3058,6 @@
                   :weight "0.0"^^xsd:double .
 
 
-###  http://www.smolang.org/bedreflyt#treatment_2_G500
-:treatment_2_G500 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "G500" ;
-                  :frequency "30.0"^^xsd:double ;
-                  :treatmentId "2" ;
-                  :weight "2.0"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_3_G500
-:treatment_3_G500 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "G500" ;
-                  :frequency "5.0"^^xsd:double ;
-                  :treatmentId "3" ;
-                  :weight "1.0"^^xsd:double .
-
-
 ###  http://www.smolang.org/bedreflyt#treatment_1_G912
 :treatment_1_G912 rdf:type owl:NamedIndividual ,
                            :Treatment ;
@@ -2169,24 +3065,6 @@
                   :frequency "45.0"^^xsd:double ;
                   :treatmentId "1" ;
                   :weight "6.0"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_2_G912
-:treatment_2_G912 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "G912" ;
-                  :frequency "15.0"^^xsd:double ;
-                  :treatmentId "2" ;
-                  :weight "20.0"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_3_G912
-:treatment_3_G912 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "G912" ;
-                  :frequency "40.0"^^xsd:double ;
-                  :treatmentId "3" ;
-                  :weight "5.0"^^xsd:double .
 
 
 ###  http://www.smolang.org/bedreflyt#treatment_1_I60
@@ -2198,24 +3076,6 @@
                  :weight "5.0"^^xsd:double .
 
 
-###  http://www.smolang.org/bedreflyt#treatment_2_I60
-:treatment_2_I60 rdf:type owl:NamedIndividual ,
-                          :Treatment ;
-                 :diagnosisCode "I60" ;
-                 :frequency "15.0"^^xsd:double ;
-                 :treatmentId "2" ;
-                 :weight "8.0"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_3_I60
-:treatment_3_I60 rdf:type owl:NamedIndividual ,
-                          :Treatment ;
-                 :diagnosisCode "I60" ;
-                 :frequency "15.0"^^xsd:double ;
-                 :treatmentId "3" ;
-                 :weight "6.0"^^xsd:double .
-
-
 ###  http://www.smolang.org/bedreflyt#treatment_1_I601
 :treatment_1_I601 rdf:type owl:NamedIndividual ,
                            :Treatment ;
@@ -2225,30 +3085,102 @@
                   :weight "7.0"^^xsd:double .
 
 
-###  http://www.smolang.org/bedreflyt#treatment_2_I601
-:treatment_2_I601 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "I601" ;
-                  :frequency "15.0"^^xsd:double ;
-                  :treatmentId "2" ;
-                  :weight "9.0"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_3_I601
-:treatment_3_I601 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "I601" ;
-                  :frequency "5.0"^^xsd:double ;
-                  :treatmentId "3" ;
-                  :weight "29.0"^^xsd:double .
-
-
 ###  http://www.smolang.org/bedreflyt#treatment_1_I671
 :treatment_1_I671 rdf:type owl:NamedIndividual ,
                            :Treatment ;
                   :diagnosisCode "I671" ;
                   :frequency "55.0"^^xsd:double ;
                   :treatmentId "1" ;
+                  :weight "5.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_1_M500
+:treatment_1_M500 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "M500" ;
+                  :frequency "45.0"^^xsd:double ;
+                  :treatmentId "1" ;
+                  :weight "4.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_1_S065
+:treatment_1_S065 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "S065" ;
+                  :frequency "65.0"^^xsd:double ;
+                  :treatmentId "1" ;
+                  :weight "3.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_2_C712
+:treatment_2_C712 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "C712" ;
+                  :frequency "15.0"^^xsd:double ;
+                  :treatmentId "2" ;
+                  :weight "2.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_2_C713
+:treatment_2_C713 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "C713" ;
+                  :frequency "30.0"^^xsd:double ;
+                  :treatmentId "2" ;
+                  :weight "4.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_2_D320
+:treatment_2_D320 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "D320" ;
+                  :frequency "30.0"^^xsd:double ;
+                  :treatmentId "2" ;
+                  :weight "3.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_2_D352
+:treatment_2_D352 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "D352" ;
+                  :frequency "20.0"^^xsd:double ;
+                  :treatmentId "2" ;
+                  :weight "1.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_2_G500
+:treatment_2_G500 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "G500" ;
+                  :frequency "30.0"^^xsd:double ;
+                  :treatmentId "2" ;
+                  :weight "2.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_2_G912
+:treatment_2_G912 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "G912" ;
+                  :frequency "15.0"^^xsd:double ;
+                  :treatmentId "2" ;
+                  :weight "20.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_2_I60
+:treatment_2_I60 rdf:type owl:NamedIndividual ,
+                          :Treatment ;
+                 :diagnosisCode "I60" ;
+                 :frequency "15.0"^^xsd:double ;
+                 :treatmentId "2" ;
+                 :weight "10.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_2_I601
+:treatment_2_I601 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "I601" ;
+                  :frequency "15.0"^^xsd:double ;
+                  :treatmentId "2" ;
                   :weight "5.0"^^xsd:double .
 
 
@@ -2261,49 +3193,13 @@
                   :weight "8.0"^^xsd:double .
 
 
-###  http://www.smolang.org/bedreflyt#treatment_3_I671
-:treatment_3_I671 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "I671" ;
-                  :frequency "10.0"^^xsd:double ;
-                  :treatmentId "3" ;
-                  :weight "6.5"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_1_M500
-:treatment_1_M500 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "M500" ;
-                  :frequency "45.0"^^xsd:double ;
-                  :treatmentId "1" ;
-                  :weight "4.0"^^xsd:double .
-
-
 ###  http://www.smolang.org/bedreflyt#treatment_2_M500
 :treatment_2_M500 rdf:type owl:NamedIndividual ,
                            :Treatment ;
                   :diagnosisCode "M500" ;
                   :frequency "40.0"^^xsd:double ;
                   :treatmentId "2" ;
-                  :weight "3.0"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_3_M500
-:treatment_3_M500 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "M500" ;
-                  :frequency "15.0"^^xsd:double ;
-                  :treatmentId "3" ;
-                  :weight "3.0"^^xsd:double .
-
-
-###  http://www.smolang.org/bedreflyt#treatment_1_S065
-:treatment_1_S065 rdf:type owl:NamedIndividual ,
-                           :Treatment ;
-                  :diagnosisCode "S065" ;
-                  :frequency "65.0"^^xsd:double ;
-                  :treatmentId "1" ;
-                  :weight "3.0"^^xsd:double .
+                  :weight "6.0"^^xsd:double .
 
 
 ###  http://www.smolang.org/bedreflyt#treatment_2_S065
@@ -2313,6 +3209,96 @@
                   :frequency "25.0"^^xsd:double ;
                   :treatmentId "2" ;
                   :weight "8.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_3_C712
+:treatment_3_C712 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "C712" ;
+                  :frequency "30.0"^^xsd:double ;
+                  :treatmentId "3" ;
+                  :weight "5.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_3_C713
+:treatment_3_C713 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "C713" ;
+                  :frequency "30.0"^^xsd:double ;
+                  :treatmentId "3" ;
+                  :weight "2.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_3_D320
+:treatment_3_D320 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "D320" ;
+                  :frequency "20.0"^^xsd:double ;
+                  :treatmentId "3" ;
+                  :weight "1.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_3_D352
+:treatment_3_D352 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "D352" ;
+                  :frequency "20.0"^^xsd:double ;
+                  :treatmentId "3" ;
+                  :weight "10.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_3_G500
+:treatment_3_G500 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "G500" ;
+                  :frequency "5.0"^^xsd:double ;
+                  :treatmentId "3" ;
+                  :weight "1.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_3_G912
+:treatment_3_G912 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "G912" ;
+                  :frequency "40.0"^^xsd:double ;
+                  :treatmentId "3" ;
+                  :weight "5.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_3_I60
+:treatment_3_I60 rdf:type owl:NamedIndividual ,
+                          :Treatment ;
+                 :diagnosisCode "I60" ;
+                 :frequency "15.0"^^xsd:double ;
+                 :treatmentId "3" ;
+                 :weight "6.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_3_I601
+:treatment_3_I601 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "I601" ;
+                  :frequency "5.0"^^xsd:double ;
+                  :treatmentId "3" ;
+                  :weight "29.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_3_I671
+:treatment_3_I671 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "I671" ;
+                  :frequency "10.0"^^xsd:double ;
+                  :treatmentId "3" ;
+                  :weight "6.5"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_3_M500
+:treatment_3_M500 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "M500" ;
+                  :frequency "15.0"^^xsd:double ;
+                  :treatmentId "3" ;
+                  :weight "3.0"^^xsd:double .
 
 
 ###  http://www.smolang.org/bedreflyt#treatment_3_S065
