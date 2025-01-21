@@ -1230,7 +1230,7 @@
 ###  http://www.smolang.org/bedreflyt#taskDependency_innkomstM501_M501_2
 :taskDependency_innkomstM501_M501_2 rdf:type owl:NamedIndividual ,
                                              :TaskDependency ;
-                                    :diagnosisCode "M5001" ;
+                                    :diagnosisCode "M501" ;
                                     :taskDependent "innkomstM501" ;
                                     :taskToWait "arrival" ;
                                     :treatment "2" .
