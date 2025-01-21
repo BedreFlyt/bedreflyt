@@ -2378,6 +2378,24 @@
                                      :treatment "1" .
 
 
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonI671_I671_2
+:taskDependency_operasjonI671_I671_2 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "I671" ;
+                                     :taskDependent "operasjonI671" ;
+                                     :taskToWait "innkomstI671" ;
+                                     :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_operasjonI671_I671_3
+:taskDependency_operasjonI671_I671_3 rdf:type owl:NamedIndividual ,
+                                              :TaskDependency ;
+                                     :diagnosisCode "I671" ;
+                                     :taskDependent "operasjonI671" ;
+                                     :taskToWait "innkomstI671" ;
+                                     :treatment "3" .
+
+
 ###  http://www.smolang.org/bedreflyt#taskDependency_operasjonM500_M500_1
 :taskDependency_operasjonM500_M500_1 rdf:type owl:NamedIndividual ,
                                               :TaskDependency ;
