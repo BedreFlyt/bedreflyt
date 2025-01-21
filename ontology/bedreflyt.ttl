@@ -3103,6 +3103,15 @@
                   :weight "4.0"^^xsd:double .
 
 
+###  http://www.smolang.org/bedreflyt#treatment_1_M501
+:treatment_1_M501 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "M501" ;
+                  :frequency "45.0"^^xsd:double ;
+                  :treatmentId "1" ;
+                  :weight "4.0"^^xsd:double .
+
+
 ###  http://www.smolang.org/bedreflyt#treatment_1_S065
 :treatment_1_S065 rdf:type owl:NamedIndividual ,
                            :Treatment ;
@@ -3202,6 +3211,15 @@
                   :weight "6.0"^^xsd:double .
 
 
+###  http://www.smolang.org/bedreflyt#treatment_2_M501
+:treatment_2_M501 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "M501" ;
+                  :frequency "40.0"^^xsd:double ;
+                  :treatmentId "2" ;
+                  :weight "6.0"^^xsd:double .
+
+
 ###  http://www.smolang.org/bedreflyt#treatment_2_S065
 :treatment_2_S065 rdf:type owl:NamedIndividual ,
                            :Treatment ;
@@ -3296,6 +3314,15 @@
 :treatment_3_M500 rdf:type owl:NamedIndividual ,
                            :Treatment ;
                   :diagnosisCode "M500" ;
+                  :frequency "15.0"^^xsd:double ;
+                  :treatmentId "3" ;
+                  :weight "3.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_3_M501
+:treatment_3_M501 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "M501" ;
                   :frequency "15.0"^^xsd:double ;
                   :treatmentId "3" ;
                   :weight "3.0"^^xsd:double .
