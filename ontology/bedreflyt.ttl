@@ -1227,11 +1227,11 @@
                                     :treatment "3" .
 
 
-###  http://www.smolang.org/bedreflyt#taskDependency_innkomstM5001_M5001_2
-:taskDependency_innkomstM5001_M5001_2 rdf:type owl:NamedIndividual ,
+###  http://www.smolang.org/bedreflyt#taskDependency_innkomstM501_M501_2
+:taskDependency_innkomstM501_M501_2 rdf:type owl:NamedIndividual ,
                                              :TaskDependency ;
                                     :diagnosisCode "M5001" ;
-                                    :taskDependent "innkomstM5001" ;
+                                    :taskDependent "innkomstM501" ;
                                     :taskToWait "arrival" ;
                                     :treatment "2" .
 
