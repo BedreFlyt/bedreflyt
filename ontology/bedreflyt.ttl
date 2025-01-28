@@ -3072,7 +3072,7 @@
 :treatment_1_G500 rdf:type owl:NamedIndividual ,
                            :Treatment ;
                   :diagnosisCode "G500" ;
-                  :frequency "4.0"^^xsd:double ;
+                  :frequency "50.0"^^xsd:double ;
                   :treatmentId "1" ;
                   :weight "0.0"^^xsd:double .
 
@@ -3288,7 +3288,7 @@
 :treatment_3_G500 rdf:type owl:NamedIndividual ,
                            :Treatment ;
                   :diagnosisCode "G500" ;
-                  :frequency "5.0"^^xsd:double ;
+                  :frequency "20.0"^^xsd:double ;
                   :treatmentId "3" ;
                   :weight "5.0"^^xsd:double .
 
