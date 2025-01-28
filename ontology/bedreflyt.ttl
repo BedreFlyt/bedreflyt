@@ -872,7 +872,7 @@
 ###  http://www.smolang.org/bedreflyt#room1
 :room1 rdf:type owl:NamedIndividual ,
                 :Room ;
-       :bedCategory 1 ;
+       :bedCategory 3 ;
        :roomDescription "Sengepost" .
 
 
@@ -886,22 +886,8 @@
 ###  http://www.smolang.org/bedreflyt#room3
 :room3 rdf:type owl:NamedIndividual ,
                 :Room ;
-       :bedCategory 3 ;
+       :bedCategory 1 ;
        :roomDescription "Overvaakning" .
-
-
-###  http://www.smolang.org/bedreflyt#room4
-:room4 rdf:type owl:NamedIndividual ,
-                :Room ;
-       :bedCategory 4 ;
-       :roomDescription "PreOpRoom" .
-
-
-###  http://www.smolang.org/bedreflyt#room5
-:room5 rdf:type owl:NamedIndividual ,
-                :Room ;
-       :bedCategory 5 ;
-       :roomDescription "SurgicalRoom" .
 
 
 ###  http://www.smolang.org/bedreflyt#roomDistribution1
