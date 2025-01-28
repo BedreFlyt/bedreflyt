@@ -1,0 +1,571 @@
+@prefix : <http://www.smolang.org/bedreflyt#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.smolang.org/bedreflyt#> .
+
+<http://www.smolang.org/bedreflyt> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.smolang.org/bedreflyt#hasDiagnosis
+:hasDiagnosis rdf:type owl:ObjectProperty ;
+              rdfs:domain :Patient ;
+              rdfs:range :Diagnosis .
+
+
+###  http://www.smolang.org/bedreflyt#hasJourneyStep
+:hasJourneyStep rdf:type owl:ObjectProperty ;
+                rdfs:domain :Patient ;
+                rdfs:range :JourneyStep .
+
+
+###  http://www.smolang.org/bedreflyt#hasTask
+:hasTask rdf:type owl:ObjectProperty ;
+         rdfs:domain :JourneyStep ;
+         rdfs:range :Task .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.smolang.org/bedreflyt#averageDuration
+:averageDuration rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Task ;
+                 rdfs:range xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#bathroom
+:bathroom rdf:type owl:DatatypeProperty ;
+          rdfs:domain :RoomDistribution ;
+          rdfs:range xsd:integer .
+
+
+###  http://www.smolang.org/bedreflyt#bed
+:bed rdf:type owl:DatatypeProperty ;
+     rdfs:domain :Task ;
+     rdfs:range xsd:integer .
+
+
+###  http://www.smolang.org/bedreflyt#bedCategory
+:bedCategory rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Room ;
+             rdfs:range xsd:integer .
+
+
+###  http://www.smolang.org/bedreflyt#bedType
+:bedType rdf:type owl:DatatypeProperty ;
+         rdfs:domain :JourneyStep ;
+         rdfs:range xsd:integer .
+
+
+###  http://www.smolang.org/bedreflyt#capacity
+:capacity rdf:type owl:DatatypeProperty ;
+          rdfs:domain :RoomDistribution ;
+          rdfs:range xsd:integer .
+
+
+###  http://www.smolang.org/bedreflyt#diagnosis
+:diagnosis rdf:type owl:DatatypeProperty ;
+           rdfs:domain :JourneyStep ,
+                       :Treatment ;
+           rdfs:range xsd:string .
+
+
+###  http://www.smolang.org/bedreflyt#diagnosisCode
+:diagnosisCode rdf:type owl:DatatypeProperty ;
+               rdfs:domain :TaskDependency ;
+               rdfs:range xsd:string .
+
+
+###  http://www.smolang.org/bedreflyt#diagnosisName
+:diagnosisName rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Diagnosis ;
+               rdfs:range xsd:string .
+
+
+###  http://www.smolang.org/bedreflyt#frequency
+:frequency rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Treatment ;
+           rdfs:range xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#orderInJourney
+:orderInJourney rdf:type owl:DatatypeProperty ;
+                rdfs:domain :JourneyStep ;
+                rdfs:range xsd:integer .
+
+
+###  http://www.smolang.org/bedreflyt#room
+:room rdf:type owl:DatatypeProperty ;
+      rdfs:domain :RoomDistribution ;
+      rdfs:range xsd:integer .
+
+
+###  http://www.smolang.org/bedreflyt#roomDescription
+:roomDescription rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Room ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.smolang.org/bedreflyt#roomNumber
+:roomNumber rdf:type owl:DatatypeProperty ;
+            rdfs:domain :RoomDistribution ;
+            rdfs:range xsd:integer .
+
+
+###  http://www.smolang.org/bedreflyt#roomNumberModel
+:roomNumberModel rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :RoomDistribution ;
+                 rdfs:range xsd:integer .
+
+
+###  http://www.smolang.org/bedreflyt#task
+:task rdf:type owl:DatatypeProperty ;
+      rdfs:domain :JourneyStep ;
+      rdfs:range xsd:string .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependent
+:taskDependent rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Task ;
+               rdfs:range xsd:string .
+
+
+###  http://www.smolang.org/bedreflyt#taskName
+:taskName rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Task ;
+          rdfs:range xsd:string .
+
+
+###  http://www.smolang.org/bedreflyt#taskToWait
+:taskToWait rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Task ;
+            rdfs:range xsd:string .
+
+
+###  http://www.smolang.org/bedreflyt#treatment
+:treatment rdf:type owl:DatatypeProperty ;
+           rdfs:domain :TaskDependency ;
+           rdfs:range xsd:string .
+
+
+###  http://www.smolang.org/bedreflyt#treatmentId
+:treatmentId rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Treatment ;
+             rdfs:range xsd:string .
+
+
+###  http://www.smolang.org/bedreflyt#weight
+:weight rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Treatment ;
+        rdfs:range xsd:double .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.smolang.org/bedreflyt#Diagnosis
+:Diagnosis rdf:type owl:Class ;
+           rdfs:subClassOf :Treatment .
+
+
+###  http://www.smolang.org/bedreflyt#JourneyStep
+:JourneyStep rdf:type owl:Class ;
+             rdfs:subClassOf :Treatment .
+
+
+###  http://www.smolang.org/bedreflyt#Patient
+:Patient rdf:type owl:Class .
+
+
+###  http://www.smolang.org/bedreflyt#Room
+:Room rdf:type owl:Class .
+
+
+###  http://www.smolang.org/bedreflyt#RoomDistribution
+:RoomDistribution rdf:type owl:Class .
+
+
+###  http://www.smolang.org/bedreflyt#Task
+:Task rdf:type owl:Class ;
+      rdfs:subClassOf :Treatment .
+
+
+###  http://www.smolang.org/bedreflyt#TaskDependency
+:TaskDependency rdf:type owl:Class ;
+                rdfs:subClassOf :Treatment .
+
+
+###  http://www.smolang.org/bedreflyt#Treatment
+:Treatment rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.smolang.org/bedreflyt#diagnosis_D1
+:diagnosis_D1 rdf:type owl:NamedIndividual ,
+                         :Diagnosis ;
+                :diagnosisName "D1" .
+
+
+###  http://www.smolang.org/bedreflyt#diagnosis_D2
+:diagnosis_D2 rdf:type owl:NamedIndividual ,
+                       :Diagnosis ;
+              :diagnosisName "D2" .
+
+
+###  http://www.smolang.org/bedreflyt#patient1
+:patient1 rdf:type owl:NamedIndividual ,
+                   :Patient .
+
+
+###  http://www.smolang.org/bedreflyt#room0
+:room0 rdf:type owl:NamedIndividual ,
+                :Room ;
+       :bedCategory 0 ;
+       :roomDescription "Arrival" .
+
+
+###  http://www.smolang.org/bedreflyt#room1
+:room1 rdf:type owl:NamedIndividual ,
+                :Room ;
+       :bedCategory 1 ;
+       :roomDescription "Sengepost" .
+
+
+###  http://www.smolang.org/bedreflyt#room2
+:room2 rdf:type owl:NamedIndividual ,
+                :Room ;
+       :bedCategory 2 ;
+       :roomDescription "Intermediaer" .
+
+
+###  http://www.smolang.org/bedreflyt#room3
+:room3 rdf:type owl:NamedIndividual ,
+                :Room ;
+       :bedCategory 3 ;
+       :roomDescription "Overvaakning" .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution1
+:roomDistribution1 rdf:type owl:NamedIndividual ,
+                            :RoomDistribution ;
+                   :bathroom 1 ;
+                   :capacity 2 ;
+                   :room 3 ;
+                   :roomNumber 1 ;
+                   :roomNumberModel 1 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution10
+:roomDistribution10 rdf:type owl:NamedIndividual ,
+                             :RoomDistribution ;
+                    :bathroom 1 ;
+                    :capacity 1 ;
+                    :room 1 ;
+                    :roomNumber 10 ;
+                    :roomNumberModel 10 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution11
+:roomDistribution11 rdf:type owl:NamedIndividual ,
+                             :RoomDistribution ;
+                    :bathroom 1 ;
+                    :capacity 2 ;
+                    :room 1 ;
+                    :roomNumber 11 ;
+                    :roomNumberModel 11 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution12
+:roomDistribution12 rdf:type owl:NamedIndividual ,
+                             :RoomDistribution ;
+                    :bathroom 1 ;
+                    :capacity 3 ;
+                    :room 1 ;
+                    :roomNumber 12 ;
+                    :roomNumberModel 12 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution13
+:roomDistribution13 rdf:type owl:NamedIndividual ,
+                             :RoomDistribution ;
+                    :bathroom 0 ;
+                    :capacity 1 ;
+                    :room 1 ;
+                    :roomNumber 13 ;
+                    :roomNumberModel 13 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution14
+:roomDistribution14 rdf:type owl:NamedIndividual ,
+                             :RoomDistribution ;
+                    :bathroom 0 ;
+                    :capacity 4 ;
+                    :room 1 ;
+                    :roomNumber 14 ;
+                    :roomNumberModel 14 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution2
+:roomDistribution2 rdf:type owl:NamedIndividual ,
+                            :RoomDistribution ;
+                   :bathroom 0 ;
+                   :capacity 2 ;
+                   :room 3 ;
+                   :roomNumber 2 ;
+                   :roomNumberModel 2 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution3
+:roomDistribution3 rdf:type owl:NamedIndividual ,
+                            :RoomDistribution ;
+                   :bathroom 1 ;
+                   :capacity 1 ;
+                   :room 2 ;
+                   :roomNumber 3 ;
+                   :roomNumberModel 3 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution4
+:roomDistribution4 rdf:type owl:NamedIndividual ,
+                            :RoomDistribution ;
+                   :bathroom 1 ;
+                   :capacity 3 ;
+                   :room 2 ;
+                   :roomNumber 4 ;
+                   :roomNumberModel 4 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution5
+:roomDistribution5 rdf:type owl:NamedIndividual ,
+                            :RoomDistribution ;
+                   :bathroom 1 ;
+                   :capacity 3 ;
+                   :room 2 ;
+                   :roomNumber 5 ;
+                   :roomNumberModel 5 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution6
+:roomDistribution6 rdf:type owl:NamedIndividual ,
+                            :RoomDistribution ;
+                   :bathroom 0 ;
+                   :capacity 3 ;
+                   :room 2 ;
+                   :roomNumber 6 ;
+                   :roomNumberModel 6 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution7
+:roomDistribution7 rdf:type owl:NamedIndividual ,
+                            :RoomDistribution ;
+                   :bathroom 0 ;
+                   :capacity 1 ;
+                   :room 1 ;
+                   :roomNumber 7 ;
+                   :roomNumberModel 7 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution8
+:roomDistribution8 rdf:type owl:NamedIndividual ,
+                            :RoomDistribution ;
+                   :bathroom 0 ;
+                   :capacity 1 ;
+                   :room 1 ;
+                   :roomNumber 8 ;
+                   :roomNumberModel 8 .
+
+
+###  http://www.smolang.org/bedreflyt#roomDistribution9
+:roomDistribution9 rdf:type owl:NamedIndividual ,
+                            :RoomDistribution ;
+                   :bathroom 0 ;
+                   :capacity 1 ;
+                   :room 1 ;
+                   :roomNumber 9 ;
+                   :roomNumberModel 9 .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_high_D1_1
+:taskDependency_high_D1_1 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D1" ;
+                                    :taskDependent "high" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_standard_D1_1
+:taskDependency_standard_D1_1 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D1" ;
+                                    :taskDependent "standard" ;
+                                    :taskToWait "high" ;
+                                    :treatment "1" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_standard2_D1_1
+:taskDependency_standard2_D1_1 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D1" ;
+                                    :taskDependent "standard_2" ;
+                                    :taskToWait "standard" ;
+                                    :treatment "1" .
+
+###  http://www.smolang.org/bedreflyt#taskDependency_high_D1_2
+:taskDependency_high_D1_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D1" ;
+                                    :taskDependent "high" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_high2_D1_2
+:taskDependency_high2_D1_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D1" ;
+                                    :taskDependent "high2" ;
+                                    :taskToWait "task_high" ;
+                                    :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_standard_D1_2
+:taskDependency_standard_D1_2 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D1" ;
+                                    :taskDependent "standard" ;
+                                    :taskToWait "high2" ;
+                                    :treatment "2" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_high_D2_3
+:taskDependency_high_D2_3 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D2" ;
+                                    :taskDependent "high" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "3" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_intermediate_D2_3
+:taskDependency_intermediate_D2_3 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D2" ;
+                                    :taskDependent "intermediate" ;
+                                    :taskToWait "high" ;
+                                    :treatment "3" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_intermediate_D2_4
+:taskDependency_intermediate_D2_4 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D2" ;
+                                    :taskDependent "intermediate" ;
+                                    :taskToWait "arrival" ;
+                                    :treatment "4" .
+
+
+###  http://www.smolang.org/bedreflyt#taskDependency_standard_D2_4
+:taskDependency_standard_D2_4 rdf:type owl:NamedIndividual ,
+                                             :TaskDependency ;
+                                    :diagnosisCode "D2" ;
+                                    :taskDependent "standard" ;
+                                    :taskToWait "intermediate" ;
+                                    :treatment "4" .
+
+
+###  http://www.smolang.org/bedreflyt#task_arrival
+:task_arrival rdf:type owl:NamedIndividual ,
+                       :Task ;
+              :averageDuration "0.0"^^xsd:double ;
+              :bed 0 ;
+              :taskName "arrival" .
+
+
+###  http://www.smolang.org/bedreflyt#task_high
+:task_high rdf:type owl:NamedIndividual ,
+                               :Task ;
+                      :averageDuration "1.0"^^xsd:double ;
+                      :bed 3 ;
+                      :taskName "high" .
+
+
+###  http://www.smolang.org/bedreflyt#task_high2
+:task_high2 rdf:type owl:NamedIndividual ,
+                               :Task ;
+                      :averageDuration "1.0"^^xsd:double ;
+                      :bed 3 ;
+                      :taskName "high2" .
+
+
+###  http://www.smolang.org/bedreflyt#task_standard
+:task_standard rdf:type owl:NamedIndividual ,
+                               :Task ;
+                      :averageDuration "1.0"^^xsd:double ;
+                      :bed 1 ;
+                      :taskName "standard" .
+
+
+###  http://www.smolang.org/bedreflyt#task_standard2
+:task_standard2 rdf:type owl:NamedIndividual ,
+                               :Task ;
+                      :averageDuration "1.0"^^xsd:double ;
+                      :bed 1 ;
+                      :taskName "standard2" .
+
+
+###  http://www.smolang.org/bedreflyt#task_intermediate
+:task_intermediate rdf:type owl:NamedIndividual ,
+                               :Task ;
+                      :averageDuration "1.0"^^xsd:double ;
+                      :bed 1 ;
+                      :taskName "intermediate" .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_1_D1
+:treatment_1_D1 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "D1" ;
+                  :frequency "80"^^xsd:double ;
+                  :treatmentId "1" ;
+                  :weight "2.0"^^xsd:double .
+
+###  http://www.smolang.org/bedreflyt#treatment_3_D2
+:treatment_3_D2 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "D2" ;
+                  :frequency "60.0"^^xsd:double ;
+                  :treatmentId "3" ;
+                  :weight "8.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_2_D1
+:treatment_2_D1 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "D1" ;
+                  :frequency "20.0"^^xsd:double ;
+                  :treatmentId "2" ;
+                  :weight "10.0"^^xsd:double .
+
+
+###  http://www.smolang.org/bedreflyt#treatment_4_D2
+:treatment_4_D2 rdf:type owl:NamedIndividual ,
+                           :Treatment ;
+                  :diagnosisCode "D2" ;
+                  :frequency "40.0"^^xsd:double ;
+                  :treatmentId "4" ;
+                  :weight "6.0"^^xsd:double .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
