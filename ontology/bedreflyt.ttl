@@ -969,7 +969,7 @@
                              :RoomDistribution ;
                     :bathroom 1 ;
                     :capacity 4 ;
-                    :room 5 ;
+                    :room 3 ;
                     :roomNumber 15 ;
                     :roomNumberModel 15 .
 
@@ -979,7 +979,7 @@
                              :RoomDistribution ;
                     :bathroom 1 ;
                     :capacity 2 ;
-                    :room 5 ;
+                    :room 3 ;
                     :roomNumber 16 ;
                     :roomNumberModel 16 .
 
@@ -1009,7 +1009,7 @@
                             :RoomDistribution ;
                    :bathroom 1 ;
                    :capacity 1 ;
-                   :room 5 ;
+                   :room 3 ;
                    :roomNumber 3 ;
                    :roomNumberModel 3 .
 
@@ -1049,7 +1049,7 @@
                             :RoomDistribution ;
                    :bathroom 0 ;
                    :capacity 1 ;
-                   :room 4 ;
+                   :room 2 ;
                    :roomNumber 7 ;
                    :roomNumberModel 7 .
 
@@ -1059,7 +1059,7 @@
                             :RoomDistribution ;
                    :bathroom 0 ;
                    :capacity 1 ;
-                   :room 4 ;
+                   :room 2 ;
                    :roomNumber 8 ;
                    :roomNumberModel 8 .
 
@@ -1069,7 +1069,7 @@
                             :RoomDistribution ;
                    :bathroom 0 ;
                    :capacity 1 ;
-                   :room 4 ;
+                   :room 2 ;
                    :roomNumber 9 ;
                    :roomNumberModel 9 .
 
