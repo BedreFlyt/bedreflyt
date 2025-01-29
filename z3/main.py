@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from hospital_global import HospitalRoomAssignment, HospitalRoomAssignmentGlobal0
+from hospital import HospitalRoomAssignment, HospitalRoomAssignmentGlobal
 from pydantic import BaseModel
 from typing import List, Literal, Dict
 
@@ -62,7 +62,7 @@ def solve_global_assignment(request: GlobalQuery):
                    for (name, cat) in day.items()}
                   for day in request.patient_distances ]
 
-    hospital_global = HospitalRoomAssignmentGlobal0(
+    hospital_global = HospitalRoomAssignmentGlobal(
         no_rooms, request.capacities, request.room_distances,
         total_days, request.mode
     )
