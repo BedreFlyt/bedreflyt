@@ -209,7 +209,7 @@
 :room1 rdf:type owl:NamedIndividual ,
                 :Room ;
        :bathroom 1 ;
-       :capacity 2 ;
+       :capacity 3 ;
        :roomCategory 3 ;
        :roomNumber 1 ;
        :roomNumberModel 1 .
@@ -219,7 +219,7 @@
 :room10 rdf:type owl:NamedIndividual ,
                  :Room ;
         :bathroom 1 ;
-        :capacity 1 ;
+        :capacity 2 ;
         :roomCategory 1 ;
         :roomNumber 10 ;
         :roomNumberModel 10 .
@@ -249,7 +249,7 @@
 :room13 rdf:type owl:NamedIndividual ,
                  :Room ;
         :bathroom 0 ;
-        :capacity 1 ;
+        :capacity 2 ;
         :roomCategory 1 ;
         :roomNumber 13 ;
         :roomNumberModel 13 .
@@ -259,7 +259,7 @@
 :room14 rdf:type owl:NamedIndividual ,
                  :Room ;
         :bathroom 0 ;
-        :capacity 4 ;
+        :capacity 2 ;
         :roomCategory 1 ;
         :roomNumber 14 ;
         :roomNumberModel 14 .
@@ -269,7 +269,7 @@
 :room2 rdf:type owl:NamedIndividual ,
                 :Room ;
        :bathroom 0 ;
-       :capacity 2 ;
+       :capacity 3 ;
        :roomCategory 3 ;
        :roomNumber 2 ;
        :roomNumberModel 2 .
@@ -279,7 +279,7 @@
 :room3 rdf:type owl:NamedIndividual ,
                 :Room ;
        :bathroom 1 ;
-       :capacity 1 ;
+       :capacity 3 ;
        :roomCategory 2 ;
        :roomNumber 3 ;
        :roomNumberModel 3 .
@@ -289,7 +289,7 @@
 :room4 rdf:type owl:NamedIndividual ,
                 :Room ;
        :bathroom 1 ;
-       :capacity 3 ;
+       :capacity 2 ;
        :roomCategory 2 ;
        :roomNumber 4 ;
        :roomNumberModel 4 .
@@ -299,7 +299,7 @@
 :room5 rdf:type owl:NamedIndividual ,
                 :Room ;
        :bathroom 1 ;
-       :capacity 3 ;
+       :capacity 4 ;
        :roomCategory 2 ;
        :roomNumber 5 ;
        :roomNumberModel 5 .
@@ -309,7 +309,7 @@
 :room6 rdf:type owl:NamedIndividual ,
                 :Room ;
        :bathroom 0 ;
-       :capacity 3 ;
+       :capacity 1 ;
        :roomCategory 2 ;
        :roomNumber 6 ;
        :roomNumberModel 6 .
@@ -329,7 +329,7 @@
 :room8 rdf:type owl:NamedIndividual ,
                 :Room ;
        :bathroom 0 ;
-       :capacity 1 ;
+       :capacity 4 ;
        :roomCategory 1 ;
        :roomNumber 8 ;
        :roomNumberModel 8 .
@@ -339,7 +339,7 @@
 :room9 rdf:type owl:NamedIndividual ,
                 :Room ;
        :bathroom 0 ;
-       :capacity 1 ;
+       :capacity 3 ;
        :roomCategory 1 ;
        :roomNumber 9 ;
        :roomNumberModel 9 .
