@@ -345,7 +345,7 @@ class HospitalRoomAssignmentGlobal0:
                     # result.append(f'Room {str(k)} is gender {room_gender[str(k)]} and holds patients {" ".join(assignment[k])}')
                 # print(assignment)
                 print(result)
-            return s.lower(h)
+            return s.lower(h).as_long()
 
 
 
