@@ -19,73 +19,120 @@ from z3 import *
 # 13      43	    3	        	                Overvåkning      3
 #
 # hospital.py
+# Return maximum of a vector; error if empty
+# https://stackoverflow.com/questions/67043494/max-and-min-of-a-set-of-variables-in-z3py
+def Max(vs):
+  m = vs[0]
+  for v in vs[1:]:
+    m = If(v > m, v, m)
+  return m
+
 class HospitalRoomAssignment:
-    def __init__(self, no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances):
-        self.no_rooms = no_rooms
+    def __init__(self, no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances, previous, mode):
+        self.NO_ROOMS = no_rooms
         self.capacities = capacities
         self.room_distances = room_distances
-        self.no_patients = no_patients
+        self.NO_PATIENTS = no_patients
         self.genders = genders
         self.infectious = infectious
         self.patient_distances = patient_distances
+        self.previous = previous
+        self.mode = mode
 
     def assign_rooms(self):
-        assert len(self.capacities) == self.no_rooms
-        assert len(self.genders) == self.no_patients
-        assert len(self.infectious) == self.no_patients
-        assert len(self.patient_distances) == self.no_patients
-        assert len(self.room_distances) == self.no_rooms
+        assert len(self.capacities) == self.NO_ROOMS
+        assert len(self.genders) == self.NO_PATIENTS
+        assert len(self.infectious) == self.NO_PATIENTS
+        assert len(self.patient_distances) == self.NO_PATIENTS
+        assert len(self.room_distances) == self.NO_ROOMS
+        assert len(self.previous) == self.NO_PATIENTS
 
-        patients = [[Bool(f'patient {i} in room {j}') for j in range(self.no_rooms)] for i in range(self.no_patients)]
-        genders = [Bool(f'gender room {i}') for i in range(self.no_rooms)]
+        patients = [[ Bool('patient %s in room %s' % (i,j)) for j in range(self.NO_ROOMS)] for i in range(self.NO_PATIENTS)]
+        genders = [Bool('gender room %s' %i ) for i in range(self.NO_ROOMS)]
+        changes = [Bool('Patient %s stayed' %i ) for i in range(self.NO_PATIENTS)] # encodes which patient had to change stations
 
-        s = Solver()
-        s.set(unsat_core=True)
+        s = Optimize()
 
         # Each patient in exactly one bed
-        for patient in range(self.no_patients):
-            s.assert_and_track(Sum(patients[patient]) == 1, f'patient assigned{patient}')
+        for patient in range(self.NO_PATIENTS):
+            s.add(Sum(patients[patient]) == 1)
 
         # Room capacities are satisfied
-        for room in range(self.no_rooms):
-            s.assert_and_track(Sum([patients[i][room] for i in range(self.no_patients)]) <= self.capacities[room], f'room capacity {room}')
+        for room in range(self.NO_ROOMS):
+            s.add(Sum([patients[i][room] for i in range(self.NO_PATIENTS)]) <= self.capacities[room])
 
         # Gender constraints
-        for room in range(self.no_rooms):
-            for patient in range(self.no_patients):
-                s.assert_and_track(Implies(patients[patient][room], self.genders[patient] == genders[room]), f'gender constraint room {room} patient {patient}')
+        for room in range(self.NO_ROOMS):
+            for patient in range(self.NO_PATIENTS):
+                s.add(Implies(patients[patient][room], self.genders[patient] == genders[room]))
 
         # Infectious patients
-        for room in range(self.no_rooms):
-            for patient in range(self.no_patients):
-                s.assert_and_track(Implies(
-                    And(patients[patient][room], self.infectious[patient]),  # patient in room is infectious
-                    And([Not(patients[p][room]) for p in range(self.no_patients) if p != patient])  # no other patient is in room
-                ), f'infectious patient {patient} room {room}')
+        for room in range(self.NO_ROOMS):
+            for patient in range(self.NO_PATIENTS):
+                s.add(Implies(
+                        And(patients[patient][room], self.infectious[patient]), # patient in room is infectious
+                            And([Not(patients[p][room]) for p in range(self.NO_PATIENTS) if p != patient]) # no other patient is in room
+                            )
+                )
 
         # Consider distance
-        for patient in range(self.no_patients):
-            for room in range(self.no_rooms):
-                s.assert_and_track(Implies(patients[patient][room],
-                                           self.patient_distances[patient] >= self.room_distances[room]), f'distance patient {patient} room {room}')
+        for patient in range(self.NO_PATIENTS):
+            for room in range(self.NO_ROOMS):
+                s.add(Implies(patients[patient][room], 
+                            self.patient_distances[patient] >= self.room_distances[room])
+                )
+
+        # Encode previous assignment
+        for patient in range(self.NO_PATIENTS):
+            if self.previous[patient] != -1: # patient should keep bed-station only if they had one previously
+                bed = self.previous[patient]
+                if bed < len(patients[patient]):  # Check if bed index is within range
+                    s.add(Or(patients[patient][bed], changes[patient]))
+                else:
+                    # Handle the case where bed index is out of range
+                    print(f"Warning: Bed index {bed} out of range for patient {patient}")
+
+        # Find assignment with few moved patients     
+        if "c" in self.mode:
+            h = s.minimize(Sum([changes[p] for p in range(self.NO_PATIENTS) if self.previous[p] != -1]))
+        # too encode maximal number of changes
+        # s.add(Sum([changes[p] for p in range(NO_PATIENTS) if Previous[p] != -1]) == 2)
+
+        # Trying to minimize the average number of patients per room instead, but Z3 is very fickle about int/real expressions
+        # room j is empty = Sum(patients[i][room] for i in range(self.NO_PATIENTS)) == 0
+        # number of empty rooms = Sum(1 for room in rooms if Sum(patients[i][room] for i in range(self.NO_PATIENTS)) == 0)
+        # average number of people in a room = (number of non-empty rooms) / (number of patients)
+        # h = s.minimize(((self.NO_ROOMS - Sum([1 for room in range(self.NO_ROOMS) if Sum([patients[i][room] for i in range(self.NO_PATIENTS)]) == 0])) / self.NO_PATIENTS))
+
+        # New plan: minimize the MAXIMAL number of patients in a room
+        # number of patients in room j = Sum([patients[i][j] for i in range(self.NO_PATIENTS)])
+        if "m" in self.mode:
+            h = s.minimize(Max([Sum([patients[i][room] for i in range(self.NO_PATIENTS)]) for room in range(self.NO_ROOMS)]))
+
+
+        print(s)
+        print(s.check())
 
         if s.check() != sat:
+            print("Model is unsat")
+            print(s.unsat_core())
             return "Model is unsat", s.unsat_core()
         else:
             # Get model and format output
             m = s.model()
-            assignment = {str(i): [] for i in range(self.no_rooms)}
-            room_gender = {str(i): None for i in range(self.no_rooms)}
+            print("Number of changes", s.lower(h))
+            assignment = {str(i) : [] for i in range(self.NO_ROOMS)}
+            room_gender = {str(i) : None for i in range(self.NO_ROOMS)}
 
             for v in genders:
                 room_gender[str(v).split(" ")[2]] = m.eval(v, model_completion=True)
-
+                
             for patient in patients:
                 for v in patient:
                     if m.eval(v):
                         assigned_room = str(v).split(" ")[-1]
                         assigned_patient = str(v).split(" ")[1]
-                        assignment[assigned_room].append(assigned_patient)
+                        assignment[assigned_room].append(assigned_patient) 
 
             result = []
             # res_dic = {}
