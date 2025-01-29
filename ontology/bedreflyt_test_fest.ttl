@@ -431,7 +431,7 @@
 :taskDependency_standard2_D1_1 rdf:type owl:NamedIndividual ,
                                         :TaskDependency ;
                                :diagnosisCode "D1" ;
-                               :taskDependent "standard_2" ;
+                               :taskDependent "standard2" ;
                                :taskToWait "standard" ;
                                :treatment "1" .
 
