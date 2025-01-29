@@ -88,8 +88,8 @@
 
 ###  http://www.smolang.org/bedreflyt#roomCategory
 :roomCategory rdf:type owl:DatatypeProperty ;
-      rdfs:domain :Room ;
-      rdfs:range xsd:integer .
+              rdfs:domain :Room ;
+              rdfs:range xsd:integer .
 
 
 ###  http://www.smolang.org/bedreflyt#roomDescription
@@ -205,172 +205,172 @@
                    :Patient .
 
 
-###  http://www.smolang.org/bedreflyt#roomCategory0
-:roomCategory0 rdf:type owl:NamedIndividual ,
-                :RoomCategory ;
-       :bedCategory 0 ;
-       :roomDescription "Arrival" .
-
-
-###  http://www.smolang.org/bedreflyt#roomCategory1
-:roomCategory1 rdf:type owl:NamedIndividual ,
-                :RoomCategory ;
-       :bedCategory 1 ;
-       :roomDescription "Sengepost" .
-
-
-###  http://www.smolang.org/bedreflyt#roomCategory2
-:roomCategory2 rdf:type owl:NamedIndividual ,
-                :RoomCategory ;
-       :bedCategory 2 ;
-       :roomDescription "Intermediaer" .
-
-
-###  http://www.smolang.org/bedreflyt#roomCategory3
-:roomCategory3 rdf:type owl:NamedIndividual ,
-                :RoomCategory ;
-       :bedCategory 3 ;
-       :roomDescription "Overvaakning" .
-
-
 ###  http://www.smolang.org/bedreflyt#room1
 :room1 rdf:type owl:NamedIndividual ,
-                            :Room ;
-                   :bathroom 1 ;
-                   :capacity 2 ;
-                   :roomCategory 3 ;
-                   :roomNumber 1 ;
-                   :roomNumberModel 1 .
+                :Room ;
+       :bathroom 1 ;
+       :capacity 2 ;
+       :roomCategory 3 ;
+       :roomNumber 1 ;
+       :roomNumberModel 1 .
 
 
 ###  http://www.smolang.org/bedreflyt#room10
 :room10 rdf:type owl:NamedIndividual ,
-                             :Room ;
-                    :bathroom 1 ;
-                    :capacity 1 ;
-                    :roomCategory 1 ;
-                    :roomNumber 10 ;
-                    :roomNumberModel 10 .
+                 :Room ;
+        :bathroom 1 ;
+        :capacity 1 ;
+        :roomCategory 1 ;
+        :roomNumber 10 ;
+        :roomNumberModel 10 .
 
 
 ###  http://www.smolang.org/bedreflyt#room11
 :room11 rdf:type owl:NamedIndividual ,
-                             :Room ;
-                    :bathroom 1 ;
-                    :capacity 2 ;
-                    :roomCategory 1 ;
-                    :roomNumber 11 ;
-                    :roomNumberModel 11 .
+                 :Room ;
+        :bathroom 1 ;
+        :capacity 2 ;
+        :roomCategory 1 ;
+        :roomNumber 11 ;
+        :roomNumberModel 11 .
 
 
 ###  http://www.smolang.org/bedreflyt#room12
 :room12 rdf:type owl:NamedIndividual ,
-                             :Room ;
-                    :bathroom 1 ;
-                    :capacity 3 ;
-                    :roomCategory 1 ;
-                    :roomNumber 12 ;
-                    :roomNumberModel 12 .
+                 :Room ;
+        :bathroom 1 ;
+        :capacity 3 ;
+        :roomCategory 1 ;
+        :roomNumber 12 ;
+        :roomNumberModel 12 .
 
 
 ###  http://www.smolang.org/bedreflyt#room13
 :room13 rdf:type owl:NamedIndividual ,
-                             :Room ;
-                    :bathroom 0 ;
-                    :capacity 1 ;
-                    :roomCategory 1 ;
-                    :roomNumber 13 ;
-                    :roomNumberModel 13 .
+                 :Room ;
+        :bathroom 0 ;
+        :capacity 1 ;
+        :roomCategory 1 ;
+        :roomNumber 13 ;
+        :roomNumberModel 13 .
 
 
 ###  http://www.smolang.org/bedreflyt#room14
 :room14 rdf:type owl:NamedIndividual ,
-                             :Room ;
-                    :bathroom 0 ;
-                    :capacity 4 ;
-                    :roomCategory 1 ;
-                    :roomNumber 14 ;
-                    :roomNumberModel 14 .
+                 :Room ;
+        :bathroom 0 ;
+        :capacity 4 ;
+        :roomCategory 1 ;
+        :roomNumber 14 ;
+        :roomNumberModel 14 .
 
 
 ###  http://www.smolang.org/bedreflyt#room2
 :room2 rdf:type owl:NamedIndividual ,
-                            :Room ;
-                   :bathroom 0 ;
-                   :capacity 2 ;
-                   :roomCategory 3 ;
-                   :roomNumber 2 ;
-                   :roomNumberModel 2 .
+                :Room ;
+       :bathroom 0 ;
+       :capacity 2 ;
+       :roomCategory 3 ;
+       :roomNumber 2 ;
+       :roomNumberModel 2 .
 
 
 ###  http://www.smolang.org/bedreflyt#room3
 :room3 rdf:type owl:NamedIndividual ,
-                            :Room ;
-                   :bathroom 1 ;
-                   :capacity 1 ;
-                   :roomCategory 2 ;
-                   :roomNumber 3 ;
-                   :roomNumberModel 3 .
+                :Room ;
+       :bathroom 1 ;
+       :capacity 1 ;
+       :roomCategory 2 ;
+       :roomNumber 3 ;
+       :roomNumberModel 3 .
 
 
 ###  http://www.smolang.org/bedreflyt#room4
 :room4 rdf:type owl:NamedIndividual ,
-                            :Room ;
-                   :bathroom 1 ;
-                   :capacity 3 ;
-                   :roomCategory 2 ;
-                   :roomNumber 4 ;
-                   :roomNumberModel 4 .
+                :Room ;
+       :bathroom 1 ;
+       :capacity 3 ;
+       :roomCategory 2 ;
+       :roomNumber 4 ;
+       :roomNumberModel 4 .
 
 
 ###  http://www.smolang.org/bedreflyt#room5
 :room5 rdf:type owl:NamedIndividual ,
-                            :Room ;
-                   :bathroom 1 ;
-                   :capacity 3 ;
-                   :roomCategory 2 ;
-                   :roomNumber 5 ;
-                   :roomNumberModel 5 .
+                :Room ;
+       :bathroom 1 ;
+       :capacity 3 ;
+       :roomCategory 2 ;
+       :roomNumber 5 ;
+       :roomNumberModel 5 .
 
 
 ###  http://www.smolang.org/bedreflyt#room6
 :room6 rdf:type owl:NamedIndividual ,
-                            :Room ;
-                   :bathroom 0 ;
-                   :capacity 3 ;
-                   :roomCategory 2 ;
-                   :roomNumber 6 ;
-                   :roomNumberModel 6 .
+                :Room ;
+       :bathroom 0 ;
+       :capacity 3 ;
+       :roomCategory 2 ;
+       :roomNumber 6 ;
+       :roomNumberModel 6 .
 
 
 ###  http://www.smolang.org/bedreflyt#room7
 :room7 rdf:type owl:NamedIndividual ,
-                            :Room ;
-                   :bathroom 0 ;
-                   :capacity 1 ;
-                   :roomCategory 1 ;
-                   :roomNumber 7 ;
-                   :roomNumberModel 7 .
+                :Room ;
+       :bathroom 0 ;
+       :capacity 1 ;
+       :roomCategory 1 ;
+       :roomNumber 7 ;
+       :roomNumberModel 7 .
 
 
 ###  http://www.smolang.org/bedreflyt#room8
 :room8 rdf:type owl:NamedIndividual ,
-                            :Room ;
-                   :bathroom 0 ;
-                   :capacity 1 ;
-                   :roomCategory 1 ;
-                   :roomNumber 8 ;
-                   :roomNumberModel 8 .
+                :Room ;
+       :bathroom 0 ;
+       :capacity 1 ;
+       :roomCategory 1 ;
+       :roomNumber 8 ;
+       :roomNumberModel 8 .
 
 
 ###  http://www.smolang.org/bedreflyt#room9
 :room9 rdf:type owl:NamedIndividual ,
-                            :Room ;
-                   :bathroom 0 ;
-                   :capacity 1 ;
-                   :roomCategory 1 ;
-                   :roomNumber 9 ;
-                   :roomNumberModel 9 .
+                :Room ;
+       :bathroom 0 ;
+       :capacity 1 ;
+       :roomCategory 1 ;
+       :roomNumber 9 ;
+       :roomNumberModel 9 .
+
+
+###  http://www.smolang.org/bedreflyt#roomCategory0
+:roomCategory0 rdf:type owl:NamedIndividual ,
+                        :RoomCategory ;
+               :bedCategory 0 ;
+               :roomDescription "Arrival" .
+
+
+###  http://www.smolang.org/bedreflyt#roomCategory1
+:roomCategory1 rdf:type owl:NamedIndividual ,
+                        :RoomCategory ;
+               :bedCategory 1 ;
+               :roomDescription "Sengepost" .
+
+
+###  http://www.smolang.org/bedreflyt#roomCategory2
+:roomCategory2 rdf:type owl:NamedIndividual ,
+                        :RoomCategory ;
+               :bedCategory 2 ;
+               :roomDescription "Intermediaer" .
+
+
+###  http://www.smolang.org/bedreflyt#roomCategory3
+:roomCategory3 rdf:type owl:NamedIndividual ,
+                        :RoomCategory ;
+               :bedCategory 3 ;
+               :roomDescription "Overvaakning" .
 
 
 ###  http://www.smolang.org/bedreflyt#taskDependency_high2_D1_2
@@ -378,7 +378,7 @@
                                     :TaskDependency ;
                            :diagnosisCode "D1" ;
                            :taskDependent "high2" ;
-                           :taskToWait "task_high" ;
+                           :taskToWait "high" ;
                            :treatment "2" .
 
 
