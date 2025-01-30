@@ -82,7 +82,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
                 prog = 'genetic_instances.py',
                 description = "File to generate feasible, but hard SMT problems for bedreflyt")
-    parser.add_argument('-p', '--population', help = "Population size", type=int, default = 30)
+    parser.add_argument('-p', '--population', help = "Population size", type=int, default = 300)
     parser.add_argument('-d', '--days', help = "Number of days to generate patients for", type=int, default = 5) 
     parser.add_argument('-pd', '--patient_day', help = "Number of patients per day", type=int, default = 10) 
     parser.add_argument('-pn', '--patient_names', help = "Number of patients in total", type=int, default = 50) 
