@@ -1,0 +1,5 @@
+deap==1.4.2
+fastapi==0.115.8
+pandas==1.5.3
+pydantic==2.10.6
+z3_solver==4.13.0.0
