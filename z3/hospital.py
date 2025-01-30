@@ -127,6 +127,7 @@ class HospitalRoomAssignment:
         else:
             # Get model and format output
             m = s.model()
+            assert s.lower(h) == s.upper(h)
             print("Number of changes", s.lower(h))
             assignment = {str(i) : [] for i in range(self.NO_ROOMS)}
             room_gender = {str(i) : None for i in range(self.NO_ROOMS)}
@@ -313,6 +314,7 @@ class HospitalRoomAssignmentGlobal:
         else:
             # Get model and format output
             m = s.model()
+            assert s.lower(h) == s.upper(h)
             print("Number of changes", s.lower(h))
             for day in self.days:
                 assignment = {str(i) : [] for i in range(self.NO_ROOMS)}

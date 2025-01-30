@@ -180,3 +180,5 @@ pyrightconfig.json
 
 gen/
 /ABS/bedreflyt.jar
+
+/z3/out/*
