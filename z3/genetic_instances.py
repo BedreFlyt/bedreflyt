@@ -12,6 +12,9 @@ import copy
 
 from hospital import HospitalRoomAssignmentGlobal, HospitalRoomAssignment
 
+import json
+import base64
+
 def individual(names, categories, genders, contagiousness):
         return_dict = {}
         for n in range(len(names)):
@@ -174,15 +177,15 @@ if __name__ == "__main__":
         # write to csv file
         for i in range(len(pop_list)):
             p = pop_list[i]
-            assert evalPatients(p)[0] == p.fitness.values[0], f'{evalPatients(p)[0]} != {p.fitness.values[0]}'
-            assert global_changes[i][0] == evalPatients(p)[0], f'{global_changes[i][0]} != {evalPatients(p)[0]}'
+            assert evalPatients(p)[0] == p.fitness.values[0], f'{evalPatients(p)[0]} != {p.fitness.values[0]}, for {p}'
+            assert global_changes[i][0] == evalPatients(p)[0], f'{global_changes[i][0]} != {evalPatients(p)[0]}, for {p}'
             # if p.fitness.values[0] > online_changes[i]:
             #     print("problem")
             #     # assert evaluate_local(p) == online_changes[i]
             #     print(f'### Error online {online_changes[i]}, global {p.fitness.values[0]}, {p}')
             #     assert(False)
             # assert p.fitness.values[0] > online_changes[i], f'{p.fitness.values[0]}, {online_changes[i]}, {p}'
-            result_dict['problem'].append(zlib.compress(bytes(str(p), 'utf-8')))
+            result_dict['problem'].append(base64.b64encode(zlib.compress(json.dumps(p).encode())).decode())
             result_dict['optimal'].append(global_changes[i][0])
             result_dict['online'].append(online_changes[i])
             result_dict['days'].append(args.days)
