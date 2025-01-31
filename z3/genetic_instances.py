@@ -159,9 +159,14 @@ if __name__ == "__main__":
         invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
         fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
         for ind, fit in zip(invalid_ind, fitnesses):
-            ind.fitness.values = fit
-            
-            
+            ind.fitness.values = fit        
+        
+        pop[:] = offspring
+        
+        # Gather all the fitnesses in one list and print the stats
+        fits = [ind.fitness.values[0] for ind in pop]
+        
+        # Store new population
         pop_list = [p for p in pop]
         online_changes = toolbox.map(evaluate_local, pop_list)
         global_changes = toolbox.map(evalPatients, pop_list)
@@ -170,25 +175,27 @@ if __name__ == "__main__":
         # write to csv file
         for i in range(len(pop_list)):
             p = pop_list[i]
+            assert evalPatients(p)[0] == p.fitness.values[0], f'{evalPatients(p)[0]} != {p.fitness.values[0]}'
+            assert evalPatients(p)[0] == fits[0]
+            # if p.fitness.values[0] > online_changes[i]:
+            #     print("problem")
+            #     # assert evaluate_local(p) == online_changes[i]
+            #     print(f'### Error online {online_changes[i]}, global {p.fitness.values[0]}, {p}')
+            #     assert(False)
+            # assert p.fitness.values[0] > online_changes[i], f'{p.fitness.values[0]}, {online_changes[i]}, {p}'
             result_dict['problem'].append(zlib.compress(bytes(str(p), 'utf-8')))
             result_dict['optimal'].append(global_changes[i][0])
             result_dict['online'].append(online_changes[i])
-            result_dict['days'].append(args.days)            
-            result_dict['population'].append(args.population)            
-            result_dict['patients_day'].append(args.patient_day)            
-            result_dict['patient_names'].append(args.patient_names)      
+            result_dict['days'].append(args.days)
+            result_dict['population'].append(args.population)
+            result_dict['patients_day'].append(args.patient_day)
+            result_dict['patient_names'].append(args.patient_names)
             result_dict['generation'].append(g)
             
             assert result_dict['optimal'][-1] <= result_dict['online'][-1], f'Error opt: {result_dict["optimal"][-1]} online: {result_dict["online"][-1]} for {p}'
         
         df = pd.DataFrame(result_dict)
         df.to_csv(f'out/summary_{args.days}_{args.population}_{args.patient_day}_{args.patient_names}.csv')
-        
-        
-        pop[:] = offspring
-        
-        # Gather all the fitnesses in one list and print the stats
-        fits = [ind.fitness.values[0] for ind in pop]
 
         length = len(pop)
         mean = sum(fits) / length
