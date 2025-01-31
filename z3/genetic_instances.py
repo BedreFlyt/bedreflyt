@@ -129,7 +129,6 @@ if __name__ == "__main__":
     g = 0
     means_global = []
     means_online = []
-    df = pd.DataFrame()
     result_dict = {'problem':[], 'optimal': [], 'online' : [], 'days': [], 'population': [], 'patients_day':[], 'patient_names':[], 'generation':[]}
 
     
@@ -176,7 +175,7 @@ if __name__ == "__main__":
         for i in range(len(pop_list)):
             p = pop_list[i]
             assert evalPatients(p)[0] == p.fitness.values[0], f'{evalPatients(p)[0]} != {p.fitness.values[0]}'
-            assert evalPatients(p)[0] == fits[0]
+            assert evalPatients(p)[0] == fits[0], f'{evalPatients(p)[0]} != {fits[0]}'
             # if p.fitness.values[0] > online_changes[i]:
             #     print("problem")
             #     # assert evaluate_local(p) == online_changes[i]
@@ -194,9 +193,6 @@ if __name__ == "__main__":
             
             assert result_dict['optimal'][-1] <= result_dict['online'][-1], f'Error opt: {result_dict["optimal"][-1]} online: {result_dict["online"][-1]} for {p}'
         
-        df = pd.DataFrame(result_dict)
-        df.to_csv(f'out/summary_{args.days}_{args.population}_{args.patient_day}_{args.patient_names}.csv')
-
         length = len(pop)
         mean = sum(fits) / length
         sum2 = sum(x*x for x in fits)
@@ -210,5 +206,7 @@ if __name__ == "__main__":
         
         means_global.append(mean)
         means_online.append(mean_online)
-        
-        
+    
+    # store results
+    df = pd.DataFrame(result_dict)
+    df.to_csv(f'out/summary_{args.days}_{args.population}_{args.patient_day}_{args.patient_names}.csv')
