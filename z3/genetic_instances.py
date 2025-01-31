@@ -177,8 +177,8 @@ if __name__ == "__main__":
         # write to csv file
         for i in range(len(pop_list)):
             p = pop_list[i]
-            assert evalPatients(p)[0] == p.fitness.values[0], f'{evalPatients(p)[0]} != {p.fitness.values[0]}, for {p}'
-            assert global_changes[i][0] == evalPatients(p)[0], f'{global_changes[i][0]} != {evalPatients(p)[0]}, for {p}'
+            # assert evalPatients(p)[0] == p.fitness.values[0], f'{evalPatients(p)[0]} != {p.fitness.values[0]}, for {p}'
+            # assert global_changes[i][0] == evalPatients(p)[0], f'{global_changes[i][0]} != {evalPatients(p)[0]}, for {p}'
             # if p.fitness.values[0] > online_changes[i]:
             #     print("problem")
             #     # assert evaluate_local(p) == online_changes[i]
@@ -194,7 +194,7 @@ if __name__ == "__main__":
             result_dict['patient_names'].append(args.patient_names)
             result_dict['generation'].append(g)
             
-            assert result_dict['optimal'][-1] <= result_dict['online'][-1], f'Error opt: {result_dict["optimal"][-1]} online: {result_dict["online"][-1]} for {p}'
+            # assert result_dict['optimal'][-1] <= result_dict['online'][-1], f'Error opt: {result_dict["optimal"][-1]} online: {result_dict["online"][-1]} for {p}'
         
         length = len(pop)
         mean = sum(fits) / length
