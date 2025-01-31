@@ -179,7 +179,7 @@ if __name__ == "__main__":
             result_dict['patient_names'].append(args.patient_names)      
             result_dict['generation'].append(g)
             
-            assert result_dict['optimal'] <= result_dict['online'], f'Error opt: {result_dict["optimal"]} online: {result_dict["online"]} for {p}'
+            assert result_dict['optimal'][-1] <= result_dict['online'][-1], f'Error opt: {result_dict["optimal"][-1]} online: {result_dict["online"][-1]} for {p}'
         
         df = pd.DataFrame(result_dict)
         df.to_csv(f'out/summary_{args.days}_{args.population}_{args.patient_day}_{args.patient_names}.csv')
