@@ -45,7 +45,6 @@ def evaluate_local(days):
         # for days in population:
         patients = [p for p in days[0]]
         patient_names_before = []
-        result = {}
         
         for i in range(len(days)):
             day = days[i]                
@@ -62,8 +61,8 @@ def evaluate_local(days):
             hospital = HospitalRoomAssignment(no_rooms, capacities, room_distances, len(patients), genders, contagious, patient_categories, previous, mode)
             r = hospital.assign_rooms()
             
-            if 'unsat' in result:
-                return 0
+            if type(r) == tuple:
+                return -1
             
             result = r['allocations']
             changes = r['changes']
@@ -131,7 +130,7 @@ if __name__ == "__main__":
     means_global = []
     means_online = []
     df = pd.DataFrame()
-    result_dict = {'problem':[], 'optimal': [], 'online' : [], 'days': [], 'population': [], 'patients_day':[], 'patient_names':[]}
+    result_dict = {'problem':[], 'optimal': [], 'online' : [], 'days': [], 'population': [], 'patients_day':[], 'patient_names':[], 'generation':[]}
 
     
     while g < args.generations:
@@ -165,18 +164,22 @@ if __name__ == "__main__":
             
         pop_list = [p for p in pop]
         online_changes = toolbox.map(evaluate_local, pop_list)
+        global_changes = toolbox.map(evalPatients, pop_list)
         mean_online = sum(online_changes)/len(pop_list)
         
         # write to csv file
         for i in range(len(pop_list)):
             p = pop_list[i]
             result_dict['problem'].append(zlib.compress(bytes(str(p), 'utf-8')))
-            result_dict['optimal'].append(p.fitness.values[0])
-            result_dict['online'].append(online_changes[i])            
+            result_dict['optimal'].append(global_changes[i][0])
+            result_dict['online'].append(online_changes[i])
             result_dict['days'].append(args.days)            
             result_dict['population'].append(args.population)            
             result_dict['patients_day'].append(args.patient_day)            
-            result_dict['patient_names'].append(args.patient_names)            
+            result_dict['patient_names'].append(args.patient_names)      
+            result_dict['generation'].append(g)
+            
+            assert result_dict['optimal'] <= result_dict['online'], f'Error opt: {result_dict["optimal"]} online: {result_dict["online"]} for {p}'
         
         df = pd.DataFrame(result_dict)
         df.to_csv(f'out/summary_{args.days}_{args.population}_{args.patient_day}_{args.patient_names}.csv')
