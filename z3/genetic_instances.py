@@ -175,7 +175,7 @@ if __name__ == "__main__":
         for i in range(len(pop_list)):
             p = pop_list[i]
             assert evalPatients(p)[0] == p.fitness.values[0], f'{evalPatients(p)[0]} != {p.fitness.values[0]}'
-            assert evalPatients(p)[0] == fits[0], f'{evalPatients(p)[0]} != {fits[0]}'
+            assert global_changes[i][0] == evalPatients(p)[0], f'{global_changes[i][0]} != {evalPatients(p)[0]}'
             # if p.fitness.values[0] > online_changes[i]:
             #     print("problem")
             #     # assert evaluate_local(p) == online_changes[i]
