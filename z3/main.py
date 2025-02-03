@@ -22,7 +22,7 @@ class HospitalRoomResources(BaseModel):
     previous: List[int]
     mode: Literal["changes", "max"]
 
-executor = ThreadPoolExecutor(max_workers=os.getenv("MAX_WORKERS", 4))
+executor = ThreadPoolExecutor(max_workers=int(os.getenv("MAX_WORKERS", 4)))
 
 def solve_assignment(request):
     hospital = HospitalRoomAssignment(
