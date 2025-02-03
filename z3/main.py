@@ -3,6 +3,11 @@ from fastapi import FastAPI
 from hospital import HospitalRoomAssignment, HospitalRoomAssignmentGlobal
 from pydantic import BaseModel
 from typing import List, Literal, Dict
+from datetime import datetime
+
+import os
+
+from concurrent.futures import ThreadPoolExecutor
 
 app = FastAPI()
 
@@ -17,29 +22,29 @@ class HospitalRoomResources(BaseModel):
     previous: List[int]
     mode: Literal["changes", "max"]
 
+executor = ThreadPoolExecutor(max_workers=os.getenv("MAX_WORKERS", 4))
 
-@app.post("/api/solve")
-def solve_hospital_assignment(request: HospitalRoomResources):
+def solve_assignment(request):
     hospital = HospitalRoomAssignment(
         request.no_rooms, request.capacities, request.room_distances,
         request.no_patients, request.genders, request.infectious, request.patient_distances, request.previous,
         request.mode
     )
 
-    # Log the information arrived at the API
-    print(f"Received request with {request.no_rooms} rooms, {request.no_patients} patients")
-    print(f"Capacities: {request.capacities}, length: {len(request.capacities)}")
-    print(f"Room distances: {request.room_distances}, length: {len(request.room_distances)}")
-    print(f"Genders: {request.genders}, length: {len(request.genders)}")
-    print(f"Infectious: {request.infectious}, length: {len(request.infectious)}")
-    print(f"Patient distances: {request.patient_distances}, length: {len(request.patient_distances)}")
-    print(f"Previous: {request.previous}")
+    return hospital.assign_rooms()
 
-    assignment = hospital.assign_rooms()
-    print(assignment)
+
+@app.post("/api/solve")
+async def solve_hospital_assignment(request: HospitalRoomResources):
+    print(f"Received a request at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
+    future = executor.submit(solve_assignment, request)
+    result = future.result()
+
+    print(f"Finished processing request at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
     # return "Ok"
-    return assignment
+    return result
 
 class GlobalQuery(BaseModel):
     capacities: List[int]
@@ -49,8 +54,12 @@ class GlobalQuery(BaseModel):
     patient_distances: List[Dict[str, int]]
     mode: Literal["changes", "max"]
 
+def solve_assignment_global(request: HospitalRoomAssignmentGlobal):
+
+    return request.assign_rooms()
+
 @app.post("/api/solve-global")
-def solve_global_assignment(request: GlobalQuery):
+async def solve_global_assignment(request: GlobalQuery):
     assert(len(request.capacities) == len(request.room_distances))
     assert(len(request.genders) == len(request.infectious))
 
@@ -70,7 +79,11 @@ def solve_global_assignment(request: GlobalQuery):
 
     print(f"Received global request for:\n\t{no_rooms} rooms\n\t{no_days} days\n\t{no_patients} unique patients")
 
-    assignment = hospital_global.assign_rooms()
-    print(assignment)
+    future = executor.submit(solve_assignment_global, hospital_global)
+    result = future.result()
 
-    return assignment
+    # assignment = hospital_global.assign_rooms()
+    # print(assignment)
+    
+
+    return result
