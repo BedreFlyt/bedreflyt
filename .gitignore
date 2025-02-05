@@ -182,3 +182,12 @@ gen/
 /ABS/bedreflyt.jar
 
 /z3/out/*
+
+._*
+*/._*
+*.tmp
+
+# ignoring large result files
+evaluation/*/*.json
+evaluation/*.json
+evaluation/*.csv
