@@ -18,13 +18,13 @@ def post_scenario_request(scenario_requests):
                  'diagnosis': el.diagnosis}
                  for el in scenario_requests]
 
-    payload = { 'scenario': scenario, 'mode':"common" }
+    payload = { 'scenario': scenario, 'mode':"worst" }
     response = requests.post(url, json=payload)
     return response.content
 
 if __name__ == "__main__":
     scenarios = []
-    file = "example_scenario.txt"
+    file = "new_scenario.txt"
 
     with open(file, 'r') as file:
         for line in file:

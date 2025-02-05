@@ -18,6 +18,7 @@ def post_scenario_request(host, scenario_requests, mode):
     payload = {
         'scenario': scenario,
         'mode': mode,
+        'smtMode': "changes"
     }
     response = requests.post(url, json=payload)
     return response.content
@@ -29,7 +30,7 @@ def post_simulation_request(host, scenario_requests, repetitions, risk):
                  'diagnosis': el.diagnosis}
                  for el in scenario_requests]
 
-    payload = { 'scenario': scenario, 'repetitions': repetitions, 'risk': risk}
+    payload = { 'scenario': scenario, 'repetitions': repetitions, 'risk': risk, 'smtMode': "changes"}
     response = requests.post(url, json=payload)
     return response.content
 
@@ -70,6 +71,20 @@ if __name__ == "__main__":
             diagnosis = diagnosis if diagnosis != "None" else None
             scenarios.append(ScenarioRequest(int(batch), patient_id, diagnosis))
 
+    worst_case = json.loads(post_scenario_request(args.host, scenarios, "worst"))
+    print(f"Worst case:")
+    print(f"\t{countUnsatDays(worst_case['allocations'])} unsatisfiable days")
+    print(f"\t{len(worst_case['allocations'])} total days")
+    print(f"\tProportion: {countUnsatDays(worst_case['allocations']) / len(worst_case['allocations']):.2f}")
+    print(f"\tChanges: {worst_case['changes']}")
+
+    common_case = json.loads(post_scenario_request(args.host, scenarios, "common"))
+    print(f"Common case:")
+    print(f"\t{countUnsatDays(common_case['allocations'])} unsatisfiable days")
+    print(f"\t{len(common_case['allocations'])} total days")
+    print(f"\tProportion: {countUnsatDays(common_case['allocations']) / len(common_case['allocations']):.2f}")
+    print(f"\tChanges: {common_case['changes']}")
+
     try:
         with open(args.results, 'r') as f:
             simulation = json.load(f)
@@ -89,17 +104,3 @@ if __name__ == "__main__":
     print(f"\tAverage proportion of unsatisfiable days: {sum(unsatProportions) / len(unsatProportions):.2f}")
     print(f"\tAverage number of days in scenario: {sum([len(sim['allocations']) for sim in simulation]) / len(simulation):.2f}")
     print(f"\tAverage number of changes: {sum(changes) / len(simulation):.2f}")
-
-    worst_case = json.loads(post_scenario_request(args.host, scenarios, "worst"))
-    print(f"Worst case:")
-    print(f"\t{countUnsatDays(worst_case['allocations'])} unsatisfiable days")
-    print(f"\t{len(worst_case['allocations'])} total days")
-    print(f"\tProportion: {countUnsatDays(worst_case['allocations']) / len(worst_case['allocations']):.2f}")
-    print(f"\tChanges: {worst_case['changes']}")
-
-    common_case = json.loads(post_scenario_request(args.host, scenarios, "common"))
-    print(f"Common case:")
-    print(f"\t{countUnsatDays(common_case['allocations'])} unsatisfiable days")
-    print(f"\t{len(common_case['allocations'])} total days")
-    print(f"\tProportion: {countUnsatDays(common_case['allocations']) / len(common_case['allocations']):.2f}")
-    print(f"\tChanges: {common_case['changes']}")
