@@ -15,6 +15,11 @@ from hospital import HospitalRoomAssignmentGlobal, HospitalRoomAssignment
 import json
 import base64
 
+no_rooms=17
+capacities=[1, 3, 1, 1, 4, 3, 1, 3, 2, 1, 4, 2, 2, 3, 1, 3, 2]
+room_distances=[2, 3, 1, 2, 1, 3, 3, 1, 1, 2, 3, 3, 1, 2, 1, 2, 2]
+mode = 'c'
+    
 def individual(names, categories, genders, contagiousness):
         return_dict = {}
         for n in range(len(names)):
@@ -90,13 +95,7 @@ if __name__ == "__main__":
     parser.add_argument('-pn', '--patient_names', help = "Number of patients in total", type=int, default = 50) 
     parser.add_argument('-c', '--cores', help = "Cores to use", type=int, default = 6) 
     parser.add_argument('-g', '--generations', help = "Genetic algorithm generations", type=int, default = 500) 
-    args = parser.parse_args()
-    
-    
-    no_rooms=17
-    capacities=[1, 3, 1, 1, 4, 3, 1, 3, 2, 1, 4, 2, 2, 3, 1, 3, 2]
-    room_distances=[2, 3, 1, 2, 1, 3, 3, 1, 1, 2, 3, 3, 1, 2, 1, 2, 2]
-    mode = 'c'
+    args = parser.parse_args() 
     
     pool = multiprocessing.Pool(args.cores)
     
@@ -158,7 +157,8 @@ if __name__ == "__main__":
                 del mutant.fitness.values
                 
         # Evaluate the individuals with an invalid fitness
-        invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
+        invalid_ind = [ind for ind in offspring] # if not ind.fitness.valid
+
         fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
         for ind, fit in zip(invalid_ind, fitnesses):
             ind.fitness.values = fit        
