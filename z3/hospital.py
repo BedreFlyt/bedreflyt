@@ -25,11 +25,6 @@ import datetime
 # hospital.py
 # Return maximum of a vector; error if empty
 # https://stackoverflow.com/questions/67043494/max-and-min-of-a-set-of-variables-in-z3py
-def Max(vs):
-  m = vs[0]
-  for v in vs[1:]:
-    m = If(v > m, v, m)
-  return m
 
 class HospitalRoomAssignment:
     def __init__(self, no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances, previous, mode):
@@ -113,12 +108,11 @@ class HospitalRoomAssignment:
         # number of patients in room j = Sum([patients[i][j] for i in range(self.NO_PATIENTS)])
         if "m" in self.mode:
             max_patients = Int('maximal patients')
+            s.add(max_patients <= len(self.patient_distances))
+            s.add(max_patients >= 0)
             for room in range(self.NO_ROOMS):
                 s.add(Sum([patients[i][room] for i in range(self.NO_PATIENTS)]) <= max_patients)
             h = s.minimize(max_patients)
-
-
-        print(s.check())
 
         if s.check() != sat:
             print("Model is unsat")
@@ -156,7 +150,6 @@ class HospitalRoomAssignment:
 
 class HospitalRoomAssignmentGlobal:
     def __init__(self, no_rooms, capacities, room_categories, patients, mode):
-        # no_patients, genders, infectious, patient_distances, previous, mode):
         
         # fixed
         self.NO_ROOMS = no_rooms
@@ -166,32 +159,17 @@ class HospitalRoomAssignmentGlobal:
         # day-depending
         self.patients = patients
         
-        # self.no_patients = no_patients
-        # self.genders = genders
-        # self.infectious = infectious
-        # self.patient_distances = patient_distances
-        
-        # self.previous = previous
         self.mode = mode
         
         self.days = range(len(patients))
 
-    def assign_rooms(self):
+    def assign_rooms(self, debug = False):
         
         start = datetime.datetime.now()
         
         assert len(self.capacities) == self.NO_ROOMS
         assert len(self.room_distances) == self.NO_ROOMS
-        
-        # for d in range(self.days):
-        #     assert len(self.genders[d]) == self.no_patients[d]
-        #     assert len(self.infectious[d]) == self.no_patients[d]
-        #     assert len(self.patient_distances[d]) == self.no_patients[d]
-        #     assert len(self.previous[d]) == self.no_patients[d]
 
-        # TODO set patients to ints
-        # add sets of constraints?
-        print("Construct variables")
         patients = [{patient : [Bool('patient %s in room %s on day %s' % (patient, room, day)) for room in range(self.NO_ROOMS)] for patient in self.patients[day]} for day in self.days]
         # patients = [[Int('patient %s on day %s' % (patient, day)) for patient in range(self.no_patients[day])] for day in range(self.days)]
         genders = [[Bool('gender room %s on day %s' %(i, day) ) for i in range(self.NO_ROOMS)] for day in self.days]
@@ -199,10 +177,9 @@ class HospitalRoomAssignmentGlobal:
 
         s = Optimize()
 
-        print("Start building models")
-        
-        print("Patients")
-        start = datetime.datetime.now()
+        if debug:
+            print("Patients")
+            start = datetime.datetime.now()
         # Each patient in exactly one bed
         for day in self.days:
             for patient in self.patients[day]:
@@ -210,27 +187,33 @@ class HospitalRoomAssignmentGlobal:
         
         # constraints = [Sum(patients[day][patient]) == 1 for day in range(self.days) for patient in range(self.no_patients[day])]
         # s.add(constraints)
-        print((datetime.datetime.now()-start).total_seconds())
+        if debug:
+            print((datetime.datetime.now()-start).total_seconds())
         
-        print("Rooms")
-        start = datetime.datetime.now()
+        if debug:
+            print("Rooms")
+            start = datetime.datetime.now()
         # Room capacities are satisfied
         for day in self.days:
             for room in range(self.NO_ROOMS):
                 s.add(Sum([patients[day][i][room] for i in self.patients[day]]) <= self.capacities[room])
-        print((datetime.datetime.now()-start).total_seconds())
+        if debug:
+            print((datetime.datetime.now()-start).total_seconds())
 
-        print("Gender")
-        start = datetime.datetime.now()
+        if debug:
+            print("Gender")
+            start = datetime.datetime.now()
         # Gender constraints
         for day in self.days:
             for room in range(self.NO_ROOMS):
                 for patient in self.patients[day]:
                     s.add(Implies(patients[day][patient][room], self.patients[day][patient]['Gender'] == genders[day][room]))
-        print((datetime.datetime.now()-start).total_seconds())
+        if debug:
+            print((datetime.datetime.now()-start).total_seconds())
 
-        print("Infectious")
-        start = datetime.datetime.now()
+        if debug:
+            print("Infectious")
+            start = datetime.datetime.now()
         # Infectious patients
         for day in self.days:
             for room in range(self.NO_ROOMS):
@@ -246,10 +229,12 @@ class HospitalRoomAssignmentGlobal:
                     #             And([Not(patients[day][p][room]) for p in range(self.no_patients[day]) if p != patient]) # no other patient is in room
                     #             )
                     # )
-        print((datetime.datetime.now()-start).total_seconds())
+        if debug:
+            print((datetime.datetime.now()-start).total_seconds())
 
-        print("Distance")
-        start = datetime.datetime.now()
+        if debug:
+            print("Distance")
+            start = datetime.datetime.now()
         # Consider distance
         for day in self.days:
             for patient in self.patients[day]:
@@ -257,10 +242,12 @@ class HospitalRoomAssignmentGlobal:
                     s.add(Implies(patients[day][patient][room], 
                                 self.patients[day][patient]['Cat'] <= self.room_distances[room])
                     )
-        print((datetime.datetime.now()-start).total_seconds())
+        if debug:
+            print((datetime.datetime.now()-start).total_seconds())
 
-        print("Previous")
-        start = datetime.datetime.now()
+        if debug:
+            print("Previous")
+            start = datetime.datetime.now()
         # Encode previous assignment
         for day in self.days[1:]: # dont care about the first day - no assignment given
             for patient in self.patients[day]:
@@ -268,7 +255,8 @@ class HospitalRoomAssignmentGlobal:
                     for room in range(self.NO_ROOMS):
                         s.add(Or(
                             Implies(patients[day-1][patient][room], patients[day][patient][room]), changes[day][patient])) 
-        print((datetime.datetime.now()-start).total_seconds())
+        if debug:
+            print((datetime.datetime.now()-start).total_seconds())
 
         
         
@@ -292,20 +280,6 @@ class HospitalRoomAssignmentGlobal:
                 for room in range(self.NO_ROOMS):
                     s.add(Sum([patients[day][i][room] for i in self.patients[day]]) <= max_patients)
             h = s.minimize(max_patients)
-
-
-        # print(s)
-        
-        print("Writing")
-        start = datetime.datetime.now()
-        # with open('problem_export.smt2', mode='w') as f:
-        #     f.write(s.sexpr())
-        print((datetime.datetime.now()-start).total_seconds())
-        
-        print("solving")
-        start = datetime.datetime.now()
-        print(s.check())
-        print((datetime.datetime.now()-start).total_seconds())
         
         if s.check() != sat:
             print("Model is unsat")
@@ -320,17 +294,21 @@ class HospitalRoomAssignmentGlobal:
                 assignment = {str(i) : [] for i in range(self.NO_ROOMS)}
                 room_gender = {str(i) : None for i in range(self.NO_ROOMS)}
 
-                print(f'day {day}')
-                print("  genders")
+                if debug:
+                    print(f'day {day}')
+                    print("  genders")
                 for v in genders[day]:
-                    print("    ", str(v), m.eval(v, model_completion=True))
+                    if debug:
+                        print("    ", str(v), m.eval(v, model_completion=True))
                     room_gender[str(v).split(" ")[2]] = m.eval(v, model_completion=True)
                     
                 for patient in patients[day]:
-                    print("  patient", patient)
+                    if debug:
+                        print("  patient", patient)
                     # print("  ", " ".join(str(patient[0]).split(" ")[:2]))
                     for v in patients[day][patient]:
-                        print("    ", str(v), m.eval(v, model_completion=True))
+                        if debug:
+                            print("    ", str(v), m.eval(v, model_completion=True))
                         if m.eval(v):
                             assigned_room = str(v).split(" ")[-4]
                             assigned_patient = str(v).split(" ")[1]
@@ -346,7 +324,8 @@ class HospitalRoomAssignmentGlobal:
                     result.append(res_dic)
                     # result.append(f'Room {str(k)} is gender {room_gender[str(k)]} and holds patients {" ".join(assignment[k])}')
                 # print(assignment)
-                print(result)
+                if debug:
+                    print(result)
             return s.lower(h).as_long()
 
 
