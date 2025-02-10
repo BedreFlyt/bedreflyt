@@ -33,15 +33,17 @@ async def post_request(endpoint, scenario_requests, smtMode, mode=-1, risk=-1, r
     if mode != -1:
         payload["mode"] = mode
 
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(timeout=None) as session:
         async with session.post(endpoint,
-                                data=json.dumps(payload),
+                                json=payload,
+                                timeout=0,
                                 headers={"Content-type": "application/json"}
                                 ) as response:
             if response.ok:
                 return await response.json()
             else:
-                raise Exception
+                print(f"{response.status}: {await response.text()}")
+                exit(-1)
 
 
 async def post_scenario_request(host, scenario_requests, mode, smtMode="changes"):
@@ -74,9 +76,7 @@ def roomsUpgradable(rooms):
 def upgradeBeds(rooms, host):
     smallest = min([room for room in rooms if room["roomCategory"] < 3], key=lambda room: room['capacity'])
     updateReq = requests.patch(host + "/api/fuseki/room/update",
-                               # it is important that the inner quotation marks are double, otherwise the API 403s
-                               # do not ask how long this took to figure out
-                               data=f'{{"roomNumber":{smallest["roomNumber"]}, "newRoom":3}}',
+                               json={'roomNumber':smallest['roomNumber'], 'newRoom':3},
                                headers={"Content-Type": "application/json"})
     return getRooms(host)
 
@@ -94,12 +94,12 @@ def countUnsatDays(run):
 async def oneSimulation(host, scenario, risk, repetitions):
     print(f"\tRunning one simulation with risk {risk:.1f}")
     simulation = await post_simulation_request(host, scenario, repetitions, risk)
-    changes = [sim["changes"] for sim in simulation]
+    changes = [sim["changes"] for sim in simulation if sim["changes"] != -1]
     unsatProportions = [countUnsatDays(sim["allocations"]) / len(sim["allocations"]) for sim in simulation]
 
     return {
         'risk': risk,
-        'avgChanges': sum(changes) / len(changes),
+        'avgChanges': sum(changes) / len(changes) if len(changes) > 0 else float("nan"),
         'noDays': sum([len(sim['allocations']) for sim in simulation]) / len(simulation),
         'avgUnsatDays': sum(countUnsatDays(sim["allocations"]) for sim in simulation) / len(simulation),
         'avgUnsatProp': sum(unsatProportions) / len(unsatProportions)
@@ -111,6 +111,8 @@ async def run_simulations(host, scenario, repetitions, result_file):
         sims.append(asyncio.create_task(oneSimulation(host, scenario, risk*.1, repetitions)))
 
     sim_results = await asyncio.gather(*sims, return_exceptions=False)
+
+    print(f"all sims returned: {sim_results}")
 
     results = {"scenario":[str(p) for p in scenario],
                 "repetitions":repetitions,
