@@ -116,7 +116,6 @@ class HospitalRoomAssignment:
 
         if s.check() != sat:
             print("Model is unsat")
-            print(s.unsat_core())
             return "Model is unsat", s.unsat_core()
         else:
             # Get model and format output
@@ -282,7 +281,6 @@ class HospitalRoomAssignmentGlobal:
         
         if s.check() != sat:
             print("Model is unsat")
-            print(s.unsat_core())
             return "Model is unsat", s.unsat_core()
         else:
             # Get model and format output
