@@ -46,12 +46,12 @@ class HospitalRoomAssignment:
         assert len(self.room_distances) == self.NO_ROOMS
         assert len(self.previous) == self.NO_PATIENTS
 
-        
-        patients = [[ Bool('patient %s in room %s' % (i,j)) for j in range(self.NO_ROOMS)] for i in range(self.NO_PATIENTS)]
-        genders = [Bool('gender room %s' %i ) for i in range(self.NO_ROOMS)]
-        changes = [Bool('Patient %s stayed' %i ) for i in range(self.NO_PATIENTS)] # encodes which patient had to change stations
+        context = z3.Context()
+        patients = [[ Bool('patient %s in room %s' % (i,j), ctx=context) for j in range(self.NO_ROOMS)] for i in range(self.NO_PATIENTS)]
+        genders = [Bool('gender room %s' %i, ctx=context) for i in range(self.NO_ROOMS)]
+        changes = [Bool('Patient %s stayed' %i, ctx=context) for i in range(self.NO_PATIENTS)] # encodes which patient had to change stations
 
-        s = Optimize()
+        s = Optimize(ctx=context)
         
         # Each patient in exactly one bed
         for patient in range(self.NO_PATIENTS):
@@ -116,7 +116,6 @@ class HospitalRoomAssignment:
 
         if s.check() != sat:
             print("Model is unsat")
-            print(s.unsat_core())
             return "Model is unsat", s.unsat_core()
         else:
             # Get model and format output
@@ -145,7 +144,8 @@ class HospitalRoomAssignment:
                 }
                 result.append(res_dic)
                 # result.append(f'Room {str(k)} is gender {room_gender[str(k)]} and holds patients {" ".join(assignment[k])}')
-            return {"allocations": result, "changes": s.lower(h).as_long()}
+            assert isinstance(s.lower(h).as_long(), int)
+            return {"allocations": result, "changes": int(s.lower(h).as_long())}
 
 
 class HospitalRoomAssignmentGlobal:
@@ -169,13 +169,13 @@ class HospitalRoomAssignmentGlobal:
         
         assert len(self.capacities) == self.NO_ROOMS
         assert len(self.room_distances) == self.NO_ROOMS
-
-        patients = [{patient : [Bool('patient %s in room %s on day %s' % (patient, room, day)) for room in range(self.NO_ROOMS)] for patient in self.patients[day]} for day in self.days]
+        context = z3.Context()
+        patients = [{patient : [Bool('patient %s in room %s on day %s' % (patient, room, day), ctx=context) for room in range(self.NO_ROOMS)] for patient in self.patients[day]} for day in self.days]
         # patients = [[Int('patient %s on day %s' % (patient, day)) for patient in range(self.no_patients[day])] for day in range(self.days)]
-        genders = [[Bool('gender room %s on day %s' %(i, day) ) for i in range(self.NO_ROOMS)] for day in self.days]
-        changes = [{patient : Bool('Patient %s stayed on day %s' %(patient, day) ) for patient in self.patients[day]} for day in self.days]# encodes which patient had to change stations
+        genders = [[Bool('gender room %s on day %s' %(i, day), ctx=context) for i in range(self.NO_ROOMS)] for day in self.days]
+        changes = [{patient : Bool('Patient %s stayed on day %s' %(patient, day), ctx=context) for patient in self.patients[day]} for day in self.days]# encodes which patient had to change stations
 
-        s = Optimize()
+        s = Optimize(ctx=context)
 
         if debug:
             print("Patients")
@@ -257,8 +257,6 @@ class HospitalRoomAssignmentGlobal:
                             Implies(patients[day-1][patient][room], patients[day][patient][room]), changes[day][patient])) 
         if debug:
             print((datetime.datetime.now()-start).total_seconds())
-
-        
         
         # Find assignment with few moved patients     
         if "c" in self.mode:
@@ -283,7 +281,6 @@ class HospitalRoomAssignmentGlobal:
         
         if s.check() != sat:
             print("Model is unsat")
-            print(s.unsat_core())
             return "Model is unsat", s.unsat_core()
         else:
             # Get model and format output
@@ -326,7 +323,8 @@ class HospitalRoomAssignmentGlobal:
                 # print(assignment)
                 if debug:
                     print(result)
-            return s.lower(h).as_long()
+            assert isinstance(s.lower(h).as_long(), int)
+            return int(s.lower(h).as_long())
 
 
 
