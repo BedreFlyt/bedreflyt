@@ -56,14 +56,16 @@ def evalPatients(individual):
         # print(f'returned {result1} for {individual}')
         # print()
         
-        if result == result1 or type(result) == type(result1) and type(result) == tuple:
-            if type(result) == int:
+        assert type(result) == type(result1)
+        # if result is tuple, true per default
+        if type(result) == int:
+            if result == result1:
                 return [result]
             else:
-                return [-1]
+                # return [min([result, result1])]
+                assert False, f'Found two different results {result}, {result1}'
         else:
-            # return [min([result, result1])]
-            assert False, f'Found two different results {result}, {result1}'
+            return [-1]            
         
 def evaluate_local(days):
         total_changes = 0
