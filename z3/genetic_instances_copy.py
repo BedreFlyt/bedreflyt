@@ -53,10 +53,10 @@ def evalPatients(individual):
             
         hospital1 = HospitalRoomAssignmentGlobal(no_rooms, capacities, room_distances, individual, mode)
         result1 = hospital1.assign_rooms()
-        print(f'returned {result1} for {individual}')
-        print()
+        # print(f'returned {result1} for {individual}')
+        # print()
         
-        if result == result1:
+        if result == result1 or type(result) == type(result1) and type(result) == tuple:
             if type(result) == int:
                 return [result]
             else:
