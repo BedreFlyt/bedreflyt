@@ -4,6 +4,7 @@ random.seed(42)
 
 import datetime
 
+import pathlib
 # Nevrokirurgisk avd, OUS
 # Model   Bedpost   info                                            Model 
 # Roomnbr Romnr     Antall senger	Eget bad?	Seksjon/type rom    Category
@@ -278,6 +279,26 @@ class HospitalRoomAssignmentGlobal:
                 for room in range(self.NO_ROOMS):
                     s.add(Sum([patients[day][i][room] for i in self.patients[day]]) <= max_patients)
             h = s.minimize(max_patients)
+    
+        path_name = str(random.randint(0,10000000))
+        my_file = pathlib.Path(f'out/{path_name}')
+        while my_file.is_file():
+            path_name = str(random.randint(0,10000000))
+        with open(f'out/{path_name}', mode='w+') as f:
+            print("written to", path_name)
+            # print(str(s))
+            # assert(False)
+            # helper = Solver()
+            # helper.add(s.assertions())
+            f.write(s.sexpr()) #to_smt2()
+                
+        del s
+        s = Optimize(ctx=context)
+        s.from_file('out/'+path_name)
+        h = s.minimize(s.objectives()[0])
+        
+        file_to_rem = pathlib.Path(f'out/{path_name}')
+        file_to_rem.unlink()
         
         if s.check() != sat:
             print("Model is unsat")
