@@ -33,7 +33,7 @@ async def post_request(endpoint, scenario_requests, smtMode, mode=-1, risk=-1, r
     if mode != -1:
         payload["mode"] = mode
 
-    async with aiohttp.ClientSession(timeout=None) as session:
+    async with aiohttp.ClientSession() as session:
         async with session.post(endpoint,
                                 json=payload,
                                 timeout=0,
@@ -94,7 +94,8 @@ def countUnsatDays(run):
 async def oneSimulation(host, scenario, risk, repetitions):
     print(f"\tRunning one simulation with risk {risk:.1f}")
     simulation = await post_simulation_request(host, scenario, repetitions, risk)
-    changes = [sim["changes"] for sim in simulation if sim["changes"] != -1]
+    changes = [sim["changes"] / (len(sim["allocations"]) - countUnsatDays(sim["allocations"]))
+                                          for sim in simulation if sim["changes"] != -1]
     unsatProportions = [countUnsatDays(sim["allocations"]) / len(sim["allocations"]) for sim in simulation]
 
     return {
@@ -112,8 +113,6 @@ async def run_simulations(host, scenario, repetitions, result_file):
 
     sim_results = await asyncio.gather(*sims, return_exceptions=False)
 
-    print(f"all sims returned: {sim_results}")
-
     results = {"scenario":[str(p) for p in scenario],
                 "repetitions":repetitions,
                 "simulations": sim_results}
@@ -121,8 +120,9 @@ async def run_simulations(host, scenario, repetitions, result_file):
     with open(result_file, "w") as f:
         json.dump(results, f, indent="")
 
-    # if we have reached a threshold of beds where there are no more changes, we return True and break later
-    return results["simulations"][10]["avgUnsatProp"] < 0.01
+    # if we have reached a threshold of beds where there are no more interesting changes in satisfiability,
+    # we return True and break later
+    return results["simulations"][10]["avgUnsatProp"] < 0.03
 
 def main(host, original_rooms, scenario, results_file, repetitions):
     rooms = original_rooms

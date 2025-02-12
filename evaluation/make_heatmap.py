@@ -71,7 +71,6 @@ if __name__ == "__main__":
     else:
         plt.show()
 
-    # then the number of bed changes (this turns out not to be very interesting)
     fig, ax = plt.subplots()
     data = pd.DataFrame(values).pivot(index='beds', columns='risk', values='changes')
     changes_hm = sns.heatmap(data, ax=ax, annot=True, fmt=".1f", cmap="crest")
@@ -79,7 +78,7 @@ if __name__ == "__main__":
     xlabels = [t.get_text() for t in changes_hm.xaxis.get_ticklabels()]
     changes_hm.set_xticklabels([f"{float(x):.1f}" for x in xlabels])
     changes_hm.invert_yaxis()
-    plt.title("Number of bed changes")
+    plt.title("Average number of bed changes per satisfiable day")
 
     if args.store:
         plt.savefig(args.store + "_changes.pgf")
