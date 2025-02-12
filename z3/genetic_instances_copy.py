@@ -46,24 +46,24 @@ def evalPatients(individual):
         # print(f'returned {result} for {individual}')
         # print()
         
-        if type(result) == int:
-            return [result]
-        else:
-            return [-1]
-            
-        # hospital1 = HospitalRoomAssignmentGlobal(no_rooms, capacities, room_distances, individual, mode)
-        # result1 = hospital1.assign_rooms()
-        # print(f'returned {result1} for {individual}')
-        # print()
-        
-        # if result == result1:
-        #     if type(result) == int:
-        #         return [result]
-        #     else:
-        #         return [-1]
+        # if type(result) == int:
+        #     return [result]
         # else:
-        #     # return [min([result, result1])]
-        #     assert False, f'Found two different results {result}, {result1}'
+        #     return [-1]
+            
+        hospital1 = HospitalRoomAssignmentGlobal(no_rooms, capacities, room_distances, individual, mode)
+        result1 = hospital1.assign_rooms()
+        print(f'returned {result1} for {individual}')
+        print()
+        
+        if result == result1:
+            if type(result) == int:
+                return [result]
+            else:
+                return [-1]
+        else:
+            # return [min([result, result1])]
+            assert False, f'Found two different results {result}, {result1}'
         
 def evaluate_local(days):
         total_changes = 0
