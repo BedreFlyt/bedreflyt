@@ -43,10 +43,30 @@ def random_individuals(patients_day, patient_names):
 def evalPatients(individual):
         hospital = HospitalRoomAssignmentGlobal(no_rooms, capacities, room_distances, individual, mode)
         result = hospital.assign_rooms()
+        # print(f'returned {result} for {individual}')
+        # print()
+        
+        # comment to test results
         if type(result) == int:
             return [result]
         else:
             return [-1]
+            
+        hospital1 = HospitalRoomAssignmentGlobal(no_rooms, capacities, room_distances, individual, mode)
+        result1 = hospital1.assign_rooms()
+        # print(f'returned {result1} for {individual}')
+        # print()
+        
+        assert type(result) == type(result1)
+        # if result is tuple, true per default
+        if type(result) == int:
+            if result == result1:
+                return [result]
+            else:
+                # return [min([result, result1])]
+                assert False, f'Found two different results {result}, {result1}'
+        else:
+            return [-1]            
         
 def evaluate_local(days):
         total_changes = 0
@@ -99,10 +119,10 @@ if __name__ == "__main__":
     
     pool = multiprocessing.Pool(args.cores)
     
-    creator.create("FitnessMax", base.Fitness, weights=(1.0,))
+    creator.create("FitnessMax", base.Fitness, weights=(1,))
     creator.create("Individual", list, fitness=creator.FitnessMax)
     toolbox = base.Toolbox()
-    toolbox.register("map", pool.map)
+    # toolbox.register("map", pool.map)
     toolbox.register("attr_patients", random_individuals, args.patient_day, args.patient_names)
     
     toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_patients, args.days)
@@ -116,7 +136,7 @@ if __name__ == "__main__":
     pop = toolbox.population(n=args.population)
     
     # Evaluate the entire population
-    fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+    fitnesses = list(pool.map(toolbox.evaluate, pop))
     for ind, fit in zip(pop, fitnesses):
         ind.fitness.values = fit
         
@@ -126,23 +146,21 @@ if __name__ == "__main__":
     # MUTPB is the probability for mutating an individual
     CXPB, MUTPB = 0.5, 0.2
     
-    fits = [ind.fitness.values[0] for ind in pop]
-    
     g = 0
     means_global = []
     means_online = []
     result_dict = {'problem':[], 'optimal': [], 'online' : [], 'days': [], 'population': [], 'patients_day':[], 'patient_names':[], 'generation':[]}
 
     
-    while g < args.generations:
+    while g < args.generations:        
         # A new generation
         g = g + 1
         print("-- Generation %i --" % g)
         
         # Select the next generation individuals
-        offspring = toolbox.select(pop, len(pop))
+        offspring = toolbox.select(copy.deepcopy(pop), len(pop))
         # Clone the selected individuals
-        offspring = list(map(toolbox.clone, offspring))
+        offspring = copy.deepcopy(list(map(toolbox.clone, offspring)))
         
         # Apply crossover and mutation on the offspring
         for child1, child2 in zip(offspring[::2], offspring[1::2]):
@@ -155,47 +173,33 @@ if __name__ == "__main__":
             if random.random() < MUTPB:
                 toolbox.mutate(mutant)
                 del mutant.fitness.values
-                
-        # Evaluate the individuals with an invalid fitness
-        invalid_ind = [ind for ind in offspring] # if not ind.fitness.valid
+        
+        # Evaluate the individuals again
+        fitnesses[:] = list(pool.map(evalPatients, offspring))
+        for ind, fit in zip(offspring, fitnesses):
+            ind.fitness.values = fit 
 
-        fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
-        for ind, fit in zip(invalid_ind, fitnesses):
-            ind.fitness.values = fit        
-        
         pop[:] = offspring
-        
         # Gather all the fitnesses in one list and print the stats
         fits = [ind.fitness.values[0] for ind in pop]
         
         # Store new population
-        pop_list = [p for p in pop]
-        online_changes = toolbox.map(evaluate_local, pop_list)
-        global_changes = toolbox.map(evalPatients, pop_list)
-        mean_online = sum(online_changes)/len(pop_list)
+        online_changes = list(pool.map(evaluate_local, pop))
+        mean_online = sum(online_changes)/len(pop)
         
         # write to csv file
-        for i in range(len(pop_list)):
-            p = pop_list[i]
-            # assert evalPatients(p)[0] == p.fitness.values[0], f'{evalPatients(p)[0]} != {p.fitness.values[0]}, for {p}'
-            # assert global_changes[i][0] == evalPatients(p)[0], f'{global_changes[i][0]} != {evalPatients(p)[0]}, for {p}'
-            # if p.fitness.values[0] > online_changes[i]:
-            #     print("problem")
-            #     # assert evaluate_local(p) == online_changes[i]
-            #     print(f'### Error online {online_changes[i]}, global {p.fitness.values[0]}, {p}')
-            #     assert(False)
-            # assert p.fitness.values[0] > online_changes[i], f'{p.fitness.values[0]}, {online_changes[i]}, {p}'
+        for i in range(len(pop)):
+            p = pop[i]
             result_dict['problem'].append(base64.b64encode(zlib.compress(json.dumps(p).encode())).decode())
-            result_dict['optimal'].append(global_changes[i][0])
+            result_dict['optimal'].append(p.fitness.values[0])
             result_dict['online'].append(online_changes[i])
+            assert p.fitness.values[0] <= online_changes[i], f'Error opt: {p.fitness.values[0]} online: {online_changes[i]} for {p}'
             result_dict['days'].append(args.days)
             result_dict['population'].append(args.population)
             result_dict['patients_day'].append(args.patient_day)
             result_dict['patient_names'].append(args.patient_names)
             result_dict['generation'].append(g)
-            
-            # assert result_dict['optimal'][-1] <= result_dict['online'][-1], f'Error opt: {result_dict["optimal"][-1]} online: {result_dict["online"][-1]} for {p}'
-        
+                    
         length = len(pop)
         mean = sum(fits) / length
         sum2 = sum(x*x for x in fits)
