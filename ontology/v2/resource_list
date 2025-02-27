@@ -1,0 +1,11 @@
+Resource description	Contents	Link 
+PKO-o	Procedures and steps	https://github.com/perks-project/pk-ontology
+PPlan	plans, part of PKO	https://vocab.linkeddata.es/p-plan/index.html
+OGMS	ontology of general medical science	https://www.ebi.ac.uk/ols4/ontologies/ogms
+Time ontology	time, duration, intervals, dates	https://w3c.github.io/sdw/time/
+Bricks	smart cities, buildings, IoT	https://ontology.brickschema.org/
+		https://brickschema.org
+REC real estate core	Buildings, smart cities	https://doc.realestatecore.io/3.0/full/ontology.ttl
+		https://www.realestatecore.io/introduction/
+		
+PROV-O		

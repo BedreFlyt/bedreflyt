@@ -1,0 +1,115 @@
+Queries
+
+
+Query 1: What are all the steps for each treatment journey?
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX bedre: <http://www.smolang.org/bedreflyt#>
+PREFIX pko: <https://w3id.org/pko#>
+
+SELECT *
+	WHERE {?journey pko:hasStep ?step}
+
+Query 2: For each step, how long does it take and what is its step #
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX bedre: <http://www.smolang.org/bedreflyt#>
+PREFIX pko: <https://w3id.org/pko#>
+PREFIX time: <http://www.w3.org/2006/time#>
+
+SELECT *
+	WHERE {?journey pko:hasStep ?step.
+	?step time:hours ?hoursduration.
+	?step pko:stepNumber ?stepnumber
+	}
+
+
+Query 3. Next step
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX bedre: <http://www.smolang.org/bedreflyt#>
+PREFIX pko: <https://w3id.org/pko#>
+PREFIX time: <http://www.w3.org/2006/time#>
+
+SELECT *
+	WHERE {?step pko:nextStep ?nextstep.
+	}
+
+Query 4. Previous step
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX bedre: <http://www.smolang.org/bedreflyt#>
+PREFIX pko: <https://w3id.org/pko#>
+PREFIX time: <http://www.w3.org/2006/time#>
+
+SELECT *
+	WHERE {?step pko:previousStep ?previousstep.
+	}
+
+Query 5. What is the max bed capacity of each room?
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX bedre: <http://www.smolang.org/bedreflyt/>
+PREFIX pko: <https://w3id.org/pko#>
+PREFIX time: <http://www.w3.org/2006/time#>
+
+SELECT *
+	WHERE {?room bedre:hasCapacityNrBeds ?beds.
+	}
+
+Query 6. Which beds are assigned to which rooms
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX bedre: <http://www.smolang.org/bedreflyt/>
+PREFIX pko: <https://w3id.org/pko#>
+PREFIX time: <http://www.w3.org/2006/time#>
+
+SELECT *
+	WHERE {?bed bedre:bedAssignedTo ?room.
+	
+	}
+
+Query 7. What is the monitoring status of each bed in the rooms?
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX bedre: <http://www.smolang.org/bedreflyt/>
+PREFIX pko: <https://w3id.org/pko#>
+PREFIX time: <http://www.w3.org/2006/time#>
+
+SELECT *
+	WHERE {?bed bedre:bedAssignedTo ?room.
+	?bed bedre:hasMonitoringStatus ?monitoringstatus
+	
+	}
+
+Query 8. Frequency and Weight
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX bedre: <http://www.smolang.org/bedreflyt/>
+PREFIX pko: <https://w3id.org/pko#>
+PREFIX time: <http://www.w3.org/2006/time#>
+
+SELECT *
+	WHERE {?treatmentjouney bedre:hasFrequency ?frequency.
+	?treatmentjouney bedre:hasWeight ?weight
+
+	
+	}
