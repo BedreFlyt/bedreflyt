@@ -113,3 +113,46 @@ SELECT *
 
 	
 	}
+
+
+
+Query 9. Which procedures are connected to which diagnosis?
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX bedre: <http://www.smolang.org/bedreflyt/>
+PREFIX pko: <https://w3id.org/pko#>
+
+SELECT *
+	WHERE {?procedure bedre:isTreatmentProcOf ?diagnosis.
+	}
+
+
+Query 10. What are the procedural dependencies?
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX bedre: <http://www.smolang.org/bedreflyt/>
+PREFIX pko: <https://w3id.org/pko#>
+
+SELECT *
+	WHERE {?procedure1 bedre:isDependentOn ?procedure2.
+	}
+
+Query 11. Procedures for diagnosis and dependencies
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX bedre: <http://www.smolang.org/bedreflyt/>
+PREFIX pko: <https://w3id.org/pko#>
+
+SELECT *
+	WHERE {?procedure1 bedre:isTreatmentProcOf ?diagnosis.
+	?procedure1 bedre:isDependentOn ?procedure2.
+	
+	}
+
