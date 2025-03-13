@@ -176,6 +176,22 @@
     
 
 
+    <!-- http://www.smolang.org/bedreflyt/hasAssignTRoom -->
+
+    <owl:ObjectProperty rdf:about="http://www.smolang.org/bedreflyt/hasAssignTRoom">
+        <owl:inverseOf rdf:resource="http://www.smolang.org/bedreflyt/isAssignWard"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/hasBathroom -->
+
+    <owl:ObjectProperty rdf:about="http://www.smolang.org/bedreflyt/hasBathroom">
+        <owl:inverseOf rdf:resource="http://www.smolang.org/bedreflyt/isBathroomOf"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.smolang.org/bedreflyt/hasBedAssignment -->
 
     <owl:ObjectProperty rdf:about="http://www.smolang.org/bedreflyt/hasBedAssignment">
@@ -224,6 +240,18 @@
     <owl:ObjectProperty rdf:about="http://www.smolang.org/bedreflyt/hasTreatmentProc">
         <owl:inverseOf rdf:resource="http://www.smolang.org/bedreflyt/isTreatmentProcOf"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/isAssignWard -->
+
+    <owl:ObjectProperty rdf:about="http://www.smolang.org/bedreflyt/isAssignWard"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/isBathroomOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.smolang.org/bedreflyt/isBathroomOf"/>
     
 
 
@@ -370,6 +398,15 @@
 
     <owl:DatatypeProperty rdf:about="http://www.smolang.org/bedreflyt/hasNurseBurden">
         <rdfs:domain rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/hasRoomNr -->
+
+    <owl:DatatypeProperty rdf:about="http://www.smolang.org/bedreflyt/hasRoomNr">
+        <rdfs:domain rdf:resource="https://w3id.org/rec/core/Room"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
     </owl:DatatypeProperty>
     
@@ -1224,36 +1261,13 @@
     
 
 
-    <!-- http://www.smolang.org/bedreflyt/D32.5Standard -->
-
-    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.5Standard">
-        <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
-        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/D32.5_Standard_STEP_10"/>
-        <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/D32.5"/>
-        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/D32.5_Standard_STEP_0"/>
-        <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
-        <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.33</bedreflyt:hasWeight>
-        <rdfs:comment>standard trajectory for D32.5 patient</rdfs:comment>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.smolang.org/bedreflyt/D32.5_Standard_STEP_0 -->
-
-    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.5_Standard_STEP_0"/>
-    
-
-
-    <!-- http://www.smolang.org/bedreflyt/D32.5_Standard_STEP_10 -->
-
-    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.5_Standard_STEP_10"/>
-    
-
-
     <!-- http://www.smolang.org/bedreflyt/D35.2Standard -->
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_10"/>
+        <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/D32.5"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_0"/>
         <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_0"/>
         <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_1"/>
         <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_10"/>
@@ -1265,6 +1279,9 @@
         <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_7"/>
         <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_8"/>
         <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_9"/>
+        <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
+        <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.33</bedreflyt:hasWeight>
+        <rdfs:comment>standard trajectory for D32.5 patient</rdfs:comment>
     </owl:NamedIndividual>
     
 
@@ -2922,6 +2939,14 @@
     
 
 
+    <!-- http://www.smolang.org/bedreflyt/Neurosurgery -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Neurosurgery">
+        <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/Ward"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd. -->
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.">
@@ -2975,6 +3000,90 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Pre.operativeForberedelser">
         <rdf:type rdf:resource="http://purl.org/net/p-plan#Step"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/Room301 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Room301">
+        <rdf:type rdf:resource="https://w3id.org/rec/building/TreatmentRoom"/>
+        <bedreflyt:hasBathroom rdf:resource="http://www.smolang.org/bedreflyt/Room301-1"/>
+        <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
+        <bedreflyt:isAssignWard rdf:resource="http://www.smolang.org/bedreflyt/Neurosurgery"/>
+        <bedreflyt:hasCapacityNrBeds rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasCapacityNrBeds>
+        <bedreflyt:hasRoomNr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">301</bedreflyt:hasRoomNr>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/Room301-1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Room301-1">
+        <rdf:type rdf:resource="https://w3id.org/rec/building/Bathroom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/Room302 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Room302">
+        <rdf:type rdf:resource="https://w3id.org/rec/building/TreatmentRoom"/>
+        <bedreflyt:hasBathroom rdf:resource="http://www.smolang.org/bedreflyt/Room302-1"/>
+        <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Overakning"/>
+        <bedreflyt:isAssignWard rdf:resource="http://www.smolang.org/bedreflyt/Neurosurgery"/>
+        <bedreflyt:hasCapacityNrBeds rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasCapacityNrBeds>
+        <bedreflyt:hasRoomNr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">302</bedreflyt:hasRoomNr>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/Room302-1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Room302-1">
+        <rdf:type rdf:resource="https://w3id.org/rec/building/Bathroom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/Room303 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Room303">
+        <rdf:type rdf:resource="https://w3id.org/rec/building/TreatmentRoom"/>
+        <bedreflyt:hasBathroom rdf:resource="http://www.smolang.org/bedreflyt/Room303-1"/>
+        <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
+        <bedreflyt:isAssignWard rdf:resource="http://www.smolang.org/bedreflyt/Neurosurgery"/>
+        <bedreflyt:hasCapacityNrBeds rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasCapacityNrBeds>
+        <bedreflyt:hasRoomNr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">303</bedreflyt:hasRoomNr>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/Room303-1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Room303-1">
+        <rdf:type rdf:resource="https://w3id.org/rec/building/Bathroom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/Room304 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Room304">
+        <rdf:type rdf:resource="https://w3id.org/rec/building/TreatmentRoom"/>
+        <bedreflyt:hasBathroom rdf:resource="http://www.smolang.org/bedreflyt/Room304-1"/>
+        <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
+        <bedreflyt:isAssignWard rdf:resource="http://www.smolang.org/bedreflyt/Neurosurgery"/>
+        <bedreflyt:hasCapacityNrBeds rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasCapacityNrBeds>
+        <bedreflyt:hasRoomNr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">304</bedreflyt:hasRoomNr>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/Room304-1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Room304-1">
+        <rdf:type rdf:resource="https://w3id.org/rec/building/Bathroom"/>
     </owl:NamedIndividual>
     
 
