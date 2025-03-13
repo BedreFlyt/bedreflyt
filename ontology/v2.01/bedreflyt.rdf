@@ -678,6 +678,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Arrival"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -690,6 +691,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/PlanlagtInnViaMottak"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_2"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_0"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -702,6 +705,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_11"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_9"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -714,6 +719,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseLokalsykehus"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_10"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -726,6 +732,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Pre.operativeForberedelser"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_3"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</time:hours>
     </owl:NamedIndividual>
@@ -738,6 +746,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_4"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_2"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16</time:hours>
     </owl:NamedIndividual>
@@ -750,6 +760,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_5"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_3"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -762,6 +774,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Operasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_6"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_4"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6</time:hours>
     </owl:NamedIndividual>
@@ -774,6 +788,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Postoperativ"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_7"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_5"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -786,6 +802,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_8"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_6"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -798,6 +816,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/MR-Undersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_9"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_7"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -810,6 +830,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_10"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_8"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:hours>
     </owl:NamedIndividual>
@@ -856,6 +878,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Arrival"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -868,6 +891,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/PlanlagtInnViaMottak"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_2"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_0"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -880,6 +905,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_11"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_9"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -892,6 +919,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseLokalsykehus"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_10"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -904,6 +932,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Pre.operativeForberedelser"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_3"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</time:hours>
     </owl:NamedIndividual>
@@ -916,6 +946,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_4"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_2"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16</time:hours>
     </owl:NamedIndividual>
@@ -928,6 +960,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_5"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_3"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -940,6 +974,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Operasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_6"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_4"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6</time:hours>
     </owl:NamedIndividual>
@@ -952,6 +988,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Postoperativ"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_7"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_5"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -964,6 +1002,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_8"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_6"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -976,6 +1016,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/MR-Undersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_9"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_7"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -988,6 +1030,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_10"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_8"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:hours>
     </owl:NamedIndividual>
@@ -1040,6 +1084,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Arrival"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1052,6 +1097,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/PlanlagtInnViapre.pol"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_2"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_0"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1064,6 +1111,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_3"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1076,6 +1125,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Operasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_4"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_2"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</time:hours>
     </owl:NamedIndividual>
@@ -1088,6 +1139,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Postoperativ"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_5"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_3"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1100,6 +1153,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_6"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_4"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1112,6 +1167,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/MR-Undersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_7"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_5"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1124,6 +1181,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_8"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_6"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:hours>
     </owl:NamedIndividual>
@@ -1136,6 +1195,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_9"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_7"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -1148,6 +1209,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseLokalsykehus"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_8"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1213,6 +1275,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Arrival"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1225,6 +1288,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/PlanlagtInnViapre.pol"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_2"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_0"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1237,6 +1302,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseHjem"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_9"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1249,6 +1315,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_3"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1261,6 +1329,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Operasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_4"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_2"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</time:hours>
     </owl:NamedIndividual>
@@ -1273,6 +1343,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Postoperativ"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_5"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_3"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1285,6 +1357,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_6"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_4"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -1297,6 +1371,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/MR-Undersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_7"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_5"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1309,6 +1385,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_8"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_6"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:hours>
     </owl:NamedIndividual>
@@ -1321,6 +1399,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_9"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_7"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -1333,6 +1413,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseLokalsykehus"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_10"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_8"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1389,6 +1471,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Arrival"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1401,6 +1484,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/PlanlagtInnViaMottak"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_2"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_0"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1413,6 +1498,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_11"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_9"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -1425,6 +1512,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseLokalsykehus"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_12"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_10"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1437,6 +1526,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtskrivelseKommune"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_13"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_11"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1449,6 +1540,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseHjem"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_12"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1461,6 +1553,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Pre.operativeForberedelser"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_3"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</time:hours>
     </owl:NamedIndividual>
@@ -1473,6 +1567,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_4"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_2"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16</time:hours>
     </owl:NamedIndividual>
@@ -1485,6 +1581,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_5"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_3"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1497,6 +1595,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Operasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_6"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_4"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</time:hours>
     </owl:NamedIndividual>
@@ -1509,6 +1609,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Postoperativ"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_7"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_5"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1521,6 +1623,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_8"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_6"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -1533,6 +1637,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/CT-undersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_9"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_7"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1545,6 +1651,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_10"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_8"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:hours>
     </owl:NamedIndividual>
@@ -1592,6 +1700,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Arrival"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1604,6 +1713,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/PlanlagtInnViaMottak"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_2"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_0"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1616,6 +1727,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_11"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_9"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:hours>
     </owl:NamedIndividual>
@@ -1628,6 +1741,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseLokalsykehus"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_12"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_10"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1640,6 +1755,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtskrivelseKommune"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_11"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1652,6 +1768,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Pre.operativeForberedelser"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_3"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</time:hours>
     </owl:NamedIndividual>
@@ -1664,6 +1782,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_4"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_2"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16</time:hours>
     </owl:NamedIndividual>
@@ -1676,6 +1796,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_5"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_3"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1688,6 +1810,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Operasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_6"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_4"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</time:hours>
     </owl:NamedIndividual>
@@ -1700,6 +1824,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Postoperativ"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_7"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_5"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1712,6 +1838,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_8"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_6"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -1724,6 +1852,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/CT-undersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_9"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_7"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1736,6 +1866,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_10"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_8"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:hours>
     </owl:NamedIndividual>
@@ -1785,6 +1917,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Arrival"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -1797,6 +1930,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/InnkomstAkuttmottak"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_2"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_0"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1809,6 +1944,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Overakning"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_11"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_9"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">120</time:hours>
     </owl:NamedIndividual>
@@ -1821,6 +1958,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/CT-undersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_12"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_10"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1833,6 +1972,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Overakning"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_13"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_11"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">150</time:hours>
     </owl:NamedIndividual>
@@ -1845,6 +1986,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtskrivelseLokalsykehus"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_14"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_12"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1857,6 +2000,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtskrivelseKommune"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_13"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1869,6 +2013,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Overakning"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_3"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1881,6 +2027,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Overakning"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/InnsettelseDren+Trykkmåler"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_4"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_2"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:hours>
     </owl:NamedIndividual>
@@ -1893,6 +2041,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Overakning"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_5"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_3"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6</time:hours>
     </owl:NamedIndividual>
@@ -1905,6 +2055,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/AngiografiskUndersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_6"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_4"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1917,6 +2069,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/EndovaskulærBehandling"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_7"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_5"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</time:hours>
     </owl:NamedIndividual>
@@ -1929,6 +2083,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Postoperativ"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_8"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_6"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -1941,6 +2097,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Overakning"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_9"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_7"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -1953,6 +2111,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/CT-undersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_10"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_8"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2000,6 +2160,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Arrival"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -2012,6 +2173,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/InnkomstAkuttmottak"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_2"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_0"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2024,6 +2187,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_11"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_9"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">150</time:hours>
     </owl:NamedIndividual>
@@ -2036,6 +2201,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtskrivelseLokalsykehus"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_12"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_10"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2048,6 +2215,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtskrivelseKommune"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_11"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2060,6 +2228,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Overakning"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_3"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2072,6 +2242,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/InnsettelseDren+Trykkmåler"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_4"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_2"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:hours>
     </owl:NamedIndividual>
@@ -2084,6 +2256,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Operasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_5"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_3"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</time:hours>
     </owl:NamedIndividual>
@@ -2096,6 +2270,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Postoperativ"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_6"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_4"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2108,6 +2284,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Overakning"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_7"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_5"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -2120,6 +2298,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/CT-undersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_8"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_6"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2132,6 +2312,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Overakning"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_9"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_7"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">120</time:hours>
     </owl:NamedIndividual>
@@ -2144,6 +2326,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/CT-undersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_10"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_8"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2192,6 +2376,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Arrival"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -2204,6 +2389,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/PlanlagtInnViaMottak"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_2"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_0"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2216,6 +2403,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_11"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_9"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -2228,6 +2417,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseLokalsykehus"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_12"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_10"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -2240,6 +2431,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtskrivelseKommune"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_13"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_11"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -2252,6 +2445,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseHjem"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_12"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -2264,6 +2458,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Pre.operativeForberedelser"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_3"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</time:hours>
     </owl:NamedIndividual>
@@ -2276,6 +2472,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_4"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_2"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16</time:hours>
     </owl:NamedIndividual>
@@ -2288,6 +2486,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_5"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_3"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2300,6 +2500,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Operasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_6"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_4"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</time:hours>
     </owl:NamedIndividual>
@@ -2312,6 +2514,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Postoperativ"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_7"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_5"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2324,6 +2528,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_8"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_6"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -2336,6 +2542,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/CT-undersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_9"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_7"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2348,6 +2556,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_10"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_8"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:hours>
     </owl:NamedIndividual>
@@ -2364,7 +2574,10 @@
 
     <!-- http://www.smolang.org/bedreflyt/Intermediar -->
 
-    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Intermediar"/>
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Intermediar">
+        <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/MonitoringCategory"/>
+        <bedreflyt:hasMonitoringCode rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasMonitoringCode>
+    </owl:NamedIndividual>
     
 
 
@@ -2414,6 +2627,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Arrival"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -2426,6 +2640,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/PlanlagtInnViapre.pol"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_2"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_0"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2438,6 +2654,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_3"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2450,6 +2668,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_4"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_2"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2462,6 +2682,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Operasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_5"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_3"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</time:hours>
     </owl:NamedIndividual>
@@ -2474,6 +2696,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Postoperativ"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_6"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_4"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -2486,6 +2710,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_7"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_5"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</time:hours>
     </owl:NamedIndividual>
@@ -2498,6 +2724,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Røntgen"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_8"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_6"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2510,6 +2738,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Sengeposten"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_9"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_7"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -2522,6 +2752,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseHjem"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_8"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2565,6 +2796,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Arrival"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -2577,6 +2809,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/PlanlagtInnViapre.pol"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_2"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_0"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2589,6 +2823,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_3"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2601,6 +2837,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Operasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_4"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_2"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</time:hours>
     </owl:NamedIndividual>
@@ -2613,6 +2851,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Postoperativ"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_5"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_3"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -2625,6 +2865,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_6"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_4"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</time:hours>
     </owl:NamedIndividual>
@@ -2637,6 +2879,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Røntgen"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_7"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_5"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -2649,6 +2893,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_8"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_6"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -2661,15 +2907,10 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseHjem"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_7"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.smolang.org/bedreflyt/MONITORINGCATEGORY -->
-
-    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/MONITORINGCATEGORY"/>
     
 
 
@@ -2699,7 +2940,10 @@
 
     <!-- http://www.smolang.org/bedreflyt/Overakning -->
 
-    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Overakning"/>
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Overakning">
+        <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/MonitoringCategory"/>
+        <bedreflyt:hasMonitoringCode rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasMonitoringCode>
+    </owl:NamedIndividual>
     
 
 
@@ -2780,6 +3024,7 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Arrival"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
@@ -2792,6 +3037,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/InnkomstAkuttmottak"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_2"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_0"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2804,6 +3051,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_3"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_1"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:hours>
     </owl:NamedIndividual>
@@ -2816,6 +3065,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Sengepost"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/KlargjøringOperasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_4"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_2"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:hours>
     </owl:NamedIndividual>
@@ -2828,6 +3079,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Operasjon"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_5"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_3"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</time:hours>
     </owl:NamedIndividual>
@@ -2840,6 +3093,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_6"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_4"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -2852,6 +3107,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/CT-undersøkelse"/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_7"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_5"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:hours>
     </owl:NamedIndividual>
@@ -2864,6 +3121,8 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/Intermediar"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd."/>
+        <pko:nextStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_8"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_6"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</time:hours>
     </owl:NamedIndividual>
@@ -2876,27 +3135,19 @@
         <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
         <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/na"/>
         <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/UtreiseLokalsykehus"/>
+        <pko:previousStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_7"/>
         <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</bedreflyt:hasNurseBurden>
         <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</time:hours>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.smolang.org/bedreflyt/STEP -->
-
-    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/STEP">
-        <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/TreatmentStep"/>
-        <bedreflyt:hasMonitoringStatus rdf:resource="http://www.smolang.org/bedreflyt/MONITORINGCATEGORY"/>
-        <bedreflyt:hasTask rdf:resource="http://www.smolang.org/bedreflyt/TASKNAME"/>
-        <bedreflyt:hasNurseBurden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">NURSE BURDEN</bedreflyt:hasNurseBurden>
-        <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">AVERAGE DURATION</time:hours>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.smolang.org/bedreflyt/Sengepost -->
 
-    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Sengepost"/>
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Sengepost">
+        <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/MonitoringCategory"/>
+        <bedreflyt:hasMonitoringCode rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</bedreflyt:hasMonitoringCode>
+    </owl:NamedIndividual>
     
 
 
@@ -2904,23 +3155,6 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/Sengeposten">
         <rdf:type rdf:resource="http://purl.org/net/p-plan#Step"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.smolang.org/bedreflyt/TASKNAME -->
-
-    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/TASKNAME">
-        <rdf:type rdf:resource="http://purl.org/net/p-plan#Step"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.smolang.org/bedreflyt/TREATMENT -->
-
-    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/TREATMENT">
-        <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
-        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/STEP"/>
     </owl:NamedIndividual>
     
 
@@ -2959,7 +3193,10 @@
 
     <!-- http://www.smolang.org/bedreflyt/na -->
 
-    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/na"/>
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/na">
+        <rdf:type rdf:resource="http://www.smolang.org/bedreflyt/MonitoringCategory"/>
+        <bedreflyt:hasMonitoringCode rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</bedreflyt:hasMonitoringCode>
+    </owl:NamedIndividual>
     
 
 
