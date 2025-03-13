@@ -616,11 +616,97 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_11"/>
         <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/C71.2"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_1"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_10"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_11"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_2"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_3"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_4"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_5"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_6"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_7"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_8"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_9"/>
         <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
         <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.04</bedreflyt:hasWeight>
         <rdfs:comment>standard trajectory for C71.2 patient</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_1"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_10"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_11"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_2"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_3"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_4"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_5"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_6"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_7"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_8"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_9"/>
     
 
 
@@ -636,11 +722,97 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_11"/>
         <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/C71.3"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_1"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_10"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_11"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_2"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_3"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_4"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_5"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_6"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_7"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_8"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_9"/>
         <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
         <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">56.46</bedreflyt:hasWeight>
         <rdfs:comment>standard trajectory for C71.3 patient</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_1"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_10"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_11"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_2"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_3"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_4"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_5"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_6"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_7"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_8"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_9"/>
     
 
 
@@ -656,11 +828,83 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.0Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_9"/>
         <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/D32.0"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_1"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_2"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_3"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_4"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_5"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_6"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_7"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_8"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_9"/>
         <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
         <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.33</bedreflyt:hasWeight>
         <rdfs:comment>standard trajectory for D32.0 patient</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_1"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_2"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_3"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_4"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_5"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_6"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_7"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_8"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_9"/>
     
 
 
@@ -676,11 +920,110 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.5Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/D32.5_Standard_STEP_10"/>
         <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/D32.5"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/D32.5_Standard_STEP_0"/>
         <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
         <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.33</bedreflyt:hasWeight>
         <rdfs:comment>standard trajectory for D32.5 patient</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D32.5_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.5_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D32.5_Standard_STEP_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D32.5_Standard_STEP_10"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D35.2Standard -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2Standard">
+        <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_1"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_10"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_2"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_3"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_4"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_5"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_6"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_7"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_8"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_9"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_1"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_10"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_2"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_3"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_4"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_5"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_6"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_7"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_8"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_9"/>
     
 
 
@@ -696,11 +1039,111 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_13"/>
         <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/G50.0"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_1"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_10"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_11"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_12"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_13"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_2"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_3"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_4"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_5"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_6"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_7"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_8"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_9"/>
         <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
         <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.21</bedreflyt:hasWeight>
         <rdfs:comment>standard trajectory for G50.0 patient</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_1"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_10"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_11"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_12"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_13 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_13"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_2"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_3"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_4"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_5"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_6"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_7"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_8"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_9"/>
     
 
 
@@ -716,11 +1159,104 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_12"/>
         <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/G91.2"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_1"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_10"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_11"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_12"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_2"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_3"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_4"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_5"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_6"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_7"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_8"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_9"/>
         <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
         <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.17</bedreflyt:hasWeight>
         <rdfs:comment>standard trajectory for G91.2 patient</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_1"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_10"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_11"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_12"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_2"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_3"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_4"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_5"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_6"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_7"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_8"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_9"/>
     
 
 
@@ -736,11 +1272,118 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_14"/>
         <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/I60.0"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_1"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_10"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_11"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_12"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_13"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_14"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_2"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_3"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_4"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_5"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_6"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_7"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_8"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_9"/>
         <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
         <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">151.83</bedreflyt:hasWeight>
         <rdfs:comment>standard trajectory for I60.0 patient</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_1"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_10"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_11"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_12"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_13 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_13"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_14 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_14"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_2"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_3"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_4"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_5"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_6"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_7"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_8"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_9"/>
     
 
 
@@ -756,11 +1399,104 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_12"/>
         <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/I60.1"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_1"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_10"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_11"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_12"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_2"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_3"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_4"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_5"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_6"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_7"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_8"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_9"/>
         <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
         <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">72.5</bedreflyt:hasWeight>
         <rdfs:comment>standard trajectory for I60.1 patient</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_1"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_10"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_11"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_12"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_2"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_3"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_4"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_5"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_6"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_7"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_8"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_9"/>
     
 
 
@@ -776,11 +1512,111 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_13"/>
         <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/I67.1"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_1"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_10"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_11"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_12"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_13"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_2"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_3"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_4"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_5"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_6"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_7"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_8"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_9"/>
         <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
         <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.21</bedreflyt:hasWeight>
         <rdfs:comment>standard trajectory for I67.1 patient</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_1"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_10"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_11"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_12"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_13 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_13"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_2"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_3"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_4"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_5"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_6"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_7"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_8"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_9"/>
     
 
 
@@ -796,11 +1632,83 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.0Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_9"/>
         <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/M50.0"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_1"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_2"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_3"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_4"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_5"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_6"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_7"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_8"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_9"/>
         <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
         <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.71</bedreflyt:hasWeight>
         <rdfs:comment>standard trajectory for M50.0 patient</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_1"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_2"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_3"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_4"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_5"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_6"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_7"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_8"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_9"/>
     
 
 
@@ -816,11 +1724,76 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.1Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_8"/>
         <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/M50.1"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_1"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_2"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_3"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_4"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_5"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_6"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_7"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_8"/>
         <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
         <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.67</bedreflyt:hasWeight>
         <rdfs:comment>standard trajectory for M50.1 patient</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_1"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_2"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_3"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_4"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_5"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_6"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_7"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_8"/>
     
 
 
@@ -836,10 +1809,90 @@
 
     <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/S06.5Standard">
         <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <bedreflyt:hasFinalStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_8"/>
         <bedreflyt:isTreatmentProcOf rdf:resource="http://www.smolang.org/bedreflyt/S06.5"/>
+        <pko:hasFirstStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_0"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_1"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_2"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_3"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_4"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_5"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_6"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_7"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_8"/>
         <bedreflyt:hasFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</bedreflyt:hasFrequency>
         <bedreflyt:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12.5</bedreflyt:hasWeight>
         <rdfs:comment>standard trajectory for S06.5 patient</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_0"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_1"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_2"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_3"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_4"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_5"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_6"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_7"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_8"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/STEP -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/STEP"/>
+    
+
+
+    <!-- http://www.smolang.org/bedreflyt/TREATMENT -->
+
+    <owl:NamedIndividual rdf:about="http://www.smolang.org/bedreflyt/TREATMENT">
+        <rdf:type rdf:resource="https://w3id.org/pko#Procedure"/>
+        <pko:hasStep rdf:resource="http://www.smolang.org/bedreflyt/STEP"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
