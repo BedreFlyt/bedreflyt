@@ -162,6 +162,12 @@ bedreflyt:hasTreatmentProc rdf:type owl:ObjectProperty ;
                            owl:inverseOf bedreflyt:isTreatmentProcOf .
 
 
+###  http://www.smolang.org/bedreflyt/isAssignHospital
+bedreflyt:isAssignHospital rdf:type owl:ObjectProperty ;
+                           rdfs:domain brick:Room ;
+                           rdfs:range brick:Hospital .
+
+
 ###  http://www.smolang.org/bedreflyt/isAssignWard
 bedreflyt:isAssignWard rdf:type owl:ObjectProperty .
 
