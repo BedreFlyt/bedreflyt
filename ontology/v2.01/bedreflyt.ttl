@@ -205,7 +205,7 @@ bedreflyt:stepOfTreatment rdf:type owl:ObjectProperty ;
 
 ###  https://brickschema.org/schema/Brick#hasFloor
 brick:hasFloor rdf:type owl:ObjectProperty ;
-               rdfs:domain brick:Ward ;
+               rdfs:domain bedreflyt:Ward ;
                rdfs:range brick:Floor ;
                rdfs:comment "Relates a hospital to its floors." ;
                rdfs:label "has floor" .
@@ -213,13 +213,13 @@ brick:hasFloor rdf:type owl:ObjectProperty ;
 
 ###  https://brickschema.org/schema/Brick#hasHospital
 brick:hasHospital rdf:type owl:ObjectProperty ;
-                  rdfs:domain brick:Ward ;
+                  rdfs:domain bedreflyt:Ward ;
                   rdfs:range brick:Hospital .
 
 
 ###  https://brickschema.org/schema/Brick#hasRoom
 brick:hasRoom rdf:type owl:ObjectProperty ;
-              rdfs:domain brick:Ward ;
+              rdfs:domain bedreflyt:Ward ;
               rdfs:range brick:Room ;
               rdfs:comment "Relates a ward to its rooms." ;
               rdfs:label "has room" .
@@ -512,10 +512,6 @@ brick:Hospital rdf:type owl:Class ;
 
 ###  https://brickschema.org/schema/Brick#Room
 brick:Room rdf:type owl:Class .
-
-
-###  https://brickschema.org/schema/Brick#Ward
-brick:Ward rdf:type owl:Class .
 
 
 ###  https://w3id.org/pko#Procedure
