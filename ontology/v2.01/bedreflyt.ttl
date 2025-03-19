@@ -592,6 +592,7 @@ bedreflyt:C71.2Standard rdf:type owl:NamedIndividual ,
                                     bedreflyt:C71.2_Standard_STEP_9 ;
                         bedreflyt:hasFrequency 60 ;
                         bedreflyt:hasWeight 7.04 ;
+                        bedreflyt:procedureName "C71.2 Standard" ;
                         rdfs:comment "standard trajectory for C71.2 patient" .
 
 
@@ -762,6 +763,7 @@ bedreflyt:C71.3Standard rdf:type owl:NamedIndividual ,
                                     bedreflyt:C71.3_Standard_STEP_9 ;
                         bedreflyt:hasFrequency 60 ;
                         bedreflyt:hasWeight 56.46 ;
+                        bedreflyt:procedureName "C71.3 Standard" ;
                         rdfs:comment "standard trajectory for C71.3 patient" .
 
 
@@ -936,6 +938,7 @@ bedreflyt:D32.0Standard rdf:type owl:NamedIndividual ,
                                     bedreflyt:D32.0_Standard_STEP_9 ;
                         bedreflyt:hasFrequency 60 ;
                         bedreflyt:hasWeight 2.33 ;
+                        bedreflyt:procedureName "D32.0 Standard" ;
                         rdfs:comment "standard trajectory for D32.0 patient" .
 
 
@@ -1082,6 +1085,7 @@ bedreflyt:D35.2Standard rdf:type owl:NamedIndividual ,
                                     bedreflyt:D35.2_Standard_STEP_9 ;
                         bedreflyt:hasFrequency 60 ;
                         bedreflyt:hasWeight 6.33 ;
+                        bedreflyt:procedureName "D35.2 Standard" ;
                         rdfs:comment "standard trajectory for D32.5 patient" .
 
 
@@ -1450,6 +1454,7 @@ bedreflyt:G91.2Standard rdf:type owl:NamedIndividual ,
                                     bedreflyt:G91.2_Standard_STEP_9 ;
                         bedreflyt:hasFrequency 60 ;
                         bedreflyt:hasWeight 8.17 ;
+                        bedreflyt:procedureName "G91.2 Standard" ;
                         rdfs:comment "standard trajectory for G91.2 patient" .
 
 
@@ -1636,6 +1641,7 @@ bedreflyt:I60.0Standard rdf:type owl:NamedIndividual ,
                                     bedreflyt:I60.0_Standard_STEP_9 ;
                         bedreflyt:hasFrequency 60 ;
                         bedreflyt:hasWeight 151.83 ;
+                        bedreflyt:procedureName "I60.0 Standard" ;
                         rdfs:comment "standard trajectory for I60.0 patient" .
 
 
@@ -1844,6 +1850,7 @@ bedreflyt:I60.1Standard rdf:type owl:NamedIndividual ,
                                     bedreflyt:I60.1_Standard_STEP_9 ;
                         bedreflyt:hasFrequency 60 ;
                         bedreflyt:hasWeight 72.5 ;
+                        bedreflyt:procedureName "I60.1 Standard" ;
                         rdfs:comment "standard trajectory for I60.1 patient" .
 
 
@@ -2028,6 +2035,7 @@ bedreflyt:I67.1Standard rdf:type owl:NamedIndividual ,
                                     bedreflyt:I67.1_Standard_STEP_9 ;
                         bedreflyt:hasFrequency 60 ;
                         bedreflyt:hasWeight 9.21 ;
+                        bedreflyt:procedureName "I67.1 Standard" ;
                         rdfs:comment "standard trajectory for I67.1 patient" .
 
 
@@ -2240,6 +2248,7 @@ bedreflyt:M50.0Standard rdf:type owl:NamedIndividual ,
                                     bedreflyt:M50.0_Standard_STEP_9 ;
                         bedreflyt:hasFrequency 60 ;
                         bedreflyt:hasWeight 1.71 ;
+                        bedreflyt:procedureName "M50.0 Standard" ;
                         rdfs:comment "standard trajectory for M50.0 patient" .
 
 
@@ -2384,6 +2393,7 @@ bedreflyt:M50.1Standard rdf:type owl:NamedIndividual ,
                                     bedreflyt:M50.1_Standard_STEP_8 ;
                         bedreflyt:hasFrequency 60 ;
                         bedreflyt:hasWeight 1.67 ;
+                        bedreflyt:procedureName "M50.1 Standard" ;
                         rdfs:comment "standard trajectory for M50.1 patient" .
 
 
@@ -2653,6 +2663,7 @@ bedreflyt:S06.5Standard rdf:type owl:NamedIndividual ,
                                     bedreflyt:S06.5_Standard_STEP_8 ;
                         bedreflyt:hasFrequency 60 ;
                         bedreflyt:hasWeight 12.5 ;
+                        bedreflyt:procedureName "S06.5 Standard" ;
                         rdfs:comment "standard trajectory for S06.5 patient" .
 
 
