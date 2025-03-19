@@ -285,18 +285,18 @@ bedreflyt:diagnosisCode rdf:type owl:DatatypeProperty ;
 ###  http://www.smolang.org/bedreflyt/floorNumber
 bedreflyt:floorNumber rdf:type owl:DatatypeProperty ;
                       rdfs:domain brick:Floor ;
-                      rdfs:range xsd:integer .
+                      rdfs:range xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/hasAvgLength
 bedreflyt:hasAvgLength rdf:type owl:DatatypeProperty ;
-                       rdfs:range xsd:integer .
+                       rdfs:range xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/hasCapacityNrBeds
 bedreflyt:hasCapacityNrBeds rdf:type owl:DatatypeProperty ;
                             rdfs:domain <https://w3id.org/rec/core/Room> ;
-                            rdfs:range xsd:integer .
+                            rdfs:range xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/hasFrequency
@@ -308,7 +308,7 @@ bedreflyt:hasFrequency rdf:type owl:DatatypeProperty ;
 ###  http://www.smolang.org/bedreflyt/hasMonitoringCode
 bedreflyt:hasMonitoringCode rdf:type owl:DatatypeProperty ;
                             rdfs:domain bedreflyt:MonitoringCategory ;
-                            rdfs:range xsd:integer .
+                            rdfs:range xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/hasNurseBurden
@@ -320,7 +320,7 @@ bedreflyt:hasNurseBurden rdf:type owl:DatatypeProperty ;
 ###  http://www.smolang.org/bedreflyt/hasRoomNr
 bedreflyt:hasRoomNr rdf:type owl:DatatypeProperty ;
                     rdfs:domain <https://w3id.org/rec/core/Room> ;
-                    rdfs:range xsd:integer .
+                    rdfs:range xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/hasWeight
