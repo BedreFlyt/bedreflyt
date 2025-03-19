@@ -198,7 +198,9 @@ bedreflyt:isTreatmentProcOf rdf:type owl:ObjectProperty .
 
 ###  http://www.smolang.org/bedreflyt/stepOfTreatment
 bedreflyt:stepOfTreatment rdf:type owl:ObjectProperty ;
-                          owl:inverseOf pko:hasStep .
+                          owl:inverseOf pko:hasStep ;
+                          rdfs:domain <http://purl.org/net/p-plan#Step> ;
+                          rdfs:range pko:Procedure .
 
 
 ###  https://brickschema.org/schema/Brick#hasFloor
@@ -598,6 +600,7 @@ bedreflyt:C71.2_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Arrival ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
                                 time:hours 0 .
@@ -608,6 +611,7 @@ bedreflyt:C71.2_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:PlanlagtInnViaMottak ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -619,6 +623,7 @@ bedreflyt:C71.2_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                  bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                 bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                  pko:nextStep bedreflyt:C71.2_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:C71.2_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 2 ;
@@ -630,6 +635,7 @@ bedreflyt:C71.2_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtreiseLokalsykehus ;
+                                 bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                  pko:previousStep bedreflyt:C71.2_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 2 ;
                                  time:hours 0 .
@@ -640,6 +646,7 @@ bedreflyt:C71.2_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Pre.operativeForberedelser ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -651,6 +658,7 @@ bedreflyt:C71.2_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -673,6 +681,7 @@ bedreflyt:C71.2_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Operasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -684,6 +693,7 @@ bedreflyt:C71.2_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Postoperativ ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -695,6 +705,7 @@ bedreflyt:C71.2_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -706,6 +717,7 @@ bedreflyt:C71.2_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:MR-Undersøkelse ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -717,6 +729,7 @@ bedreflyt:C71.2_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -757,6 +770,7 @@ bedreflyt:C71.3_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Arrival ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
                                 time:hours 0 .
@@ -767,6 +781,7 @@ bedreflyt:C71.3_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:PlanlagtInnViaMottak ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -778,6 +793,7 @@ bedreflyt:C71.3_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                  bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                 bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                  pko:nextStep bedreflyt:C71.3_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:C71.3_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 2 ;
@@ -789,6 +805,7 @@ bedreflyt:C71.3_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtreiseLokalsykehus ;
+                                 bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                  pko:previousStep bedreflyt:C71.3_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 2 ;
                                  time:hours 0 .
@@ -799,6 +816,7 @@ bedreflyt:C71.3_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Pre.operativeForberedelser ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -810,6 +828,7 @@ bedreflyt:C71.3_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -821,6 +840,7 @@ bedreflyt:C71.3_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -832,6 +852,7 @@ bedreflyt:C71.3_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Operasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -843,6 +864,7 @@ bedreflyt:C71.3_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Postoperativ ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -854,6 +876,7 @@ bedreflyt:C71.3_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -865,6 +888,7 @@ bedreflyt:C71.3_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:MR-Undersøkelse ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -876,6 +900,7 @@ bedreflyt:C71.3_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -919,6 +944,7 @@ bedreflyt:D32.0_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Arrival ;
+                                bedreflyt:stepOfTreatment bedreflyt:D32.0Standard ;
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
                                 time:hours 0 .
@@ -929,6 +955,7 @@ bedreflyt:D32.0_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:PlanlagtInnViapre.pol ;
+                                bedreflyt:stepOfTreatment bedreflyt:D32.0Standard ;
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -940,6 +967,7 @@ bedreflyt:D32.0_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:D32.0Standard ;
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -951,6 +979,7 @@ bedreflyt:D32.0_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Operasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:D32.0Standard ;
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -962,6 +991,7 @@ bedreflyt:D32.0_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Postoperativ ;
+                                bedreflyt:stepOfTreatment bedreflyt:D32.0Standard ;
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -973,6 +1003,7 @@ bedreflyt:D32.0_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:D32.0Standard ;
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -984,6 +1015,7 @@ bedreflyt:D32.0_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:MR-Undersøkelse ;
+                                bedreflyt:stepOfTreatment bedreflyt:D32.0Standard ;
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -995,6 +1027,7 @@ bedreflyt:D32.0_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:D32.0Standard ;
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -1006,6 +1039,7 @@ bedreflyt:D32.0_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:D32.0Standard ;
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -1017,6 +1051,7 @@ bedreflyt:D32.0_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:UtreiseLokalsykehus ;
+                                bedreflyt:stepOfTreatment bedreflyt:D32.0Standard ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 1 ;
                                 time:hours 0 .
@@ -1055,6 +1090,7 @@ bedreflyt:D35.2_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Arrival ;
+                                bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
                                 time:hours 0 .
@@ -1065,6 +1101,7 @@ bedreflyt:D35.2_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:PlanlagtInnViapre.pol ;
+                                bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -1076,6 +1113,7 @@ bedreflyt:D35.2_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtreiseHjem ;
+                                 bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                  pko:previousStep bedreflyt:D35.2_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 1 ;
                                  time:hours 0 .
@@ -1086,6 +1124,7 @@ bedreflyt:D35.2_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -1097,6 +1136,7 @@ bedreflyt:D35.2_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Operasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -1108,6 +1148,7 @@ bedreflyt:D35.2_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Postoperativ ;
+                                bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -1119,6 +1160,7 @@ bedreflyt:D35.2_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -1130,6 +1172,7 @@ bedreflyt:D35.2_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:MR-Undersøkelse ;
+                                bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -1141,6 +1184,7 @@ bedreflyt:D35.2_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -1152,6 +1196,7 @@ bedreflyt:D35.2_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -1163,6 +1208,7 @@ bedreflyt:D35.2_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:UtreiseLokalsykehus ;
+                                bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -1217,6 +1263,7 @@ bedreflyt:G50.0_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Arrival ;
+                                bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
                                 time:hours 0 .
@@ -1227,6 +1274,7 @@ bedreflyt:G50.0_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:PlanlagtInnViaMottak ;
+                                bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -1238,6 +1286,7 @@ bedreflyt:G50.0_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                  bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                 bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                  pko:nextStep bedreflyt:G50.0_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:G50.0_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 2 ;
@@ -1249,6 +1298,7 @@ bedreflyt:G50.0_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtreiseLokalsykehus ;
+                                 bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                  pko:nextStep bedreflyt:G50.0_Standard_STEP_12 ;
                                  pko:previousStep bedreflyt:G50.0_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 2 ;
@@ -1260,6 +1310,7 @@ bedreflyt:G50.0_Standard_STEP_12 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtskrivelseKommune ;
+                                 bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                  pko:nextStep bedreflyt:G50.0_Standard_STEP_13 ;
                                  pko:previousStep bedreflyt:G50.0_Standard_STEP_11 ;
                                  bedreflyt:hasNurseBurden 2 ;
@@ -1271,6 +1322,7 @@ bedreflyt:G50.0_Standard_STEP_13 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtreiseHjem ;
+                                 bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                  pko:previousStep bedreflyt:G50.0_Standard_STEP_12 ;
                                  bedreflyt:hasNurseBurden 2 ;
                                  time:hours 0 .
@@ -1281,6 +1333,7 @@ bedreflyt:G50.0_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Pre.operativeForberedelser ;
+                                bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -1292,6 +1345,7 @@ bedreflyt:G50.0_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -1303,6 +1357,7 @@ bedreflyt:G50.0_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -1325,6 +1380,7 @@ bedreflyt:G50.0_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Postoperativ ;
+                                bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -1336,6 +1392,7 @@ bedreflyt:G50.0_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -1347,6 +1404,7 @@ bedreflyt:G50.0_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:CT-undersøkelse ;
+                                bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -1358,6 +1416,7 @@ bedreflyt:G50.0_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -1399,6 +1458,7 @@ bedreflyt:G91.2_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Arrival ;
+                                bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
                                 time:hours 0 .
@@ -1409,6 +1469,7 @@ bedreflyt:G91.2_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:PlanlagtInnViaMottak ;
+                                bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -1420,6 +1481,7 @@ bedreflyt:G91.2_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                  bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                 bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                  pko:nextStep bedreflyt:G91.2_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:G91.2_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 3 ;
@@ -1431,6 +1493,7 @@ bedreflyt:G91.2_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtreiseLokalsykehus ;
+                                 bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                  pko:nextStep bedreflyt:G91.2_Standard_STEP_12 ;
                                  pko:previousStep bedreflyt:G91.2_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 3 ;
@@ -1442,6 +1505,7 @@ bedreflyt:G91.2_Standard_STEP_12 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtskrivelseKommune ;
+                                 bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                  pko:previousStep bedreflyt:G91.2_Standard_STEP_11 ;
                                  bedreflyt:hasNurseBurden 3 ;
                                  time:hours 0 .
@@ -1452,6 +1516,7 @@ bedreflyt:G91.2_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Pre.operativeForberedelser ;
+                                bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -1463,6 +1528,7 @@ bedreflyt:G91.2_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -1474,6 +1540,7 @@ bedreflyt:G91.2_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -1485,6 +1552,7 @@ bedreflyt:G91.2_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Operasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -1496,6 +1564,7 @@ bedreflyt:G91.2_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Postoperativ ;
+                                bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -1507,6 +1576,7 @@ bedreflyt:G91.2_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -1518,6 +1588,7 @@ bedreflyt:G91.2_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:CT-undersøkelse ;
+                                bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -1529,6 +1600,7 @@ bedreflyt:G91.2_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -1572,6 +1644,7 @@ bedreflyt:I60.0_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Arrival ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
                                 time:hours 0 .
@@ -1582,6 +1655,7 @@ bedreflyt:I60.0_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:InnkomstAkuttmottak ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1593,6 +1667,7 @@ bedreflyt:I60.0_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
                                  bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                 bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                  pko:nextStep bedreflyt:I60.0_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:I60.0_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 4 ;
@@ -1604,6 +1679,7 @@ bedreflyt:I60.0_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:CT-undersøkelse ;
+                                 bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                  pko:nextStep bedreflyt:I60.0_Standard_STEP_12 ;
                                  pko:previousStep bedreflyt:I60.0_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 4 ;
@@ -1615,6 +1691,7 @@ bedreflyt:I60.0_Standard_STEP_12 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
                                  bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                 bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                  pko:nextStep bedreflyt:I60.0_Standard_STEP_13 ;
                                  pko:previousStep bedreflyt:I60.0_Standard_STEP_11 ;
                                  bedreflyt:hasNurseBurden 4 ;
@@ -1626,6 +1703,7 @@ bedreflyt:I60.0_Standard_STEP_13 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtskrivelseLokalsykehus ;
+                                 bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                  pko:nextStep bedreflyt:I60.0_Standard_STEP_14 ;
                                  pko:previousStep bedreflyt:I60.0_Standard_STEP_12 ;
                                  bedreflyt:hasNurseBurden 4 ;
@@ -1637,6 +1715,7 @@ bedreflyt:I60.0_Standard_STEP_14 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtskrivelseKommune ;
+                                 bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                  pko:previousStep bedreflyt:I60.0_Standard_STEP_13 ;
                                  bedreflyt:hasNurseBurden 3 ;
                                  time:hours 1 .
@@ -1647,6 +1726,7 @@ bedreflyt:I60.0_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1658,6 +1738,7 @@ bedreflyt:I60.0_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/InnsettelseDren+Trykkmåler> ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1669,6 +1750,7 @@ bedreflyt:I60.0_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1680,6 +1762,7 @@ bedreflyt:I60.0_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:AngiografiskUndersøkelse ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1691,6 +1774,7 @@ bedreflyt:I60.0_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:EndovaskulærBehandling ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1702,6 +1786,7 @@ bedreflyt:I60.0_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask bedreflyt:Postoperativ ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1713,6 +1798,7 @@ bedreflyt:I60.0_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1724,6 +1810,7 @@ bedreflyt:I60.0_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:CT-undersøkelse ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1765,6 +1852,7 @@ bedreflyt:I60.1_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Arrival ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
                                 time:hours 0 .
@@ -1775,6 +1863,7 @@ bedreflyt:I60.1_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:InnkomstAkuttmottak ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1786,6 +1875,7 @@ bedreflyt:I60.1_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                 bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                  pko:nextStep bedreflyt:I60.1_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:I60.1_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 4 ;
@@ -1797,6 +1887,7 @@ bedreflyt:I60.1_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtskrivelseLokalsykehus ;
+                                 bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                  pko:nextStep bedreflyt:I60.1_Standard_STEP_12 ;
                                  pko:previousStep bedreflyt:I60.1_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 4 ;
@@ -1808,6 +1899,7 @@ bedreflyt:I60.1_Standard_STEP_12 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtskrivelseKommune ;
+                                 bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                  pko:previousStep bedreflyt:I60.1_Standard_STEP_11 ;
                                  bedreflyt:hasNurseBurden 3 ;
                                  time:hours 1 .
@@ -1818,6 +1910,7 @@ bedreflyt:I60.1_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1829,6 +1922,7 @@ bedreflyt:I60.1_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/InnsettelseDren+Trykkmåler> ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1851,6 +1945,7 @@ bedreflyt:I60.1_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Postoperativ ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1862,6 +1957,7 @@ bedreflyt:I60.1_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1873,6 +1969,7 @@ bedreflyt:I60.1_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:CT-undersøkelse ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1884,6 +1981,7 @@ bedreflyt:I60.1_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1895,6 +1993,7 @@ bedreflyt:I60.1_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:CT-undersøkelse ;
+                                bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 4 ;
@@ -1937,6 +2036,7 @@ bedreflyt:I67.1_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Arrival ;
+                                bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
                                 time:hours 0 .
@@ -1947,6 +2047,7 @@ bedreflyt:I67.1_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:PlanlagtInnViaMottak ;
+                                bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -1958,6 +2059,7 @@ bedreflyt:I67.1_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                  bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                 bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                  pko:nextStep bedreflyt:I67.1_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:I67.1_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 2 ;
@@ -1969,6 +2071,7 @@ bedreflyt:I67.1_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtreiseLokalsykehus ;
+                                 bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                  pko:nextStep bedreflyt:I67.1_Standard_STEP_12 ;
                                  pko:previousStep bedreflyt:I67.1_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 2 ;
@@ -1980,6 +2083,7 @@ bedreflyt:I67.1_Standard_STEP_12 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtskrivelseKommune ;
+                                 bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                  pko:nextStep bedreflyt:I67.1_Standard_STEP_13 ;
                                  pko:previousStep bedreflyt:I67.1_Standard_STEP_11 ;
                                  bedreflyt:hasNurseBurden 2 ;
@@ -1991,6 +2095,7 @@ bedreflyt:I67.1_Standard_STEP_13 rdf:type owl:NamedIndividual ,
                                           bedreflyt:TreatmentStep ;
                                  bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                  bedreflyt:hasTask bedreflyt:UtreiseHjem ;
+                                 bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                  pko:previousStep bedreflyt:I67.1_Standard_STEP_12 ;
                                  bedreflyt:hasNurseBurden 2 ;
                                  time:hours 0 .
@@ -2001,6 +2106,7 @@ bedreflyt:I67.1_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Pre.operativeForberedelser ;
+                                bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2012,6 +2118,7 @@ bedreflyt:I67.1_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2023,6 +2130,7 @@ bedreflyt:I67.1_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2034,6 +2142,7 @@ bedreflyt:I67.1_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Operasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2045,6 +2154,7 @@ bedreflyt:I67.1_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Postoperativ ;
+                                bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -2056,6 +2166,7 @@ bedreflyt:I67.1_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -2067,6 +2178,7 @@ bedreflyt:I67.1_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:CT-undersøkelse ;
+                                bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -2078,6 +2190,7 @@ bedreflyt:I67.1_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -2135,6 +2248,7 @@ bedreflyt:M50.0_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Arrival ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.0Standard ;
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
                                 time:hours 0 .
@@ -2145,6 +2259,7 @@ bedreflyt:M50.0_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:PlanlagtInnViapre.pol ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.0Standard ;
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2156,6 +2271,7 @@ bedreflyt:M50.0_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.0Standard ;
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2167,6 +2283,7 @@ bedreflyt:M50.0_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.0Standard ;
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2178,6 +2295,7 @@ bedreflyt:M50.0_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Operasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.0Standard ;
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2189,6 +2307,7 @@ bedreflyt:M50.0_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Postoperativ ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.0Standard ;
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -2200,6 +2319,7 @@ bedreflyt:M50.0_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.0Standard ;
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -2211,6 +2331,7 @@ bedreflyt:M50.0_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Røntgen ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.0Standard ;
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -2222,6 +2343,7 @@ bedreflyt:M50.0_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask bedreflyt:Sengeposten ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.0Standard ;
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2233,6 +2355,7 @@ bedreflyt:M50.0_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:UtreiseHjem ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.0Standard ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 1 ;
                                 time:hours 1 .
@@ -2269,6 +2392,7 @@ bedreflyt:M50.1_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Arrival ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.1Standard ;
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
                                 time:hours 0 .
@@ -2279,6 +2403,7 @@ bedreflyt:M50.1_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:PlanlagtInnViapre.pol ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.1Standard ;
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2290,6 +2415,7 @@ bedreflyt:M50.1_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.1Standard ;
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2301,6 +2427,7 @@ bedreflyt:M50.1_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Operasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.1Standard ;
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2312,6 +2439,7 @@ bedreflyt:M50.1_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Postoperativ ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.1Standard ;
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -2323,6 +2451,7 @@ bedreflyt:M50.1_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.1Standard ;
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -2334,6 +2463,7 @@ bedreflyt:M50.1_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Røntgen ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.1Standard ;
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -2345,6 +2475,7 @@ bedreflyt:M50.1_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.1Standard ;
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 1 ;
@@ -2356,6 +2487,7 @@ bedreflyt:M50.1_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:UtreiseHjem ;
+                                bedreflyt:stepOfTreatment bedreflyt:M50.1Standard ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 1 ;
                                 time:hours 0 .
@@ -2529,6 +2661,7 @@ bedreflyt:S06.5_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Arrival ;
+                                bedreflyt:stepOfTreatment bedreflyt:S06.5Standard ;
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
                                 time:hours 0 .
@@ -2539,6 +2672,7 @@ bedreflyt:S06.5_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:InnkomstAkuttmottak ;
+                                bedreflyt:stepOfTreatment bedreflyt:S06.5Standard ;
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -2550,6 +2684,7 @@ bedreflyt:S06.5_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:S06.5Standard ;
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -2561,6 +2696,7 @@ bedreflyt:S06.5_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                 bedreflyt:hasTask bedreflyt:KlargjøringOperasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:S06.5Standard ;
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 2 ;
@@ -2572,6 +2708,7 @@ bedreflyt:S06.5_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:Operasjon ;
+                                bedreflyt:stepOfTreatment bedreflyt:S06.5Standard ;
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -2583,6 +2720,7 @@ bedreflyt:S06.5_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:S06.5Standard ;
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -2594,6 +2732,7 @@ bedreflyt:S06.5_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:CT-undersøkelse ;
+                                bedreflyt:stepOfTreatment bedreflyt:S06.5Standard ;
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -2605,6 +2744,7 @@ bedreflyt:S06.5_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
                                 bedreflyt:hasTask <http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.> ;
+                                bedreflyt:stepOfTreatment bedreflyt:S06.5Standard ;
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 3 ;
@@ -2616,6 +2756,7 @@ bedreflyt:S06.5_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                          bedreflyt:TreatmentStep ;
                                 bedreflyt:hasMonitoringStatus bedreflyt:na ;
                                 bedreflyt:hasTask bedreflyt:UtreiseLokalsykehus ;
+                                bedreflyt:stepOfTreatment bedreflyt:S06.5Standard ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 2 ;
                                 time:hours 0 .
