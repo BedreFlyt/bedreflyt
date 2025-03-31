@@ -2630,6 +2630,36 @@ bedreflyt:Room304-1 rdf:type owl:NamedIndividual ,
                              <https://w3id.org/rec/building/Bathroom> .
 
 
+###  http://www.smolang.org/bedreflyt/Room305
+bedreflyt:Room305 rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/rec/building/TreatmentRoom> ;
+                  bedreflyt:hasBathroom bedreflyt:Room306-1 ;
+                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                  bedreflyt:hasCapacityNrBeds "3"^^xsd:int ;
+                  bedreflyt:hasRoomNr "305"^^xsd:int .
+
+
+###  http://www.smolang.org/bedreflyt/Room305-1
+bedreflyt:Room305-1 rdf:type owl:NamedIndividual ,
+                             <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/Room306
+bedreflyt:Room306 rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/rec/building/TreatmentRoom> ;
+                  bedreflyt:hasBathroom bedreflyt:Room306-1 ;
+                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                  bedreflyt:hasCapacityNrBeds "4"^^xsd:int ;
+                  bedreflyt:hasRoomNr "306"^^xsd:int .
+
+
+###  http://www.smolang.org/bedreflyt/Room306-1
+bedreflyt:Room306-1 rdf:type owl:NamedIndividual ,
+                             <https://w3id.org/rec/building/Bathroom> .
+
+
 ###  http://www.smolang.org/bedreflyt/Røntgen
 bedreflyt:Røntgen rdf:type owl:NamedIndividual ,
                            <http://purl.org/net/p-plan#Step> ;
