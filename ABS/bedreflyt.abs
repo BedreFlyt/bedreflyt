@@ -15,9 +15,9 @@ type PatientID = String;
 data Patient = Person(String perId);
 
 //------------------Treatments------------------
-// daysAvg is the number of days in average needed for the task
+// timestepsAvg is the number of timesteps in average needed for the task
 // category is a bed category, according to room distribution
-data Task = Task(String id, Int category, Int daysAvg, Set<String> dependencies);
+data Task = Task(String id, Int category, Int timestepsAvg, Set<String> dependencies);
 type Treatment = List<Task>;
 
 data Bed = Bed (Int catg, String desc);
@@ -27,7 +27,7 @@ type BedsCat = Map<Int,String>;
 // A "package" is a patient with an associated workflow
 data Package = Package(Patient patient, Treatment treatment);
 
-type PendingPacks = List<Package>;  // Pending packages per day
+type PendingPacks = List<Package>;  // Pending packages per timestep
 type PendingPacksTimeline = List<PendingPacks>;  // Pending packages timeline
 //------------------------------------------------------------------------
 
@@ -37,8 +37,8 @@ type PendingPacksTimeline = List<PendingPacks>;  // Pending packages timeline
 type Treatments = Map<TreatmentID,Treatment>; // name and associated workflow --> Should be: mapping from diagnosis to treatment
 
 //------------------ Scenarios - Input from the stream of patients ------------------
-type OneDayScenario = List<Pair<PatientID,TreatmentID>>;  // stream of (patientId, treatmentId) in one day
-type Scenario = List<OneDayScenario>;  // stream patients per day (timeline)
+type OneTimeStepScenario = List<Pair<PatientID,TreatmentID>>;  // stream of (patientId, treatmentId) in one time step
+type Scenario = List<OneTimeStepScenario>;  // stream patients per time step (timeline)
 
 
 //------------------------------------------------------------------------------------------------
@@ -55,15 +55,15 @@ def Treatment removeDependWF(Task t, Treatment f) =
 
 // Remove task t1 from dependencies of task t2
 def Task removeDependTask(Task t1, Task t2)
-            = Task(id(t2), category(t2), daysAvg(t2), remove(dependencies(t2),id(t1)));
+            = Task(id(t2), category(t2), timestepsAvg(t2), remove(dependencies(t2),id(t1)));
 
 // Check that a task can be done now
 def Bool enabled(Task t) = emptySet(dependencies(t));
 
 //------------------------------------------------------------------------------------------------
-//--------------------------------Objects that hold bedpost needs per day -------------------------
+//--------------------------------Objects that hold bedpost needs per time step -------------------------
 //------------------------------------------------------------------------------------------------
-interface BedPostNeeds {  // bedpost needs in a day
+interface BedPostNeeds {  // bedpost needs in a time step
     Unit register(Patient p, Int category);
     Unit print();
     Unit printForZ3();
@@ -91,7 +91,7 @@ class BedPostNeeds(Int time, BedsCat bc) implements BedPostNeeds {
     }
 
     Unit print(){
-        println("\nBedpost needs at time: Day " + toString(time));
+        println("\nBedpost needs at time: Time Step " + toString(time));
         foreach(t in entries(cat)){
             println(`Category$fst(t)$---: $length(snd(t))$`);
         }
@@ -116,17 +116,17 @@ class BedPostNeeds(Int time, BedsCat bc) implements BedPostNeeds {
 
 // Rough idea:
 // A "package" is a patient with an associated workflow
-// We pick the arriving packages for the day
+// We pick the arriving packages for the time step
 // We have two lists of packages to deal with:
 // 1) packages where we need to execute the first task of the workflow now (this is done via the OneRunSimulator),
 // 2) packages that we need to consider later (packagesForLater)
 // When we have executed the first task of a workflow, we push the
 // package with the remaining workflow to the packages for later
-// for the next day, we pick the arriving package for the day and merge it with the remaining packages (packagesForLater)
+// for the next time step, we pick the arriving package for the time step and merge it with the remaining packages (packagesForLater)
 //
-// For each day we create an object of class BedPostNeeds that holds the bedpost needs.
+// For each time step we create an object of class BedPostNeeds that holds the bedpost needs.
 // These objects are collected in a list "timeline"
-// we can then print day needs from this timeline to access the bedpost needs per day
+// we can then print time step needs from this timeline to access the bedpost needs per time step
 
 
 interface Simulator {
@@ -137,47 +137,47 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
     PendingPacks packagesForNow = Nil;
 
     List<BedPostNeeds> simulate() {
-      Int dayNumber = head(minBatch()); // Starting day
-      List<BedPostNeeds> timeline = Nil; // Holds Day objects
+      Int timestepNumber = head(minBatch()); // Starting time step
+      List<BedPostNeeds> timeline = Nil; // Holds TimeStep objects
       PrintScenario showSc = new PrintScenario(bc);
       PendingPacks packagesForLater = Nil;
       if(!isEmpty(sc)) {
           // Now we load the incoming packages
-          OneDayScenario h = head(sc);
+          OneTimeStepScenario h = head(sc);
           sc = tail(sc);
           if(h != Nil) {
               packagesForLater = generatePackages(h,tr, Nil);
           }
       }
       while (!isEmpty(packagesForLater)) {
-          // Create Day object for today
-          BedPostNeeds dayNeeds = new BedPostNeeds(dayNumber,bc); // Object collecting the bedpost needs for today
-          timeline = Cons(dayNeeds,timeline);
-          // advance to new day:
+          // Create time step object for current time
+          BedPostNeeds timestepNeeds = new BedPostNeeds(timestepNumber,bc); // Object collecting the bedpost needs for current time step
+          timeline = Cons(timestepNeeds,timeline);
+          // advance to new time step:
           /*
-          println("\n------------Processing Day " + toString(dayNumber) + "-----------");
-          println("\nRemaining needs from Today:\n");
+          println("\n------------Processing Time Step " + toString(timestepNumber) + "-----------");
+          println("\nRemaining needs from current time step:\n");
           // print scenario
           showSc.inputScenario(packagesForLater);
           showSc.print();
           */
-          // simulate one day: consume the needs for today and and collect the needs for later
-          packagesForLater = this.simulateOneRun(dayNumber, packagesForLater, dayNeeds);
-          // print the needs for today
-          dayNeeds.printForZ3();
+          // simulate one time step: consume the needs for current time step and and collect the needs for later
+          packagesForLater = this.simulateOneRun(timestepNumber, packagesForLater, timestepNeeds);
+          // print the needs for current time step
+          timestepNeeds.printForZ3();
           /*
-          dayNeeds.print();
+          timestepNeeds.print();
           println("\nRemaining needs for later:\n");
-          // print the remaning needs after finishing the tasks of the day
+          // print the remaning needs after finishing the tasks of the current time step
           showSc.inputScenario(packagesForLater);
           showSc.print();
-          println("----------End of Day----------");
+          println("----------End of Current Time Step----------");
           */
-          // Finished with packages for today
-          dayNumber = dayNumber + 1;
+          // Finished with packages for the current time step
+          timestepNumber = timestepNumber + 1;
           if(!isEmpty(sc)){
-            // Now we load the incoming packages for the next day
-            OneDayScenario h = head(sc);
+            // Now we load the incoming packages for the next time step
+            OneTimeStepScenario h = head(sc);
             if(h != Nil){
                 packagesForLater = concatenate(packagesForLater,generatePackages(h,tr, Nil));
             }
@@ -194,8 +194,8 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
     // 2) packages that we need to consider later (`packagesForLater`)
     // When we have executed all enabled tasks of a workflow, we push the
     // package with the remaining workflow to the packages for later
-    PendingPacks simulateOneRun(Int dayNumber, PendingPacks packages, BedPostNeeds dayNeeds){
-      // Move packages that we need to deal with today:
+    PendingPacks simulateOneRun(Int timestepNumber, PendingPacks packages, BedPostNeeds timestepNeeds){
+      // Move packages that we need to deal with the current time step:
         PendingPacks packagesForLater = Nil;
       // Iterate over the packages to process
       foreach (p in packages) {
@@ -206,13 +206,13 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
         // we got linear workflows, but there can be parallel tasks
         foreach (t in filter(enabled)(flow)) {
             newFlow = without(flow,t);
-            if (daysAvg(t) > 1) {
-                newFlow = Cons(Task(id(t), category(t), daysAvg(t) - 1, dependencies(t)), newFlow);
+            if (timestepsAvg(t) > 1) {
+                newFlow = Cons(Task(id(t), category(t), timestepsAvg(t) - 1, dependencies(t)), newFlow);
             } else {
                 newFlow = removeDependWF(t,newFlow);
             }
             // Register resource needs of the task
-            dayNeeds.register(patient(p),category(t));
+            timestepNeeds.register(patient(p),category(t));
         }
         if (!isEmpty(newFlow)){
             // Create package with remaining workflow
@@ -232,7 +232,7 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
 //---------------------------------------- SCENARIOS  --------------------------------------------
 //------------------------------------------------------------------------------------------------
 
-interface PrintScenario { // printing scenario per day
+interface PrintScenario { // printing scenario per time step
   Unit inputScenario(PendingPacks sc);
   Unit print();
 }
@@ -247,14 +247,14 @@ class PrintScenario(BedsCat bc) implements PrintScenario {
           println(perId(patient(p)) + " needs");
           Treatment w = treatment(p);
           foreach (t in w) {
-              println(`- $lookupDefault(bc,category(t),"")$ for $daysAvg(t)$ days`);
+              println(`- $lookupDefault(bc,category(t),"")$ for $timestepsAvg(t)$ timesteps`);
           }
       }
   }
 
 }
 
-def PendingPacks generatePackages(OneDayScenario odsc,Treatments tr, PendingPacks p) =
+def PendingPacks generatePackages(OneTimeStepScenario odsc,Treatments tr, PendingPacks p) =
   case odsc {
     Nil => p;
     Cons(hd,tl) => generatePackages(tl,tr, appendright(p,Package(Person(fst(hd)),lookupDefault(tr,snd(hd),Nil))))} ;
@@ -278,7 +278,7 @@ def List<String> taskDepAux(String taskName) =
         "../dataTest/bedreflyt.db" ,
         "SELECT taskDependency  FROM taskDependencies WHERE taskName = ?",taskName);
 
-data TaskDB = TaskDB(String iddb, Int categorydb, Int daysdb);
+data TaskDB = TaskDB(String iddb, Int categorydb, Int timestepsdb);
 def List<TaskDB> taskAux(String name) =
         builtin(sqlite3,
         "../dataTest/bedreflyt.db" ,
@@ -298,7 +298,7 @@ def List<String> trAux1() =
 
 def Task task(String taskName) =
     let List<TaskDB> tdb =  taskAux(taskName), Set<String> dep = taskDep(taskName) in
-    Task(iddb(head(tdb)),categorydb(head(tdb)),daysdb(head(tdb)),dep);
+    Task(iddb(head(tdb)),categorydb(head(tdb)),timestepsdb(head(tdb)),dep);
 
 def Set<String> taskDep(String taskName) = set(taskDepAux(taskName));
 
@@ -324,7 +324,7 @@ def BedsCat bcDB() =
 // ----------------------- Run the simulator with internal datastructures
 
 // Task(name, bed-category, duration, task-dependencies)
-// duration: is the number of days needed for the task
+// duration: is the number of time steps needed for the task
 // bed-category: according to bedscat()
 def Task prearrival() = Task("pre-arrival", 0, 0, set[]);
 def Task arrival() = Task("arrival", 1, 1, set["pre-arrival"]);
@@ -378,30 +378,30 @@ def List<Int> sequence(Int min, Int max) =
     then Cons(min, sequence(min + 1, max))
     else Nil;
 
-def OneDayScenario batch(Int batch) =
+def OneTimeStepScenario batch(Int batch) =
     let List<PairDB> lpdb = batchAux1(batch)
     in map((PairDB db) => Pair(pId(db), tId(db)))(lpdb);
 
 def Scenario scDB() =
     let List<Int> batches = sequence(head(minBatch()), head(maxBatch()))
-    // This inserts an empty list if there's no batches that day; this
+    // This inserts an empty list if there's no batches that time step; this
     // is correct behavior.
     in map((Int batch_nr) => batch(batch_nr))(batches);
 
 //---------------------------Scenario 1------------------------------------
-//---- Only one day
+//---- Only one time step
 
-def OneDayScenario sc0() = list[Pair("einar","standard"),
+def OneTimeStepScenario sc0() = list[Pair("einar","standard"),
                                Pair("rudi","inter"),
                                Pair("lizeth","intense1")];
 
 //---------------------------Senario 2-----------------------------------------
-//---- four days in a row, spread over 11 days
+//---- four time steps in a row, spread over 11 time steps
 
-def OneDayScenario scArrivingDay1() = list[Pair("einar","standard"),
+def OneTimeStepScenario scArrivingTimeStep1() = list[Pair("einar","standard"),
                                            Pair("rudi","inter")];
-def OneDayScenario scArrivingDay2() = list[Pair("lizeth","intense1")];
-def OneDayScenario scArrivingDay4() = list[Pair("laura","standard"),
+def OneTimeStepScenario scArrivingTimeStep2() = list[Pair("lizeth","intense1")];
+def OneTimeStepScenario scArrivingTimeStep4() = list[Pair("laura","standard"),
                                            Pair("riccardo","intense2")];
 
 //--------------------------------------------------------------------------------
@@ -411,7 +411,7 @@ def OneDayScenario scArrivingDay4() = list[Pair("laura","standard"),
 //def Scenario sc() = list[sc0()];
 
 // Activating Scenario 2
-def Scenario sc() = list[scArrivingDay1(),scArrivingDay2(),Nil,scArrivingDay4()];
+def Scenario sc() = list[scArrivingTimeStep1(),scArrivingTimeStep2(),Nil,scArrivingTimeStep4()];
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
 
@@ -437,7 +437,7 @@ def Scenario sc() = list[scArrivingDay1(),scArrivingDay2(),Nil,scArrivingDay4()]
 
 
     Simulator sim = new Simulator(tr,sc,bc);
-    List<BedPostNeeds> timeline = sim.simulate(); // Holds Day objects, where each day object holds patient needs in that day
+    List<BedPostNeeds> timeline = sim.simulate(); // Holds time step objects, where each time step object holds patient needs in that time step
 
     // foreach (bn in timeline) {
     //     await bn!print();
