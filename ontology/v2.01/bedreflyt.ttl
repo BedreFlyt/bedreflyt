@@ -392,6 +392,8 @@ time:numericDuration rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/pko#stepNumber
 pko:stepNumber rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain bedreflyt:TreatmentStep ;
+               rdfs:range xsd:int ;
                obo:IAO_0000412 "https://w3id.org/pko/1.0.0" ;
                rdfs:label "stepNumber" .
 
@@ -600,7 +602,8 @@ bedreflyt:C71.2_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "0"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_1
@@ -612,7 +615,8 @@ bedreflyt:C71.2_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "1"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_10
@@ -624,7 +628,8 @@ bedreflyt:C71.2_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:C71.2_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:C71.2_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 2 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "10"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_11
@@ -635,7 +640,8 @@ bedreflyt:C71.2_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                  bedreflyt:stepOfTreatment bedreflyt:C71.2Standard ;
                                  pko:previousStep bedreflyt:C71.2_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 2 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "11"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_2
@@ -647,7 +653,8 @@ bedreflyt:C71.2_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 4 .
+                                time:hours 4 ;
+                                pko:stepNumber "2"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_3
@@ -659,7 +666,8 @@ bedreflyt:C71.2_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 16 .
+                                time:hours 16 ;
+                                pko:stepNumber "3"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_4
@@ -670,7 +678,8 @@ bedreflyt:C71.2_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "4"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_5
@@ -682,7 +691,8 @@ bedreflyt:C71.2_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 6 .
+                                time:hours 6 ;
+                                pko:stepNumber "5"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_6
@@ -694,7 +704,8 @@ bedreflyt:C71.2_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "6"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_7
@@ -706,7 +717,8 @@ bedreflyt:C71.2_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "7"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_8
@@ -718,7 +730,8 @@ bedreflyt:C71.2_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "8"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.2_Standard_STEP_9
@@ -730,7 +743,8 @@ bedreflyt:C71.2_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.2_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:C71.2_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 2 .
+                                time:hours 2 ;
+                                pko:stepNumber "9"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.3
@@ -771,7 +785,8 @@ bedreflyt:C71.3_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "0"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_1
@@ -783,7 +798,8 @@ bedreflyt:C71.3_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "1"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_10
@@ -795,7 +811,8 @@ bedreflyt:C71.3_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:C71.3_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:C71.3_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 2 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "10"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_11
@@ -806,7 +823,8 @@ bedreflyt:C71.3_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                  bedreflyt:stepOfTreatment bedreflyt:C71.3Standard ;
                                  pko:previousStep bedreflyt:C71.3_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 2 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "11"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_2
@@ -818,7 +836,8 @@ bedreflyt:C71.3_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 4 .
+                                time:hours 4 ;
+                                pko:stepNumber "2"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_3
@@ -830,7 +849,8 @@ bedreflyt:C71.3_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 16 .
+                                time:hours 16 ;
+                                pko:stepNumber "3"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_4
@@ -842,7 +862,8 @@ bedreflyt:C71.3_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "4"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_5
@@ -854,7 +875,8 @@ bedreflyt:C71.3_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 6 .
+                                time:hours 6 ;
+                                pko:stepNumber "5"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_6
@@ -866,7 +888,8 @@ bedreflyt:C71.3_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "6"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_7
@@ -878,7 +901,8 @@ bedreflyt:C71.3_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "7"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_8
@@ -890,7 +914,8 @@ bedreflyt:C71.3_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "8"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/C71.3_Standard_STEP_9
@@ -902,7 +927,8 @@ bedreflyt:C71.3_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:C71.3_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:C71.3_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 2 .
+                                time:hours 2 ;
+                                pko:stepNumber "9"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/CT-undersøkelse
@@ -946,7 +972,8 @@ bedreflyt:D32.0_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:D32.0Standard ;
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "0"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_1
@@ -958,7 +985,8 @@ bedreflyt:D32.0_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "1"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_2
@@ -970,7 +998,8 @@ bedreflyt:D32.0_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "2"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_3
@@ -982,7 +1011,8 @@ bedreflyt:D32.0_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 5 .
+                                time:hours 5 ;
+                                pko:stepNumber "3"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_4
@@ -994,7 +1024,8 @@ bedreflyt:D32.0_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "4"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_5
@@ -1006,7 +1037,8 @@ bedreflyt:D32.0_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "5"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_6
@@ -1018,7 +1050,8 @@ bedreflyt:D32.0_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "6"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_7
@@ -1030,7 +1063,8 @@ bedreflyt:D32.0_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 2 .
+                                time:hours 2 ;
+                                pko:stepNumber "7"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_8
@@ -1042,7 +1076,8 @@ bedreflyt:D32.0_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D32.0_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "8"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D32.0_Standard_STEP_9
@@ -1053,7 +1088,8 @@ bedreflyt:D32.0_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:D32.0Standard ;
                                 pko:previousStep bedreflyt:D32.0_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "9"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D32.5
@@ -1093,7 +1129,8 @@ bedreflyt:D35.2_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "0"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_1
@@ -1105,7 +1142,8 @@ bedreflyt:D35.2_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "1"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_10
@@ -1116,7 +1154,8 @@ bedreflyt:D35.2_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                  bedreflyt:stepOfTreatment bedreflyt:D35.2Standard ;
                                  pko:previousStep bedreflyt:D35.2_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 1 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "10"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_2
@@ -1128,7 +1167,8 @@ bedreflyt:D35.2_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "2"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_3
@@ -1140,7 +1180,8 @@ bedreflyt:D35.2_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 4 .
+                                time:hours 4 ;
+                                pko:stepNumber "3"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_4
@@ -1152,7 +1193,8 @@ bedreflyt:D35.2_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "4"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_5
@@ -1164,7 +1206,8 @@ bedreflyt:D35.2_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "5"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_6
@@ -1176,7 +1219,8 @@ bedreflyt:D35.2_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "6"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_7
@@ -1188,7 +1232,8 @@ bedreflyt:D35.2_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 2 .
+                                time:hours 2 ;
+                                pko:stepNumber "7"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_8
@@ -1200,7 +1245,8 @@ bedreflyt:D35.2_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "8"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/D35.2_Standard_STEP_9
@@ -1212,7 +1258,8 @@ bedreflyt:D35.2_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:D35.2_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:D35.2_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "9"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/EndovaskulærBehandling
@@ -1266,7 +1313,8 @@ bedreflyt:G50.0_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "0"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_1
@@ -1278,7 +1326,8 @@ bedreflyt:G50.0_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "1"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_10
@@ -1290,7 +1339,8 @@ bedreflyt:G50.0_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:G50.0_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:G50.0_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 2 ;
-                                 time:hours 24 .
+                                 time:hours 24 ;
+                                 pko:stepNumber "10"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_11
@@ -1302,7 +1352,8 @@ bedreflyt:G50.0_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:G50.0_Standard_STEP_12 ;
                                  pko:previousStep bedreflyt:G50.0_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 2 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "11"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_12
@@ -1314,7 +1365,8 @@ bedreflyt:G50.0_Standard_STEP_12 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:G50.0_Standard_STEP_13 ;
                                  pko:previousStep bedreflyt:G50.0_Standard_STEP_11 ;
                                  bedreflyt:hasNurseBurden 2 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "12"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_13
@@ -1325,7 +1377,8 @@ bedreflyt:G50.0_Standard_STEP_13 rdf:type owl:NamedIndividual ,
                                  bedreflyt:stepOfTreatment bedreflyt:G50.0Standard ;
                                  pko:previousStep bedreflyt:G50.0_Standard_STEP_12 ;
                                  bedreflyt:hasNurseBurden 2 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "13"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_2
@@ -1337,7 +1390,8 @@ bedreflyt:G50.0_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 4 .
+                                time:hours 4 ;
+                                pko:stepNumber "2"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_3
@@ -1349,7 +1403,8 @@ bedreflyt:G50.0_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 16 .
+                                time:hours 16 ;
+                                pko:stepNumber "3"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_4
@@ -1361,7 +1416,8 @@ bedreflyt:G50.0_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "4"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_5
@@ -1372,7 +1428,8 @@ bedreflyt:G50.0_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 3 .
+                                time:hours 3 ;
+                                pko:stepNumber "5"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_6
@@ -1384,7 +1441,8 @@ bedreflyt:G50.0_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "6"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_7
@@ -1396,7 +1454,8 @@ bedreflyt:G50.0_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "7"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_8
@@ -1408,7 +1467,8 @@ bedreflyt:G50.0_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "8"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G50.0_Standard_STEP_9
@@ -1420,7 +1480,8 @@ bedreflyt:G50.0_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G50.0_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:G50.0_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 2 .
+                                time:hours 2 ;
+                                pko:stepNumber "9"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2
@@ -1462,7 +1523,8 @@ bedreflyt:G91.2_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "0"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_1
@@ -1474,7 +1536,8 @@ bedreflyt:G91.2_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "1"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_10
@@ -1486,7 +1549,8 @@ bedreflyt:G91.2_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:G91.2_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:G91.2_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 3 ;
-                                 time:hours 2 .
+                                 time:hours 2 ;
+                                 pko:stepNumber "10"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_11
@@ -1498,7 +1562,8 @@ bedreflyt:G91.2_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:G91.2_Standard_STEP_12 ;
                                  pko:previousStep bedreflyt:G91.2_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 3 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "11"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_12
@@ -1509,7 +1574,8 @@ bedreflyt:G91.2_Standard_STEP_12 rdf:type owl:NamedIndividual ,
                                  bedreflyt:stepOfTreatment bedreflyt:G91.2Standard ;
                                  pko:previousStep bedreflyt:G91.2_Standard_STEP_11 ;
                                  bedreflyt:hasNurseBurden 3 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "12"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_2
@@ -1521,7 +1587,8 @@ bedreflyt:G91.2_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 4 .
+                                time:hours 4 ;
+                                pko:stepNumber "2"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_3
@@ -1533,7 +1600,8 @@ bedreflyt:G91.2_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 16 .
+                                time:hours 16 ;
+                                pko:stepNumber "3"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_4
@@ -1545,7 +1613,8 @@ bedreflyt:G91.2_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "4"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_5
@@ -1557,7 +1626,8 @@ bedreflyt:G91.2_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 3 .
+                                time:hours 3 ;
+                                pko:stepNumber "5"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_6
@@ -1569,7 +1639,8 @@ bedreflyt:G91.2_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "6"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_7
@@ -1581,7 +1652,8 @@ bedreflyt:G91.2_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "7"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_8
@@ -1593,7 +1665,8 @@ bedreflyt:G91.2_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "8"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/G91.2_Standard_STEP_9
@@ -1605,7 +1678,8 @@ bedreflyt:G91.2_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:G91.2_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:G91.2_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 2 .
+                                time:hours 2 ;
+                                pko:stepNumber "9"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0
@@ -1649,7 +1723,8 @@ bedreflyt:I60.0_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "0"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_1
@@ -1661,7 +1736,8 @@ bedreflyt:I60.0_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "1"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_10
@@ -1673,7 +1749,8 @@ bedreflyt:I60.0_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:I60.0_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:I60.0_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 4 ;
-                                 time:hours 120 .
+                                 time:hours 120 ;
+                                 pko:stepNumber "10"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_11
@@ -1685,7 +1762,8 @@ bedreflyt:I60.0_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:I60.0_Standard_STEP_12 ;
                                  pko:previousStep bedreflyt:I60.0_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 4 ;
-                                 time:hours 1 .
+                                 time:hours 1 ;
+                                 pko:stepNumber "11"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_12
@@ -1697,7 +1775,8 @@ bedreflyt:I60.0_Standard_STEP_12 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:I60.0_Standard_STEP_13 ;
                                  pko:previousStep bedreflyt:I60.0_Standard_STEP_11 ;
                                  bedreflyt:hasNurseBurden 4 ;
-                                 time:hours 150 .
+                                 time:hours 150 ;
+                                 pko:stepNumber "12"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_13
@@ -1709,7 +1788,8 @@ bedreflyt:I60.0_Standard_STEP_13 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:I60.0_Standard_STEP_14 ;
                                  pko:previousStep bedreflyt:I60.0_Standard_STEP_12 ;
                                  bedreflyt:hasNurseBurden 4 ;
-                                 time:hours 1 .
+                                 time:hours 1 ;
+                                 pko:stepNumber "13"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_14
@@ -1720,7 +1800,8 @@ bedreflyt:I60.0_Standard_STEP_14 rdf:type owl:NamedIndividual ,
                                  bedreflyt:stepOfTreatment bedreflyt:I60.0Standard ;
                                  pko:previousStep bedreflyt:I60.0_Standard_STEP_13 ;
                                  bedreflyt:hasNurseBurden 3 ;
-                                 time:hours 1 .
+                                 time:hours 1 ;
+                                 pko:stepNumber "14"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_2
@@ -1732,7 +1813,8 @@ bedreflyt:I60.0_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "2"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_3
@@ -1744,7 +1826,8 @@ bedreflyt:I60.0_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 2 .
+                                time:hours 2 ;
+                                pko:stepNumber "3"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_4
@@ -1756,7 +1839,8 @@ bedreflyt:I60.0_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 6 .
+                                time:hours 6 ;
+                                pko:stepNumber "4"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_5
@@ -1768,7 +1852,8 @@ bedreflyt:I60.0_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "5"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_6
@@ -1780,7 +1865,8 @@ bedreflyt:I60.0_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 4 .
+                                time:hours 4 ;
+                                pko:stepNumber "6"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_7
@@ -1792,7 +1878,8 @@ bedreflyt:I60.0_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "7"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_8
@@ -1804,7 +1891,8 @@ bedreflyt:I60.0_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "8"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.0_Standard_STEP_9
@@ -1816,7 +1904,8 @@ bedreflyt:I60.0_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.0_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:I60.0_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "9"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1
@@ -1858,7 +1947,8 @@ bedreflyt:I60.1_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "0"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_1
@@ -1870,7 +1960,8 @@ bedreflyt:I60.1_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "1"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_10
@@ -1882,7 +1973,8 @@ bedreflyt:I60.1_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:I60.1_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:I60.1_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 4 ;
-                                 time:hours 150 .
+                                 time:hours 150 ;
+                                 pko:stepNumber "10"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_11
@@ -1894,7 +1986,8 @@ bedreflyt:I60.1_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:I60.1_Standard_STEP_12 ;
                                  pko:previousStep bedreflyt:I60.1_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 4 ;
-                                 time:hours 1 .
+                                 time:hours 1 ;
+                                 pko:stepNumber "11"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_12
@@ -1905,7 +1998,8 @@ bedreflyt:I60.1_Standard_STEP_12 rdf:type owl:NamedIndividual ,
                                  bedreflyt:stepOfTreatment bedreflyt:I60.1Standard ;
                                  pko:previousStep bedreflyt:I60.1_Standard_STEP_11 ;
                                  bedreflyt:hasNurseBurden 3 ;
-                                 time:hours 1 .
+                                 time:hours 1 ;
+                                 pko:stepNumber "12"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_2
@@ -1917,7 +2011,8 @@ bedreflyt:I60.1_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "2"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_3
@@ -1929,7 +2024,8 @@ bedreflyt:I60.1_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 2 .
+                                time:hours 2 ;
+                                pko:stepNumber "3"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_4
@@ -1940,7 +2036,8 @@ bedreflyt:I60.1_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 5 .
+                                time:hours 5 ;
+                                pko:stepNumber "4"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_5
@@ -1952,7 +2049,8 @@ bedreflyt:I60.1_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "5"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_6
@@ -1964,7 +2062,8 @@ bedreflyt:I60.1_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "6"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_7
@@ -1976,7 +2075,8 @@ bedreflyt:I60.1_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "7"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_8
@@ -1988,7 +2088,8 @@ bedreflyt:I60.1_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 120 .
+                                time:hours 120 ;
+                                pko:stepNumber "8"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I60.1_Standard_STEP_9
@@ -2000,7 +2101,8 @@ bedreflyt:I60.1_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I60.1_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:I60.1_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 4 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "9"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1
@@ -2043,7 +2145,8 @@ bedreflyt:I67.1_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "0"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_1
@@ -2055,7 +2158,8 @@ bedreflyt:I67.1_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "1"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_10
@@ -2067,7 +2171,8 @@ bedreflyt:I67.1_Standard_STEP_10 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:I67.1_Standard_STEP_11 ;
                                  pko:previousStep bedreflyt:I67.1_Standard_STEP_9 ;
                                  bedreflyt:hasNurseBurden 2 ;
-                                 time:hours 24 .
+                                 time:hours 24 ;
+                                 pko:stepNumber "10"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_11
@@ -2079,7 +2184,8 @@ bedreflyt:I67.1_Standard_STEP_11 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:I67.1_Standard_STEP_12 ;
                                  pko:previousStep bedreflyt:I67.1_Standard_STEP_10 ;
                                  bedreflyt:hasNurseBurden 2 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "11"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_12
@@ -2091,7 +2197,8 @@ bedreflyt:I67.1_Standard_STEP_12 rdf:type owl:NamedIndividual ,
                                  pko:nextStep bedreflyt:I67.1_Standard_STEP_13 ;
                                  pko:previousStep bedreflyt:I67.1_Standard_STEP_11 ;
                                  bedreflyt:hasNurseBurden 2 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "12"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_13
@@ -2102,7 +2209,8 @@ bedreflyt:I67.1_Standard_STEP_13 rdf:type owl:NamedIndividual ,
                                  bedreflyt:stepOfTreatment bedreflyt:I67.1Standard ;
                                  pko:previousStep bedreflyt:I67.1_Standard_STEP_12 ;
                                  bedreflyt:hasNurseBurden 2 ;
-                                 time:hours 0 .
+                                 time:hours 0 ;
+                                 pko:stepNumber "13"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_2
@@ -2114,7 +2222,8 @@ bedreflyt:I67.1_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 4 .
+                                time:hours 4 ;
+                                pko:stepNumber "2"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_3
@@ -2126,7 +2235,8 @@ bedreflyt:I67.1_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 16 .
+                                time:hours 16 ;
+                                pko:stepNumber "3"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_4
@@ -2138,7 +2248,8 @@ bedreflyt:I67.1_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "4"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_5
@@ -2150,7 +2261,8 @@ bedreflyt:I67.1_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 5 .
+                                time:hours 5 ;
+                                pko:stepNumber "5"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_6
@@ -2162,7 +2274,8 @@ bedreflyt:I67.1_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "6"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_7
@@ -2174,7 +2287,8 @@ bedreflyt:I67.1_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "7"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_8
@@ -2186,7 +2300,8 @@ bedreflyt:I67.1_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "8"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/I67.1_Standard_STEP_9
@@ -2198,7 +2313,8 @@ bedreflyt:I67.1_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:I67.1_Standard_STEP_10 ;
                                 pko:previousStep bedreflyt:I67.1_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 2 .
+                                time:hours 2 ;
+                                pko:stepNumber "9"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/InnkomstAkuttmottak
@@ -2218,6 +2334,13 @@ bedreflyt:Intermediar rdf:type owl:NamedIndividual ,
 bedreflyt:KlargjøringOperasjon rdf:type owl:NamedIndividual ,
                                         <http://purl.org/net/p-plan#Step> ;
                                bedreflyt:taskName "Klargjøring Operasjon" .
+
+
+###  http://www.smolang.org/bedreflyt/Korridor
+bedreflyt:Korridor rdf:type owl:NamedIndividual ,
+                            bedreflyt:MonitoringCategory ;
+                   bedreflyt:hasMonitoringCode "1"^^xsd:int ;
+                   bedreflyt:monitoringName "Korridor" .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.0
@@ -2256,7 +2379,8 @@ bedreflyt:M50.0_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:M50.0Standard ;
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "0"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_1
@@ -2268,7 +2392,8 @@ bedreflyt:M50.0_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "2"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_2
@@ -2292,7 +2417,8 @@ bedreflyt:M50.0_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "3"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_4
@@ -2304,7 +2430,8 @@ bedreflyt:M50.0_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 3 .
+                                time:hours 3 ;
+                                pko:stepNumber "4"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_5
@@ -2316,7 +2443,8 @@ bedreflyt:M50.0_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "5"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_6
@@ -2328,7 +2456,8 @@ bedreflyt:M50.0_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 4 .
+                                time:hours 4 ;
+                                pko:stepNumber "6"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_7
@@ -2340,7 +2469,8 @@ bedreflyt:M50.0_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "7"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_8
@@ -2352,7 +2482,8 @@ bedreflyt:M50.0_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.0_Standard_STEP_9 ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "8"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.0_Standard_STEP_9
@@ -2363,7 +2494,8 @@ bedreflyt:M50.0_Standard_STEP_9 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:M50.0Standard ;
                                 pko:previousStep bedreflyt:M50.0_Standard_STEP_8 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "9"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.1
@@ -2401,7 +2533,8 @@ bedreflyt:M50.1_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:M50.1Standard ;
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "0"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_1
@@ -2413,7 +2546,8 @@ bedreflyt:M50.1_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "1"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_2
@@ -2425,7 +2559,8 @@ bedreflyt:M50.1_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "2"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_3
@@ -2437,7 +2572,8 @@ bedreflyt:M50.1_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 3 .
+                                time:hours 3 ;
+                                pko:stepNumber "3"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_4
@@ -2449,7 +2585,8 @@ bedreflyt:M50.1_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "4"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_5
@@ -2461,7 +2598,8 @@ bedreflyt:M50.1_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 4 .
+                                time:hours 4 ;
+                                pko:stepNumber "5"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_6
@@ -2473,7 +2611,8 @@ bedreflyt:M50.1_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "6"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_7
@@ -2485,7 +2624,8 @@ bedreflyt:M50.1_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:M50.1_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "7"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/M50.1_Standard_STEP_8
@@ -2496,7 +2636,8 @@ bedreflyt:M50.1_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:M50.1Standard ;
                                 pko:previousStep bedreflyt:M50.1_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 1 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "8"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/MR-Undersøkelse
@@ -2701,7 +2842,8 @@ bedreflyt:S06.5_Standard_STEP_0 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:S06.5Standard ;
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 0 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "0"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_1
@@ -2713,7 +2855,8 @@ bedreflyt:S06.5_Standard_STEP_1 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_2 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_0 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "1"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_2
@@ -2725,7 +2868,8 @@ bedreflyt:S06.5_Standard_STEP_2 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_3 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_1 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 2 .
+                                time:hours 2 ;
+                                pko:stepNumber "2"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_3
@@ -2737,7 +2881,8 @@ bedreflyt:S06.5_Standard_STEP_3 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_4 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_2 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 2 .
+                                time:hours 2 ;
+                                pko:stepNumber "3"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_4
@@ -2749,7 +2894,8 @@ bedreflyt:S06.5_Standard_STEP_4 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_5 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_3 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 3 .
+                                time:hours 3 ;
+                                pko:stepNumber "4"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_5
@@ -2761,7 +2907,8 @@ bedreflyt:S06.5_Standard_STEP_5 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_6 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_4 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "5"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_6
@@ -2773,7 +2920,8 @@ bedreflyt:S06.5_Standard_STEP_6 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_7 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_5 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 1 .
+                                time:hours 1 ;
+                                pko:stepNumber "6"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_7
@@ -2785,7 +2933,8 @@ bedreflyt:S06.5_Standard_STEP_7 rdf:type owl:NamedIndividual ,
                                 pko:nextStep bedreflyt:S06.5_Standard_STEP_8 ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_6 ;
                                 bedreflyt:hasNurseBurden 3 ;
-                                time:hours 24 .
+                                time:hours 24 ;
+                                pko:stepNumber "7"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/S06.5_Standard_STEP_8
@@ -2796,7 +2945,8 @@ bedreflyt:S06.5_Standard_STEP_8 rdf:type owl:NamedIndividual ,
                                 bedreflyt:stepOfTreatment bedreflyt:S06.5Standard ;
                                 pko:previousStep bedreflyt:S06.5_Standard_STEP_7 ;
                                 bedreflyt:hasNurseBurden 2 ;
-                                time:hours 0 .
+                                time:hours 0 ;
+                                pko:stepNumber "8"^^xsd:int .
 
 
 ###  http://www.smolang.org/bedreflyt/Sengepost
