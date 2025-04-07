@@ -28,7 +28,7 @@ import pathlib
 # https://stackoverflow.com/questions/67043494/max-and-min-of-a-set-of-variables-in-z3py
 
 class HospitalRoomAssignment:
-    def __init__(self, no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances, previous, mode):
+    def __init__(self, no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances, previous, mode,  penalties=[], contagious_allowed=[]):
         self.NO_ROOMS = no_rooms
         self.capacities = capacities
         self.room_distances = room_distances
@@ -38,6 +38,8 @@ class HospitalRoomAssignment:
         self.patient_distances = patient_distances
         self.previous = previous
         self.mode = mode
+        self.penalties = penalties
+        self.contagious_allowed = contagious_allowed
 
     def assign_rooms(self):
         assert len(self.capacities) == self.NO_ROOMS
@@ -75,6 +77,8 @@ class HospitalRoomAssignment:
                             And([Not(patients[p][room]) for p in range(self.NO_PATIENTS) if p != patient]) # no other patient is in room
                             )
                 )
+                if not self.contagious_allowed[room]:
+                    s.add(Not(patients[patient][room]))
 
         # Consider distance
         for patient in range(self.NO_PATIENTS):
@@ -93,7 +97,10 @@ class HospitalRoomAssignment:
                     # Handle the case where bed index is out of range
                     print(f"Warning: Bed index {bed} out of range for patient {patient}")
 
-        # Find assignment with few moved patients     
+        # Find assignment with few moved patients
+        if "p" in self.mode:
+            h = s.minimize(Sum([changes[p] for p in range(self.NO_PATIENTS)] 
+                               + Sum([patients[patient][room] * self.penalties[room] for patient in range(self.NO_PATIENTS) for room in range(self.NO_ROOMS)])))
         if "c" in self.mode:
             h = s.minimize(Sum([changes[p] for p in range(self.NO_PATIENTS)]))
         # too encode maximal number of changes
@@ -278,8 +285,8 @@ class HospitalRoomAssignmentGlobal:
                             Implies(patients[day-1][patient][room], patients[day][patient][room]), changes[day][patient])) 
         if debug:
             print((datetime.datetime.now()-start).total_seconds())
-        
-        # Find assignment with few moved patients     
+
+        # Find assignment with few moved patients    
         if "c" in self.mode:
             h = s.minimize(Sum([changes[day][p] for day in self.days for p in self.patients[day]])) # if self.previous[day][p] != -1
         # too encode maximal number of changes
