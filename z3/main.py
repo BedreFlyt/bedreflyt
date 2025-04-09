@@ -21,6 +21,8 @@ class HospitalRoomResources(BaseModel):
     patient_distances: List[int]
     previous: List[int]
     mode: Literal["changes", "max"]
+    penalties: List[int] = []
+    contagious_allowed: List[bool] = []
 
 executor = ThreadPoolExecutor(max_workers=int(os.getenv("MAX_WORKERS", 4)))
 
@@ -28,7 +30,7 @@ def solve_assignment(request):
     hospital = HospitalRoomAssignment(
         request.no_rooms, request.capacities, request.room_distances,
         request.no_patients, request.genders, request.infectious, request.patient_distances, request.previous,
-        request.mode
+        request.mode, request.penalties, request.contagious_allowed
     )
 
     return hospital.assign_rooms()
