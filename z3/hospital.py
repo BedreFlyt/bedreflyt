@@ -72,13 +72,14 @@ class HospitalRoomAssignment:
         # Infectious patients
         for room in range(self.NO_ROOMS):
             for patient in range(self.NO_PATIENTS):
-                s.add(Implies(
-                        And(patients[patient][room], self.infectious[patient]), # patient in room is infectious
+                if self.infectious[patient]:
+                    s.add(Implies(
+                            patients[patient][room], # patient in room is infectious
                             And([Not(patients[p][room]) for p in range(self.NO_PATIENTS) if p != patient]) # no other patient is in room
                             )
-                )
-                if not self.contagious_allowed[room]:
-                    s.add(Not(patients[patient][room]))
+                    )
+                    if not self.contagious_allowed[room]:
+                        s.add(Not(patients[patient][room]))
 
         # Consider distance
         for patient in range(self.NO_PATIENTS):
@@ -99,8 +100,13 @@ class HospitalRoomAssignment:
 
         # Find assignment with few moved patients
         if "p" in self.mode:
-            h = s.minimize(Sum([changes[p] for p in range(self.NO_PATIENTS)] 
-                               + Sum([patients[patient][room] * self.penalties[room] for patient in range(self.NO_PATIENTS) for room in range(self.NO_ROOMS)])))
+            changes_count = Int('changes', ctx=context)
+            penalties_count = Int('penalties', ctx=context)
+            total = Int('total', ctx=context)
+            s.add(changes_count == Sum([changes[p] for p in range(self.NO_PATIENTS)]))
+            s.add(penalties_count == Sum([patients[patient][room] * self.penalties[room] for patient in range(self.NO_PATIENTS) for room in range(self.NO_ROOMS)]))
+            s.add(total == changes_count + penalties_count)
+            h = s.minimize(total)
         if "c" in self.mode:
             h = s.minimize(Sum([changes[p] for p in range(self.NO_PATIENTS)]))
         # too encode maximal number of changes
@@ -459,7 +465,28 @@ class HospitalRoomAssignmentGlobal:
 #     print(result)
         
 
+def example_run():
+    no_rooms = 6
+    capacities = [ 1, 3, 4, 4, 2, 3 ]
+    room_distances = [ 2, 3, 3, 2, 3, 1 ]
+    no_patients = 1
+    genders = [ True ]
+    infectious = [ False ]
+    patient_distances = [ 3 ]
+    previous = [ -1 ]
+    mode = "p"
+    penalties = [ 1, 1, 2, 2, 4, 5 ]
+    contagious_allowed = [ True, True, True, True, True, True ]
+    
+    hospital = HospitalRoomAssignment(no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances, previous, mode, penalties=penalties, contagious_allowed=contagious_allowed)
+    result = hospital.assign_rooms()
+    
+    print("Returned ", result)
+
 if __name__ == "__main__":
+    
+    example_run()
+    
     no_rooms = 40 #4
     no_days = 100
     min_patients = 10
