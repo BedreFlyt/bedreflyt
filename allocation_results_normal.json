@@ -1,0 +1,206 @@
+{
+    "capacities": [
+        {
+            "iteration": 1,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 1,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 2,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 2,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 3,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 3,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 4,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 4,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 5,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 5,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 6,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 6,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 7,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 7,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 8,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 8,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 9,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 9,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 10,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "total_capacity": 45
+        },
+        {
+            "iteration": 10,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "total_capacity": 45
+        }
+    ],
+    "allocations": [
+        {
+            "iteration": 1,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "allocations": 5
+        },
+        {
+            "iteration": 1,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "allocations": 10
+        },
+        {
+            "iteration": 2,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "allocations": 16
+        },
+        {
+            "iteration": 2,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "allocations": 21
+        },
+        {
+            "iteration": 3,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "allocations": 25
+        },
+        {
+            "iteration": 3,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "allocations": 29
+        },
+        {
+            "iteration": 4,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "allocations": 34
+        },
+        {
+            "iteration": 4,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "allocations": 40
+        },
+        {
+            "iteration": 5,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "allocations": 44
+        },
+        {
+            "iteration": 5,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "allocations": 47
+        },
+        {
+            "iteration": 6,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "allocations": 4
+        },
+        {
+            "iteration": 6,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "allocations": 9
+        },
+        {
+            "iteration": 7,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "allocations": 13
+        },
+        {
+            "iteration": 7,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "allocations": 17
+        },
+        {
+            "iteration": 8,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "allocations": 22
+        },
+        {
+            "iteration": 8,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "allocations": 26
+        },
+        {
+            "iteration": 9,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "allocations": 32
+        },
+        {
+            "iteration": 9,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "allocations": 36
+        },
+        {
+            "iteration": 10,
+            "ward": "Allmennmedisin_&_OSL-RH",
+            "allocations": 41
+        },
+        {
+            "iteration": 10,
+            "ward": "Neurosurgery_&_OSL-RH",
+            "allocations": 44
+        }
+    ]
+}

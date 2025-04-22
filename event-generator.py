@@ -153,7 +153,7 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
             
             total_capacity = sum(ward_capacities)
             
-            allocation_count = np.random.normal(mean, std, 1) # one sample from random distribution with mean mean and standard deviation std
+            allocation_count = int(np.random.normal(mean, std, 1)[0])  # Convert the single sample to an integer
             selected_patients = random.sample(patients, min(allocation_count, len(patients)))
             
             allocations = []
