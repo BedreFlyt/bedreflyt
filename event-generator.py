@@ -116,18 +116,14 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
         print("No diagnoses found")
         return
     
-    assert False, "How to filter?"
-    # TODO how to fiter?
     # Filter diagnosis based on mode
     if mode == "normal":
-        diagnoses = [d for d in diagnoses if True]
+        diagnoses = diagnoses
     elif mode == "crisis":
-        allocation_count = total_capacity
-    elif mode == "variable":
-        allocation_count = random.randint(int(total_capacity * 0.1), total_capacity)
+        diagnoses = ["C71.2", "I60.1", "I60.0"]
     else:
         print(f"Invalid mode: {mode}")
-        return
+        assert False
     
     total_capacities = []
     total_allocations = []
