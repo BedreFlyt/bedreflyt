@@ -132,10 +132,10 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
     for iteration in range(iterations):  # Perform 10 iterations
         print(f"Starting iteration {iteration + 1}")
 
-        if iteration % 5 == 0:
-            allocations_number = 0
-            delete_allocations()
-            print("Deleted all previous allocations")
+        # if iteration % 5 == 0:
+        #     allocations_number = 0
+        #     delete_allocations()
+        #     print("Deleted all previous allocations")
         
         wards = get_wards()
         if not wards:
@@ -222,6 +222,9 @@ if __name__ == "__main__":
     if args.mode not in ["normal", "crisis", "variable"]:
         print("Usage: python event-generator.py [normal|crisis|variable]")
         sys.exit(1)
+
+    delete_allocations()
+    print("Deleted all previous allocations")
 
     test_allocation(args.mode, args.mean, args.std, args.iterations)
     
