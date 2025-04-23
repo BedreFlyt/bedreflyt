@@ -204,7 +204,7 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
         "capacities": total_capacities,
         "allocations": total_allocations
     }
-    with open(f"allocation_results_{mode}.json", "w") as file:
+    with open(f"allocation_results_{mode}_{mean}_{std}_{iterations}.json", "w") as file:
         json.dump(output_data, file, indent=4)
     
     print("Execution completed. Results saved to 'allocation_results.json'.")
