@@ -120,7 +120,13 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
     if mode == "normal":
         diagnoses = diagnoses
     elif mode == "crisis":
-        diagnoses = ["C71.2", "I60.1", "I60.0"]
+        diagnoses = [{
+                "diagnosisName": "C71.2"
+            }, {
+                "diagnosisName": "I60.1"
+            }, {
+                "diagnosisName": "I60.0"
+            }]
     else:
         print(f"Invalid mode: {mode}")
         assert False
@@ -153,7 +159,7 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
             
             total_capacity = sum(ward_capacities)
             
-            allocation_count = int(np.random.normal(mean, std, 1)[0])  # Convert the single sample to an integer
+            allocation_count = max(0, int(np.random.normal(mean, std, 1)[0]))  # Ensure allocation_count is non-negative
             selected_patients = random.sample(patients, min(allocation_count, len(patients)))
             
             allocations = []
@@ -225,6 +231,9 @@ if __name__ == "__main__":
 
     delete_allocations()
     print("Deleted all previous allocations")
+    print("Waiting for 120 seconds to reset before starting the allocation test...")
+    time.sleep(120)
+    print("Starting allocation test")
 
     test_allocation(args.mode, args.mean, args.std, args.iterations)
-    
+
