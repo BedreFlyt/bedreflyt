@@ -135,7 +135,8 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
             }, {
                 "diagnosisName": "I60.0"
             }]
-        diagnoses.extend(diagnoses, k = 2)
+        for k in random.choice(diagnoses, k = 2):
+            diagnoses.append({k : diagnoses[k]})
     else:
         print(f"Invalid mode: {mode}")
         assert False
