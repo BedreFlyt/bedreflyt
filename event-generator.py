@@ -127,6 +127,15 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
             }, {
                 "diagnosisName": "I60.0"
             }]
+    elif mode == 'medium-crisis':
+        diagnoses = [{
+                "diagnosisName": "C71.2"
+            }, {
+                "diagnosisName": "I60.1"
+            }, {
+                "diagnosisName": "I60.0"
+            }]
+        diagnoses.extend(diagnoses, k = 2)
     else:
         print(f"Invalid mode: {mode}")
         assert False
