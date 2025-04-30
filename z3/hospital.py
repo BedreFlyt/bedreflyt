@@ -44,7 +44,7 @@ class HospitalRoomAssignment:
         for p in set(penalties):
             indices = [i for i, x in enumerate(adapted_penalties) if x == p]
             for i in range(len(indices)):
-                adapted_penalties[indices[i]] = penalties[indices[i]] *  1 + (0.1 * i) # increase each occurrence by i * 10% of original value
+                adapted_penalties[indices[i]] = penalties[indices[i]] * 1 + (0.1 * i) # increase each occurrence by i * 10% of original value
                 
         self.penalties = adapted_penalties
         self.contagious_allowed = contagious_allowed
