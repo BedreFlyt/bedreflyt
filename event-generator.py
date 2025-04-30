@@ -30,7 +30,7 @@ def get_user(user_id):
     
 def get_allocations():
     """Get all allocations."""
-    response = requests.get(f"{url}/patient-allocations")
+    response = requests.get(f"{url}/patient-allocations/simulated")
     if response.status_code == 200:
         return response.json()
     else:
@@ -105,6 +105,7 @@ def delete_allocations():
     else:
         print(f"Failed to delete allocations: {response.status_code}")
     
+iteration_times = []  # List to store iteration times
 def test_allocation(mode: str, mean: int, std: int, iterations: int):
     patients = get_users()
     if not patients:
@@ -135,8 +136,8 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
             }, {
                 "diagnosisName": "I60.0"
             }]
-        for k in random.choice(diagnoses, k = 2):
-            diagnoses.append({"diagnosisName" : diagnoses[k]})
+        for diagnosis in random.sample(diagnoses, k=2):
+            diagnoses.append({"diagnosisName": diagnosis["diagnosisName"]})
     else:
         print(f"Invalid mode: {mode}")
         assert False
@@ -146,6 +147,7 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
 
     allocations_number = 0
     for iteration in range(iterations):  # Perform 10 iterations
+        start_time = time.time()  # Start timing the iteration
         print(f"Starting iteration {iteration + 1}")
 
         # if iteration % 5 == 0:
@@ -194,7 +196,7 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
                 "iteration": iteration,
             }
             
-            response = requests.post(f"{url}/allocation/allocate", json=payload)
+            response = requests.post(f"{url}/allocation/simulate", json=payload)
             if response.status_code == 200:
                 print(f"Successfully allocated patients for ward {ward_name} in hospital {hospital_code}")
             else:
@@ -209,22 +211,30 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
             total_allocations.append({
                 "iteration": iteration + 1,
                 "ward": ward_key,
-                "allocations": allocations_number
+                "allocations": len(get_allocations())
             })
         
+        end_time = time.time()  # End timing the iteration
+        iteration_duration = end_time - start_time
+        iteration_times.append({"iteration": iteration + 1, "duration": iteration_duration})
+        print(f"Iteration {iteration + 1} took {iteration_duration:.2f} seconds")
+
         # Wait for 30 seconds before the next iteration
         time.sleep(30)
-    
-    # Write the capacities and allocations to a file
+
+    # Write the capacities, allocations, and iteration times to files
     output_data = {
         "capacities": total_capacities,
         "allocations": total_allocations
     }
     with open(f"allocation_results_{mode}_{mean}_{std}_{iterations}.json", "w") as file:
         json.dump(output_data, file, indent=4)
-    
-    print("Execution completed. Results saved to 'allocation_results.json'.")
-    
+
+    with open(f"iteration_times_{mode}_{mean}_{std}_{iterations}.json", "w") as file:
+        json.dump(iteration_times, file, indent=4)
+
+    print("Execution completed. Results saved to 'allocation_results.json' and 'iteration_times.json'.")
+
 if __name__ == "__main__":
     # Test the event generator with different modes
     
@@ -235,8 +245,8 @@ if __name__ == "__main__":
     parser.add_argument("--iterations", help="Iterations", type=int, default="10")
     args = parser.parse_args()
     
-    if args.mode not in ["normal", "crisis", "variable"]:
-        print("Usage: python event-generator.py [normal|crisis|variable]")
+    if args.mode not in ["normal", "crisis", "medium-crisis", "variable"]:
+        print("Usage: python event-generator.py [normal|crisis|medium-crisis|variable]")
         sys.exit(1)
 
     delete_allocations()

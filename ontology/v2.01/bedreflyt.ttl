@@ -269,10 +269,23 @@ pko:previousStep rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
+###  http://www.smolang.org/bedreflyt/capacityThreshold
+bedreflyt:capacityThreshold rdf:type owl:DatatypeProperty ;
+                            rdfs:domain bedreflyt:Ward ;
+                            rdfs:range xsd:double .
+
+
 ###  http://www.smolang.org/bedreflyt/cityName
 bedreflyt:cityName rdf:type owl:DatatypeProperty ;
                    rdfs:domain bedreflyt:City ;
                    rdfs:range xsd:string .
+
+
+###  http://www.smolang.org/bedreflyt/corridorPenalty
+bedreflyt:corridorPenalty rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdfs:domain bedreflyt:Ward ;
+                          rdfs:range xsd:double .
 
 
 ###  http://www.smolang.org/bedreflyt/diagnosisCode
@@ -345,6 +358,12 @@ bedreflyt:hospitalName rdf:type owl:DatatypeProperty ;
 bedreflyt:monitoringName rdf:type owl:DatatypeProperty ;
                          rdfs:domain bedreflyt:MonitoringCategory ;
                          rdfs:range xsd:string .
+
+
+###  http://www.smolang.org/bedreflyt/officePenalty
+bedreflyt:officePenalty rdf:type owl:DatatypeProperty ;
+                        rdfs:domain bedreflyt:Ward ;
+                        rdfs:range xsd:double .
 
 
 ###  http://www.smolang.org/bedreflyt/procedureName
@@ -551,6 +570,17 @@ pko:Procedure rdf:type owl:Class ;
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.smolang.org/bedreflyt/Allmennmedisin
+bedreflyt:Allmennmedisin rdf:type owl:NamedIndividual ,
+                                  bedreflyt:Ward ;
+                         brick:hasFloor bedreflyt:Floor4 ;
+                         brick:hasHospital bedreflyt:Rikshospitalet ;
+                         bedreflyt:capacityThreshold "72.2"^^xsd:double ;
+                         bedreflyt:corridorPenalty "20.0"^^xsd:double ;
+                         bedreflyt:officePenalty "4000.0"^^xsd:double ;
+                         bedreflyt:wardName "Allmennmedisin" .
+
 
 ###  http://www.smolang.org/bedreflyt/AngiografiskUndersøkelse
 bedreflyt:AngiografiskUndersøkelse rdf:type owl:NamedIndividual ,
@@ -2668,7 +2698,520 @@ bedreflyt:Neurosurgery rdf:type owl:NamedIndividual ,
                                 bedreflyt:Ward ;
                        brick:hasFloor bedreflyt:Floor3 ;
                        brick:hasHospital bedreflyt:Rikshospitalet ;
+                       bedreflyt:capacityThreshold "70.0"^^xsd:double ;
+                       bedreflyt:corridorPenalty "300.0"^^xsd:double ;
+                       bedreflyt:officePenalty "300.0"^^xsd:double ;
                        bedreflyt:wardName "Neurosurgery" .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room401
+bedreflyt:OSL_RH_Allmennmedisin_Room401 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room401-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 4 ;
+                                        bedreflyt:hasRoomNr 401 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room401-1
+bedreflyt:OSL_RH_Allmennmedisin_Room401-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room402
+bedreflyt:OSL_RH_Allmennmedisin_Room402 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room402-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 2 ;
+                                        bedreflyt:hasRoomNr 402 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room402-1
+bedreflyt:OSL_RH_Allmennmedisin_Room402-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room403
+bedreflyt:OSL_RH_Allmennmedisin_Room403 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room403-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 3 ;
+                                        bedreflyt:hasRoomNr 403 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room403-1
+bedreflyt:OSL_RH_Allmennmedisin_Room403-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room404
+bedreflyt:OSL_RH_Allmennmedisin_Room404 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room404-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 1 ;
+                                        bedreflyt:hasRoomNr 404 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room404-1
+bedreflyt:OSL_RH_Allmennmedisin_Room404-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room405
+bedreflyt:OSL_RH_Allmennmedisin_Room405 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room405-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 3 ;
+                                        bedreflyt:hasRoomNr 405 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room405-1
+bedreflyt:OSL_RH_Allmennmedisin_Room405-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room406
+bedreflyt:OSL_RH_Allmennmedisin_Room406 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room406-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 4 ;
+                                        bedreflyt:hasRoomNr 406 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room406-1
+bedreflyt:OSL_RH_Allmennmedisin_Room406-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room407
+bedreflyt:OSL_RH_Allmennmedisin_Room407 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room407-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 2 ;
+                                        bedreflyt:hasRoomNr 407 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room407-1
+bedreflyt:OSL_RH_Allmennmedisin_Room407-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room408
+bedreflyt:OSL_RH_Allmennmedisin_Room408 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room408-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 3 ;
+                                        bedreflyt:hasRoomNr 408 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room408-1
+bedreflyt:OSL_RH_Allmennmedisin_Room408-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room409
+bedreflyt:OSL_RH_Allmennmedisin_Room409 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room409-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 1 ;
+                                        bedreflyt:hasRoomNr 409 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room409-1
+bedreflyt:OSL_RH_Allmennmedisin_Room409-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room410
+bedreflyt:OSL_RH_Allmennmedisin_Room410 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room410-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 3 ;
+                                        bedreflyt:hasRoomNr 410 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room410-1
+bedreflyt:OSL_RH_Allmennmedisin_Room410-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room411
+bedreflyt:OSL_RH_Allmennmedisin_Room411 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room411-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 4 ;
+                                        bedreflyt:hasRoomNr 411 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room411-1
+bedreflyt:OSL_RH_Allmennmedisin_Room411-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room412
+bedreflyt:OSL_RH_Allmennmedisin_Room412 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room412-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 2 ;
+                                        bedreflyt:hasRoomNr 412 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room412-1
+bedreflyt:OSL_RH_Allmennmedisin_Room412-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room413
+bedreflyt:OSL_RH_Allmennmedisin_Room413 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room413-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 3 ;
+                                        bedreflyt:hasRoomNr 413 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room413-1
+bedreflyt:OSL_RH_Allmennmedisin_Room413-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room414
+bedreflyt:OSL_RH_Allmennmedisin_Room414 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room414-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 1 ;
+                                        bedreflyt:hasRoomNr 414 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room414-1
+bedreflyt:OSL_RH_Allmennmedisin_Room414-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room415
+bedreflyt:OSL_RH_Allmennmedisin_Room415 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room415-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 3 ;
+                                        bedreflyt:hasRoomNr 415 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room415-1
+bedreflyt:OSL_RH_Allmennmedisin_Room415-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room416
+bedreflyt:OSL_RH_Allmennmedisin_Room416 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room416-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 4 ;
+                                        bedreflyt:hasRoomNr 416 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room416-1
+bedreflyt:OSL_RH_Allmennmedisin_Room416-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room417
+bedreflyt:OSL_RH_Allmennmedisin_Room417 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/TreatmentRoom> ;
+                                        bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room417-1 ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
+                                        bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
+                                        bedreflyt:hasCapacityNrBeds 2 ;
+                                        bedreflyt:hasRoomNr 417 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room417-1
+bedreflyt:OSL_RH_Allmennmedisin_Room417-1 rdf:type owl:NamedIndividual ,
+                                                   <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room301
+bedreflyt:OSL_RH_Neurosurgery_Room301 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room301-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 4 ;
+                                      bedreflyt:hasRoomNr 301 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room301-1
+bedreflyt:OSL_RH_Neurosurgery_Room301-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room302
+bedreflyt:OSL_RH_Neurosurgery_Room302 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room302-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 2 ;
+                                      bedreflyt:hasRoomNr 302 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room302-1
+bedreflyt:OSL_RH_Neurosurgery_Room302-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room303
+bedreflyt:OSL_RH_Neurosurgery_Room303 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room303-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 3 ;
+                                      bedreflyt:hasRoomNr 303 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room303-1
+bedreflyt:OSL_RH_Neurosurgery_Room303-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room304
+bedreflyt:OSL_RH_Neurosurgery_Room304 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room304-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 1 ;
+                                      bedreflyt:hasRoomNr 304 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room304-1
+bedreflyt:OSL_RH_Neurosurgery_Room304-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room305
+bedreflyt:OSL_RH_Neurosurgery_Room305 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room305-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 3 ;
+                                      bedreflyt:hasRoomNr 305 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room305-1
+bedreflyt:OSL_RH_Neurosurgery_Room305-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room306
+bedreflyt:OSL_RH_Neurosurgery_Room306 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room306-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 4 ;
+                                      bedreflyt:hasRoomNr 306 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room306-1
+bedreflyt:OSL_RH_Neurosurgery_Room306-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room307
+bedreflyt:OSL_RH_Neurosurgery_Room307 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room307-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 2 ;
+                                      bedreflyt:hasRoomNr 307 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room307-1
+bedreflyt:OSL_RH_Neurosurgery_Room307-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room308
+bedreflyt:OSL_RH_Neurosurgery_Room308 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room308-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 3 ;
+                                      bedreflyt:hasRoomNr 308 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room308-1
+bedreflyt:OSL_RH_Neurosurgery_Room308-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room309
+bedreflyt:OSL_RH_Neurosurgery_Room309 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room309-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 1 ;
+                                      bedreflyt:hasRoomNr 309 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room309-1
+bedreflyt:OSL_RH_Neurosurgery_Room309-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room310
+bedreflyt:OSL_RH_Neurosurgery_Room310 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room310-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 3 ;
+                                      bedreflyt:hasRoomNr 310 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room310-1
+bedreflyt:OSL_RH_Neurosurgery_Room310-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room311
+bedreflyt:OSL_RH_Neurosurgery_Room311 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room311-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 4 ;
+                                      bedreflyt:hasRoomNr 311 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room311-1
+bedreflyt:OSL_RH_Neurosurgery_Room311-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room312
+bedreflyt:OSL_RH_Neurosurgery_Room312 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room312-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 2 ;
+                                      bedreflyt:hasRoomNr 312 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room312-1
+bedreflyt:OSL_RH_Neurosurgery_Room312-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room313
+bedreflyt:OSL_RH_Neurosurgery_Room313 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room313-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 3 ;
+                                      bedreflyt:hasRoomNr 313 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room313-1
+bedreflyt:OSL_RH_Neurosurgery_Room313-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room314
+bedreflyt:OSL_RH_Neurosurgery_Room314 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room314-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 1 ;
+                                      bedreflyt:hasRoomNr 314 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room314-1
+bedreflyt:OSL_RH_Neurosurgery_Room314-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room315
+bedreflyt:OSL_RH_Neurosurgery_Room315 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room315-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 3 ;
+                                      bedreflyt:hasRoomNr 315 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room315-1
+bedreflyt:OSL_RH_Neurosurgery_Room315-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room316
+bedreflyt:OSL_RH_Neurosurgery_Room316 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room316-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 4 ;
+                                      bedreflyt:hasRoomNr 316 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room316-1
+bedreflyt:OSL_RH_Neurosurgery_Room316-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room317
+bedreflyt:OSL_RH_Neurosurgery_Room317 rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/rec/building/TreatmentRoom> ;
+                                      bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room317-1 ;
+                                      bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
+                                      bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                      bedreflyt:hasCapacityNrBeds 2 ;
+                                      bedreflyt:hasRoomNr 317 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room317-1
+bedreflyt:OSL_RH_Neurosurgery_Room317-1 rdf:type owl:NamedIndividual ,
+                                                 <https://w3id.org/rec/building/Bathroom> .
 
 
 ###  http://www.smolang.org/bedreflyt/Observasjonnevrokir.avd.
@@ -2728,257 +3271,7 @@ bedreflyt:Rikshospitalet rdf:type owl:NamedIndividual ,
                          bedreflyt:hospitalName "Rikshospitalet" .
 
 
-###  http://www.smolang.org/bedreflyt/Room301
-bedreflyt:OSL_RH_Neurosurgery_Room301 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room301-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 4 ;
-                  bedreflyt:hasRoomNr 301 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room301-1
-bedreflyt:OSL_RH_Neurosurgery_Room301-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room302
-bedreflyt:OSL_RH_Neurosurgery_Room302 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room302-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 2 ;
-                  bedreflyt:hasRoomNr 302 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room302-1
-bedreflyt:OSL_RH_Neurosurgery_Room302-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room303
-bedreflyt:OSL_RH_Neurosurgery_Room303 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room303-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 3 ;
-                  bedreflyt:hasRoomNr 303 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room303-1
-bedreflyt:OSL_RH_Neurosurgery_Room303-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room304
-bedreflyt:OSL_RH_Neurosurgery_Room304 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room304-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 1 ;
-                  bedreflyt:hasRoomNr 304 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room304-1
-bedreflyt:OSL_RH_Neurosurgery_Room304-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room305
-bedreflyt:OSL_RH_Neurosurgery_Room305 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room305-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 3 ;
-                  bedreflyt:hasRoomNr 305 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room305-1
-bedreflyt:OSL_RH_Neurosurgery_Room305-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room306
-bedreflyt:OSL_RH_Neurosurgery_Room306 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room306-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 4 ;
-                  bedreflyt:hasRoomNr 306 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room306-1
-bedreflyt:OSL_RH_Neurosurgery_Room306-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room307
-bedreflyt:OSL_RH_Neurosurgery_Room307 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room307-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 2 ;
-                  bedreflyt:hasRoomNr 307 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room307-1
-bedreflyt:OSL_RH_Neurosurgery_Room307-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room308
-bedreflyt:OSL_RH_Neurosurgery_Room308 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room308-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 3 ;
-                  bedreflyt:hasRoomNr 308 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room308-1
-bedreflyt:OSL_RH_Neurosurgery_Room308-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room309
-bedreflyt:OSL_RH_Neurosurgery_Room309 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room309-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 1 ;
-                  bedreflyt:hasRoomNr 309 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room309-1
-bedreflyt:OSL_RH_Neurosurgery_Room309-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room310
-bedreflyt:OSL_RH_Neurosurgery_Room310 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room310-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 3 ;
-                  bedreflyt:hasRoomNr 310 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room310-1
-bedreflyt:OSL_RH_Neurosurgery_Room310-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room311
-bedreflyt:OSL_RH_Neurosurgery_Room311 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room311-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 4 ;
-                  bedreflyt:hasRoomNr 311 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room311-1
-bedreflyt:OSL_RH_Neurosurgery_Room311-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room312
-bedreflyt:OSL_RH_Neurosurgery_Room312 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room312-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 2 ;
-                  bedreflyt:hasRoomNr 312 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room312-1
-bedreflyt:OSL_RH_Neurosurgery_Room312-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room313
-bedreflyt:OSL_RH_Neurosurgery_Room313 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room313-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 3 ;
-                  bedreflyt:hasRoomNr 313 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room313-1
-bedreflyt:OSL_RH_Neurosurgery_Room313-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room314
-bedreflyt:OSL_RH_Neurosurgery_Room314 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room314-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 1 ;
-                  bedreflyt:hasRoomNr 314 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room314-1
-bedreflyt:OSL_RH_Neurosurgery_Room314-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room315
-bedreflyt:OSL_RH_Neurosurgery_Room315 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room315-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 3 ;
-                  bedreflyt:hasRoomNr 315 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room315-1
-bedreflyt:OSL_RH_Neurosurgery_Room315-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room316
-bedreflyt:OSL_RH_Neurosurgery_Room316 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room316-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 4 ;
-                  bedreflyt:hasRoomNr 316 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room316-1
-bedreflyt:OSL_RH_Neurosurgery_Room316-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room317
-bedreflyt:OSL_RH_Neurosurgery_Room317 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Neurosurgery_Room317-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
-                  bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
-                  bedreflyt:hasCapacityNrBeds 2 ;
-                  bedreflyt:hasRoomNr 317 .
-
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room317-1
+###  http://www.smolang.org/bedreflyt/Room317-1
 bedreflyt:Room317-1 rdf:type owl:NamedIndividual ,
                              <https://w3id.org/rec/building/Bathroom> .
 
@@ -3178,235 +3471,6 @@ bedreflyt:na rdf:type owl:NamedIndividual ,
 ###  http://www.smolang.org/bedreflyt/InnsettelseDren+Trykkmåler
 <http://www.smolang.org/bedreflyt/InnsettelseDren+Trykkmåler> rdf:type owl:NamedIndividual ,
                                                                        <http://purl.org/net/p-plan#Step> .
-
-
-###  http://www.smolang.org/bedreflyt/Allmennmedisin
-bedreflyt:Allmennmedisin rdf:type owl:NamedIndividual ,
-                                bedreflyt:Ward ;
-                       brick:hasFloor bedreflyt:Floor4 ;
-                       brick:hasHospital bedreflyt:Rikshospitalet ;
-                       bedreflyt:wardName "Allmennmedisin" .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room401
-bedreflyt:OSL_RH_Allmennmedisin_Room401 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room401-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 4 ;
-                  bedreflyt:hasRoomNr 401 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room401-1
-bedreflyt:OSL_RH_Allmennmedisin_Room401-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room402
-bedreflyt:OSL_RH_Allmennmedisin_Room402 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room402-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 2 ;
-                  bedreflyt:hasRoomNr 402 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room402-1
-bedreflyt:OSL_RH_Allmennmedisin_Room402-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room403
-bedreflyt:OSL_RH_Allmennmedisin_Room403 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room403-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 3 ;
-                  bedreflyt:hasRoomNr 403 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room403-1
-bedreflyt:OSL_RH_Allmennmedisin_Room403-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room404
-bedreflyt:OSL_RH_Allmennmedisin_Room404 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room404-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 1 ;
-                  bedreflyt:hasRoomNr 404 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room404-1
-bedreflyt:OSL_RH_Allmennmedisin_Room404-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room405
-bedreflyt:OSL_RH_Allmennmedisin_Room405 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room405-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 3 ;
-                  bedreflyt:hasRoomNr 405 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room405-1
-bedreflyt:OSL_RH_Allmennmedisin_Room405-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room406
-bedreflyt:OSL_RH_Allmennmedisin_Room406 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room406-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 4 ;
-                  bedreflyt:hasRoomNr 406 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room406-1
-bedreflyt:OSL_RH_Allmennmedisin_Room406-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room407
-bedreflyt:OSL_RH_Allmennmedisin_Room407 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room407-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 2 ;
-                  bedreflyt:hasRoomNr 407 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room407-1
-bedreflyt:OSL_RH_Allmennmedisin_Room407-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room408
-bedreflyt:OSL_RH_Allmennmedisin_Room408 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room408-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 3 ;
-                  bedreflyt:hasRoomNr 408 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room408-1
-bedreflyt:OSL_RH_Allmennmedisin_Room408-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room409
-bedreflyt:OSL_RH_Allmennmedisin_Room409 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room409-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 1 ;
-                  bedreflyt:hasRoomNr 409 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room409-1
-bedreflyt:OSL_RH_Allmennmedisin_Room409-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room410
-bedreflyt:OSL_RH_Allmennmedisin_Room410 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room410-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 3 ;
-                  bedreflyt:hasRoomNr 410 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room410-1
-bedreflyt:OSL_RH_Allmennmedisin_Room410-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room411
-bedreflyt:OSL_RH_Allmennmedisin_Room411 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room411-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 4 ;
-                  bedreflyt:hasRoomNr 411 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room411-1
-bedreflyt:OSL_RH_Allmennmedisin_Room411-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room412
-bedreflyt:OSL_RH_Allmennmedisin_Room412 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room412-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 2 ;
-                  bedreflyt:hasRoomNr 412 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room412-1
-bedreflyt:OSL_RH_Allmennmedisin_Room412-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room413
-bedreflyt:OSL_RH_Allmennmedisin_Room413 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room413-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 3 ;
-                  bedreflyt:hasRoomNr 413 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room413-1
-bedreflyt:OSL_RH_Allmennmedisin_Room413-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room414
-bedreflyt:OSL_RH_Allmennmedisin_Room414 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room414-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Intermediar ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 1 ;
-                  bedreflyt:hasRoomNr 414 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room414-1
-bedreflyt:OSL_RH_Allmennmedisin_Room414-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room415
-bedreflyt:OSL_RH_Allmennmedisin_Room415 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room415-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 3 ;
-                  bedreflyt:hasRoomNr 415 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room415-1
-bedreflyt:OSL_RH_Allmennmedisin_Room415-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room416
-bedreflyt:OSL_RH_Allmennmedisin_Room416 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room416-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 4 ;
-                  bedreflyt:hasRoomNr 416 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room416-1
-bedreflyt:OSL_RH_Allmennmedisin_Room416-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room417
-bedreflyt:OSL_RH_Allmennmedisin_Room417 rdf:type owl:NamedIndividual ,
-                           <https://w3id.org/rec/building/TreatmentRoom> ;
-                  bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room417-1 ;
-                  bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
-                  bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                  bedreflyt:hasCapacityNrBeds 2 ;
-                  bedreflyt:hasRoomNr 417 .
-
-###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room417-1
-bedreflyt:OSL_RH_Allmennmedisin_Room417-1 rdf:type owl:NamedIndividual ,
-                             <https://w3id.org/rec/building/Bathroom> .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
