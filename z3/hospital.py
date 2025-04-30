@@ -5,6 +5,7 @@ random.seed(42)
 import datetime
 
 import pathlib
+import copy
 # Nevrokirurgisk avd, OUS
 # Model   Bedpost   info                                            Model 
 # Roomnbr Romnr     Antall senger	Eget bad?	Seksjon/type rom    Category
@@ -37,8 +38,15 @@ class HospitalRoomAssignment:
         self.patients = patients
 
         self.mode = mode
-
-        self.penalties = penalties
+        
+        # ensure that penalties are all different:
+        adapted_penalties = copy.deepcopy(penalties)
+        for p in set(penalties):
+            indices = [i for i, x in enumerate(adapted_penalties) if x == p]
+            for i in range(len(indices)):
+                adapted_penalties[indices[i]] = penalties[indices[i]] * 0.1 * i # increase each occurrence by i * 10% of original value
+                
+        self.penalties = adapted_penalties
         self.contagious_allowed = contagious_allowed
     
     def assign_rooms(self):
