@@ -281,6 +281,12 @@ bedreflyt:cityName rdf:type owl:DatatypeProperty ;
                    rdfs:range xsd:string .
 
 
+###  http://www.smolang.org/bedreflyt/corridorCapacity
+bedreflyt:corridorCapacity rdf:type owl:DatatypeProperty ;
+                           rdfs:domain bedreflyt:Ward ;
+                           rdfs:range xsd:integer .
+
+
 ###  http://www.smolang.org/bedreflyt/corridorPenalty
 bedreflyt:corridorPenalty rdf:type owl:DatatypeProperty ;
                           rdfs:subPropertyOf owl:topDataProperty ;
@@ -577,6 +583,7 @@ bedreflyt:Allmennmedisin rdf:type owl:NamedIndividual ,
                          brick:hasFloor bedreflyt:Floor4 ;
                          brick:hasHospital bedreflyt:Rikshospitalet ;
                          bedreflyt:capacityThreshold "72.2"^^xsd:double ;
+                         bedreflyt:corridorCapacity 80 ;
                          bedreflyt:corridorPenalty "20.0"^^xsd:double ;
                          bedreflyt:officePenalty "4000.0"^^xsd:double ;
                          bedreflyt:wardName "Allmennmedisin" .
@@ -2699,8 +2706,9 @@ bedreflyt:Neurosurgery rdf:type owl:NamedIndividual ,
                        brick:hasFloor bedreflyt:Floor3 ;
                        brick:hasHospital bedreflyt:Rikshospitalet ;
                        bedreflyt:capacityThreshold "70.0"^^xsd:double ;
-                       bedreflyt:corridorPenalty "300.0"^^xsd:double ;
-                       bedreflyt:officePenalty "300.0"^^xsd:double ;
+                       bedreflyt:corridorCapacity 30 ;
+                       bedreflyt:corridorPenalty "4000.0"^^xsd:double ;
+                       bedreflyt:officePenalty "3000.0"^^xsd:double ;
                        bedreflyt:wardName "Neurosurgery" .
 
 
@@ -2785,7 +2793,7 @@ bedreflyt:OSL_RH_Allmennmedisin_Room406 rdf:type owl:NamedIndividual ,
                                         bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room406-1 ;
                                         bedreflyt:hasMonitoringStatus bedreflyt:Overakning ;
                                         bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                                        bedreflyt:hasCapacityNrBeds 4 ;
+                                        bedreflyt:hasCapacityNrBeds 1 ;
                                         bedreflyt:hasRoomNr 406 .
 
 
@@ -2860,7 +2868,7 @@ bedreflyt:OSL_RH_Allmennmedisin_Room411 rdf:type owl:NamedIndividual ,
                                         bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room411-1 ;
                                         bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                         bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                                        bedreflyt:hasCapacityNrBeds 4 ;
+                                        bedreflyt:hasCapacityNrBeds 1 ;
                                         bedreflyt:hasRoomNr 411 .
 
 
@@ -2890,7 +2898,7 @@ bedreflyt:OSL_RH_Allmennmedisin_Room413 rdf:type owl:NamedIndividual ,
                                         bedreflyt:hasBathroom bedreflyt:OSL_RH_Allmennmedisin_Room413-1 ;
                                         bedreflyt:hasMonitoringStatus bedreflyt:Sengepost ;
                                         bedreflyt:isAssignWard bedreflyt:Allmennmedisin ;
-                                        bedreflyt:hasCapacityNrBeds 3 ;
+                                        bedreflyt:hasCapacityNrBeds 2 ;
                                         bedreflyt:hasRoomNr 413 .
 
 
