@@ -94,6 +94,7 @@ async def solve_global_assignment(request: GlobalQuery):
 class RoomStructure(BaseModel):
     currentFreeCapacity: int
     incomingPatients: int
+    roomNumbers: List[int]
     capacities: List[int]
     penalties: List[int]
 
@@ -101,6 +102,7 @@ def room_opener(request: RoomStructure):
     room_opener = RoomOpener(
         request.currentFreeCapacity,
         request.incomingPatients,
+        request.roomNumbers,
         request.capacities,
         request.penalties
     )
