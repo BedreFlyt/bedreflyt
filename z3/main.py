@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 
 from hospital import HospitalRoomAssignment, HospitalRoomAssignmentGlobal
 from pydantic import BaseModel
@@ -89,3 +89,37 @@ async def solve_global_assignment(request: GlobalQuery):
     
 
     return result
+
+class RoomStructure(BaseModel):
+    currentFreeCapacity: int
+    incomingPatients: int
+    capacities: List[int]
+    penalties: List[int]
+
+def room_opener(request: RoomStructure):
+    from room_opener import RoomOpener
+
+    room_opener = RoomOpener(
+        request.currentFreeCapacity,
+        request.incomingPatients,
+        request.capacities,
+        request.penalties
+    )
+
+    opened_rooms, total_penalty = room_opener.find_appropriate_rooms()
+
+    return opened_rooms, total_penalty
+
+@app.post("/api/room-opener")
+async def room_opener_endpoint(request: RoomStructure):
+    print(f"Received room opener request at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
+    future = executor.submit(room_opener, request)
+    rooms, _ = future.result()
+
+    print(f"Finished processing room opener request at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
+    if rooms is None:
+        raise HTTPException(status_code=404, detail="No appropriate rooms found")
+
+    return rooms
