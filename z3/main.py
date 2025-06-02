@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 
 from hospital import HospitalRoomAssignment, HospitalRoomAssignmentGlobal
+from room_opener import RoomOpener
 from pydantic import BaseModel
 from typing import List, Literal, Dict
 from datetime import datetime
@@ -97,8 +98,6 @@ class RoomStructure(BaseModel):
     penalties: List[int]
 
 def room_opener(request: RoomStructure):
-    from room_opener import RoomOpener
-
     room_opener = RoomOpener(
         request.currentFreeCapacity,
         request.incomingPatients,
