@@ -269,6 +269,12 @@ pko:previousStep rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
+###  http://www.smolang.org/bedreflyt/available
+bedreflyt:available rdf:type owl:DatatypeProperty ;
+                    rdfs:domain bedreflyt:Office ;
+                    rdfs:range xsd:boolean .
+
+
 ###  http://www.smolang.org/bedreflyt/capacityThreshold
 bedreflyt:capacityThreshold rdf:type owl:DatatypeProperty ;
                             rdfs:domain bedreflyt:Ward ;
@@ -462,6 +468,11 @@ bedreflyt:Facility rdf:type owl:Class .
 
 ###  http://www.smolang.org/bedreflyt/MonitoringCategory
 bedreflyt:MonitoringCategory rdf:type owl:Class .
+
+
+###  http://www.smolang.org/bedreflyt/Office
+bedreflyt:Office rdf:type owl:Class ;
+                 rdfs:subClassOf <https://w3id.org/rec/core/Room> .
 
 
 ###  http://www.smolang.org/bedreflyt/Region
@@ -2965,6 +2976,16 @@ bedreflyt:OSL_RH_Allmennmedisin_Room417 rdf:type owl:NamedIndividual ,
 ###  http://www.smolang.org/bedreflyt/OSL_RH_Allmennmedisin_Room417-1
 bedreflyt:OSL_RH_Allmennmedisin_Room417-1 rdf:type owl:NamedIndividual ,
                                                    <https://w3id.org/rec/building/Bathroom> .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Office318
+bedreflyt:OSL_RH_Neurosurgery_Office318 rdf:type owl:NamedIndividual ,
+                                                 bedreflyt:Office ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Midlertidig ;
+                                        bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                        bedreflyt:available "true"^^xsd:boolean ;
+                                        bedreflyt:hasCapacityNrBeds 4 ;
+                                        bedreflyt:hasRoomNr 318 .
 
 
 ###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room301
