@@ -10,6 +10,13 @@ import numpy as np
 host = "localhost"
 url = f"http://{host}:8090/api/v1"
 
+def set_host(new_host):
+    """Set the host for the API."""
+    global host, url
+    host = new_host
+    url = f"http://{host}:8090/api/v1"
+    print(f"Host set to {host}. URL is now {url}")
+
 def get_users():
     """Get all users."""
     response = requests.get(f"{url}/patients")
@@ -184,7 +191,7 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
             
             
             ward_name, hospital_code = ward_key.split("_&_")
-            ward_name = "Neurosurgery"
+            # ward_name = "Neurosurgery"
             print(f"Allocating {len(allocations)} patients for ward {ward_name} with total capacity {total_capacity}")
             allocations_number += len(allocations)
             payload = {
@@ -239,6 +246,7 @@ if __name__ == "__main__":
     # Test the event generator with different modes
     
     parser = argparse.ArgumentParser("event-generator.py")
+    parser.add_argument("--host", help="Host to connect to", type=str, default="localhost")
     parser.add_argument("--std", help="Standard deviation", type=int, default="1")
     parser.add_argument("--mean", help="Mean", type=int, default="5")
     parser.add_argument("--mode", help="Mode", type=str, default="normal")
