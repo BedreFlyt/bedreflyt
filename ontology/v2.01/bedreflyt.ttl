@@ -378,6 +378,13 @@ bedreflyt:officePenalty rdf:type owl:DatatypeProperty ;
                         rdfs:range xsd:double .
 
 
+###  http://www.smolang.org/bedreflyt/penalty
+bedreflyt:penalty rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain <https://w3id.org/rec/core/Room> ;
+                  rdfs:range xsd:double .
+
+
 ###  http://www.smolang.org/bedreflyt/procedureName
 bedreflyt:procedureName rdf:type owl:DatatypeProperty ;
                         rdfs:domain pko:Procedure ;
@@ -451,6 +458,11 @@ bedreflyt:Bed rdf:type owl:Class ;
 ###  http://www.smolang.org/bedreflyt/City
 bedreflyt:City rdf:type owl:Class ;
                rdfs:subClassOf bedreflyt:Region .
+
+
+###  http://www.smolang.org/bedreflyt/Corridor
+bedreflyt:Corridor rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/rec/core/Room> .
 
 
 ###  http://www.smolang.org/bedreflyt/Diagnosis
@@ -2978,6 +2990,16 @@ bedreflyt:OSL_RH_Allmennmedisin_Room417-1 rdf:type owl:NamedIndividual ,
                                                    <https://w3id.org/rec/building/Bathroom> .
 
 
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Corridor0
+bedreflyt:OSL_RH_Neurosurgery_Corridor0 rdf:type owl:NamedIndividual ,
+                                                 bedreflyt:Corridor ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Korridor ;
+                                        bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                        bedreflyt:hasCapacityNrBeds 40 ;
+                                        bedreflyt:penalty: "4000.0"^^xsd:double ;
+                                        bedreflyt:hasRoomNr 0 .
+
+
 ###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Office318
 bedreflyt:OSL_RH_Neurosurgery_Office318 rdf:type owl:NamedIndividual ,
                                                  bedreflyt:Office ;
@@ -2985,7 +3007,19 @@ bedreflyt:OSL_RH_Neurosurgery_Office318 rdf:type owl:NamedIndividual ,
                                         bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
                                         bedreflyt:available "true"^^xsd:boolean ;
                                         bedreflyt:hasCapacityNrBeds 4 ;
+                                        bedreflyt:penalty: "7000.0"^^xsd:double ;
                                         bedreflyt:hasRoomNr 318 .
+
+
+###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Office319
+bedreflyt:OSL_RH_Neurosurgery_Office319 rdf:type owl:NamedIndividual ,
+                                                 bedreflyt:Office ;
+                                        bedreflyt:hasMonitoringStatus bedreflyt:Midlertidig ;
+                                        bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
+                                        bedreflyt:available "true"^^xsd:boolean ;
+                                        bedreflyt:hasCapacityNrBeds 4 ;
+                                        bedreflyt:penalty: "9000.0"^^xsd:double ;
+                                        bedreflyt:hasRoomNr 319 .
 
 
 ###  http://www.smolang.org/bedreflyt/OSL_RH_Neurosurgery_Room301
