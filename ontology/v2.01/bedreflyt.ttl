@@ -2996,7 +2996,7 @@ bedreflyt:OSL_RH_Neurosurgery_Corridor0 rdf:type owl:NamedIndividual ,
                                         bedreflyt:hasMonitoringStatus bedreflyt:Korridor ;
                                         bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
                                         bedreflyt:hasCapacityNrBeds 40 ;
-                                        bedreflyt:penalty: "4000.0"^^xsd:double ;
+                                        bedreflyt:penalty "4000.0"^^xsd:double ;
                                         bedreflyt:hasRoomNr 0 .
 
 
@@ -3007,7 +3007,7 @@ bedreflyt:OSL_RH_Neurosurgery_Office318 rdf:type owl:NamedIndividual ,
                                         bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
                                         bedreflyt:available "true"^^xsd:boolean ;
                                         bedreflyt:hasCapacityNrBeds 4 ;
-                                        bedreflyt:penalty: "7000.0"^^xsd:double ;
+                                        bedreflyt:penalty "7000.0"^^xsd:double ;
                                         bedreflyt:hasRoomNr 318 .
 
 
@@ -3018,7 +3018,7 @@ bedreflyt:OSL_RH_Neurosurgery_Office319 rdf:type owl:NamedIndividual ,
                                         bedreflyt:isAssignWard bedreflyt:Neurosurgery ;
                                         bedreflyt:available "true"^^xsd:boolean ;
                                         bedreflyt:hasCapacityNrBeds 4 ;
-                                        bedreflyt:penalty: "9000.0"^^xsd:double ;
+                                        bedreflyt:penalty "9000.0"^^xsd:double ;
                                         bedreflyt:hasRoomNr 319 .
 
 
