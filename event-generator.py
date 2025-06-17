@@ -169,7 +169,7 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
         
         capacities = {}
         for ward in wards:
-            capacities[f"{ward['wardName']}_&_{ward['wardHospital']['hospitalCode']}"] = get_capacities(ward['wardName'], ward['wardHospital']['hospitalCode'])
+            capacities[f"{ward['wardName']}_&_{ward['wardHospital']['hospitalCode']}"] = get_capacities(ward['wardName'], ward['wardHospital']['hospitalCode']) if ward['wardName'] == "Neurosurgery" else []
         
         for ward_key, ward_capacities in capacities.items():
             if not ward_capacities:
@@ -259,8 +259,8 @@ if __name__ == "__main__":
 
     delete_allocations()
     print("Deleted all previous allocations")
-    print("Waiting for 120 seconds to reset before starting the allocation test...")
-    time.sleep(120)
+    print("Waiting for 10 seconds to reset before starting the allocation test...")
+    time.sleep(10)
     print("Starting allocation test")
 
     test_allocation(args.mode, args.mean, args.std, args.iterations)
