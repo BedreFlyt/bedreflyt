@@ -4,11 +4,72 @@ import requests
 import random
 import time
 import argparse
+import os
 
 import numpy as np
 
 host = "localhost"
 url = f"http://{host}:8090/api/v1"
+headers = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+}
+
+neurosurgery_oslo_rooms = []
+
+def create_room(room_number, capacity, ward, hospital, category_description):
+    create_url = url + "/fuseki/rooms"
+    payload = {
+        "roomNumber": room_number,
+        "capacity": capacity,
+        "penalty": 0.0,
+        "ward": ward,
+        "hospital": hospital,
+        "categoryDescription": category_description
+    }
+    response = requests.post(create_url, json=payload, headers=headers)
+    if response.status_code == 200:
+        print(f"Room {room_number} created successfully")
+    else:
+        print("Error creating room")
+
+def create_rooms(payload):
+    create_url = url + "/fuseki/rooms/multi"
+    response = requests.post(create_url, json=payload, headers=headers)
+    if response.status_code == 200:
+        print(f"Rooms created successfully")
+    else:
+        print("Error creating room")
+
+def create_rooms_for_neurosurgery_oslo():
+    """Create a list of rooms for Neurosurgery in Oslo."""
+    payload = []
+    for room in neurosurgery_oslo_rooms:
+        # set a capacity of a random number between 1 and 15
+        capacity = random.randint(1, 15)
+        payload.append({
+            "roomNumber": room,
+            "capacity": capacity,
+            "penalty": 0.0,
+            "ward": "Neurosurgery",
+            "hospital": "OSL-RH",
+            "categoryDescription": "Sengepost"
+        })
+    create_rooms(payload=payload)
+
+def delete_room(room_number, ward_name, hospital_code):
+    """Delete a room by its number, ward name, and hospital code."""
+    delete_url = f"{url}/fuseki/rooms/{room_number}/{ward_name}/{hospital_code}"
+    response = requests.delete(delete_url, headers=headers)
+    if response.status_code == 200:
+        print(f"Room {room_number} deleted successfully")
+    else:
+        print(f"Error deleting room {room_number}: {response.status_code}")
+
+def delete_rooms_for_neurosurgery_oslo():
+    """Delete all rooms for Neurosurgery in Oslo."""
+    for room in neurosurgery_oslo_rooms:
+        delete_room(room, "Neurosurgery", "OSL-RH")
 
 def set_host(new_host):
     """Set the host for the API."""
@@ -111,6 +172,10 @@ def delete_allocations():
         print("Successfully deleted all allocations.")
     else:
         print(f"Failed to delete allocations: {response.status_code}")
+
+def get_capacity(ward_name, hospital_code):
+    """Get the size of the allocation for a specific ward and hospital."""
+    return sum([el["capacity"] for el in requests.get(f"{url}/fuseki/rooms/{ward_name}/{hospital_code}").json() if "capacity" in el])
     
 iteration_times = []  # List to store iteration times
 def test_allocation(mode: str, mean: int, std: int, iterations: int):
@@ -203,6 +268,7 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
                 "iteration": iteration,
             }
             
+            # os.system("redis-cli FLUSHALL")  # Clear Redis cache before each allocation
             response = requests.post(f"{url}/allocation/simulate", json=payload)
             if response.status_code == 200:
                 print(f"Successfully allocated patients for ward {ward_name} in hospital {hospital_code}")
@@ -213,7 +279,7 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
             total_capacities.append({
                 "iteration": iteration + 1,
                 "ward": ward_key,
-                "total_capacity": total_capacity
+                "total_capacity": get_capacity(ward_name, hospital_code)
             })
             total_allocations.append({
                 "iteration": iteration + 1,
@@ -251,11 +317,22 @@ if __name__ == "__main__":
     parser.add_argument("--mean", help="Mean", type=int, default="5")
     parser.add_argument("--mode", help="Mode", type=str, default="normal")
     parser.add_argument("--iterations", help="Iterations", type=int, default="10")
+    parser.add_argument("--rooms", help="Create rooms for Neurosurgery in Oslo", type=int, default=0)
     args = parser.parse_args()
     
     if args.mode not in ["normal", "crisis", "medium-crisis", "variable"]:
         print("Usage: python event-generator.py [normal|crisis|medium-crisis|variable]")
         sys.exit(1)
+
+    if args.rooms > 0:
+        # if args.rooms > 70:
+        #     print("You can only create up to 70 rooms for Neurosurgery in Oslo")
+        #     sys.exit(1)
+        for i in range(args.rooms):
+            neurosurgery_oslo_rooms.append(330 + i)
+        print(f"Creating {args.rooms} rooms for Neurosurgery in Oslo")
+        create_rooms_for_neurosurgery_oslo()
+        # os.system("redis-cli FLUSHALL")
 
     delete_allocations()
     print("Deleted all previous allocations")
@@ -264,4 +341,6 @@ if __name__ == "__main__":
     print("Starting allocation test")
 
     test_allocation(args.mode, args.mean, args.std, args.iterations)
+
+    delete_rooms_for_neurosurgery_oslo()
 
