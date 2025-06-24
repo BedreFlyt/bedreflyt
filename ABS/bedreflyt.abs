@@ -64,14 +64,14 @@ def Bool enabled(Task t) = emptySet(dependencies(t));
 //--------------------------------Objects that hold bedpost needs per time step -------------------------
 //------------------------------------------------------------------------------------------------
 interface BedPostNeeds {  // bedpost needs in a time step
-    Unit register(Patient p, Int category);
+    Unit register(Patient p, Int category, String taskId);
     Unit print();
     Unit printForZ3();
   }
 
 class BedPostNeeds(Int time, BedsCat bc) implements BedPostNeeds {
 
-  Map<Int,List<Patient>> cat = map[];
+    Map<Int,List<Pair<Patient, String>>> cat = map[];
 
   Unit init(){
     Int l = length(entries(bc));
@@ -86,8 +86,8 @@ class BedPostNeeds(Int time, BedsCat bc) implements BedPostNeeds {
   }
 
 
-    Unit register(Patient p, Int i){
-        cat = put(cat,i,appendright(lookupDefault(cat,i,Nil),p));
+    Unit register(Patient p, Int i, String taskId){
+        cat = put(cat,i,appendright(lookupDefault(cat,i,Nil),Pair(p, taskId)));
     }
 
     Unit print(){
@@ -99,8 +99,8 @@ class BedPostNeeds(Int time, BedsCat bc) implements BedPostNeeds {
 
     Unit printForZ3(){
         foreach(t in entries(cat)){
-            foreach (patient in snd(t)) {
-                println(perId(patient) + "," + toString(fst(t)));
+            foreach (patient_task_pair in snd(t)) {
+                println(`$perId(fst(patient_task_pair))$,$toString(fst(t))$,$snd(patient_task_pair)$`);
             }
         }
         println("------");
@@ -212,7 +212,7 @@ class Simulator(Treatments tr, Scenario sc, BedsCat bc) implements Simulator {
                 newFlow = removeDependWF(t,newFlow);
             }
             // Register resource needs of the task
-            timestepNeeds.register(patient(p),category(t));
+            timestepNeeds.register(patient(p),category(t),id(t));
         }
         if (!isEmpty(newFlow)){
             // Create package with remaining workflow
