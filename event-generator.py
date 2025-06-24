@@ -324,6 +324,9 @@ if __name__ == "__main__":
         print("Usage: python event-generator.py [normal|crisis|medium-crisis|variable]")
         sys.exit(1)
 
+    if args.host:
+        set_host(args.host)
+
     if args.rooms > 0:
         # if args.rooms > 70:
         #     print("You can only create up to 70 rooms for Neurosurgery in Oslo")
