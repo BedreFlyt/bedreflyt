@@ -315,8 +315,9 @@ if __name__ == "__main__":
     parser.add_argument("--host", help="Host to connect to", type=str, default="localhost")
     parser.add_argument("--std", help="Standard deviation", type=int, default="1")
     parser.add_argument("--mean", help="Mean", type=int, default="5")
-    parser.add_argument("--mode", help="Mode", type=str, default="normal")
+    parser.add_argument("--mode", help="Mode from [normal, crisis, medium-crisis]", type=str, default="normal")
     parser.add_argument("--iterations", help="Iterations", type=int, default="10")
+    parser.add_argument("--time_steps", help="Time steps to run", type=int, default="10")
     parser.add_argument("--rooms", help="Create rooms for Neurosurgery in Oslo", type=int, default=0)
     args = parser.parse_args()
     
@@ -327,23 +328,24 @@ if __name__ == "__main__":
     if args.host:
         set_host(args.host)
 
-    if args.rooms > 0:
-        # if args.rooms > 70:
-        #     print("You can only create up to 70 rooms for Neurosurgery in Oslo")
-        #     sys.exit(1)
-        for i in range(args.rooms):
-            neurosurgery_oslo_rooms.append(330 + i)
-        print(f"Creating {args.rooms} rooms for Neurosurgery in Oslo")
-        create_rooms_for_neurosurgery_oslo()
-        # os.system("redis-cli FLUSHALL")
+    for iteration in range(args.iterations):
+        if args.rooms > 0:
+            # if args.rooms > 70:
+            #     print("You can only create up to 70 rooms for Neurosurgery in Oslo")
+            #     sys.exit(1)
+            for i in range(args.rooms):
+                neurosurgery_oslo_rooms.append(330 + i)
+            print(f"Creating {args.rooms} rooms for Neurosurgery in Oslo")
+            create_rooms_for_neurosurgery_oslo()
+            # os.system("redis-cli FLUSHALL")
 
-    delete_allocations()
-    print("Deleted all previous allocations")
-    print("Waiting for 10 seconds to reset before starting the allocation test...")
-    time.sleep(10)
-    print("Starting allocation test")
+        delete_allocations()
+        print("Deleted all previous allocations")
+        print("Waiting for 10 seconds to reset before starting the allocation test...")
+        time.sleep(10)
+        print("Starting allocation test")
 
-    test_allocation(args.mode, args.mean, args.std, args.iterations)
+        test_allocation(args.mode, args.mean, args.std, args.time_steps)
 
-    delete_rooms_for_neurosurgery_oslo()
+        delete_rooms_for_neurosurgery_oslo()
 
