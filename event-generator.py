@@ -177,8 +177,8 @@ def get_capacity(ward_name, hospital_code):
     """Get the size of the allocation for a specific ward and hospital."""
     return sum([el["capacity"] for el in requests.get(f"{url}/fuseki/rooms/{ward_name}/{hospital_code}").json() if "capacity" in el])
     
-iteration_times = []  # List to store iteration times
-def test_allocation(mode: str, mean: int, std: int, iterations: int):
+time_step_times = []  # List to store time_step times TODO: shouldnt this be local in the iterator over time_steps? now its global and "growing"
+def test_allocation(mode: str, mean: int, std: int, iteration: int, time_steps: int):
     patients = get_users()
     if not patients:
         print("No patients found")
@@ -218,9 +218,9 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
     total_allocations = []
 
     allocations_number = 0
-    for iteration in range(iterations):  # Perform 10 iterations
-        start_time = time.time()  # Start timing the iteration
-        print(f"Starting iteration {iteration + 1}")
+    for time_step in range(time_steps):  # Perform 10 time_steps
+        start_time = time.time()  # Start timing the time_step
+        print(f"Starting time_step {time_step + 1}")
 
         # if iteration % 5 == 0:
         #     allocations_number = 0
@@ -249,7 +249,7 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
             allocations = []
             for patient in selected_patients:
                 allocations.append({
-                    "batch": int(iteration + 1),
+                    "batch": int(time_step + 1),
                     "patientId": patient["patientId"],
                     "diagnosis": random.choice(diagnoses)["diagnosisName"]
                 })
@@ -265,7 +265,7 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
                 "smtMode": "changes",
                 "wardName": ward_name,
                 "hospitalCode": hospital_code,
-                "iteration": iteration,
+                "time_step": time_step,
             }
             
             # os.system("redis-cli FLUSHALL")  # Clear Redis cache before each allocation
@@ -277,36 +277,36 @@ def test_allocation(mode: str, mean: int, std: int, iterations: int):
             
             # Save the total capacity and allocations for this ward
             total_capacities.append({
-                "iteration": iteration + 1,
+                "time_step": time_step + 1,
                 "ward": ward_key,
                 "total_capacity": get_capacity(ward_name, hospital_code)
             })
             total_allocations.append({
-                "iteration": iteration + 1,
+                "time_step": time_step + 1,
                 "ward": ward_key,
                 "allocations": len(get_allocations())
             })
         
-        end_time = time.time()  # End timing the iteration
-        iteration_duration = end_time - start_time
-        iteration_times.append({"iteration": iteration + 1, "duration": iteration_duration})
-        print(f"Iteration {iteration + 1} took {iteration_duration:.2f} seconds")
+        end_time = time.time()  # End timing the time_step
+        time_step_duration = end_time - start_time
+        time_step_times.append({"time_step": time_step + 1, "duration": time_step_duration})
+        print(f"time_step {time_step + 1} took {time_step_duration:.2f} seconds")
 
-        # Wait for 30 seconds before the next iteration
-        time.sleep(30)
+        # Wait for 30 seconds before the next time_step
+        time.sleep(30) # TODO: Why do we wait 30 seconds here? sounds very long
 
-    # Write the capacities, allocations, and iteration times to files
+    # Write the capacities, allocations, and time_step times to files
     output_data = {
         "capacities": total_capacities,
         "allocations": total_allocations
     }
-    with open(f"allocation_results_{mode}_{mean}_{std}_{iterations}.json", "w") as file:
+    with open(f"allocation_results_{mode}_{mean}_{std}_{iteration}_{time_steps}.json", "w") as file:
         json.dump(output_data, file, indent=4)
 
-    with open(f"iteration_times_{mode}_{mean}_{std}_{iterations}.json", "w") as file:
-        json.dump(iteration_times, file, indent=4)
+    with open(f"time_step_times_{mode}_{mean}_{std}_{iteration}_{time_steps}.json", "w") as file:
+        json.dump(time_step_times, file, indent=4)
 
-    print("Execution completed. Results saved to 'allocation_results.json' and 'iteration_times.json'.")
+    print("Execution completed. Results saved to 'allocation_results.json' and 'time_step_times.json'.")
 
 if __name__ == "__main__":
     # Test the event generator with different modes
@@ -329,6 +329,7 @@ if __name__ == "__main__":
         set_host(args.host)
 
     for iteration in range(args.iterations):
+        print('Iteration', i)
         if args.rooms > 0:
             # if args.rooms > 70:
             #     print("You can only create up to 70 rooms for Neurosurgery in Oslo")
@@ -345,7 +346,7 @@ if __name__ == "__main__":
         time.sleep(10)
         print("Starting allocation test")
 
-        test_allocation(args.mode, args.mean, args.std, args.time_steps)
+        test_allocation(args.mode, args.mean, args.std, iteration, args.time_steps)
 
         delete_rooms_for_neurosurgery_oslo()
 
