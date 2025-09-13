@@ -28,6 +28,8 @@ type BedsCat = Map<Int,String>;
 data Package = Package(Patient patient, Treatment treatment);
 
 type Packages = List<Package>;  // batch of pacakges
+
+type BedNeeds = Map<Int,List<Patient>>; // BedCat |-> list of Patients
 //------------------------------------------------------------------------
 
 //-----------Datatypes for input to the simulator-----------------------
@@ -38,14 +40,6 @@ type Treatments = Map<TreatmentID,Treatment>; // name and associated workflow --
 //------------------ Scenarios - Input from the stream of patients ------------------
 type OneTimeStepScenario = List<Pair<PatientID,TreatmentID>>;  // stream of (patientId, treatmentId) in one time step
 type Scenario = List<OneTimeStepScenario>;  // stream patients per time step (timeline)
-
-
-//------------------------------------------------------------------------------------------------
-//--------------------------------- TASKS & WORKFLOWS -- TREATMENT -------------------------------
-//------------------------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------
 
 
 // -----------------------------With dependencies ---------------------
@@ -60,6 +54,51 @@ def Task removeDependTask(Task t1, Task t2)
 
 // Check that a task can be done now
 def Bool enabled(Task t) = emptySet(dependencies(t));
+
+
+//------------------------------------------------------------------------------------------------
+//--------------------------------Objects that hold bedpost needs per time step -------------------------
+//------------------------------------------------------------------------------------------------
+interface Timeline {  // bedpost needs in a time step
+    Unit register(Rat step,Patient p, Int category);
+    Unit print(Rat step);
+    Unit printForZ3(Rat step);
+  }
+
+class Timeline(BedsCat bc) implements Timeline {
+
+  Map<Rat,BedNeeds> timeline = map[];   // step |-> (bedCat |-> list of patients)
+
+    // step, patient and bed category
+    Unit register(Rat step, Patient p, Int i){
+        BedNeeds cat = lookupDefault(timeline,step,map[]);
+        cat = put(cat,i,appendright(lookupDefault(cat,i,Nil),p));
+        timeline = put(timeline,step,cat);
+    }
+
+    Unit print(Rat step){
+        BedNeeds cat = lookupDefault(timeline,step,map[]);
+        println("\nBedpost needs at time: Time Step " + toString(step));
+        foreach(c in entries(cat)){
+            println(`Category$fst(c)$---: $length(snd(c))$`);
+        }
+    }
+
+    Unit printForZ3(Rat step){
+        BedNeeds cat = lookupDefault(timeline,step,map[]);
+        foreach(c in entries(cat)){
+            foreach (patient in snd(c)) {
+                println(perId(patient) + "," + toString(fst(c)));
+            }
+        }
+        println("------");
+    }
+}
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
 
 
 //------------------------------------------------------------------------------------------------
@@ -87,7 +126,7 @@ class BedPostNeeds(Rat time, BedsCat bc) implements BedPostNeeds {
     }
   }
 
-
+    // patient and bed category
     Unit register(Patient p, Int i){
         cat = put(cat,i,appendright(lookupDefault(cat,i,Nil),p));
     }
@@ -161,10 +200,9 @@ interface ScenarioSimulator {
 }
 
 class ScenarioSimulator(Treatments tr, Scenario sc, BedsCat bc) implements ScenarioSimulator {
-    List<Patient> pendingPatients = Nil;
     Map<Rat,BedPostNeeds> timeline = map[]; // Holds TimeStep objects
     Bool currentBedPostNeedsPointer = False;
-    Bool continue = True;
+    List<Patient> pendingPatients = Nil;
 
     BedPostNeeds getCurrentBedPostNeedsPointer(){
       await currentBedPostNeedsPointer;
@@ -187,13 +225,33 @@ class ScenarioSimulator(Treatments tr, Scenario sc, BedsCat bc) implements Scena
       pendingPatients = without(pendingPatients,p);
     }
 
+    // for each patient in the batch create an independent object that simulate their own workflow treatment.
+    // we also collect the patients, so the simulation run as long as patients are still simulating
+    // their workflow treatment.
+    Unit deployOneBatchOfPatients(Packages packages){
+      foreach (p in packages) {
+        pendingPatients = appendright(pendingPatients,patient(p));
+        IPatient pat = new CPatient(patient(p),treatment(p),this);
+        pat!simulate();
+      }
+    }
+
+    Unit advancetimeAndPrint(BedPostNeeds timestepNeeds){
+      // advance the time
+      await duration(1);
+      // signal that we need to create a new BedPostNeeds that holds the bedpost needs for this time step
+      currentBedPostNeedsPointer = False;
+      // print the needs for previos time step (at this point we know that all the pending patients have send their bed needs)
+      timestepNeeds.printForZ3();
+    }
+
     // Rough idea:
     // A "package" is a patient with an associated workflow
     // We pick the arriving packages for the time step -- a batch of patients
     // we simulate this one batch of patients (This creates patient objects with their treatment)
-    // we fetch new batches as long as there are batches of patients in the time steps
+    // we fetch new batch of patients as long as there are batch of patients in the time steps
     //
-    // we first deploy all the batches and collect the ids of all the deployed patients
+    // we first deploy all the batch of patients and collect the ids of all the deployed patients
     // we run the simulations as long as there are Patient objects that are still simulating their workflow treatment
     //
     // For each time step we create an object of class BedPostNeeds that holds the bedpost needs.
@@ -201,72 +259,34 @@ class ScenarioSimulator(Treatments tr, Scenario sc, BedsCat bc) implements Scena
     // we can then print time step needs from this timeline to access the bedpost needs per time step
     Map<Rat,BedPostNeeds> simulateScenario() {
       //PrintScenario showSc = new PrintScenario(bc);
+      Scenario newsc = sc;
       Packages packages = Nil;
-      if(!isEmpty(sc)) {
-          // Now we load the incoming packages
-          OneTimeStepScenario h = head(sc);
-          sc = tail(sc);
-          if(h != Nil) {
-              packages = generatePackages(h,tr, Nil);
-          }
-          else {packages = Nil;}
+      // we deploy all the batch of patients in the scenario
+      while (!isEmpty(newsc)) {
+        // Create time step object for current time
+        BedPostNeeds timestepNeeds = await this!newBedPostNeedsObject();
+
+        // Now we load the incoming packages
+        OneTimeStepScenario h = head(newsc);
+        newsc = tail(newsc);
+        if(h != Nil) {packages = generatePackages(h,tr, Nil);}
+        else {packages = Nil;}
+        this.deployOneBatchOfPatients(packages);
+        this.advancetimeAndPrint(timestepNeeds);
       }
-      // if everthing is empty then we finsh the simulation for the scenario
-      if (isEmpty(sc) && isEmpty(packages)) {continue = False;}
-      while (continue) {
-          // Create time step object for current time
-          BedPostNeeds timestepNeeds = await this!newBedPostNeedsObject();
-          foreach (p in packages) {
-            pendingPatients = appendright(pendingPatients,patient(p));
-          }
-          this.simulateOneBatchOfPatients(packages);
+      // at this point we have consumed all the batch of patients
+      // however we continue the simiation as long as there are
+      // pending patients simulating their treatment workflow
 
-          // advance the time
-          await duration(1);
-          // signal that we need to create a new BedPostNeeds that holds the bedpost needs for this time step
-          currentBedPostNeedsPointer = False;
-          // print the needs for previos time step (at this point we know that all the pending patients have send their bed needs)
-          timestepNeeds.printForZ3();
-
-          if(!isEmpty(sc)){
-            // Now we load the incoming packages for this time step
-            OneTimeStepScenario h = head(sc);
-            if(h != Nil){
-                packages = generatePackages(h,tr, Nil);
-            }
-            else {packages = Nil;}
-            sc = tail(sc);
-          // if everthing is empty then we finsh the simulation for the scenario
-            if (isEmpty(sc) && isEmpty(packages)) {continue = False;}
-          }
-          else {
-             // if everthing is empty then we finsh the simulation for the scenario
-            continue = False;}
-      }
-      // at this point we have consumed all the batches of patients
-      // however we continue the simiation as long as there are pending patients
-
-      // we continue collecting the bed needs as long as there are pending patients
+      // we continue collecting the bed needs as long as there are
+      // pending patients simulating their treatment workflow
       while (!isEmpty(pendingPatients)){
         // Create time step object for current time
         BedPostNeeds timestepNeeds = await this!newBedPostNeedsObject();
-        await duration(1);
-        // signal that we need to create a new BedPostNeeds that holds the bedpost needs for this time step
-        currentBedPostNeedsPointer = False;
-        // print the needs for previos time step (at this point we know that all the pending patients have send their bed needs)
-        timestepNeeds.printForZ3();
+        this.advancetimeAndPrint(timestepNeeds);
       }
       return timeline;
     }
-
-    // for each patient in the batch create an independent object that simulate their own workflow.
-    Unit simulateOneBatchOfPatients(Packages packages){
-      foreach (p in packages) {
-        IPatient pat = new CPatient(patient(p),treatment(p),this);
-        pat!simulate();
-      }
-    }
-
 }
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
@@ -304,13 +324,6 @@ def Packages generatePackages(OneTimeStepScenario odsc,Treatments tr, Packages p
 
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
-
-
-
-
-
-//------------------------------------------------------------------------------------------------
-
 
 
 //------------------------------------------------------------------------------------------------
