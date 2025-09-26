@@ -201,11 +201,9 @@ interface ScenarioSimulator {
 
 class ScenarioSimulator(Treatments tr, Scenario sc, BedsCat bc) implements ScenarioSimulator {
     Map<Rat,BedPostNeeds> timeline = map[]; // Holds TimeStep objects
-    Bool currentBedPostNeedsPointer = False;
     List<Patient> pendingPatients = Nil;
 
     BedPostNeeds getCurrentBedPostNeedsPointer(){
-      await currentBedPostNeedsPointer;
       Maybe<BedPostNeeds> bpn = lookup(timeline,timeValue(now()));
       while (bpn == Nothing){
         suspend;
@@ -217,7 +215,6 @@ class ScenarioSimulator(Treatments tr, Scenario sc, BedsCat bc) implements Scena
     BedPostNeeds newBedPostNeedsObject(){
       BedPostNeeds timestepNeeds = new BedPostNeeds(timeValue(now()),bc); // Object collecting the bedpost needs for current time step
       timeline = put(timeline, timeValue(now()),timestepNeeds);
-      currentBedPostNeedsPointer = True;
       return timestepNeeds;
     }
 
@@ -239,8 +236,6 @@ class ScenarioSimulator(Treatments tr, Scenario sc, BedsCat bc) implements Scena
     Unit advancetimeAndPrint(BedPostNeeds timestepNeeds){
       // advance the time
       await duration(1);
-      // signal that we need to create a new BedPostNeeds that holds the bedpost needs for this time step
-      currentBedPostNeedsPointer = False;
       // print the needs for previos time step (at this point we know that all the pending patients have send their bed needs)
       timestepNeeds.printForZ3();
     }
