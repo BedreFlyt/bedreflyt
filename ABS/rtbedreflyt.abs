@@ -1,3 +1,5 @@
+// this version have a timeline of bedpostneeds objects
+
 module BedreFlyt;
 // Initial draft workflow simulator for the BedreFlyt project
 // by Einar, Lizeth, Rudi
@@ -67,33 +69,45 @@ interface Timeline {  // bedpost needs in a time step
 
 class Timeline(BedsCat bc) implements Timeline {
 
-  Map<Rat,BedNeeds> timeline = map[];   // step |-> (bedCat |-> list of patients)
+  Map<Rat,BedPostNeeds> timeline = map[];   // step |-> BedPostNeeds
 
     // step, patient and bed category
     Unit register(Rat step, Patient p, Int i){
-        BedNeeds cat = lookupDefault(timeline,step,map[]);
-        cat = put(cat,i,appendright(lookupDefault(cat,i,Nil),p));
-        timeline = put(timeline,step,cat);
+        Maybe<BedPostNeeds> bpn = lookup(timeline,step);
+        if (bpn != Nothing) {
+          BedPostNeeds timestepNeeds = lookupUnsafe(timeline,step);
+          await timestepNeeds!register(p,i);
+        }
+        else {
+          BedPostNeeds timestepNeeds = new BedPostNeeds(step,bc); // Object collecting the bedpost needs for current time step
+          timeline = put(timeline, step,timestepNeeds);
+          await timestepNeeds!register(p,i);
+        }
     }
 
     Unit print(Rat step){
-        BedNeeds cat = lookupDefault(timeline,step,map[]);
-        println("\nBedpost needs at time: Time Step " + toString(step));
-        foreach(c in entries(cat)){
-            println(`Category$fst(c)$---: $length(snd(c))$`);
-        }
+      Maybe<BedPostNeeds> bpn = lookup(timeline,step);
+      if (bpn != Nothing) {
+        BedPostNeeds timestepNeeds = lookupUnsafe(timeline,step);
+        timestepNeeds!print();
+      }
+      else {
+        println("Referencing a Nil Object at time step" + toString(step));
+      }
     }
 
     Unit printForZ3(Rat step){
-        BedNeeds cat = lookupDefault(timeline,step,map[]);
-        foreach(c in entries(cat)){
-            foreach (patient in snd(c)) {
-                println(perId(patient) + "," + toString(fst(c)));
-            }
-        }
-        println("------");
+      Maybe<BedPostNeeds> bpn = lookup(timeline,step);
+      if (bpn != Nothing) {
+        BedPostNeeds timestepNeeds = lookupUnsafe(timeline,step);
+        await timestepNeeds!printForZ3();
+      }
+      else {
+        println("Referencing a Nil Object at time step" + toString(step));
+      }
     }
 }
+
 
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
@@ -159,14 +173,13 @@ interface IPatient{
   Unit simulate();
 }
 
-class CPatient (Patient p, Treatment flow,  ScenarioSimulator sim) implements IPatient{
+class CPatient (Patient p, Treatment flow,  Timeline timeline, ScenarioSimulator sim) implements IPatient{
   Treatment newFlow = flow;
   // each timestep we collect the bedneed of the patient workflow
   Unit simulate(){
     while(!isEmpty(newFlow)){
       // Find tasks to execute -- will currently be only one since
       // we got linear workflows, but there can be parallel tasks
-      BedPostNeeds timestepNeeds = await sim!getCurrentBedPostNeedsPointer();
       foreach (task in filter(enabled)(newFlow)) {
           newFlow = without(newFlow,task);
           if (timestepsAvg(task) > 1) {
@@ -176,11 +189,11 @@ class CPatient (Patient p, Treatment flow,  ScenarioSimulator sim) implements IP
           }
 
           // Register resource needs of the task
-          timestepNeeds.register(p,category(task));
+          timeline.register(timeValue(now()),p,category(task));
       }
       // if the workflow is done, it singal to the scenario simulator that this patient is done.
-      if(isEmpty(newFlow)) {sim!done(p);}
-      duration(1);
+      if(isEmpty(newFlow)) { sim!done(p);}
+      else {duration(1);}
     }
   }
 
@@ -194,50 +207,16 @@ class CPatient (Patient p, Treatment flow,  ScenarioSimulator sim) implements IP
 //------------------------------------------------------------------------------------------------
 
 interface ScenarioSimulator {
-  Map<Rat,BedPostNeeds> simulateScenario();
-  BedPostNeeds getCurrentBedPostNeedsPointer();
+  Unit simulateScenario();
   Unit done(Patient p);
 }
 
 class ScenarioSimulator(Treatments tr, Scenario sc, BedsCat bc) implements ScenarioSimulator {
-    Map<Rat,BedPostNeeds> timeline = map[]; // Holds TimeStep objects
+    Timeline timeline = null; // Holds TimeStep objects
     List<Patient> pendingPatients = Nil;
-
-    BedPostNeeds getCurrentBedPostNeedsPointer(){
-      Maybe<BedPostNeeds> bpn = lookup(timeline,timeValue(now()));
-      while (bpn == Nothing){
-        suspend;
-        bpn = lookup(timeline,timeValue(now()));
-      }
-      return lookupUnsafe(timeline,timeValue(now()));
-    }
-
-    BedPostNeeds newBedPostNeedsObject(){
-      BedPostNeeds timestepNeeds = new BedPostNeeds(timeValue(now()),bc); // Object collecting the bedpost needs for current time step
-      timeline = put(timeline, timeValue(now()),timestepNeeds);
-      return timestepNeeds;
-    }
 
     Unit done(Patient p){
       pendingPatients = without(pendingPatients,p);
-    }
-
-    // for each patient in the batch create an independent object that simulate their own workflow treatment.
-    // we also collect the patients, so the simulation run as long as patients are still simulating
-    // their workflow treatment.
-    Unit deployOneBatchOfPatients(Packages packages){
-      foreach (p in packages) {
-        pendingPatients = appendright(pendingPatients,patient(p));
-        IPatient pat = new CPatient(patient(p),treatment(p),this);
-        pat!simulate();
-      }
-    }
-
-    Unit advancetimeAndPrint(BedPostNeeds timestepNeeds){
-      // advance the time
-      await duration(1);
-      // print the needs for previos time step (at this point we know that all the pending patients have send their bed needs)
-      timestepNeeds.printForZ3();
     }
 
     // Rough idea:
@@ -252,22 +231,30 @@ class ScenarioSimulator(Treatments tr, Scenario sc, BedsCat bc) implements Scena
     // For each time step we create an object of class BedPostNeeds that holds the bedpost needs.
     // These objects are collected in a list "timeline"
     // we can then print time step needs from this timeline to access the bedpost needs per time step
-    Map<Rat,BedPostNeeds> simulateScenario() {
+    Unit simulateScenario() {
       //PrintScenario showSc = new PrintScenario(bc);
       Scenario newsc = sc;
       Packages packages = Nil;
+      timeline = new Timeline(bc);
       // we deploy all the batch of patients in the scenario
       while (!isEmpty(newsc)) {
-        // Create time step object for current time
-        BedPostNeeds timestepNeeds = await this!newBedPostNeedsObject();
-
         // Now we load the incoming packages
         OneTimeStepScenario h = head(newsc);
         newsc = tail(newsc);
         if(h != Nil) {packages = generatePackages(h,tr, Nil);}
         else {packages = Nil;}
-        this.deployOneBatchOfPatients(packages);
-        this.advancetimeAndPrint(timestepNeeds);
+        // for each patient in the batch create an independent object that simulate their own workflow treatment.
+        // we also collect the patients, so the simulation run as long as patients are still simulating
+        // their workflow treatment.
+        foreach (p in packages) {
+          pendingPatients = appendright(pendingPatients,patient(p));
+          IPatient pat = new CPatient(patient(p),treatment(p),timeline,this);
+          pat!simulate();
+        }
+        // advance the time
+        await duration(1);
+        // print the needs for previos time step (at this point we know that all the pending patients have send their bed needs)
+        timeline!printForZ3((timeValue(now())-1));
       }
       // at this point we have consumed all the batch of patients
       // however we continue the simiation as long as there are
@@ -276,11 +263,11 @@ class ScenarioSimulator(Treatments tr, Scenario sc, BedsCat bc) implements Scena
       // we continue collecting the bed needs as long as there are
       // pending patients simulating their treatment workflow
       while (!isEmpty(pendingPatients)){
-        // Create time step object for current time
-        BedPostNeeds timestepNeeds = await this!newBedPostNeedsObject();
-        this.advancetimeAndPrint(timestepNeeds);
+        // advance the time
+        await duration(1);
+        // print the needs for previos time step (at this point we know that all the pending patients have send their bed needs)
+        timeline!printForZ3((timeValue(now())-1));
       }
-      return timeline;
     }
 }
 //------------------------------------------------------------------------------------------------
@@ -419,11 +406,8 @@ def Scenario scDB() =
 
     duration(1);
     ScenarioSimulator scsim = new ScenarioSimulator(tr,sc,bc);
-    Map<Rat,BedPostNeeds> timeline = scsim.simulateScenario(); // Holds time step objects, where each time step object holds patient needs in that time step
+    Unit timeline = scsim.simulateScenario(); // Holds time step objects, where each time step object holds patient needs in that time step
 
-    // foreach (bn in timeline) {
-    //     await bn!print();
-    // }
 }
 
 
