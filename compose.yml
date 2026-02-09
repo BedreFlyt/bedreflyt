@@ -1,0 +1,165 @@
+name: bedreflyt-twin
+
+services:
+  bf-postgres:
+    container_name: bf-postgres
+    image: postgres:16.6-bullseye
+    networks: [ bedreflyt-twin ]
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_SCHEMA: ${DB_SCHEMA}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - 5432:5432
+    volumes:
+    -  db_data:/home/postgres/pgdata/data
+    -  ./patient_202512040830.sql:/docker-entrypoint-initdb.d/patient_202512040830.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  bf-redis:
+    container_name: bf-redis
+    image: redis:7.4-alpine
+    networks: [ bedreflyt-twin ]
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  bf-api:
+    container_name: bf-api
+    networks: [ bedreflyt-twin ]
+    restart: unless-stopped
+    build:
+      context: ./bedreflyt-dt-api/
+      dockerfile: Dockerfile
+    ports:
+    - "8090:8090"
+    depends_on:
+      bf-postgres:
+        condition: service_healthy
+      bf-fuseki:
+        condition: service_started
+      bf-redis:
+        condition: service_healthy
+    environment:
+      DB_DIALECT: org.hibernate.dialect.PostgreSQLDialect
+      DB_DRIVER: org.postgresql.Driver
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_SCHEMA: ${DB_SCHEMA}
+      DB_URL: jdbc:postgresql://bf-postgres:5432/${DB_NAME}
+      DOMAIN_PREFIX_URI: http://www.smolang.org/bedreflyt#
+      EXTRA_PREFIXES: ast,http://www.smolang.org/bedreflyt#
+      SMOL_PATH: SMOL/Bedreflyt_data.smol;SMOL/Bedreflyt_diagnosis.smol;SMOL/Bedreflyt_monitoringCategories.smol;SMOL/Bedreflyt_cities.smol;SMOL/Bedreflyt_floors.smol;SMOL/Bedreflyt_hospitals.smol;SMOL/Bedreflyt_wards.smol;SMOL/Bedreflyt_bathrooms.smol;SMOL/Bedreflyt_rooms.smol;SMOL/Bedreflyt_offices.smol;SMOL/Bedreflyt_corridors.smol;SMOL/Bedreflyt_tasks.smol;SMOL/Bedreflyt_treatmentSteps.smol;SMOL/Bedreflyt_treatments.smol;SMOL/Bedreflyt.smol
+      TRIPLESTORE_URL: bf-fuseki
+      TRIPLESTORE_DATASET: Bedreflyt
+      SOLVER_ENDPOINT: bf-solver
+      CACHE_HOST: bf-redis
+      CACHE_PORT: 6379
+      CACHE_TIMEOUT: 2000
+      CACHE_DATABASE: 0
+      API_PORT: 8090
+      LM_HOST: bf-lm
+      LM_PORT: 8091
+
+  bf-lm:
+    container_name: bf-lm
+    networks: [ bedreflyt-twin ]
+    restart: unless-stopped
+    build:
+      context: ./bedreflyt-dt-lifecycle-manager/
+      dockerfile: Dockerfile
+    ports:
+    - "8091:8091"
+    depends_on:
+      bf-postgres:
+        condition: service_healthy
+      bf-fuseki:
+        condition: service_started
+    environment:
+      BEDREFLYT_API: bf-api
+      BEDREFLYT_API_PORT: 8090
+      API_PORT: 8091
+      SOLVER_API: bf-solver
+      SOLVER_PORT: 8000
+
+  # bf-app:
+  #   container_name: bf-app
+  #   networks: [ bedreflyt-twin ]
+  #   restart: unless-stopped
+  #   build:
+  #     context: ./bedreflyt-app/
+  #     dockerfile: Dockerfile
+  #   ports:
+  #   - "80:80"
+  #   depends_on:
+  #     bf-postgres:
+  #       condition: service_healthy
+  #     bf-fuseki:
+  #       condition: service_started
+  #     bf-api:
+  #       condition: service_started
+  #   environment:
+  #     REACT_APP_COMPLETE_URL: http://158.39.75.237:8090
+  #     REACT_APP_BASE_URL: 158.39.75.237
+  #     REACT_APP_URL: 158.39.75.237:8090
+
+  bf-fuseki:
+    container_name: bf-fuseki
+    networks: [ bedreflyt-twin ]
+    restart: unless-stopped
+    build:
+      context: ./ontology
+      dockerfile: Dockerfile
+    ports:
+    - "3030:3030"
+    volumes:
+    - fuseki_data:/fuseki/run/databases
+
+  bf-solver:
+    container_name: bf-solver
+    networks: [ bedreflyt-twin ]
+    restart: unless-stopped
+    build:
+      context: ./z3
+      dockerfile: Dockerfile
+    ports:
+    - "8000:8000"
+    environment:
+      - MAX_WORKERS=8
+
+  bf-synth-gen:
+    container_name: bf-synth-gen
+    networks: [ bedreflyt-twin ]
+    restart: unless-stopped
+    build:
+      context: ./bedreflyt-synthetic-data-generator/
+      dockerfile: Dockerfile
+    environment:
+      API_HOST: bf-api
+      API_PORT: 8090
+      OUTPUT_FOLDER: /app/output
+    volumes:
+      - ./output:/app/output
+
+volumes:
+  db_data:
+  redis_data:
+  fuseki_data:
+
+networks:
+  bedreflyt-twin:
+    name: bedreflyt-twin
