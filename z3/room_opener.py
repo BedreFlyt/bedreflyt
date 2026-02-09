@@ -29,7 +29,7 @@ class RoomOpener:
         total_penalty = Int('total_penalty')
         
         # Add constraints for the total penalty
-        solver.add(total_penalty == Sum([If(room_vars[i], self.penalties[i], 0) for i in range(num_rooms)]))
+        solver.add(total_penalty == Sum([If(room_vars[i], self.penalties[i] * self.capacities[i], 0) for i in range(num_rooms)]))
         
         # Add constraints for the total capacity - we need enough additional capacity
         total_capacity = Sum([If(room_vars[i], self.capacities[i], 0) for i in range(num_rooms)])
