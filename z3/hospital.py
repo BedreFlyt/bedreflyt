@@ -5,7 +5,6 @@ random.seed(42)
 import datetime
 
 import pathlib
-import copy
 # Nevrokirurgisk avd, OUS
 # Model   Bedpost   info                                            Model 
 # Roomnbr Romnr     Antall senger	Eget bad?	Seksjon/type rom    Category
@@ -29,16 +28,16 @@ import copy
 # https://stackoverflow.com/questions/67043494/max-and-min-of-a-set-of-variables-in-z3py
 
 class HospitalRoomAssignment:
-    def __init__(self, no_rooms, capacities, room_categories, patients, mode,  penalties=[], contagious_allowed=[]):       
+    def __init__(self, no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances, previous, mode,  penalties=[], contagious_allowed=[]):
         self.NO_ROOMS = no_rooms
         self.capacities = capacities
-        self.room_distances = room_categories
-        
-        # day-depending
-        self.patients = patients
-
+        self.room_distances = room_distances
+        self.NO_PATIENTS = no_patients
+        self.genders = genders
+        self.infectious = infectious
+        self.patient_distances = patient_distances
+        self.previous = previous
         self.mode = mode
-        
         # ensure that penalties are all different:
         adapted_penalties = copy.deepcopy(penalties)
         for p in set(penalties):
@@ -48,91 +47,92 @@ class HospitalRoomAssignment:
                 
         self.penalties = adapted_penalties
         self.contagious_allowed = contagious_allowed
-    
+
     def assign_rooms(self):
         assert len(self.capacities) == self.NO_ROOMS
+        assert len(self.genders) == self.NO_PATIENTS
+        assert len(self.infectious) == self.NO_PATIENTS
+        assert len(self.patient_distances) == self.NO_PATIENTS
         assert len(self.room_distances) == self.NO_ROOMS
-        assert len(self.penalties) == self.NO_ROOMS
-        assert len(self.contagious_allowed) == self.NO_ROOMS
+        assert len(self.previous) == self.NO_PATIENTS
 
         context = z3.Context()
-        patients = {patient: [ Bool('patient %s in room %s' % (patient,j), ctx=context) for j in range(self.NO_ROOMS)] for patient in  self.patients}
+        patients = [[ Bool('patient %s in room %s' % (i,j), ctx=context) for j in range(self.NO_ROOMS)] for i in range(self.NO_PATIENTS)]
         genders = [Bool('gender room %s' %i, ctx=context) for i in range(self.NO_ROOMS)]
-        changes = {patient : Bool('Patient %s stayed' %patient, ctx=context) for patient in self.patients} # encodes which patient had to change stations
+        changes = [Bool('Patient %s stayed' %i, ctx=context) for i in range(self.NO_PATIENTS)] # encodes which patient had to change stations
 
         s = Optimize(ctx=context)
         
         # Each patient in exactly one bed
-        for patient in self.patients:
+        for patient in range(self.NO_PATIENTS):
             s.add(Sum(patients[patient]) == 1)
 
         # Room capacities are satisfied
         for room in range(self.NO_ROOMS):
-            s.add(Sum([patients[i][room] for i in self.patients]) <= self.capacities[room])
+            s.add(Sum([patients[i][room] for i in range(self.NO_PATIENTS)]) <= self.capacities[room])
 
         # Gender constraints
         for room in range(self.NO_ROOMS):
-            for patient in self.patients:
-                s.add(Implies(patients[patient][room], self.patients[patient]['Gender'] == genders[room]))
+            for patient in range(self.NO_PATIENTS):
+                s.add(Implies(patients[patient][room], self.genders[patient] == genders[room]))
 
         # Infectious patients
         for room in range(self.NO_ROOMS):
-            for patient in self.patients:
-                if self.patients[patient]['Contagious'] and [Not(patients[p][room]) for p in self.patients if p != patient]:
+            for patient in range(self.NO_PATIENTS):
+                if self.infectious[patient]:
                     s.add(Implies(
                             patients[patient][room], # patient in room is infectious
-                            And([Not(patients[p][room]) for p in self.patients if p != patient]) # no other patient is in room
+                            And([Not(patients[p][room]) for p in range(self.NO_PATIENTS) if p != patient]) # no other patient is in room
                             )
                     )
                     if not self.contagious_allowed[room]:
                         s.add(Not(patients[patient][room]))
 
         # Consider distance
-        for patient in self.patients:
+        for patient in range(self.NO_PATIENTS):
             for room in range(self.NO_ROOMS):
                 s.add(Implies(patients[patient][room], 
-                            self.patients[patient]['Cat'] <= self.room_distances[room])
+                            self.patient_distances[patient] <= self.room_distances[room])
                 )
 
         # Encode previous assignment
-        for patient in self.patients:
-            if self.patients[patient]['Previous'] != -1: # patient should keep bed-station only if they had one previously
-                bed = self.patients[patient]['Previous']
+        for patient in range(self.NO_PATIENTS):
+            if self.previous[patient] != -1: # patient should keep bed-station only if they had one previously
+                bed = self.previous[patient]
                 if bed < len(patients[patient]):  # Check if bed index is within range
                     s.add(Or(patients[patient][bed], changes[patient]))
                 else:
                     # Handle the case where bed index is out of range
                     print(f"Warning: Bed index {bed} out of range for patient {patient}")
-                    assert False
 
         # Find assignment with few moved patients
         if "p" in self.mode:
             changes_count = Int('changes', ctx=context)
             penalties_count = Int('penalties', ctx=context)
             total = Int('total', ctx=context)
-            s.add(changes_count == Sum([changes[p] for p in self.patients]))
-            s.add(penalties_count == Sum([patients[patient][room] * self.penalties[room] for patient in self.patients for room in range(self.NO_ROOMS)]))
+            s.add(changes_count == Sum([changes[p] for p in range(self.NO_PATIENTS)]))
+            s.add(penalties_count == Sum([patients[patient][room] * self.penalties[room] for patient in range(self.NO_PATIENTS) for room in range(self.NO_ROOMS)]))
             s.add(total == changes_count + penalties_count)
             h = s.minimize(total)
         if "c" in self.mode:
-            h = s.minimize(Sum([changes[p] for p in self.patients]))
+            h = s.minimize(Sum([changes[p] for p in range(self.NO_PATIENTS)]))
         # too encode maximal number of changes
         # s.add(Sum([changes[p] for p in range(NO_PATIENTS) if Previous[p] != -1]) == 2)
 
         # Trying to minimize the average number of patients per room instead, but Z3 is very fickle about int/real expressions
-        # room j is empty = Sum(patients[i][room] for i in self.patients) == 0
-        # number of empty rooms = Sum(1 for room in rooms if Sum(patients[i][room] for i in self.patients) == 0)
+        # room j is empty = Sum(patients[i][room] for i in range(self.NO_PATIENTS)) == 0
+        # number of empty rooms = Sum(1 for room in rooms if Sum(patients[i][room] for i in range(self.NO_PATIENTS)) == 0)
         # average number of people in a room = (number of non-empty rooms) / (number of patients)
-        # h = s.minimize(((self.NO_ROOMS - Sum([1 for room in range(self.NO_ROOMS) if Sum([patients[i][room] for i in self.patients]) == 0])) / self.NO_PATIENTS))
+        # h = s.minimize(((self.NO_ROOMS - Sum([1 for room in range(self.NO_ROOMS) if Sum([patients[i][room] for i in range(self.NO_PATIENTS)]) == 0])) / self.NO_PATIENTS))
 
         # New plan: minimize the MAXIMAL number of patients in a room
-        # number of patients in room j = Sum([patients[i][j] for i in self.patients])
+        # number of patients in room j = Sum([patients[i][j] for i in range(self.NO_PATIENTS)])
         if "m" in self.mode:
             max_patients = Int('maximal patients')
             s.add(max_patients <= len(self.patient_distances))
             s.add(max_patients >= 0)
             for room in range(self.NO_ROOMS):
-                s.add(Sum([patients[i][room] for i in self.patients]) <= max_patients)
+                s.add(Sum([patients[i][room] for i in range(self.NO_PATIENTS)]) <= max_patients)
             h = s.minimize(max_patients)
 
         path_name = str(random.randint(0,10000000))
@@ -169,8 +169,8 @@ class HospitalRoomAssignment:
             for v in genders:
                 room_gender[str(v).split(" ")[2]] = m.eval(v, model_completion=True)
                 
-            for patient in self.patients:
-                for v in patients[patient]:
+            for patient in patients:
+                for v in patient:
                     if m.eval(v):
                         assigned_room = str(v).split(" ")[-1]
                         assigned_patient = str(v).split(" ")[1]
@@ -472,26 +472,20 @@ class HospitalRoomAssignmentGlobal:
 #     print(result)
         
 
-def pat(gender, cont, cat, prev = -1):
-        return {'Cat': cat, 'Gender': gender, 'Contagious': cont, 'Previous' : prev}
-    
 def example_run():
     no_rooms = 6
     capacities = [ 1, 3, 4, 4, 2, 3 ]
-    room_categories = [ 2, 3, 3, 2, 3, 1 ]
-    no_patients = 2
-    genders = [ True, False ]
-    infectious = [ False, True ]
-    patient_distances = [ 3, 3 ]
-    previous = [ -1, -1 ]
+    room_distances = [ 2, 3, 3, 2, 3, 1 ]
+    no_patients = 1
+    genders = [ True ]
+    infectious = [ False ]
+    patient_distances = [ 3 ]
+    previous = [ -1 ]
     mode = "p"
-    penalties = [ 40, 10, 20, 20, 40, 50 ]
+    penalties = [ 1, 1, 2, 2, 4, 5 ]
     contagious_allowed = [ True, True, True, True, True, True ]
-    pat_names = ['patA', 'patB']
     
-    patients = {pat_names[i] : pat(genders[i], patient_distances[i], infectious[i], previous[i]) for i in range(len(pat_names))}
-    
-    hospital = HospitalRoomAssignment(no_rooms, capacities, room_categories, patients, mode, penalties=penalties, contagious_allowed=contagious_allowed)
+    hospital = HospitalRoomAssignment(no_rooms, capacities, room_distances, no_patients, genders, infectious, patient_distances, previous, mode, penalties=penalties, contagious_allowed=contagious_allowed)
     result = hospital.assign_rooms()
     
     print("Returned ", result)
@@ -531,6 +525,9 @@ if __name__ == "__main__":
     # patients = [{'paul': {}}]
     
     names = [['a', 'b', 'c', 'd', 'e'], ['f', 'g', 'a']]
+    
+    def pat(gender, cont, cat):
+        return {'Cat': cat, 'Gender': gender, 'Contagious': cont}
     
     # patients = [{names[day][i] : pat(genders[day][i], contagious[day][i], patients_category[day][i]) for i in range(no_patients[day])} for day in range(len(no_patients))]
     # print(patients)
