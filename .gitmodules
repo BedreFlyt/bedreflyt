@@ -1,0 +1,12 @@
+[submodule "bedreflyt-dt-api"]
+	path = bedreflyt-dt-api
+	url = https://github.com/BedreFlyt/bedreflyt-dt-api
+[submodule "bedreflyt-dt-lifecycle-manager"]
+	path = bedreflyt-dt-lifecycle-manager
+	url = https://github.com/BedreFlyt/bedreflyt-dt-lifecycle-manager
+[submodule "bedreflyt-event-stream-generator"]
+	path = bedreflyt-event-stream-generator
+	url = https://github.com/BedreFlyt/bedreflyt-event-stream-generator
+[submodule "bedreflyt-app"]
+	path = bedreflyt-app
+	url = https://github.com/BedreFlyt/bedreflyt-app
