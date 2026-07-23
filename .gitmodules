@@ -10,3 +10,6 @@
 [submodule "bedreflyt-app"]
 	path = bedreflyt-app
 	url = https://github.com/BedreFlyt/bedreflyt-app
+[submodule "bedreflyt-dt-sbl"]
+	path = bedreflyt-dt-sbl
+	url = https://github.com/BedreFlyt/bedreflyt-dt-sbl

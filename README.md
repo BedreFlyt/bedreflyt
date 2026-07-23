@@ -1,6 +1,6 @@
 # Bedreflyt Runtime Stack
 
-This directory contains the runnable Bedreflyt software stack. The canonical entry point is `compose.yml`, which assembles the database, ontology, APIs, solver, frontend, and synthetic-data services required to execute the digital twin.
+This directory contains the runnable Bedreflyt software stack. The canonical entry point is `compose.yml`, which assembles the database, ontology, APIs, solver, frontend, synthetic-data services, and optional supply-base-learning (SBL) workflow required to execute the digital twin.
 
 ---
 
@@ -32,11 +32,13 @@ The Bedreflyt runtime stack is intended for artefact evaluation and reproducible
 
 At runtime, the stack combines:
 
-- PostgreSQL for operational patient data
+- PostgreSQL for operational patient and supply-chain data
 - Redis for caching repeated API lookups
+- Apache Kafka for supply-order messaging
 - Apache Jena Fuseki for ontology-backed hospital knowledge
 - A Kotlin/Spring Boot API for domain data, allocation, and simulation operations
 - A Kotlin/Spring Boot lifecycle manager for coordination and decision flow
+- A Kotlin/Spring Boot supply-base-learning API for inventory, vendors, requirements, and orders
 - A FastAPI + Z3 solver service for allocation decisions
 - A React frontend served through Nginx
 - A synthetic-data generator for scenario production
@@ -55,8 +57,10 @@ The paper describes several architectural components whose relationship to the D
 | **Z3 Solver** | `bf-solver` | `bf-solver` | `8000` | SMT constraint optimization for patient-room assignment and room opening decisions |
 | **Triplestore** | `bf-fuseki` | `bf-fuseki` | `3030` | Apache Jena Fuseki with OWL Full reasoning, hosts the hospital knowledge graph |
 | **Frontend** | `bf-app` | `bf-app` | `80` | React dashboard for hospital staff |
-| **Database** | `bf-postgres` | `bf-postgres` | `5432` | Operational data: patients, allocations, trajectories |
+| **Database** | `bf-postgres` | `bf-postgres` | `5432` | Operational data: patients, allocations, trajectories, inventory, supply-chain state |
 | **Cache** | `bf-redis` | `bf-redis` | `6379` | Redis cache for repeated triplestore queries |
+| **SBL API** | `bf-sbl` | `bf-sbl` | `8092` | Supply-base-learning REST API for inventory, vendors, requirements, and orders |
+| **Kafka** | `bf-kafka` | `bf-kafka` | `9092` | Event backbone for supply-order messages |
 
 ---
 
@@ -67,10 +71,13 @@ The paper describes several architectural components whose relationship to the D
 | `compose.yml` | Main deployment entry point |
 | `.env` | Environment variables consumed by the Compose stack |
 | `endpoint-calls.py` | Warm-up helper for status checks and cache priming |
+| `init_postgres.sh` | Database bootstrap script |
+| `init_sbl.sql` | Supply-base-learning schema and data initialization |
 | `patient_202512040830.sql` | Seed patient data mounted into PostgreSQL on initialization |
 | `bedreflyt-app/` | Frontend application |
 | `bedreflyt-dt-api/` | Main REST API |
 | `bedreflyt-dt-lifecycle-manager/` | Lifecycle-management API |
+| `bedreflyt-dt-sbl/` | Supply-base-learning REST API |
 | `bedreflyt-synthetic-data-generator/` | Synthetic event and scenario generation |
 | `ontology/` | Fuseki packaging and ontology assets |
 | `z3/` | Solver service |
@@ -84,9 +91,11 @@ The paper describes several architectural components whose relationship to the D
 | --- | --- | --- | --- |
 | PostgreSQL | `bf-postgres` | `5432` | Primary relational data store |
 | Redis | `bf-redis` | `6379` | Cache for API lookups |
+| Kafka | `bf-kafka` | `9092` | Event backbone for supply-order messages |
 | Fuseki | `bf-fuseki` | `3030` | Triplestore and ontology endpoint |
 | Main API | `bf-api` | `8090` | Patient, allocation, simulation, and triplestore REST API |
 | Lifecycle Manager | `bf-lm` | `8091` | Coordination and lifecycle-related API |
+| SBL API | `bf-sbl` | `8092` | Supply-base-learning REST API for inventory, vendors, requirements, and orders |
 | Solver | `bf-solver` | `8000` | FastAPI-based Z3 optimization service |
 | Frontend | `bf-app` | `80` | Web UI |
 | Synthetic Generator | `bf-synth-gen` | none exposed | Writes generated outputs to `output/` |
@@ -98,7 +107,7 @@ The paper describes several architectural components whose relationship to the D
 ### Required for the standard execution path
 
 - Docker Engine or Docker Desktop with Docker Compose v2
-- An available host port set for `80`, `5432`, `6379`, `8000`, `8090`, `8091`, and `3030`
+- An available host port set for `80`, `5432`, `6379`, `8000`, `8090`, `8091`, `8092`, `9092`, and `3030`
 
 ### Required only for local development outside containers
 
@@ -125,6 +134,7 @@ docker compose up --build -d
 - Main API OpenAPI spec: `http://localhost:8090/api-docs`
 - Lifecycle Manager Swagger UI: `http://localhost:8091/swagger-ui.html`
 - Lifecycle Manager OpenAPI spec: `http://localhost:8091/api-docs`
+- SBL API Swagger UI: `http://localhost:8092/swagger-ui.html`
 - Fuseki UI: `http://localhost:3030`
 - Solver root: `http://localhost:8000`
 
@@ -184,6 +194,7 @@ Compose is the recommended path for artefact evaluation. Run components locally 
 | --- | --- |
 | `bedreflyt-dt-api/` | Gradle + Java 21 + Kotlin |
 | `bedreflyt-dt-lifecycle-manager/` | Gradle + Java 21 + Kotlin |
+| `bedreflyt-dt-sbl/` | Gradle + Java 21 + Kotlin |
 | `bedreflyt-app/` | Node.js 18 + npm |
 | `z3/` | Python + FastAPI + z3-solver |
 | `bedreflyt-synthetic-data-generator/` | Python package installable with `pip install -e .` |
