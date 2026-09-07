@@ -127,6 +127,11 @@ All commands below are run from this directory.
 docker compose up --build -d
 ```
 
+Docker-compose expects some environment variables to be set.  One easy
+way to do this is to insert the contents of `.env.example` into a file
+`.env` (this file will be ignored by git), edit the values, and source
+this file into your shell (`source ./.env`).
+
 ### 2. Confirm the main interfaces
 
 - Frontend: `http://localhost:80`
