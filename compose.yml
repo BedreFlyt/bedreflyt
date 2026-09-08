@@ -146,7 +146,7 @@ services:
     networks: [ bedreflyt-twin ]
     restart: unless-stopped
     build:
-      context: ./bedreflyt-synthetic-data-generator/
+      context: ./bedreflyt-event-stream-generator/
       dockerfile: Dockerfile
     environment:
       API_HOST: bf-api
