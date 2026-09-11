@@ -2,7 +2,6 @@ FROM ubuntu:24.04
 
 RUN apt-get update -y
 RUN apt-get install -y openjdk-21-jdk-headless
-RUN rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /fuseki
